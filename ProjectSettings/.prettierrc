@@ -1,0 +1,17 @@
+{
+    "doubleQuote": true,
+    "tabWidth": 4,
+    "semi": false,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "jsxBracketSpacing": true,
+    "jsBracketSpacing": true,
+    "tsxBracketSpacing": true,
+    "tsBracketSpacing": true,
+    "bracketSameLine": true,
+    "tsxBracketSameLine": true,
+    "jsxBracketSameLine": true,
+    "jsBracketSameLine": true,
+    "tsBracketSameLine": true,
+    "arrowParens": "always"
+}
