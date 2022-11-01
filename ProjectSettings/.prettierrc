@@ -1,7 +1,7 @@
 {
     "doubleQuote": true,
     "tabWidth": 4,
-    "semi": false,
+    "semi": true,
     "trailingComma": "all",
     "bracketSpacing": true,
     "jsxBracketSpacing": true,
