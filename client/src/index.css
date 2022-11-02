@@ -3,8 +3,8 @@ body {
   font-family: Trebuchet MS, "sans-serif";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f7c59f; /*#1a1d22;*/
-  color: black; /*#1a1d22;*/
+  background-color: #1a1d22; /*#f7c59f;*/
+  color: white; /*black;*/
 }
 
 code {
