@@ -53,12 +53,9 @@ router.route("/players/createplayer").post((req, res) => {
   const firstname = req.body.firstname;
   const lastname = req.body.lastname;
   const image = req.body.image;
-  // const role = req.body.role
-  // const birthday = req.body.birthday
-  // const online = req.body.online
+  const playername = req.body.playername;
   const joinDateString = req.body.joinDateString;
-  // const color = req.body.color
-  // const picture = req.body.picture
+  const gameInProgress = false;
   const newPlayer = new Player({
     email,
     fullname,
@@ -66,6 +63,8 @@ router.route("/players/createplayer").post((req, res) => {
     lastname,
     image,
     joinDateString,
+    playername,
+    gameInProgress,
     // role,
     // birthday,
     // online,

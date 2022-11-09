@@ -1,5 +1,5 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { IUserToken } from "../Interfaces/IUserToken";
 import { Context } from "../Shared/Context";
 import { GoogleLoginContainer, LoadingText } from "../Styles/LoginLogoutStyles";
@@ -34,6 +34,7 @@ const Login = () => {
     setPlayer,
     url,
   } = useContext(Context);
+  const [playerName, setPlayerName] = useState<string>("");
   const clientId: string =
     "519426874197-o3jlhftgfofimfnl7an4ph1ii6n5ugo0.apps.googleusercontent.com";
   const ifUserExists: boolean = userExists && googleUserEmail !== null;
@@ -51,9 +52,6 @@ const Login = () => {
         } else {
           setUserExists(true);
           setPlayer(response.data);
-          //   switchStatusOnline(true, response.data._id);
-          //   setNews(true);
-          //existing user is signed in
         }
       })
       .catch((error) => console.warn(error));
@@ -74,12 +72,12 @@ const Login = () => {
         lastname: googleUserLastName,
         image: googleUserImage,
         joinDateString: joinDateString,
+        playername: playerName,
       })
       .then((response) => {
         console.log(response.data);
         setPlayer(response.data);
         setUserExists(true);
-        // setNews(true);
       })
       .catch((error) => console.warn(error));
   };
@@ -116,8 +114,37 @@ const Login = () => {
         >
           Tim Drevitch & Fangtai Bao
         </div>
-        {userExists ? (
+        {ifUserExists ? (
           <>
+            <div
+              style={{
+                // cursor: "pointer",
+                position: "absolute",
+                width: "30%",
+                height: "5%",
+                top: "11.5em",
+                right: "-5%",
+                fontSize: "2vw",
+                // backgroundColor: "orange",
+                // border: "1px solid white",
+                // borderRadius: "15px",
+                textAlign: "left",
+                paddingLeft: "2em",
+                color: "white",
+              }}
+            >
+              Welcome, {player.playername}{" "}
+              <img
+                style={{
+                  display: "inline-block",
+                  width: "1.2em",
+                  borderRadius: "100%",
+                  verticalAlign: "bottom",
+                }}
+                src={player.image}
+                alt="playerimage"
+              />
+            </div>
             <div
               style={{
                 // cursor: "pointer",
@@ -135,29 +162,51 @@ const Login = () => {
                 color: "white",
               }}
             >
-              Welcome, {googleUserEmail}
+              <em>Player since: {player.joinDateString}</em>
             </div>
-            <button
-              style={{
-                // cursor: "pointer",
-                position: "absolute",
-                width: "30%",
-                height: "5%",
-                top: "30em",
-                right: "-5%",
-                fontSize: "1vw",
-                backgroundColor: "orange",
-                border: "1px solid white",
-                borderRadius: "15px",
-                textAlign: "left",
-                paddingLeft: "2em",
-                color: "white",
-                opacity: "50%",
-              }}
-              disabled
-            >
-              Continue
-            </button>
+            {player.gameInProgress ? (
+              <button
+                style={{
+                  cursor: "pointer",
+                  position: "absolute",
+                  width: "30%",
+                  height: "5%",
+                  top: "30em",
+                  right: "-5%",
+                  fontSize: "1vw",
+                  backgroundColor: "orange",
+                  border: "1px solid white",
+                  borderRadius: "15px",
+                  textAlign: "left",
+                  paddingLeft: "2em",
+                  color: "white",
+                }}
+              >
+                Continue
+              </button>
+            ) : (
+              <button
+                style={{
+                  position: "absolute",
+                  width: "30%",
+                  height: "5%",
+                  top: "30em",
+                  right: "-5%",
+                  fontSize: "1vw",
+                  backgroundColor: "orange",
+                  border: "1px solid white",
+                  borderRadius: "15px",
+                  textAlign: "left",
+                  paddingLeft: "2em",
+                  color: "white",
+                  opacity: "50%",
+                }}
+                disabled
+              >
+                Continue (no game in progress)
+              </button>
+            )}
+
             <button
               style={{
                 cursor: "pointer",
@@ -199,13 +248,12 @@ const Login = () => {
           </>
         ) : userIsNewAndNeedsToSignUp ? (
           <>
-            <button
+            <form
               style={{
-                cursor: "pointer",
                 position: "absolute",
                 width: "40%",
-                height: "5%",
-                top: "40em",
+                height: "25%",
+                top: "30em",
                 right: "-5%",
                 fontSize: "1vw",
                 backgroundColor: "orange",
@@ -214,90 +262,62 @@ const Login = () => {
                 textAlign: "left",
                 paddingLeft: "2em",
                 color: "white",
-              }}
-              onClick={handleSignUp}
-            >
-              Looks like you are new. Press here to complete your sign up.
-            </button>
-            {/* <div
-              style={{
-                border: "5px solid #36868f",
-                width: "90%",
-                minWidth: "300px",
-                textAlign: "center",
-                margin: "2rem auto",
-                borderRadius: "10px",
-                paddingTop: "20px",
-                paddingBottom: "20px",
-                background: "#203671",
+                display: "flex",
+                flexWrap: "wrap",
                 overflow: "hidden",
               }}
+              onSubmit={handleSignUp}
             >
-              Please enter more info to complete sign up
-              <hr style={{ width: "50%" }} />
-              <form>
-                <label>Email: </label>
-                <input disabled value={googleUserEmail} />
-                <br />
-                <label>Name: </label>
-                <input disabled value={googleUserFullname} />
-                <br />
-                <label>(Optional) Favorite Color: </label>
-                <select
-                  style={{ cursor: "pointer" }}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-                    setFavColor(e.target.value)
-                  }
-                  value={favColor}
-                >
-                  <optgroup label="Choose a color..." />
-                  <option value="none" hidden>
-                    Please choose a color...
-                  </option>
-                  <option value="red">Red</option>
-                  <option value="skyblue">Skyblue</option>
-                  <option value="orange">Orange</option>
-                  <option value="green">Green</option>
-                  <option value="limegreen">Limegreen</option>
-                  <option value="maroon">Maroon</option>
-                  <option value="pink">Pink</option>
-                  <option value="black">Black</option>
-                </select>
-                <br />
-                <label>(Optional) Icon Preferance: </label>
-                <select
-                  style={{ cursor: "pointer" }}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-                    setFavIcon(e.target.value)
-                  }
-                  value={favIcon}
-                >
-                  <optgroup label="Choose an icon..." />
-                  <option value="none" hidden>
-                    Please choose an icon...
-                  </option>
-                  <option value="default">User</option>
-                  <option value="wing">Wing</option>
-                  <option value="ghost">Ghost</option>
-                  <option value="ball">Ball</option>
-                  <option value="money">Money</option>
-                  <option value="diamond">Diamond</option>
-                </select>
-                <br />
-                <label>(Optional) Birthday: </label>
-                <input
-                  type="date"
-                  style={{ cursor: "pointer" }}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                    setBday(e.target.value)
-                  }
-                  value={bday}
-                />
-              </form>
-              <button style={{ cursor: "pointer" }} onClick={handleSignUp}>
-                Complete Sign Up
+              <p
+                style={{
+                  width: "80%",
+                  margin: ".5em 0 0 0",
+                  color: "darkred",
+                }}
+              >
+                Looks like you are new. Choose any player name and then press
+                the button below to complete your sign up.
+              </p>
+              <input
+                style={{
+                  boxSizing: "border-box",
+                  width: "80%",
+                  height: "30%",
+                  marginTop: ".1em",
+                  overflow: "hidden",
+                  fontSize: "1vw",
+                }}
+                type="text"
+                placeholder="Enter any player name here..."
+                value={playerName}
+                onChange={(e) => setPlayerName(e.target.value)}
+                required
+              />
+              <p
+                style={{
+                  width: "80%",
+                  margin: ".5em 0 0 0",
+                  color: "darkred",
+                }}
+              >
+                <em>Examples: Player123, Jane Doe, etc...</em>
+              </p>
+              <button
+                style={{
+                  backgroundColor: "purple",
+                  color: "white",
+                  cursor: "pointer",
+                  width: "80%",
+                  height: "20%",
+                  marginTop: ".1em",
+                  overflow: "hidden",
+                  fontSize: "1vw",
+                }}
+                type="submit"
+              >
+                Create Account
               </button>
-            </div> */}
+            </form>
           </>
         ) : (
           <div
@@ -310,23 +330,11 @@ const Login = () => {
               color: "orange",
             }}
           >
-            {/* <LoadingText>
-              Please log in using your
-              <GreenSpan> VGRDN </GreenSpan>
-              Google account below.
-            </LoadingText>
-            <br />
-            <br /> */}
             <GoogleLoginContainer>
               <GoogleLogin
                 onSuccess={(credentialResponse) => {
                   const token: string = credentialResponse.credential;
                   const decoded = jwt_decode<IUserToken>(token);
-                  //   setUserFirstName(decoded.given_name);
-                  //   setUserLastName(decoded.family_name);
-                  //   setImage(decoded.picture);
-                  //   setUserFullName(decoded.name);
-                  //   setUserEmail(decoded.email);
                   setGoogleUserFirstName(decoded.given_name);
                   setGoogleUserImage(decoded.picture);
                   setGoogleUserFullName(decoded.name);

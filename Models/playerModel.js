@@ -31,6 +31,9 @@ const playerSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    gameInProgress: {
+      type: Boolean,
+    },
   },
   { timestamps: true }
 );
