@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import { Context } from "./Shared/Context";
 import "./App.css";
 import Login from "./Components/Login";
+import { IPlayer } from "./Interfaces/IPlayer";
 
 const App: FC = (): JSX.Element => {
   const [url, setUrl] = useState<string>(
@@ -24,7 +25,7 @@ const App: FC = (): JSX.Element => {
   const [userFullName, setUserFullName] = useState<string | null>(null);
   const [userExists, setUserExists] = useState<boolean | null>(null);
   const [image, setImage] = useState<string | null>(null);
-  const [player, setPlayer] = useState([]);
+  const [player, setPlayer] = useState<IPlayer>({});
 
   return (
     <Context.Provider

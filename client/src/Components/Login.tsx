@@ -50,6 +50,7 @@ const Login = () => {
           setUserExists(false);
           //now create the user
         } else {
+          //log the user in
           setUserExists(true);
           setPlayer(response.data);
         }
@@ -118,16 +119,12 @@ const Login = () => {
           <>
             <div
               style={{
-                // cursor: "pointer",
                 position: "absolute",
                 width: "30%",
                 height: "5%",
                 top: "11.5em",
                 right: "-5%",
                 fontSize: "2vw",
-                // backgroundColor: "orange",
-                // border: "1px solid white",
-                // borderRadius: "15px",
                 textAlign: "left",
                 paddingLeft: "2em",
                 color: "white",
@@ -147,16 +144,12 @@ const Login = () => {
             </div>
             <div
               style={{
-                // cursor: "pointer",
                 position: "absolute",
                 width: "30%",
                 height: "5%",
                 top: "17.5em",
                 right: "-5%",
                 fontSize: "1.5vw",
-                // backgroundColor: "orange",
-                // border: "1px solid white",
-                // borderRadius: "15px",
                 textAlign: "left",
                 paddingLeft: "2em",
                 color: "white",
