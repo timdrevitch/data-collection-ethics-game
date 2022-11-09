@@ -18,16 +18,6 @@ const Login = () => {
     setGoogleUserLastName,
     googleUserFirstName,
     setGoogleUserFirstName,
-    setUserFullName,
-    setUserEmail,
-    userFirstName,
-    setUserFirstName,
-    userLastName,
-    setUserLastName,
-    userEmail,
-    userFullName,
-    image,
-    setImage,
     userExists,
     setUserExists,
     player,
@@ -36,8 +26,6 @@ const Login = () => {
   } = useContext(Context);
   const [playerName, setPlayerName] = useState<string>("");
   const clientId: string =
-    "519426874197-o3jlhftgfofimfnl7an4ph1ii6n5ugo0.apps.googleusercontent.com";
-  const clientIdNEW: string =
     "1018892148615-6gcr6db7dhtiilpsjcnabrvs5pqgq9rc.apps.googleusercontent.com";
   const ifUserExists: boolean = userExists && googleUserEmail !== null;
   const userIsNewAndNeedsToSignUp: boolean = googleUserEmail !== null;
@@ -86,7 +74,7 @@ const Login = () => {
   };
 
   return (
-    <GoogleOAuthProvider clientId={clientIdNEW}>
+    <GoogleOAuthProvider clientId={clientId}>
       <div style={{ position: "relative" }}>
         <img
           style={{ width: "100%", opacity: "30%" }}
