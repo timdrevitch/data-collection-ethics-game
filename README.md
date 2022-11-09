@@ -5,7 +5,9 @@
 <h1 align="center"><em>Dystopia: A Data Ethics Game</em></h1>
 <p align="center">WPI Master's Degree (MS) Thesis Project (2022-23)</p>
 
-> This game aims to double as a didactic learning tool and an interactive experience.   After playing through the > game, the goal is for players to have had to think critically about how they share their personal data and how technology could be used against them.
+> This game aims to double as a didactic learning tool and an interactive experience.   After playing through the 
+> game, the goal is for players to have had to think critically about how they share their personal data and how
+> technology could be used against them.
 
 [data-ethics-game.herokuapp.com](https://data-ethics-game.herokuapp.com/)
 
