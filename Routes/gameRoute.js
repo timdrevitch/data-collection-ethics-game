@@ -23,6 +23,61 @@ router.route("/:id").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+//See if google player exists
+router.route("/players/googleuserlogin/:email").get((req, res) => {
+  console.log(
+    "----------------------------------------------------------------"
+  );
+  console.log(
+    "Checking if an player already exists with an email of " + req.params.email
+  );
+  Player.findOne({ email: req.params.email })
+    .then((Player) => {
+      if (Player === null) {
+        console.log("User not found. Please complete user registration now.");
+        res.json(null);
+      } else {
+        console.log("User found! Logging in now.");
+        res.json(Player);
+      }
+    })
+    .catch((err) =>
+      res.status(400).json("Error when trying to sign in: " + err)
+    );
+});
+
+//Create new player entity
+router.route("/players/createplayer").post((req, res) => {
+  const email = req.body.email;
+  const fullname = req.body.fullname;
+  const firstname = req.body.firstname;
+  const lastname = req.body.lastname;
+  const image = req.body.image;
+  // const role = req.body.role
+  // const birthday = req.body.birthday
+  // const online = req.body.online
+  const joinDateString = req.body.joinDateString;
+  // const color = req.body.color
+  // const picture = req.body.picture
+  const newPlayer = new Player({
+    email,
+    fullname,
+    firstname,
+    lastname,
+    image,
+    joinDateString,
+    // role,
+    // birthday,
+    // online,
+    // color,
+    // picture,
+  });
+  newPlayer
+    .save() //save player to db
+    .then((Player) => res.json(Player))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
 //add a player
 router.route("/create").post((req, res) => {
   let fullrequester = req.body.requester;

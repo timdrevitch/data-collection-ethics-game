@@ -23,7 +23,11 @@ const playerSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    dateCreated: {
+    image: {
+      type: String,
+      trim: true,
+    },
+    joinDateString: {
       type: String,
       trim: true,
     },
