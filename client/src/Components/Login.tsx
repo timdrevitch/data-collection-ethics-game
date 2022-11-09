@@ -31,7 +31,6 @@ const Login = () => {
   const userIsNewAndNeedsToSignUp: boolean = googleUserEmail !== null;
 
   const checkIfUserExists = (email: string): void => {
-    console.log(email);
     axios
       .get(`${url}/players/googleuserlogin/${email}`)
       .then((response) => {
@@ -206,6 +205,11 @@ const Login = () => {
                 paddingLeft: "2em",
                 color: "white",
               }}
+              onClick={() =>
+                alert(
+                  "This button does not do anything yet.  Check back later."
+                )
+              }
             >
               New Game
             </button>
@@ -225,6 +229,11 @@ const Login = () => {
                 paddingLeft: "2em",
                 color: "white",
               }}
+              onClick={() =>
+                alert(
+                  "This button does not do anything yet.  Check back later."
+                )
+              }
             >
               Settings
             </button>
