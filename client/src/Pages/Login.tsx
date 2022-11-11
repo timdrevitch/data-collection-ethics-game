@@ -27,7 +27,7 @@ const Login = () => {
   } = useContext(Context);
   const [playerName, setPlayerName] = useState<string>("");
   const clientId: string =
-    "1018892148615-6gcr6db7dhtiilpsjcnabrvs5pqgq9rc.apps.usercontent.com";
+    "1018892148615-6gcr6db7dhtiilpsjcnabrvs5pqgq9rc.apps.googleusercontent.com";
   const ifUserExists: boolean = userExists && userEmail !== null;
   const userIsNewAndNeedsToSignUp: boolean = userEmail !== null;
   let navigate: NavigateFunction = useNavigate();

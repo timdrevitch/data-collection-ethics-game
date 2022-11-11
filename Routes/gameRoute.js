@@ -23,8 +23,8 @@ router.route("/:id").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-//See if google player exists
-router.route("/players/googleuserlogin/:email").get((req, res) => {
+//See if player exists
+router.route("/players/userlogin/:email").get((req, res) => {
   console.log(
     "----------------------------------------------------------------"
   );
