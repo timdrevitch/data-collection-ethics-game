@@ -7,4 +7,7 @@ export interface IPlayer {
   image?: string;
   joinDateString?: string;
   gameInProgress?: boolean;
+  gamesStarted?: number;
+  gamesFinished?: number;
+  endingsReached?: number;
 }

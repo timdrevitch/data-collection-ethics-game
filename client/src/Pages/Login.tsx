@@ -5,19 +5,20 @@ import { Context } from "../Shared/Context";
 import { GoogleLoginContainer } from "../Styles/LoginLogoutStyles";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {
-    googleUserEmail,
-    setGoogleUserEmail,
-    googleUserFullName,
-    setGoogleUserFullName,
-    googleUserImage,
-    setGoogleUserImage,
-    googleUserLastName,
-    setGoogleUserLastName,
-    googleUserFirstName,
-    setGoogleUserFirstName,
+    userEmail,
+    setUserEmail,
+    userFullName,
+    setUserFullName,
+    userImage,
+    setUserImage,
+    userLastName,
+    setUserLastName,
+    userFirstName,
+    setUserFirstName,
     userExists,
     setUserExists,
     player,
@@ -26,13 +27,14 @@ const Login = () => {
   } = useContext(Context);
   const [playerName, setPlayerName] = useState<string>("");
   const clientId: string =
-    "1018892148615-6gcr6db7dhtiilpsjcnabrvs5pqgq9rc.apps.googleusercontent.com";
-  const ifUserExists: boolean = userExists && googleUserEmail !== null;
-  const userIsNewAndNeedsToSignUp: boolean = googleUserEmail !== null;
+    "1018892148615-6gcr6db7dhtiilpsjcnabrvs5pqgq9rc.apps.usercontent.com";
+  const ifUserExists: boolean = userExists && userEmail !== null;
+  const userIsNewAndNeedsToSignUp: boolean = userEmail !== null;
+  let navigate: NavigateFunction = useNavigate();
 
   const checkIfUserExists = (email: string): void => {
     axios
-      .get(`${url}/players/googleuserlogin/${email}`)
+      .get(`${url}/players/userlogin/${email}`)
       .then((response) => {
         //if response is "null" then this user does not exist yet
         if (response.data === null) {
@@ -56,11 +58,11 @@ const Login = () => {
 
     axios
       .post(`${url}/players/createplayer`, {
-        email: googleUserEmail,
-        fullname: googleUserFullName,
-        firstname: googleUserFirstName,
-        lastname: googleUserLastName,
-        image: googleUserImage,
+        email: userEmail,
+        fullname: userFullName,
+        firstname: userFirstName,
+        lastname: userLastName,
+        image: userImage,
         joinDateString: joinDateString,
         playername: playerName,
       })
@@ -229,6 +231,26 @@ const Login = () => {
                 paddingLeft: "2em",
                 color: "white",
               }}
+              onClick={() => navigate(`./playerstats/${player._id}`)}
+            >
+              Stats
+            </button>
+            <button
+              style={{
+                cursor: "pointer",
+                position: "absolute",
+                width: "30%",
+                height: "5%",
+                top: "45em",
+                right: "-5%",
+                fontSize: "1vw",
+                backgroundColor: "orange",
+                border: "1px solid white",
+                borderRadius: "15px",
+                textAlign: "left",
+                paddingLeft: "2em",
+                color: "white",
+              }}
               onClick={() =>
                 alert(
                   "This button does not do anything yet.  Check back later."
@@ -327,11 +349,11 @@ const Login = () => {
                 onSuccess={(credentialResponse) => {
                   const token: string = credentialResponse.credential;
                   const decoded = jwt_decode<IUserToken>(token);
-                  setGoogleUserFirstName(decoded.given_name);
-                  setGoogleUserImage(decoded.picture);
-                  setGoogleUserFullName(decoded.name);
-                  setGoogleUserLastName(decoded.family_name);
-                  setGoogleUserEmail(decoded.email);
+                  setUserFirstName(decoded.given_name);
+                  setUserImage(decoded.picture);
+                  setUserFullName(decoded.name);
+                  setUserLastName(decoded.family_name);
+                  setUserEmail(decoded.email);
                   checkIfUserExists(decoded.email);
                 }}
                 onError={() => console.log("Login Failed")}

@@ -34,6 +34,18 @@ const playerSchema = new mongoose.Schema(
     gameInProgress: {
       type: Boolean,
     },
+    gamesStarted: {
+      type: Number,
+      default: 0,
+    },
+    gamesFinished: {
+      type: Number,
+      default: 0,
+    },
+    endingsReached: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );
