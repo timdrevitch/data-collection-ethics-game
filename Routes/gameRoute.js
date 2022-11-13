@@ -17,7 +17,7 @@ router.route("/").get((req, res) => {
 });
 
 //get a player by id
-router.route("/:id").get((req, res) => {
+router.route("/playerstats/:id").get((req, res) => {
   Player.findById({ _id: req.params.id })
     .then((Player) => res.json(Player))
     .catch((err) => res.status(400).json("Error: " + err));

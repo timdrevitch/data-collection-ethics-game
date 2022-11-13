@@ -231,7 +231,11 @@ const Login = () => {
                 paddingLeft: "2em",
                 color: "white",
               }}
-              onClick={() => navigate(`./playerstats/${player._id}`)}
+              onClick={() =>
+                navigate(`./playerstats/${player._id}`, {
+                  state: { id: player._id },
+                })
+              }
             >
               Stats
             </button>
