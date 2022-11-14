@@ -293,30 +293,6 @@ const Login = () => {
             >
               Stats
             </button>
-            {/* <button
-              style={{
-                cursor: "pointer",
-                position: "absolute",
-                width: "30%",
-                height: "5%",
-                top: "45em",
-                right: "-5%",
-                fontSize: "1vw",
-                backgroundColor: "orange",
-                border: "1px solid white",
-                borderRadius: "15px",
-                textAlign: "left",
-                paddingLeft: "2em",
-                color: "white",
-              }}
-              onClick={() =>
-                alert(
-                  "This button does not do anything yet.  Check back later."
-                )
-              }
-            >
-              Settings
-            </button> */}
           </>
         ) : userIsNewAndNeedsToSignUp ? (
           <>
