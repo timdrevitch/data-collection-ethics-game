@@ -1,11 +1,12 @@
 import axios from "axios";
-import { FC, useContext, useEffect } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import PauseMenu from "../Components/PauseMenu";
 import ProgressUI from "../Components/ProgressUI";
 import { Context } from "../Shared/Context";
 
 const Game: FC = (): JSX.Element => {
-  const { url, gameId, setGame, player } = useContext(Context);
+  const { url, gameId, setGame, player, game } = useContext(Context);
+  const [render, setRender] = useState<boolean>(false);
 
   useEffect(() => {
     let effectMounted: boolean = true;
@@ -33,7 +34,13 @@ const Game: FC = (): JSX.Element => {
     return () => {
       effectMounted = false;
     };
-  }, []);
+  }, [render]);
+
+  const nextCheckpoint = () => {
+    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
+      setRender(!render);
+    });
+  };
 
   return (
     <>
@@ -49,14 +56,34 @@ const Game: FC = (): JSX.Element => {
           style={{
             position: "absolute",
             width: "100%",
-            top: "1em",
+            top: "2em",
             marginLeft: "5%",
             fontSize: "3.5vw",
             textShadow: "1px 1px 8px #fff, 1px 1px 8px #ccc",
           }}
         >
-          Beginning of game
+          Game (Checkpoint: {game.checkpoint})
         </h1>
+        <button
+          style={{
+            cursor: "pointer",
+            position: "absolute",
+            width: "30%",
+            height: "5%",
+            top: "30em",
+            left: "35%",
+            fontSize: "1vw",
+            backgroundColor: "orange",
+            border: "1px solid white",
+            borderRadius: "15px",
+            textAlign: "left",
+            paddingLeft: "2em",
+            color: "white",
+          }}
+          onClick={nextCheckpoint}
+        >
+          Next Checkpoint
+        </button>
       </div>
     </>
   );

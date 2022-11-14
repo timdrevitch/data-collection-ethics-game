@@ -31,6 +31,22 @@ router.route("/getgame/:id").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+//update game to new checkpoint
+router.route("/nextcheckpoint/:id").put((req, res) => {
+  Game.findById(req.params.id)
+    .then((Game) => {
+      Game.checkpoint = Game.checkpoint + 1;
+      Game.save()
+        .then(() => res.json("Next checkpoint."))
+        .catch((err) =>
+          res.status(400).json("Error when saving update to database: " + err)
+        );
+    })
+    .catch((err) =>
+      res.status(400).json("Error when saving updates to database: " + err)
+    );
+});
+
 //update user at start of new game
 router.route("/newgame/:id").put((req, res) => {
   Player.findById(req.params.id)
