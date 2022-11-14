@@ -8,6 +8,14 @@ const blink = keyframes`
 `;
 
 //Login
+export const LoginPositionContainer = styled.div`
+  position: absolute;
+  width: 40%;
+  top: 10em;
+  margin-left: 5%;
+  font-size: 1.5vw;
+  color: orange;
+`;
 export const LoadingText = styled.div`
   width: 80%;
   margin: 5px auto 0 auto;

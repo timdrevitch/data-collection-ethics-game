@@ -1,11 +1,24 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import { useContext, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import { IUserToken } from "../Interfaces/IUserToken";
 import { Context } from "../Shared/Context";
-import { GoogleLoginContainer } from "../Styles/LoginLogoutStyles";
+import {
+  GoogleLoginContainer,
+  LoginPositionContainer,
+} from "../Styles/LoginLogoutStyles";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import {
+  AuthorsContainer,
+  BackgroundImage,
+  CreateAccountButton,
+  CreateAccountForm,
+  CreateAccountInput,
+  GameTitle,
+  RedInfoP,
+  RelativeGameScene,
+} from "../Styles/TitleScreenStyles";
+import TitleScreenMenu from "../Components/TitleScreenMenu";
 
 const Login = () => {
   const {
@@ -31,10 +44,10 @@ const Login = () => {
     "1018892148615-6gcr6db7dhtiilpsjcnabrvs5pqgq9rc.apps.googleusercontent.com";
   const ifUserExists: boolean = userExists && userEmail !== null;
   const userIsNewAndNeedsToSignUp: boolean = userEmail !== null;
-  let navigate: NavigateFunction = useNavigate();
+  const needToFetchPlayer: boolean = player !== undefined && player !== null;
 
   useEffect(() => {
-    if (player !== undefined && player !== null) {
+    if (needToFetchPlayer) {
       axios
         .get(`${url}/playerstats/${player._id}`)
         .then((response) => {
@@ -63,7 +76,9 @@ const Login = () => {
       .catch((error) => console.warn(error));
   };
 
-  const handleSignUp = (): void => {
+  const handleSignUp = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+
     //make the date joined today's date
     const current: Date = new Date();
     let joinDateString: string = `${
@@ -88,296 +103,40 @@ const Login = () => {
       .catch((error) => console.warn(error));
   };
 
-  const startNewGame = () => {
-    //create new game
-    axios.post(`${url}/newgame/create/${player._id}`).then((res) => {
-      setGameId(res.data._id);
-      console.log("game " + res.data._id + " created, now navigation to game");
-      //update user
-      const data = { game: res.data._id };
-      axios.put(`${url}/newgame/${player._id}`, data).then(() => {
-        console.log("user updated, now creating game");
-        navigate(`./game/${res.data._id}`, {
-          state: { id: player._id },
-        });
-      });
-    });
-  };
-
   return (
     <GoogleOAuthProvider clientId={clientId}>
-      <div style={{ position: "relative" }}>
-        <img
-          style={{ width: "100%", opacity: "30%" }}
-          src={require("../Assets/car.jpeg")}
-          alt="carimage"
-        />
-        <h1
-          style={{
-            position: "absolute",
-            width: "100%",
-            top: "1em",
-            marginLeft: "5%",
-            fontSize: "3.5vw",
-            textShadow: "1px 1px 8px #fff, 1px 1px 8px #ccc",
-          }}
-        >
-          Data Collection Ethics Game
-        </h1>
-        <div
-          style={{
-            position: "absolute",
-            width: "40%",
-            top: "7.5em",
-            marginLeft: "5%",
-            fontSize: "1.5vw",
-            color: "orange",
-          }}
-        >
-          Tim Drevitch & Fangtai Bao
-        </div>
+      <RelativeGameScene>
+        <BackgroundImage src={require("../Assets/car.jpeg")} alt="carimage" />
+        <GameTitle>Data Collection Ethics Game</GameTitle>
+        <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer>
         {ifUserExists ? (
-          <>
-            <div
-              style={{
-                position: "absolute",
-                width: "30%",
-                height: "5%",
-                top: "11.5em",
-                right: "-5%",
-                fontSize: "2vw",
-                textAlign: "left",
-                paddingLeft: "2em",
-                color: "white",
-              }}
-            >
-              Welcome, {player.playername}{" "}
-              <img
-                style={{
-                  display: "inline-block",
-                  width: "1.2em",
-                  borderRadius: "100%",
-                  verticalAlign: "bottom",
-                }}
-                src={player.image}
-                alt="playerimage"
-              />
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                width: "30%",
-                height: "5%",
-                top: "17.5em",
-                right: "-5%",
-                fontSize: "1.5vw",
-                textAlign: "left",
-                paddingLeft: "2em",
-                color: "white",
-              }}
-            >
-              <em>Player since: {player.joinDateString}</em>
-            </div>
-            {player.gameInProgress ? (
-              <button
-                style={{
-                  cursor: "pointer",
-                  position: "absolute",
-                  width: "30%",
-                  height: "5%",
-                  top: "30em",
-                  right: "-5%",
-                  fontSize: "1vw",
-                  backgroundColor: "orange",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  paddingLeft: "2em",
-                  color: "white",
-                }}
-                onClick={() =>
-                  navigate(`./game/${player.currentGame}`, {
-                    state: { id: player.currentGame },
-                  })
-                }
-              >
-                Continue
-              </button>
-            ) : (
-              <button
-                style={{
-                  position: "absolute",
-                  width: "30%",
-                  height: "5%",
-                  top: "30em",
-                  right: "-5%",
-                  fontSize: "1vw",
-                  backgroundColor: "orange",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  paddingLeft: "2em",
-                  color: "white",
-                  opacity: "50%",
-                }}
-                disabled
-              >
-                Continue (no game in progress)
-              </button>
-            )}
-            {player.gameInProgress ? (
-              <button
-                style={{
-                  position: "absolute",
-                  width: "30%",
-                  height: "5%",
-                  top: "35em",
-                  right: "-5%",
-                  fontSize: "1vw",
-                  backgroundColor: "orange",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  paddingLeft: "2em",
-                  color: "white",
-                  opacity: "50%",
-                }}
-                disabled
-              >
-                New Game
-              </button>
-            ) : (
-              <button
-                style={{
-                  cursor: "pointer",
-                  position: "absolute",
-                  width: "30%",
-                  height: "5%",
-                  top: "35em",
-                  right: "-5%",
-                  fontSize: "1vw",
-                  backgroundColor: "orange",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  paddingLeft: "2em",
-                  color: "white",
-                }}
-                onClick={startNewGame}
-              >
-                New Game
-              </button>
-            )}
-
-            <button
-              style={{
-                cursor: "pointer",
-                position: "absolute",
-                width: "30%",
-                height: "5%",
-                top: "40em",
-                right: "-5%",
-                fontSize: "1vw",
-                backgroundColor: "orange",
-                border: "1px solid white",
-                borderRadius: "15px",
-                textAlign: "left",
-                paddingLeft: "2em",
-                color: "white",
-              }}
-              onClick={() =>
-                navigate(`./playerstats/${player._id}`, {
-                  state: { id: player._id },
-                })
-              }
-            >
-              Stats
-            </button>
-          </>
+          <TitleScreenMenu player={player} url={url} setGameId={setGameId} />
         ) : userIsNewAndNeedsToSignUp ? (
           <>
-            <form
-              style={{
-                position: "absolute",
-                width: "40%",
-                height: "25%",
-                top: "30em",
-                right: "-5%",
-                fontSize: "1vw",
-                backgroundColor: "orange",
-                border: "1px solid white",
-                borderRadius: "15px",
-                textAlign: "left",
-                paddingLeft: "2em",
-                color: "white",
-                display: "flex",
-                flexWrap: "wrap",
-                overflow: "hidden",
-              }}
-              onSubmit={handleSignUp}
-            >
-              <p
-                style={{
-                  width: "80%",
-                  margin: ".5em 0 0 0",
-                  color: "darkred",
-                }}
-              >
+            <CreateAccountForm onSubmit={handleSignUp}>
+              <RedInfoP>
                 Looks like you are new. Choose any player name and then press
                 the button below to complete your sign up.
-              </p>
-              <input
-                style={{
-                  boxSizing: "border-box",
-                  width: "80%",
-                  height: "30%",
-                  marginTop: ".1em",
-                  overflow: "hidden",
-                  fontSize: "1vw",
-                }}
+              </RedInfoP>
+              <CreateAccountInput
+                required
                 type="text"
                 placeholder="Enter any player name here..."
                 value={playerName}
-                onChange={(e) => setPlayerName(e.target.value)}
-                required
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setPlayerName(e.target.value)
+                }
               />
-              <p
-                style={{
-                  width: "80%",
-                  margin: ".5em 0 0 0",
-                  color: "darkred",
-                }}
-              >
+              <RedInfoP>
                 <em>Examples: Player123, Jane Doe, etc...</em>
-              </p>
-              <button
-                style={{
-                  backgroundColor: "purple",
-                  color: "white",
-                  cursor: "pointer",
-                  width: "80%",
-                  height: "20%",
-                  marginTop: ".1em",
-                  overflow: "hidden",
-                  fontSize: "1vw",
-                }}
-                type="submit"
-              >
+              </RedInfoP>
+              <CreateAccountButton type="submit">
                 Create Account
-              </button>
-            </form>
+              </CreateAccountButton>
+            </CreateAccountForm>
           </>
         ) : (
-          <div
-            style={{
-              position: "absolute",
-              width: "40%",
-              top: "10em",
-              marginLeft: "5%",
-              fontSize: "1.5vw",
-              color: "orange",
-            }}
-          >
+          <LoginPositionContainer>
             <GoogleLoginContainer>
               <GoogleLogin
                 onSuccess={(credentialResponse) => {
@@ -393,10 +152,9 @@ const Login = () => {
                 onError={() => console.log("Login Failed")}
               />
             </GoogleLoginContainer>
-            <br />
-          </div>
+          </LoginPositionContainer>
         )}
-      </div>
+      </RelativeGameScene>
     </GoogleOAuthProvider>
   );
 };
