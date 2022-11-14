@@ -5,6 +5,7 @@ import Login from "./Pages/Login";
 import { IPlayer } from "./Interfaces/IPlayer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PlayerStats from "./Pages/PlayerStats";
+import Game from "./Pages/Game";
 
 const App: FC = (): JSX.Element => {
   const [url, setUrl] = useState<string>("http://localhost:4000/api/v1");
@@ -16,6 +17,8 @@ const App: FC = (): JSX.Element => {
   const [userImage, setUserImage] = useState<string | null>(null);
   const [userExists, setUserExists] = useState<boolean | null>(null);
   const [player, setPlayer] = useState<IPlayer>({});
+  const [gameId, setGameId] = useState<string>("");
+  const [game, setGame] = useState<any>({});
 
   return (
     <Router>
@@ -37,11 +40,16 @@ const App: FC = (): JSX.Element => {
           setUserExists,
           player,
           setPlayer,
+          gameId,
+          setGameId,
+          game,
+          setGame,
         }}
       >
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/playerstats/:id" element={<PlayerStats />} />
+          <Route path="/game/:id" element={<Game />} />
         </Routes>
       </Context.Provider>
     </Router>

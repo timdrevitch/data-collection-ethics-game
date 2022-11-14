@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 let Player = require("../Models/playerModel");
+let Game = require("../Models/gameModel");
 
 //delete a player
 router.route("/:id").delete((req, res) => {
@@ -20,6 +21,49 @@ router.route("/").get((req, res) => {
 router.route("/playerstats/:id").get((req, res) => {
   Player.findById({ _id: req.params.id })
     .then((Player) => res.json(Player))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+//get a game by id
+router.route("/getgame/:id").get((req, res) => {
+  Game.findById({ _id: req.params.id })
+    .then((Game) => res.json(Game))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+//update user at start of new game
+router.route("/newgame/:id").put((req, res) => {
+  Player.findById(req.params.id)
+    .then((Player) => {
+      Player.currentGame = req.body.game;
+      Player.gameInProgress = true;
+      Player.gamesStarted = Player.gamesStarted + 1;
+      Player.save()
+        .then(() => res.json("Player started a game."))
+        .catch((err) =>
+          res.status(400).json("Error when saving update to database: " + err)
+        );
+    })
+    .catch((err) =>
+      res.status(400).json("Error when saving updates to database: " + err)
+    );
+});
+
+//Create new game
+router.route("/newgame/create/:id").post((req, res) => {
+  const player = req.params.id;
+  //make the date started today's date
+  const current = new Date();
+  const startedDate = `${
+    current.getMonth() + 1
+  }/${current.getDate()}/${current.getFullYear()}`;
+  const newGame = new Game({
+    player,
+    startedDate,
+  });
+  newGame
+    .save() //save game to db
+    .then((Game) => res.json(Game))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
@@ -65,11 +109,6 @@ router.route("/players/createplayer").post((req, res) => {
     joinDateString,
     playername,
     gameInProgress,
-    // role,
-    // birthday,
-    // online,
-    // color,
-    // picture,
   });
   newPlayer
     .save() //save player to db

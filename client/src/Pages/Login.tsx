@@ -1,5 +1,5 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IUserToken } from "../Interfaces/IUserToken";
 import { Context } from "../Shared/Context";
 import { GoogleLoginContainer } from "../Styles/LoginLogoutStyles";
@@ -24,6 +24,7 @@ const Login = () => {
     player,
     setPlayer,
     url,
+    setGameId,
   } = useContext(Context);
   const [playerName, setPlayerName] = useState<string>("");
   const clientId: string =
@@ -31,6 +32,18 @@ const Login = () => {
   const ifUserExists: boolean = userExists && userEmail !== null;
   const userIsNewAndNeedsToSignUp: boolean = userEmail !== null;
   let navigate: NavigateFunction = useNavigate();
+
+  useEffect(() => {
+    if (player !== undefined && player !== null) {
+      axios
+        .get(`${url}/playerstats/${player._id}`)
+        .then((response) => {
+          setGameId(player.currentGame);
+          setPlayer(response.data);
+        })
+        .catch((error) => console.warn(error));
+    }
+  }, []);
 
   const checkIfUserExists = (email: string): void => {
     axios
@@ -44,6 +57,7 @@ const Login = () => {
           //log the user in
           setUserExists(true);
           setPlayer(response.data);
+          setGameId(player.currentGame);
         }
       })
       .catch((error) => console.warn(error));
@@ -72,6 +86,22 @@ const Login = () => {
         setUserExists(true);
       })
       .catch((error) => console.warn(error));
+  };
+
+  const startNewGame = () => {
+    //create new game
+    axios.post(`${url}/newgame/create/${player._id}`).then((res) => {
+      setGameId(res.data._id);
+      console.log("game " + res.data._id + " created, now navigation to game");
+      //update user
+      const data = { game: res.data._id };
+      axios.put(`${url}/newgame/${player._id}`, data).then(() => {
+        console.log("user updated, now creating game");
+        navigate(`./game/${res.data._id}`, {
+          state: { id: player._id },
+        });
+      });
+    });
   };
 
   return (
@@ -165,6 +195,11 @@ const Login = () => {
                   paddingLeft: "2em",
                   color: "white",
                 }}
+                onClick={() =>
+                  navigate(`./game/${player.currentGame}`, {
+                    state: { id: player.currentGame },
+                  })
+                }
               >
                 Continue
               </button>
@@ -190,31 +225,50 @@ const Login = () => {
                 Continue (no game in progress)
               </button>
             )}
+            {player.gameInProgress ? (
+              <button
+                style={{
+                  position: "absolute",
+                  width: "30%",
+                  height: "5%",
+                  top: "35em",
+                  right: "-5%",
+                  fontSize: "1vw",
+                  backgroundColor: "orange",
+                  border: "1px solid white",
+                  borderRadius: "15px",
+                  textAlign: "left",
+                  paddingLeft: "2em",
+                  color: "white",
+                  opacity: "50%",
+                }}
+                disabled
+              >
+                New Game
+              </button>
+            ) : (
+              <button
+                style={{
+                  cursor: "pointer",
+                  position: "absolute",
+                  width: "30%",
+                  height: "5%",
+                  top: "35em",
+                  right: "-5%",
+                  fontSize: "1vw",
+                  backgroundColor: "orange",
+                  border: "1px solid white",
+                  borderRadius: "15px",
+                  textAlign: "left",
+                  paddingLeft: "2em",
+                  color: "white",
+                }}
+                onClick={startNewGame}
+              >
+                New Game
+              </button>
+            )}
 
-            <button
-              style={{
-                cursor: "pointer",
-                position: "absolute",
-                width: "30%",
-                height: "5%",
-                top: "35em",
-                right: "-5%",
-                fontSize: "1vw",
-                backgroundColor: "orange",
-                border: "1px solid white",
-                borderRadius: "15px",
-                textAlign: "left",
-                paddingLeft: "2em",
-                color: "white",
-              }}
-              onClick={() =>
-                alert(
-                  "This button does not do anything yet.  Check back later."
-                )
-              }
-            >
-              New Game
-            </button>
             <button
               style={{
                 cursor: "pointer",
@@ -239,7 +293,7 @@ const Login = () => {
             >
               Stats
             </button>
-            <button
+            {/* <button
               style={{
                 cursor: "pointer",
                 position: "absolute",
@@ -262,7 +316,7 @@ const Login = () => {
               }
             >
               Settings
-            </button>
+            </button> */}
           </>
         ) : userIsNewAndNeedsToSignUp ? (
           <>

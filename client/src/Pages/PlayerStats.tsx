@@ -31,12 +31,13 @@ const PlayerStats = () => {
           Games started: <GreenSpan>{player.gamesStarted}</GreenSpan>
         </div>
         <div>
-          Games finished: <GreenSpan>{player.gamesStarted}</GreenSpan>
+          Games finished: <GreenSpan>{player.gamesFinished}</GreenSpan>
         </div>
         <div>
           Endings reached:{" "}
           <GreenSpan>
-            {player.gamesStarted}/3 ({(player.gamesStarted / 3) * 100}%)
+            {player.gamesFinished}/3 (
+            {((player.gamesFinished / 3) * 100).toFixed(2)}%)
           </GreenSpan>
         </div>
         <br />

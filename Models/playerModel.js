@@ -34,6 +34,11 @@ const playerSchema = new mongoose.Schema(
     gameInProgress: {
       type: Boolean,
     },
+    currentGame: {
+      type: String,
+      trim: true,
+      default: "none",
+    },
     gamesStarted: {
       type: Number,
       default: 0,
