@@ -4,7 +4,7 @@ import { GreenSpan } from "../Styles/SharedStyles";
 
 const PauseMenu = () => {
   const { game } = useContext(Context);
-  const TOTAL_CHECKPOINTS: number = 99;
+  const TOTAL_CHECKPOINTS: number = 3;
   return (
     <div
       style={{

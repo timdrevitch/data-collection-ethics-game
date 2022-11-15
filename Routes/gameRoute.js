@@ -31,6 +31,21 @@ router.route("/getgame/:id").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+//end current game
+router.route("/endgame/:id").put((req, res) => {
+  Player.findById({ _id: req.params.id }).then((Player) => {
+    Player.currentGame = "none";
+    Player.gameInProgress = false;
+    Player.gamesFinished = Player.gamesFinished + 1;
+    Player.endingsReached = 1;
+    Player.save()
+      .then(() => res.json("Game ended."))
+      .catch((err) =>
+        res.status(400).json("Error when saving update to database: " + err)
+      );
+  });
+});
+
 //update game to new checkpoint
 router.route("/nextcheckpoint/:id").put((req, res) => {
   Game.findById(req.params.id)

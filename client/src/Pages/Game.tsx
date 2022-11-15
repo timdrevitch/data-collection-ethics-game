@@ -1,5 +1,9 @@
 import axios from "axios";
 import { FC, useContext, useEffect, useState } from "react";
+import Checkpoint0 from "../Checkpoints/Checkpoint0";
+import Checkpoint1 from "../Checkpoints/Checkpoint1";
+import Checkpoint2 from "../Checkpoints/Checkpoint2";
+import TheEnd from "../Checkpoints/TheEnd";
 import PauseMenu from "../Components/PauseMenu";
 import ProgressUI from "../Components/ProgressUI";
 import { Context } from "../Shared/Context";
@@ -36,55 +40,35 @@ const Game: FC = (): JSX.Element => {
     };
   }, [render]);
 
-  const nextCheckpoint = () => {
-    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
-      setRender(!render);
-    });
-  };
-
   return (
     <>
       <ProgressUI />
       <PauseMenu />
-      <div style={{ position: "relative" }}>
-        <img
-          style={{ width: "100%", opacity: "30%" }}
-          src={require("../Assets/car.jpeg")}
-          alt="carimage"
+      {game.checkpoint === 0 && (
+        <Checkpoint0
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
         />
-        <h1
-          style={{
-            position: "absolute",
-            width: "100%",
-            top: "2em",
-            marginLeft: "5%",
-            fontSize: "3.5vw",
-            textShadow: "1px 1px 8px #fff, 1px 1px 8px #ccc",
-          }}
-        >
-          Game (Checkpoint: {game.checkpoint})
-        </h1>
-        <button
-          style={{
-            cursor: "pointer",
-            position: "absolute",
-            width: "30%",
-            height: "5%",
-            top: "30em",
-            left: "35%",
-            fontSize: "1vw",
-            backgroundColor: "orange",
-            border: "1px solid white",
-            borderRadius: "15px",
-            textAlign: "left",
-            paddingLeft: "2em",
-            color: "white",
-          }}
-          onClick={nextCheckpoint}
-        >
-          Next Checkpoint
-        </button>
-      </div>
+      )}
+      {game.checkpoint === 1 && (
+        <Checkpoint1
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint === 2 && (
+        <Checkpoint2
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint > 2 && <TheEnd url={url} playerId={player._id} />}
     </>
   );
 };
