@@ -28,6 +28,9 @@ const PlayerStats = () => {
           </GreenSpan>
         </h2>
         <div>
+          Player since: <GreenSpan>{player.joinDateString}</GreenSpan>
+        </div>
+        <div>
           Games started: <GreenSpan>{player.gamesStarted}</GreenSpan>
         </div>
         <div>
