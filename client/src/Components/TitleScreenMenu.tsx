@@ -53,16 +53,16 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
         </MenuButtonDisabled>
       )}
       {player.gameInProgress ? (
-        <MenuButtonDisabled style={{ top: "27em" }} disabled>
+        <MenuButtonDisabled style={{ top: "26.5em" }} disabled>
           New Game
         </MenuButtonDisabled>
       ) : (
-        <MenuButton style={{ top: "27em" }} onClick={startNewGame}>
+        <MenuButton style={{ top: "26.5em" }} onClick={startNewGame}>
           New Game
         </MenuButton>
       )}
       <MenuButton
-        style={{ top: "32em" }}
+        style={{ top: "30em" }}
         onClick={() =>
           navigate(`./playerstats/${player._id}`, {
             state: { id: player._id },
