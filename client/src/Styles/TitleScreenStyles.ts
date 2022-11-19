@@ -57,7 +57,7 @@ export const MenuButtonContinue = styled.button`
   text-align: center;
   color: white;
   animation: ${riseContinueButton} 2s 1;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
   &:hover {
     transition: all 0.5s ease-in-out;
     box-shadow: 0 0 10px purple;
@@ -93,7 +93,7 @@ export const MenuButtonNewGame = styled.button`
   text-align: center;
   color: white;
   animation: ${riseNewGameButton} 2s 1;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
   &:hover {
     transition: all 0.5s ease-in-out;
     box-shadow: 0 0 10px purple;
@@ -128,7 +128,7 @@ export const MenuButtonStats = styled.button`
   text-align: center;
   color: white;
   animation: ${riseStatsButton} 2s 1;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
   &:hover {
     transition: all 0.5s ease-in-out;
     box-shadow: 0 0 10px purple;
@@ -242,4 +242,28 @@ export const PlayerSinceContainer = styled.div`
   padding-left: 2em;
   color: #1a1d22;
   animation: ${risePlayerSince} 2s 1;
+`;
+export const CityGif = styled.img`
+  position: sticky;
+  width: 100%;
+  opacity: 50%;
+  z-index: -100;
+  margin-top: -150vw;
+`;
+export const DarkFooter = styled.div`
+  margin-top: -100vw;
+  width: 100vw;
+  height: 100vw;
+  opacity: 40%;
+  background-color: #1a1d22;
+  z-index: 2000;
+`;
+export const DarkFooter2 = styled.div`
+  margin-top: -5vw;
+  position: sticky;
+  width: 100vw;
+  height: 10vw;
+  opacity: 100%;
+  background-color: #1a1d22;
+  z-index: 2000;
 `;

@@ -1,5 +1,11 @@
 import axios from "axios";
-import { Navigate, NavigateFunction, useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
+import {
+  BackgroundImage,
+  CityGif,
+  DarkFooter,
+  DarkFooter2,
+} from "../Styles/TitleScreenStyles";
 
 const TheEnd = ({ url, playerId }) => {
   const navigate: NavigateFunction = useNavigate();
@@ -10,11 +16,13 @@ const TheEnd = ({ url, playerId }) => {
 
   return (
     <div style={{ position: "relative" }}>
-      <img
-        style={{ width: "100%", opacity: "30%" }}
-        src={require("../Assets/car.jpeg")}
+      <BackgroundImage
+        src={require("../Assets/carbackground.png")}
         alt="carimage"
       />
+      <CityGif src={require("../Assets/city.gif")} alt="city" />
+      <DarkFooter></DarkFooter>
+      <DarkFooter2></DarkFooter2>
       <h1
         style={{
           position: "absolute",

@@ -11,9 +11,12 @@ import axios from "axios";
 import {
   AuthorsContainer,
   BackgroundImage,
+  CityGif,
   CreateAccountButton,
   CreateAccountForm,
   CreateAccountInput,
+  DarkFooter,
+  DarkFooter2,
   GameTitle,
   PhoneImage,
   RedInfoP,
@@ -111,38 +114,9 @@ const Login = () => {
           src={require("../Assets/carbackground.png")}
           alt="carimage"
         />
-        <img
-          src={require("../Assets/city.gif")}
-          alt="city"
-          style={{
-            position: "sticky",
-            width: "100%",
-            opacity: "50%",
-            zIndex: "-100",
-            marginTop: "-150vw",
-          }}
-        />
-        <div
-          style={{
-            marginTop: "-100vw",
-            width: "100vw",
-            height: "100vw",
-            opacity: "40%",
-            backgroundColor: "#1a1d22",
-            zIndex: "2000",
-          }}
-        ></div>
-        <div
-          style={{
-            marginTop: "-5vw",
-            position: "sticky",
-            width: "100vw",
-            height: "10vw",
-            opacity: "100%",
-            backgroundColor: "#1a1d22",
-            zIndex: "2000",
-          }}
-        ></div>
+        <CityGif src={require("../Assets/city.gif")} alt="city" />
+        <DarkFooter></DarkFooter>
+        <DarkFooter2></DarkFooter2>
         {ifUserExists ? (
           <TitleScreenMenu player={player} url={url} setGameId={setGameId} />
         ) : userIsNewAndNeedsToSignUp ? (

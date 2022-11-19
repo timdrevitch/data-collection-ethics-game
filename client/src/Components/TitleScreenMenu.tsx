@@ -34,7 +34,7 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
 
   return (
     <>
-      <PhoneImage src={require("../Assets/phoneBg.png")} alt="city" />
+      <PhoneImage src={require("../Assets/phoneBg.png")} alt="phone" />
       <WelcomePlayerContainer>
         <strong>Welcome, {player.playername} </strong>
         <PlayerImage src={player.image} alt="playerimage" />
@@ -71,7 +71,9 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
       >
         Profile
       </MenuButtonStats>
-      <MenuButtonLeaderboards disabled>Leaderboards</MenuButtonLeaderboards>
+      <MenuButtonLeaderboards disabled>
+        Leaderboards (coming soon)
+      </MenuButtonLeaderboards>
     </>
   );
 };
