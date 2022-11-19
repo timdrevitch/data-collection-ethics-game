@@ -38,7 +38,7 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
       </PlayerSinceContainer>
       {player.gameInProgress ? (
         <MenuButton
-          style={{ top: "30em" }}
+          style={{ top: "23em" }}
           onClick={() =>
             navigate(`./game/${player.currentGame}`, {
               state: { id: player.currentGame },
@@ -48,21 +48,21 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
           Continue
         </MenuButton>
       ) : (
-        <MenuButtonDisabled style={{ top: "30em" }} disabled>
+        <MenuButtonDisabled style={{ top: "23em" }} disabled>
           Continue (no game in progress)
         </MenuButtonDisabled>
       )}
       {player.gameInProgress ? (
-        <MenuButtonDisabled style={{ top: "35em" }} disabled>
+        <MenuButtonDisabled style={{ top: "27em" }} disabled>
           New Game
         </MenuButtonDisabled>
       ) : (
-        <MenuButton style={{ top: "35em" }} onClick={startNewGame}>
+        <MenuButton style={{ top: "27em" }} onClick={startNewGame}>
           New Game
         </MenuButton>
       )}
       <MenuButton
-        style={{ top: "40em" }}
+        style={{ top: "32em" }}
         onClick={() =>
           navigate(`./playerstats/${player._id}`, {
             state: { id: player._id },
