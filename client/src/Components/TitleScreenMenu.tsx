@@ -34,7 +34,7 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
         <PlayerImage src={player.image} alt="playerimage" />
       </WelcomePlayerContainer>
       <PlayerSinceContainer>
-        <em>Player since: {player.joinDateString}</em>
+        Player since: <em>{player.joinDateString}</em>
       </PlayerSinceContainer>
       {player.gameInProgress ? (
         <MenuButton

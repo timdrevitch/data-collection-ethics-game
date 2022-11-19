@@ -106,13 +106,60 @@ const Login = () => {
   return (
     <GoogleOAuthProvider clientId={clientId}>
       <RelativeGameScene>
-        <BackgroundImage src={require("../Assets/car.jpeg")} alt="carimage" />
-        <GameTitle>Data Collection Ethics Game</GameTitle>
-        <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer>
+        <BackgroundImage
+          src={require("../Assets/carbackground.png")}
+          alt="carimage"
+        />
+        <img
+          src={require("../Assets/city.gif")}
+          alt="city"
+          style={{
+            position: "sticky",
+            width: "100%",
+            opacity: "50%",
+            zIndex: "-100",
+            marginTop: "-150vw",
+          }}
+        />
+        <div
+          style={{
+            marginTop: "-100vw",
+            width: "100vw",
+            height: "100vw",
+            opacity: "40%",
+            backgroundColor: "#1a1d22",
+            zIndex: "2000",
+          }}
+        ></div>
+        <div
+          style={{
+            marginTop: "-5vw",
+            position: "sticky",
+            width: "100vw",
+            height: "10vw",
+            opacity: "100%",
+            backgroundColor: "#1a1d22",
+            zIndex: "2000",
+          }}
+        ></div>
         {ifUserExists ? (
-          <TitleScreenMenu player={player} url={url} setGameId={setGameId} />
+          <>
+            <img
+              src={require("../Assets/phoneBg.png")}
+              alt="city"
+              style={{
+                position: "absolute",
+                width: "60%",
+                top: "1em",
+                right: "20%",
+              }}
+            />
+            <TitleScreenMenu player={player} url={url} setGameId={setGameId} />
+          </>
         ) : userIsNewAndNeedsToSignUp ? (
           <>
+            <GameTitle>Data Collection Ethics Game</GameTitle>
+            <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer>
             <CreateAccountForm onSubmit={handleSignUp}>
               <RedInfoP>
                 Looks like you are new. Choose any player name and then press
@@ -136,23 +183,27 @@ const Login = () => {
             </CreateAccountForm>
           </>
         ) : (
-          <LoginPositionContainer>
-            <GoogleLoginContainer>
-              <GoogleLogin
-                onSuccess={(credentialResponse) => {
-                  const token: string = credentialResponse.credential;
-                  const decoded = jwt_decode<IUserToken>(token);
-                  setUserFirstName(decoded.given_name);
-                  setUserImage(decoded.picture);
-                  setUserFullName(decoded.name);
-                  setUserLastName(decoded.family_name);
-                  setUserEmail(decoded.email);
-                  checkIfUserExists(decoded.email);
-                }}
-                onError={() => console.log("Login Failed")}
-              />
-            </GoogleLoginContainer>
-          </LoginPositionContainer>
+          <>
+            <GameTitle>Data Collection Ethics Game</GameTitle>
+            <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer>
+            <LoginPositionContainer>
+              <GoogleLoginContainer>
+                <GoogleLogin
+                  onSuccess={(credentialResponse) => {
+                    const token: string = credentialResponse.credential;
+                    const decoded = jwt_decode<IUserToken>(token);
+                    setUserFirstName(decoded.given_name);
+                    setUserImage(decoded.picture);
+                    setUserFullName(decoded.name);
+                    setUserLastName(decoded.family_name);
+                    setUserEmail(decoded.email);
+                    checkIfUserExists(decoded.email);
+                  }}
+                  onError={() => console.log("Login Failed")}
+                />
+              </GoogleLoginContainer>
+            </LoginPositionContainer>
+          </>
         )}
       </RelativeGameScene>
     </GoogleOAuthProvider>

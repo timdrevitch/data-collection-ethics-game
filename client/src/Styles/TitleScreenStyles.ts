@@ -90,18 +90,18 @@ export const RelativeGameScene = styled.div`
 `;
 export const BackgroundImage = styled.img`
   width: 100%;
-  opacity: 30%;
+  z-index: 100;
 `;
 export const WelcomePlayerContainer = styled.div`
   position: absolute;
   width: 30%;
   height: 5%;
-  top: 11.5em;
-  right: -5%;
-  font-size: 2vw;
+  top: 14em;
+  right: 28%;
+  font-size: 1.3vw;
   text-align: left;
   padding-left: 2em;
-  color: white;
+  color: #1a1d22;
 `;
 export const PlayerImage = styled.img`
   display: inline-block;
@@ -113,10 +113,10 @@ export const PlayerSinceContainer = styled.div`
   position: absolute;
   width: 30%;
   height: 5%;
-  top: 17.5em;
-  right: -5%;
-  font-size: 1.5vw;
+  top: 20em;
+  right: 28%;
+  font-size: 1vw;
   text-align: left;
   padding-left: 2em;
-  color: white;
+  color: #1a1d22;
 `;
