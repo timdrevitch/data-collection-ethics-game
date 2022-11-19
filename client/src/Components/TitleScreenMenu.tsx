@@ -1,8 +1,13 @@
 import axios from "axios";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import {
-  MenuButton,
-  MenuButtonDisabled,
+  MenuButtonContinue,
+  MenuButtonContinueDisabled,
+  MenuButtonLeaderboards,
+  MenuButtonNewGame,
+  MenuButtonNewGameDisabled,
+  MenuButtonStats,
+  PhoneImage,
   PlayerImage,
   PlayerSinceContainer,
   WelcomePlayerContainer,
@@ -29,16 +34,16 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
 
   return (
     <>
+      <PhoneImage src={require("../Assets/phoneBg.png")} alt="city" />
       <WelcomePlayerContainer>
-        Welcome, {player.playername}{" "}
+        <strong>Welcome, {player.playername} </strong>
         <PlayerImage src={player.image} alt="playerimage" />
       </WelcomePlayerContainer>
       <PlayerSinceContainer>
         Player since: <em>{player.joinDateString}</em>
       </PlayerSinceContainer>
       {player.gameInProgress ? (
-        <MenuButton
-          style={{ top: "23em" }}
+        <MenuButtonContinue
           onClick={() =>
             navigate(`./game/${player.currentGame}`, {
               state: { id: player.currentGame },
@@ -46,31 +51,27 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
           }
         >
           Continue
-        </MenuButton>
+        </MenuButtonContinue>
       ) : (
-        <MenuButtonDisabled style={{ top: "23em" }} disabled>
+        <MenuButtonContinueDisabled disabled>
           Continue (no game in progress)
-        </MenuButtonDisabled>
+        </MenuButtonContinueDisabled>
       )}
       {player.gameInProgress ? (
-        <MenuButtonDisabled style={{ top: "26.5em" }} disabled>
-          New Game
-        </MenuButtonDisabled>
+        <MenuButtonNewGameDisabled disabled>New Game</MenuButtonNewGameDisabled>
       ) : (
-        <MenuButton style={{ top: "26.5em" }} onClick={startNewGame}>
-          New Game
-        </MenuButton>
+        <MenuButtonNewGame onClick={startNewGame}>New Game</MenuButtonNewGame>
       )}
-      <MenuButton
-        style={{ top: "30em" }}
+      <MenuButtonStats
         onClick={() =>
           navigate(`./playerstats/${player._id}`, {
             state: { id: player._id },
           })
         }
       >
-        Stats
-      </MenuButton>
+        Profile
+      </MenuButtonStats>
+      <MenuButtonLeaderboards disabled>Leaderboards</MenuButtonLeaderboards>
     </>
   );
 };

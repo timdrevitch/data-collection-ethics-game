@@ -15,6 +15,7 @@ import {
   CreateAccountForm,
   CreateAccountInput,
   GameTitle,
+  PhoneImage,
   RedInfoP,
   RelativeGameScene,
 } from "../Styles/TitleScreenStyles";
@@ -143,19 +144,7 @@ const Login = () => {
           }}
         ></div>
         {ifUserExists ? (
-          <>
-            <img
-              src={require("../Assets/phoneBg.png")}
-              alt="city"
-              style={{
-                position: "absolute",
-                width: "60%",
-                top: "1em",
-                right: "20%",
-              }}
-            />
-            <TitleScreenMenu player={player} url={url} setGameId={setGameId} />
-          </>
+          <TitleScreenMenu player={player} url={url} setGameId={setGameId} />
         ) : userIsNewAndNeedsToSignUp ? (
           <>
             <GameTitle>Data Collection Ethics Game</GameTitle>
