@@ -51,6 +51,9 @@ router.route("/nextcheckpoint/:id").put((req, res) => {
   Game.findById(req.params.id)
     .then((Game) => {
       Game.checkpoint = Game.checkpoint + 1;
+      if (req.body.nerviousChoice !== undefined) {
+        Game.isNervious = req.body.nerviousChoice;
+      }
       Game.save()
         .then(() => res.json("Next checkpoint."))
         .catch((err) =>

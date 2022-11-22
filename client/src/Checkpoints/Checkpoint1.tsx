@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { OrangeSpan } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
-  CityGif,
   DarkFooter,
   DarkFooter2,
 } from "../Styles/TitleScreenStyles";
@@ -12,6 +12,7 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
 
   useEffect(() => {
     console.log(counter);
+    console.log(game.isNervious);
   }, [counter, setCounter]);
 
   const nextCheckpoint = () => {
@@ -23,10 +24,13 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
   return (
     <div style={{ position: "relative" }}>
       <BackgroundImage
-        src={require("../Assets/carbackground.png")}
+        style={{
+          height: "55vw",
+        }}
+        src={require("../Assets/Bedroom.png")}
         alt="carimage"
       />
-      <CityGif src={require("../Assets/city.gif")} alt="city" />
+      {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
       <h1
@@ -44,40 +48,95 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
       <div
         style={{
           position: "absolute",
-          width: "100%",
+          width: "90%",
           top: "10em",
           marginLeft: "5%",
           fontSize: "2vw",
-          textShadow: "1px 1px 8px #fff, 1px 1px 8px #ccc",
         }}
       >
-        <span>You just got a notification on your phone... </span>
-        {counter >= 1 && <span>You open your phone... </span>}
-        {counter === 1 ? null : (
+        {game.isNervious ? (
+          counter === 0 ? (
+            <OrangeSpan>
+              You are nervious! Don't stress. You have been preparing!...{" "}
+            </OrangeSpan>
+          ) : (
+            <span>
+              You are nervious after all. Don't stress. You have been preparing
+              all month!...{" "}
+            </span>
+          )
+        ) : counter === 0 ? (
+          <OrangeSpan>
+            It is good that you aren't nervious! You don't want to be stressed
+            going into these interviews...{" "}
+          </OrangeSpan>
+        ) : (
+          <span>
+            It is good that you aren't nervious! You don't want to be stressed
+            going into these interviews...{" "}
+          </span>
+        )}
+        {counter >= 1 ? (
+          counter === 1 ? (
+            <OrangeSpan>
+              <em>Ding... </em>
+            </OrangeSpan>
+          ) : (
+            <span>
+              <em>Ding... </em>
+            </span>
+          )
+        ) : null}
+        {counter >= 2 ? (
+          counter === 2 ? (
+            <OrangeSpan>
+              Why did you just get a text? It's so early. Who could be up?...{" "}
+            </OrangeSpan>
+          ) : (
+            <span>
+              Why did you just get a text? It's so early. Who could be up?...{" "}
+            </span>
+          )
+        ) : null}
+        {counter === 2 ? null : (
           <button onClick={() => setCounter(counter + 1)}>Next</button>
         )}
       </div>
-      {counter === 1 && (
-        <button
+      {counter === 2 && (
+        <div
           style={{
-            cursor: "pointer",
             position: "absolute",
-            width: "30%",
-            height: "5%",
-            top: "30em",
-            left: "35%",
+            left: "0",
+            right: "0",
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: "25%",
+            height: "10%",
+            top: "35em",
+            margin: "0 auto",
             fontSize: "1vw",
-            backgroundColor: "orange",
-            border: "1px solid white",
-            borderRadius: "15px",
-            textAlign: "left",
-            paddingLeft: "2em",
             color: "white",
           }}
-          onClick={nextCheckpoint}
         >
-          Look at phone
-        </button>
+          <button
+            style={{
+              cursor: "pointer",
+              float: "left",
+              width: "100%",
+              height: "100%",
+              fontSize: "1vw",
+              backgroundColor: "orange",
+              border: "1px solid white",
+              borderRadius: "15px",
+              textAlign: "left",
+              padding: "0 1.5em",
+              color: "white",
+            }}
+            onClick={nextCheckpoint}
+          >
+            See who messaged you.
+          </button>
+        </div>
       )}
     </div>
   );

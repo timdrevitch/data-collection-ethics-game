@@ -16,6 +16,9 @@ const gameSchema = new mongoose.Schema(
       trim: true,
       default: 0,
     },
+    isNervious: {
+        type: Boolean,
+    }
   },
   { timestamps: true }
 );

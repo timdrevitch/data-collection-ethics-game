@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { OrangeSpan } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   CityGif,
@@ -14,8 +15,9 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
     console.log(counter);
   }, [counter, setCounter]);
 
-  const nextCheckpoint = () => {
-    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
+  const nextCheckpoint = (nerviousChoice: boolean) => {
+    let data = { nerviousChoice: nerviousChoice };
+    axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
       setRender(!render);
     });
   };
@@ -23,18 +25,21 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
   return (
     <div style={{ position: "relative" }}>
       <BackgroundImage
-        src={require("../Assets/carbackground.png")}
+        style={{
+          height: "55vw",
+        }}
+        src={require("../Assets/Bedroom.png")}
         alt="carimage"
       />
-      <CityGif src={require("../Assets/city.gif")} alt="city" />
+      {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
       <h1
         style={{
           position: "absolute",
           width: "100%",
-          top: "2em",
-          marginLeft: "5%",
+          top: ".01em",
+          textAlign: "center",
           fontSize: "3.5vw",
           textShadow: "1px 1px 8px #fff, 1px 1px 8px #ccc",
         }}
@@ -44,41 +49,106 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
       <div
         style={{
           position: "absolute",
-          width: "100%",
+          width: "90%",
           top: "10em",
           marginLeft: "5%",
           fontSize: "2vw",
-          textShadow: "1px 1px 8px #fff, 1px 1px 8px #ccc",
         }}
       >
-        <span>Welcome to Dystopia City... </span>
-        {counter >= 1 && <span>You are in a self driving car... </span>}
-        {counter >= 2 && <span>On your way to a job interview... </span>}
-        {counter === 2 ? null : (
-          <button onClick={() => setCounter(counter + 1)}>Next</button>
+        {counter === 0 ? (
+          <OrangeSpan>It is early morning in Dystocity... </OrangeSpan>
+        ) : (
+          <span>It is early morning in Dystocity... </span>
+        )}
+        {counter >= 1 ? (
+          counter === 1 ? (
+            <OrangeSpan>Why have you not been able to sleep?... </OrangeSpan>
+          ) : (
+            <span>Why have you not been able to sleep?... </span>
+          )
+        ) : null}
+        {counter >= 2 ? (
+          counter === 2 ? (
+            <OrangeSpan>
+              Is it because of the two interviews you have today?...{" "}
+            </OrangeSpan>
+          ) : (
+            <span>Is it because of the two interviews you have today?... </span>
+          )
+        ) : null}
+        {counter >= 3 ? (
+          counter === 3 ? (
+            <OrangeSpan>It's okay to be nervious... </OrangeSpan>
+          ) : (
+            <span>It's okay to be nervious... </span>
+          )
+        ) : null}
+        {counter === 3 ? null : (
+          <button
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => setCounter(counter + 1)}
+          >
+            Next
+          </button>
         )}
       </div>
-      {counter === 2 && (
-        <button
+      {counter === 3 && (
+        <div
           style={{
-            cursor: "pointer",
             position: "absolute",
-            width: "30%",
-            height: "5%",
-            top: "30em",
-            left: "35%",
+            left: "0",
+            right: "0",
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: "50%",
+            height: "10%",
+            top: "35em",
+            margin: "0 auto",
             fontSize: "1vw",
-            backgroundColor: "orange",
-            border: "1px solid white",
-            borderRadius: "15px",
-            textAlign: "left",
-            paddingLeft: "2em",
             color: "white",
           }}
-          onClick={nextCheckpoint}
         >
-          Next Checkpoint
-        </button>
+          <button
+            style={{
+              cursor: "pointer",
+              float: "left",
+              width: "45%",
+              height: "100%",
+              fontSize: "1vw",
+              backgroundColor: "orange",
+              border: "1px solid white",
+              borderRadius: "15px",
+              textAlign: "left",
+              padding: "0 1.5em",
+              color: "white",
+            }}
+            onClick={() => nextCheckpoint(false)}
+          >
+            I am not nervious for the interviews. I just woke up early to
+            prepare extra.
+          </button>
+          <button
+            style={{
+              cursor: "pointer",
+              float: "right",
+              width: "45%",
+              height: "100%",
+              fontSize: "1vw",
+              backgroundColor: "orange",
+              border: "1px solid white",
+              borderRadius: "15px",
+              textAlign: "left",
+              padding: "0 1.5em",
+              color: "white",
+            }}
+            onClick={() => nextCheckpoint(true)}
+          >
+            I've definitely been a little nervious. I want to do well and get at
+            least one of these jobs.
+          </button>
+        </div>
       )}
     </div>
   );

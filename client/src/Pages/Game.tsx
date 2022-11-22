@@ -38,7 +38,7 @@ const Game: FC = (): JSX.Element => {
     return () => {
       effectMounted = false;
     };
-  }, [render]);
+  }, [render, setRender]);
 
   return (
     <>
