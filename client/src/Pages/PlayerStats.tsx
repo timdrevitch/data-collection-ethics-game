@@ -30,7 +30,7 @@ const PlayerStats = () => {
 
   return (
     <>
-      <div style={{ width: "100%", textAlign: "center", padding: "5rem" }}>
+      <div style={{ width: "100%", textAlign: "center", paddingTop: "5rem" }}>
         <h2>
           <GreenSpan>
             {player.fullname} ({player.playername})
