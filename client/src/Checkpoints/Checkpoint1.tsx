@@ -57,7 +57,8 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
         {game.isNervious ? (
           counter === 0 ? (
             <OrangeSpan>
-              You are nervious! Don't stress. You have been preparing!...{" "}
+              You are nervious after all. Don't stress. You have been preparing
+              all month!...{" "}
             </OrangeSpan>
           ) : (
             <span>
