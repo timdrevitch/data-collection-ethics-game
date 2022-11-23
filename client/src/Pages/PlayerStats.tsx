@@ -1,13 +1,22 @@
 import axios from "axios";
 import { useContext, useEffect } from "react";
 import { Context } from "../Shared/Context";
-import { useLocation, useNavigate } from "react-router-dom";
+import {
+  Location,
+  NavigateFunction,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { GreenSpan } from "../Styles/SharedStyles";
 
 const PlayerStats = () => {
   const { url, player, setPlayer } = useContext(Context);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const location: Location = useLocation();
+  const navigate: NavigateFunction = useNavigate();
+  const percentEndingsReached: number = +(
+    (player.endingsReached / 3) *
+    100
+  ).toFixed(2);
 
   //set default state on load
   useEffect(() => {
@@ -39,8 +48,7 @@ const PlayerStats = () => {
         <div>
           Unique Endings reached:{" "}
           <GreenSpan>
-            {player.endingsReached}/3 (
-            {((player.endingsReached / 3) * 100).toFixed(2)}%)
+            {player.endingsReached}/3 ({percentEndingsReached}%)
           </GreenSpan>
         </div>
         <br />
