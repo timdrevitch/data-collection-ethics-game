@@ -94,7 +94,7 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>
                   Also, I know you too well. You are definitely already awake
-                  and {game.isNervious ? "stressed." : "preparing more."}
+                  and {game.isNervous ? "stressed." : "preparing more."}
                 </em>
                 "{" "}
               </OrangeSpan>
@@ -103,7 +103,7 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>
                   Also, I know you too well. You are definitely already awake
-                  and {game.isNervious ? "stressed." : "preparing more."}
+                  and {game.isNervous ? "stressed." : "preparing more."}
                 </em>
                 "{" "}
               </span>
@@ -141,7 +141,7 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
               <OrangeSpan>
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>
-                  {game.isNervious
+                  {game.isNervous
                     ? "You should download it! Maybe it'll be a nice distraction from all this stress before the interviews."
                     : "You've easily prepared enough already. You should take a break from preparing and download it!"}
                 </em>
@@ -151,7 +151,7 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
               <span>
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>
-                  {game.isNervious
+                  {game.isNervous
                     ? "You should download it! Maybe it'll be a nice distraction from all this stress before the interviews."
                     : "You've easily prepared enough already. You should take a break from preparing and download it!"}
                 </em>

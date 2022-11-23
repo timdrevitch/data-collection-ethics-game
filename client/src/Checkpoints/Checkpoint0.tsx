@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { OrangeSpan } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
-  CityGif,
   DarkFooter,
   DarkFooter2,
 } from "../Styles/TitleScreenStyles";
@@ -15,8 +14,8 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
     console.log(counter);
   }, [counter, setCounter]);
 
-  const nextCheckpoint = (nerviousChoice: boolean) => {
-    let data = { nerviousChoice: nerviousChoice };
+  const nextCheckpoint = (nervousChoice: boolean) => {
+    let data = { nervousChoice: nervousChoice };
     axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
       setRender(!render);
     });
@@ -78,9 +77,9 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
         ) : null}
         {counter >= 3 ? (
           counter === 3 ? (
-            <OrangeSpan>It's okay to be nervious... </OrangeSpan>
+            <OrangeSpan>It's okay to be nervous... </OrangeSpan>
           ) : (
-            <span>It's okay to be nervious... </span>
+            <span>It's okay to be nervous... </span>
           )
         ) : null}
         {counter === 3 ? null : (
@@ -126,8 +125,8 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
             }}
             onClick={() => nextCheckpoint(false)}
           >
-            I am not nervious for the interviews. I just woke up early to
-            prepare extra.
+            I am not nervous for the interviews. I just woke up early to prepare
+            extra.
           </button>
           <button
             style={{
@@ -145,7 +144,7 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
             }}
             onClick={() => nextCheckpoint(true)}
           >
-            I've definitely been a little nervious. I want to do well and get at
+            I've definitely been a little nervous. I want to do well and get at
             least one of these jobs.
           </button>
         </div>

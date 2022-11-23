@@ -54,15 +54,15 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
           fontSize: "2vw",
         }}
       >
-        {game.isNervious ? (
+        {game.isNervous ? (
           counter === 0 ? (
             <OrangeSpan>
-              You are nervious after all. Don't stress. You have been preparing
+              You are nervous after all. Don't stress. You have been preparing
               all month!...{" "}
             </OrangeSpan>
           ) : (
             <span>
-              You are nervious after all. Don't stress. You have been preparing
+              You are nervous after all. Don't stress. You have been preparing
               all month!...{" "}
             </span>
           )
