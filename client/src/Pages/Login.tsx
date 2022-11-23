@@ -121,7 +121,7 @@ const Login = () => {
           <TitleScreenMenu player={player} url={url} setGameId={setGameId} />
         ) : userIsNewAndNeedsToSignUp ? (
           <>
-            <GameTitle>Data Collection Ethics Game</GameTitle>
+            <GameTitle>Dystocity: Job Hunt</GameTitle>
             <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer>
             <CreateAccountForm onSubmit={handleSignUp}>
               <RedInfoP>
@@ -147,7 +147,7 @@ const Login = () => {
           </>
         ) : (
           <>
-            <GameTitle>Data Collection Ethics Game</GameTitle>
+            <GameTitle>Dystocity: Job Hunt</GameTitle>
             <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer>
             <LoginPositionContainer>
               <GoogleLoginContainer>
@@ -163,6 +163,9 @@ const Login = () => {
                     checkIfUserExists(decoded.email);
                   }}
                   onError={() => console.log("Login Failed")}
+                  size="large"
+                  width="12%"
+                  theme="filled_black"
                 />
               </GoogleLoginContainer>
             </LoginPositionContainer>

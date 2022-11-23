@@ -52,7 +52,7 @@ export const LogoImage = styled.img`
   box-shadow: 0px 0px 50px 5px rgba(1, 43, 17, 0.788);
 `;
 export const GoogleLoginContainer = styled.div`
-  width: 12.5em;
+  width: 35.5em;
   /* margin: 0 auto; */
 `;
 export const EnterButton = styled.button`

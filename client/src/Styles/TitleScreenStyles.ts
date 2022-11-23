@@ -51,7 +51,7 @@ export const MenuButtonContinue = styled.button`
   right: 50%;
   top: 23em;
   font-size: 1vw;
-  background-color: orange;
+  background-color: lightsalmon;
   border: 1px solid white;
   border-radius: 15px;
   text-align: center;
@@ -70,7 +70,7 @@ export const MenuButtonContinueDisabled = styled.button`
   right: 50%;
   top: 23em;
   font-size: 1vw;
-  background-color: orange;
+  background-color: lightsalmon;
   border: 1px solid white;
   border-radius: 15px;
   text-align: center;
@@ -87,7 +87,7 @@ export const MenuButtonNewGame = styled.button`
   right: 50%;
   top: 26.5em;
   font-size: 1vw;
-  background-color: orange;
+  background-color: lightsalmon;
   border: 1px solid white;
   border-radius: 15px;
   text-align: center;
@@ -106,7 +106,7 @@ export const MenuButtonNewGameDisabled = styled.button`
   right: 50%;
   top: 26.5em;
   font-size: 1vw;
-  background-color: orange;
+  background-color: lightsalmon;
   border: 1px solid white;
   border-radius: 15px;
   text-align: center;
@@ -122,7 +122,7 @@ export const MenuButtonStats = styled.button`
   right: 50%;
   top: 30em;
   font-size: 1vw;
-  background-color: orange;
+  background-color: lightsalmon;
   border: 1px solid white;
   border-radius: 15px;
   text-align: center;
@@ -141,7 +141,7 @@ export const MenuButtonLeaderboards = styled.button`
   right: 50%;
   top: 33.5em;
   font-size: 1vw;
-  background-color: orange;
+  background-color: lightsalmon;
   border: 1px solid white;
   border-radius: 15px;
   text-align: center;
@@ -171,7 +171,7 @@ export const CreateAccountForm = styled.form`
   top: 30em;
   right: -5%;
   font-size: 1vw;
-  background-color: orange;
+  background-color: lightsalmon;
   border: 1px solid white;
   border-radius: 15px;
   text-align: left;
@@ -195,7 +195,7 @@ export const AuthorsContainer = styled.div`
   top: 7.5em;
   margin-left: 5%;
   font-size: 1.5vw;
-  color: orange;
+  color: lightsalmon;
 `;
 export const GameTitle = styled.h1`
   position: absolute;
@@ -203,7 +203,7 @@ export const GameTitle = styled.h1`
   top: 1em;
   margin-left: 5%;
   font-size: 3.5vw;
-  text-shadow: 1px 1px 8px #fff, 1px 1px 8px #ccc;
+  text-shadow: 1px 1px 4px lightsalmon, 1px 1px 4px lightsalmon;
 `;
 export const RelativeGameScene = styled.div`
   position: relative;

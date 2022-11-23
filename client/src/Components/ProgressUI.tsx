@@ -15,15 +15,15 @@ const PauseMenu = () => {
       style={{
         position: "fixed",
         top: "0",
-        left: "0",
+        left: "40%",
         zIndex: "101",
-        width: "10vw",
-        height: "5vw",
+        width: "20vw",
+        height: "2vw",
         textAlign: "center",
-        fontSize: "1.5vw",
+        fontSize: "1vw",
         backgroundColor: "#1a1d22",
-        border: "1px solid #0f1113",
-        // borderLeft: `${percentDone}% solid red`,
+        border: "2px solid #0f1113",
+        overflow: "hidden",
       }}
     >
       <div
@@ -33,16 +33,17 @@ const PauseMenu = () => {
           position: "absolute",
           backgroundColor: "green",
           float: "left",
+          border: "1px solid green",
         }}
       >
         <p
           style={{
             position: "fixed",
-            top: "0",
-            left: "0",
-            zIndex: "101",
-            width: "10vw",
-            height: "5vw",
+            marginTop: "0.25vw",
+            left: "40%",
+            zIndex: "102",
+            width: "20vw",
+            height: "1.2vw",
             textAlign: "center",
           }}
         >

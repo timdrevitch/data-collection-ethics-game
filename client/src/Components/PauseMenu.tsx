@@ -20,6 +20,7 @@ const PauseMenu = () => {
         style={{
           cursor: "pointer",
           listStyle: "none",
+          border: "2px solid #0f1113",
         }}
       >
         <div

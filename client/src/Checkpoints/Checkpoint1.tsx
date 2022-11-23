@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { OrangeSpan } from "../Styles/SharedStyles";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { NextButton, OrangeSpan } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   DarkFooter,
@@ -37,10 +38,10 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
         style={{
           position: "absolute",
           width: "100%",
-          top: ".01em",
+          top: "1em",
           textAlign: "center",
           fontSize: "3.5vw",
-          textShadow: "1px 1px 8px #fff, 1px 1px 8px #ccc",
+          textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
         }}
       >
         Checkpoint: {game.checkpoint}
@@ -52,6 +53,7 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
           top: "10em",
           marginLeft: "5%",
           fontSize: "2vw",
+          textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
         }}
       >
         {game.isNervous ? (
@@ -68,12 +70,12 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
           )
         ) : counter === 0 ? (
           <OrangeSpan>
-            It is good that you aren't nervious! You don't want to be stressed
+            It is good that you aren't nervous! You don't want to be stressed
             going into these interviews...{" "}
           </OrangeSpan>
         ) : (
           <span>
-            It is good that you aren't nervious! You don't want to be stressed
+            It is good that you aren't nervous! You don't want to be stressed
             going into these interviews...{" "}
           </span>
         )}
@@ -100,14 +102,10 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
           )
         ) : null}
         {counter === 2 ? null : (
-          <button
-            style={{
-              cursor: "pointer",
-            }}
-            onClick={() => setCounter(counter + 1)}
-          >
-            Next
-          </button>
+          <NextButton onClick={() => setCounter(counter + 1)}>
+            Next{" "}
+            <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
+          </NextButton>
         )}
       </div>
       {counter === 2 && (

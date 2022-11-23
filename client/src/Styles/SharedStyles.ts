@@ -1,4 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const shine = keyframes`
+    0% { box-shadow: 1px 0 25px 2px midnightblue; }
+    50% { box-shadow: 1px -8px 25px 2px skyblue; }
+    100% { box-shadow: 1px 0 25px 2px midnightblue; }
+`;
 
 //full site
 export const Indent = styled.hr`
@@ -11,7 +17,10 @@ export const LimeGreenSpan = styled.span`
   color: limegreen;
 `;
 export const OrangeSpan = styled.span`
-  color: orange;
+  color: lightsalmon;
+`;
+export const OrangeRedSpan = styled.span`
+  color: orangered;
 `;
 export const YellowSpan = styled.span`
   color: yellow;
@@ -31,4 +40,23 @@ export const RedSpan = styled.span`
 `;
 export const DarkRedSpan = styled.span`
   color: darkred;
+`;
+export const NextButton = styled.button`
+  cursor: pointer;
+  background-color: lightsalmon;
+  border: 1px solid white;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  width: 6vw;
+  height: 1.7vw;
+  vertical-align: middle;
+  transition: all 0.5s ease-in-out;
+  animation: ${shine} 1.5s infinite;
+  &:hover {
+    transition: all 0.5s ease-in-out;
+    background: white;
+    color: lightsalmon;
+    border: 1px solid lightsalmon;
+  }
 `;

@@ -68,7 +68,9 @@ const Game: FC = (): JSX.Element => {
           setRender={setRender}
         />
       )}
-      {game.checkpoint > 2 && <TheEnd url={url} playerId={player._id} />}
+      {game.checkpoint > 2 && (
+        <TheEnd url={url} playerId={player._id} game={game} />
+      )}
     </>
   );
 };

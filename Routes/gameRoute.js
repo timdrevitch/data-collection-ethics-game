@@ -46,6 +46,13 @@ router.route("/endgame/:id").put((req, res) => {
   });
 });
 
+//delete game
+router.route("/deletegame/:id").delete((req, res) => {
+  Game.findByIdAndDelete({ _id: req.params.id })
+    .then(res.json("Game removed from database."))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
 //update game to new checkpoint
 router.route("/nextcheckpoint/:id").put((req, res) => {
   Game.findById(req.params.id)

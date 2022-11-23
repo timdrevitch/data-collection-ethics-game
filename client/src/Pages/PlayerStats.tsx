@@ -37,10 +37,10 @@ const PlayerStats = () => {
           Games finished: <GreenSpan>{player.gamesFinished}</GreenSpan>
         </div>
         <div>
-          Endings reached:{" "}
+          Unique Endings reached:{" "}
           <GreenSpan>
-            {player.gamesFinished}/3 (
-            {((player.gamesFinished / 3) * 100).toFixed(2)}%)
+            {player.endingsReached}/3 (
+            {((player.endingsReached / 3) * 100).toFixed(2)}%)
           </GreenSpan>
         </div>
         <br />

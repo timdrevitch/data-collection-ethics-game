@@ -7,11 +7,15 @@ import {
   DarkFooter2,
 } from "../Styles/TitleScreenStyles";
 
-const TheEnd = ({ url, playerId }) => {
+const TheEnd = ({ url, playerId, game }) => {
   const navigate: NavigateFunction = useNavigate();
 
   const endGame = () => {
-    axios.put(`${url}/endgame/${playerId}`).then(() => navigate("/"));
+    axios
+      .put(`${url}/endgame/${playerId}`)
+      .then(() =>
+        axios.delete(`${url}/deletegame/${game._id}`).then(() => navigate("/"))
+      );
   };
 
   return (
@@ -30,7 +34,7 @@ const TheEnd = ({ url, playerId }) => {
           top: "2em",
           marginLeft: "5%",
           fontSize: "3.5vw",
-          textShadow: "1px 1px 8px #fff, 1px 1px 8px #ccc",
+          textShadow: "1px 1px 8px lightsalmon, 1px 1px 8px lightsalmon",
         }}
       >
         The End
