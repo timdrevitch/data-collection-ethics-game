@@ -29,7 +29,7 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
           height: "55vw",
         }}
         src={require("../Assets/Bedroom.png")}
-        alt="carimage"
+        alt="bedroomimage"
       />
       {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>

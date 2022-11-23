@@ -28,7 +28,7 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
           height: "55vw",
         }}
         src={require("../Assets/Bedroom.png")}
-        alt="carimage"
+        alt="bedroomimage"
       />
       {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
@@ -37,8 +37,8 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
         style={{
           position: "absolute",
           width: "100%",
-          top: "2em",
-          marginLeft: "5%",
+          top: ".01em",
+          textAlign: "center",
           fontSize: "3.5vw",
           textShadow: "1px 1px 8px #fff, 1px 1px 8px #ccc",
         }}
@@ -100,7 +100,14 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
           )
         ) : null}
         {counter === 2 ? null : (
-          <button onClick={() => setCounter(counter + 1)}>Next</button>
+          <button
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => setCounter(counter + 1)}
+          >
+            Next
+          </button>
         )}
       </div>
       {counter === 2 && (
