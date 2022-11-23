@@ -211,7 +211,7 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
               padding: "0 1.5em",
               color: "white",
             }}
-            // onClick={() => nextCheckpoint(false)}
+            onClick={nextCheckpoint}
           >
             You: "It sounds cool but I should keep studying more before I have
             to leave for the first interview today."
@@ -230,7 +230,7 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
               padding: "0 1.5em",
               color: "white",
             }}
-            // onClick={() => nextCheckpoint(true)}
+            onClick={nextCheckpoint}
           >
             You: "I know I have studied a lot already. I'll check it out. Maybe
             it'll be a good little distraction before this long day ahead!"
