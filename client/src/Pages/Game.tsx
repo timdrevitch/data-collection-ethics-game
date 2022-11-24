@@ -3,6 +3,7 @@ import { FC, useContext, useEffect, useState } from "react";
 import Checkpoint0 from "../Checkpoints/Checkpoint0";
 import Checkpoint1 from "../Checkpoints/Checkpoint1";
 import Checkpoint2 from "../Checkpoints/Checkpoint2";
+import Checkpoint3 from "../Checkpoints/Checkpoint3";
 import TheEnd from "../Checkpoints/TheEnd";
 import PauseMenu from "../Components/PauseMenu";
 import ProgressUI from "../Components/ProgressUI";
@@ -68,7 +69,15 @@ const Game: FC = (): JSX.Element => {
           setRender={setRender}
         />
       )}
-      {game.checkpoint > 2 && (
+      {game.checkpoint === 3 && (
+        <Checkpoint3
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint > 3 && (
         <TheEnd url={url} playerId={player._id} game={game} />
       )}
     </>

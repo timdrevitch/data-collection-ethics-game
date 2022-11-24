@@ -4,10 +4,8 @@ import { NextButton, OrangeSpan, YellowSpan } from "../Styles/SharedStyles";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import {
   BackgroundImage,
-  CityGif,
   DarkFooter,
   DarkFooter2,
-  PhoneImage,
 } from "../Styles/TitleScreenStyles";
 
 const Checkpoint2 = ({ url, game, render, setRender }) => {
@@ -17,8 +15,9 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
     console.log(counter);
   }, [counter, setCounter]);
 
-  const nextCheckpoint = () => {
-    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
+  const nextCheckpoint = (isHesitantChoice: boolean) => {
+    let data = { isHesitantChoice: isHesitantChoice };
+    axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
       setRender(!render);
     });
   };
@@ -209,7 +208,7 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
               padding: "0 1.5em",
               color: "white",
             }}
-            onClick={nextCheckpoint}
+            onClick={() => nextCheckpoint(true)}
           >
             You: "It sounds cool but I should keep studying more before I have
             to leave for the first interview today."
@@ -228,7 +227,7 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
               padding: "0 1.5em",
               color: "white",
             }}
-            onClick={nextCheckpoint}
+            onClick={() => nextCheckpoint(false)}
           >
             You: "I know I have studied a lot already. I'll check it out. Maybe
             it'll be a good little distraction before this long day ahead!"

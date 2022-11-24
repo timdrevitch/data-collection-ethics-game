@@ -19,6 +19,9 @@ const gameSchema = new mongoose.Schema(
     isNervous: {
       type: Boolean,
     },
+    isHesitant: {
+      type: Boolean,
+    },
   },
   { timestamps: true }
 );
