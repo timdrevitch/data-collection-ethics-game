@@ -8,7 +8,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { IPlayer } from "../Interfaces/IPlayer";
-import { OrangeSpan } from "../Styles/SharedStyles";
+import { GraySpan, OrangeSpan } from "../Styles/SharedStyles";
 
 const Leaderboards = () => {
   const { url, player, setPlayer } = useContext(Context);
@@ -61,47 +61,47 @@ const Leaderboards = () => {
                 (player._id === playerFinished._id ? (
                   <tr
                     key={playerFinished._id}
-                    style={{ color: "white", backgroundColor: "#ffffff11" }}
+                    style={{ color: "white", backgroundColor: "#f4f5af6f" }}
                   >
                     <td>
                       {index === 0 ? (
                         <span style={{ color: "gold" }}>
-                          {ordinal(index + 1)}
+                          <strong>{ordinal(index + 1)}</strong>
                         </span>
                       ) : index === 1 ? (
-                        <span style={{ color: "silver" }}>
-                          {ordinal(index + 1)}
+                        <span style={{ color: "#999898" }}>
+                          <strong>{ordinal(index + 1)}</strong>
                         </span>
                       ) : index === 2 ? (
-                        <span style={{ color: "bronze" }}>
-                          {ordinal(index + 1)}
+                        <span style={{ color: "#b44848" }}>
+                          <strong>{ordinal(index + 1)}</strong>
                         </span>
                       ) : (
                         <>{ordinal(index + 1)}</>
                       )}
                     </td>
                     <td>
-                      {playerFinished.playername}{" "}
-                      <OrangeSpan>({playerFinished.fullname})</OrangeSpan>
+                      {playerFinished.playername} ({playerFinished.fullname})
                     </td>
-                    <td>
-                      <OrangeSpan>{playerFinished.gamesFinished}</OrangeSpan>
-                    </td>
+                    <td>{playerFinished.gamesFinished}</td>
                   </tr>
-                ) : (
-                  <tr key={playerFinished._id}>
+                ) : index % 2 === 0 ? (
+                  <tr
+                    key={playerFinished._id}
+                    style={{ backgroundColor: "#ffffff11" }}
+                  >
                     <td>
                       {index === 0 ? (
                         <span style={{ color: "gold" }}>
-                          {ordinal(index + 1)}
+                          <strong>{ordinal(index + 1)}</strong>
                         </span>
                       ) : index === 1 ? (
-                        <span style={{ color: "#817f7f" }}>
-                          {ordinal(index + 1)}
+                        <span style={{ color: "#999898" }}>
+                          <strong>{ordinal(index + 1)}</strong>
                         </span>
                       ) : index === 2 ? (
                         <span style={{ color: "#b44848" }}>
-                          {ordinal(index + 1)}
+                          <strong>{ordinal(index + 1)}</strong>
                         </span>
                       ) : (
                         ordinal(index + 1)
@@ -109,7 +109,32 @@ const Leaderboards = () => {
                     </td>
                     <td>
                       {playerFinished.playername}{" "}
-                      <OrangeSpan>({playerFinished.fullname})</OrangeSpan>
+                      <GraySpan>({playerFinished.fullname})</GraySpan>
+                    </td>
+                    <td>{playerFinished.gamesFinished}</td>
+                  </tr>
+                ) : (
+                  <tr key={playerFinished._id}>
+                    <td>
+                      {index === 0 ? (
+                        <span style={{ color: "gold" }}>
+                          <strong>{ordinal(index + 1)}</strong>
+                        </span>
+                      ) : index === 1 ? (
+                        <span style={{ color: "#999898" }}>
+                          <strong>{ordinal(index + 1)}</strong>
+                        </span>
+                      ) : index === 2 ? (
+                        <span style={{ color: "#b44848" }}>
+                          <strong>{ordinal(index + 1)}</strong>
+                        </span>
+                      ) : (
+                        ordinal(index + 1)
+                      )}
+                    </td>
+                    <td>
+                      {playerFinished.playername}{" "}
+                      <GraySpan>({playerFinished.fullname})</GraySpan>
                     </td>
                     <td>{playerFinished.gamesFinished}</td>
                   </tr>
@@ -126,32 +151,29 @@ const Leaderboards = () => {
                 player._id === playerFinished._id && (
                   <tr
                     key={playerFinished._id}
-                    style={{ color: "white", backgroundColor: "#ffffff11" }}
+                    style={{ color: "white", backgroundColor: "#f4f5af6f" }}
                   >
                     <td>
                       {index === 0 ? (
                         <span style={{ color: "gold" }}>
-                          {ordinal(index + 1)}
+                          <strong>{ordinal(index + 1)}</strong>
                         </span>
                       ) : index === 1 ? (
-                        <span style={{ color: "silver" }}>
-                          {ordinal(index + 1)}
+                        <span style={{ color: "#999898" }}>
+                          <strong>{ordinal(index + 1)}</strong>
                         </span>
                       ) : index === 2 ? (
-                        <span style={{ color: "bronze" }}>
-                          {ordinal(index + 1)}
+                        <span style={{ color: "#b44848" }}>
+                          <strong>{ordinal(index + 1)}</strong>
                         </span>
                       ) : (
                         ordinal(index + 1)
                       )}
                     </td>
                     <td>
-                      {playerFinished.playername}{" "}
-                      <OrangeSpan>({playerFinished.fullname})</OrangeSpan>
+                      {playerFinished.playername} ({playerFinished.fullname})
                     </td>
-                    <td>
-                      <OrangeSpan>{playerFinished.gamesFinished}</OrangeSpan>
-                    </td>
+                    <td>{playerFinished.gamesFinished}</td>
                   </tr>
                 )
             )}
