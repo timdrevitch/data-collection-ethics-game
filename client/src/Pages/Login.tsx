@@ -18,13 +18,14 @@ import {
   DarkFooter,
   DarkFooter2,
   GameTitle,
-  PhoneImage,
   RedInfoP,
   RelativeGameScene,
 } from "../Styles/TitleScreenStyles";
 import TitleScreenMenu from "../Components/TitleScreenMenu";
 
 const Login = () => {
+  const Filter = require("bad-words");
+  const filter = new Filter();
   const {
     userEmail,
     setUserEmail,
@@ -88,6 +89,7 @@ const Login = () => {
     let joinDateString: string = `${
       current.getMonth() + 1
     }/${current.getDate()}/${current.getFullYear()}`;
+    let censoredName = filter.clean(playerName);
 
     axios
       .post(`${url}/players/createplayer`, {
@@ -97,7 +99,7 @@ const Login = () => {
         lastname: userLastName,
         image: userImage,
         joinDateString: joinDateString,
-        playername: playerName,
+        playername: censoredName,
       })
       .then((response) => {
         console.log(response.data);
