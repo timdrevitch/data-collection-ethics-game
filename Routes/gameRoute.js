@@ -10,9 +10,20 @@ router.route("/:id").delete((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-//get all players
-router.route("/").get((req, res) => {
+//get top ten players (games finished)
+router.route("/players/gamesfinished").get((req, res) => {
   Player.find()
+    .sort({ gamesFinished: -1 })
+    .limit(10)
+    .then((Player) => res.json(Player))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+//get top ten players (endings reached)
+router.route("/players/endingsreached").get((req, res) => {
+  Player.find()
+    .sort({ endingsReached: -1 })
+    .limit(10)
     .then((Player) => res.json(Player))
     .catch((err) => res.status(400).json("Error: " + err));
 });

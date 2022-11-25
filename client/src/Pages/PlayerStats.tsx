@@ -52,7 +52,9 @@ const PlayerStats = () => {
           </GreenSpan>
         </div>
         <br />
-        <button onClick={() => navigate("/")}>Back</button>
+        <button style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
+          Back
+        </button>
       </div>
     </>
   );

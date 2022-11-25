@@ -71,8 +71,15 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
       >
         Profile
       </MenuButtonStats>
-      <MenuButtonLeaderboards disabled>
-        Leaderboards (coming soon)
+      <MenuButtonLeaderboards
+        style={{ opacity: "100%" }}
+        onClick={() =>
+          navigate(`./leaderboards/${player._id}`, {
+            state: { id: player._id },
+          })
+        }
+      >
+        Leaderboards
       </MenuButtonLeaderboards>
     </>
   );

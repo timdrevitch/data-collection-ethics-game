@@ -135,6 +135,7 @@ export const MenuButtonStats = styled.button`
   }
 `;
 export const MenuButtonLeaderboards = styled.button`
+  cursor: pointer;
   position: absolute;
   width: 12%;
   height: 4%;
@@ -146,8 +147,11 @@ export const MenuButtonLeaderboards = styled.button`
   border-radius: 15px;
   text-align: center;
   color: white;
-  opacity: 50%;
   animation: ${riseLeaderboards} 2s 1;
+  &:hover {
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 10px purple;
+  }
 `;
 export const CreateAccountButton = styled.button`
   background-color: purple;

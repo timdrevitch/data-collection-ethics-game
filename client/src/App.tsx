@@ -6,6 +6,7 @@ import { IPlayer } from "./Interfaces/IPlayer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PlayerStats from "./Pages/PlayerStats";
 import Game from "./Pages/Game";
+import Leaderboards from "./Pages/Leaderboards";
 
 const App: FC = (): JSX.Element => {
   const [url, setUrl] = useState<string>(
@@ -51,6 +52,7 @@ const App: FC = (): JSX.Element => {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/playerstats/:id" element={<PlayerStats />} />
+          <Route path="/leaderboards/:id" element={<Leaderboards />} />
           <Route path="/game/:id" element={<Game />} />
         </Routes>
       </Context.Provider>
