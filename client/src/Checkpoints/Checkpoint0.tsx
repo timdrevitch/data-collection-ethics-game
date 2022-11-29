@@ -15,6 +15,13 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
     console.log(counter);
   }, [counter, setCounter]);
 
+  document.addEventListener("keydown", function (event) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 3) {
+      console.log(event.key);
+      setCounter(counter + 1);
+    }
+  });
+
   const nextCheckpoint = (nervousChoice: boolean) => {
     let data = { nervousChoice: nervousChoice };
     axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {

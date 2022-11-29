@@ -4,7 +4,7 @@ import { LimeGreenSpan } from "../Styles/SharedStyles";
 
 const PauseMenu = () => {
   const { game } = useContext(Context);
-  const TOTAL_CHECKPOINTS: number = 5;
+  const TOTAL_CHECKPOINTS: number = 6;
   const percentDone: number = +(
     (game.checkpoint / TOTAL_CHECKPOINTS) *
     100
@@ -47,7 +47,7 @@ const PauseMenu = () => {
             textAlign: "center",
           }}
         >
-          <LimeGreenSpan>{percentDone}%</LimeGreenSpan>
+          <LimeGreenSpan>Progress: {percentDone}%</LimeGreenSpan>
         </p>
       </div>
     </div>

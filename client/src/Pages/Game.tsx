@@ -5,6 +5,7 @@ import Checkpoint1 from "../Checkpoints/Checkpoint1";
 import Checkpoint2 from "../Checkpoints/Checkpoint2";
 import Checkpoint3 from "../Checkpoints/Checkpoint3";
 import Checkpoint4 from "../Checkpoints/Checkpoint4";
+import Checkpoint5 from "../Checkpoints/Checkpoint5";
 import TheEnd from "../Checkpoints/TheEnd";
 import PauseMenu from "../Components/PauseMenu";
 import ProgressUI from "../Components/ProgressUI";
@@ -86,7 +87,15 @@ const Game: FC = (): JSX.Element => {
           setRender={setRender}
         />
       )}
-      {game.checkpoint > 4 && (
+      {game.checkpoint === 5 && (
+        <Checkpoint5
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint > 5 && (
         <TheEnd url={url} playerId={player._id} game={game} />
       )}
     </>

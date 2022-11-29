@@ -1,5 +1,6 @@
 import axios from "axios";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { GreenSpan } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   CityGif,
@@ -31,14 +32,26 @@ const TheEnd = ({ url, playerId, game }) => {
         style={{
           position: "absolute",
           width: "100%",
-          top: "2em",
-          marginLeft: "5%",
+          top: "1em",
+          textAlign: "center",
           fontSize: "3.5vw",
-          textShadow: "1px 1px 8px lightsalmon, 1px 1px 8px lightsalmon",
+          textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
         }}
       >
-        The End
+        Congradulations! You reached the end of the game!
       </h1>
+      <h2
+        style={{
+          position: "absolute",
+          width: "100%",
+          top: "5em",
+          textAlign: "center",
+          fontSize: "2vw",
+          textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
+        }}
+      >
+        You got the <GreenSpan>bad</GreenSpan>/average/good ending!
+      </h2>
       <button
         style={{
           cursor: "pointer",

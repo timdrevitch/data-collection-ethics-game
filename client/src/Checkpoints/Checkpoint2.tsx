@@ -12,8 +12,15 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
-    console.log(counter);
+    console.log(counter + " useEffect");
   }, [counter, setCounter]);
+
+  document.addEventListener("keydown", function (event) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 5) {
+      console.log(event.key + " eventListener");
+      setCounter(counter + 1);
+    }
+  });
 
   const nextCheckpoint = (isHesitantChoice: boolean) => {
     let data = { isHesitantChoice: isHesitantChoice };

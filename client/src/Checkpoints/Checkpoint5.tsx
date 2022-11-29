@@ -12,7 +12,7 @@ import {
   WelcomePlayerContainer,
 } from "../Styles/TitleScreenStyles";
 
-const Checkpoint4 = ({ url, game, render, setRender }) => {
+const Checkpoint5 = ({ url, game, render, setRender }) => {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 3) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
@@ -42,7 +42,7 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
         src={require("../Assets/Bedroom.png")}
         alt="bedroomimage"
       />
-      <PhoneImage src={require("../Assets/phoneBg.png")} alt="phone" />
+      {/* <PhoneImage src={require("../Assets/phoneBg.png")} alt="phone" />
       <WelcomePlayerContainer
         style={{
           right: "27%",
@@ -89,7 +89,7 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
         }}
       >
         Download
-      </PlayerSinceContainer>
+      </PlayerSinceContainer> */}
       {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
@@ -109,47 +109,110 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
         style={{
           position: "absolute",
           width: "90%",
-          top: "13em",
+          top: "10em",
           marginLeft: "5%",
           fontSize: "2vw",
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
         }}
       >
         {counter === 0 ? (
-          <OrangeSpan>The link brought you to the app store... </OrangeSpan>
+          <OrangeSpan>Nice! Dystogram is downloaded... </OrangeSpan>
         ) : (
-          <span>The link brought you to the app store... </span>
+          <span>Nice! Dystogram is downloaded... </span>
         )}
         {counter >= 1 ? (
-          counter === 1 ? (
-            <OrangeSpan>
-              To an app called Dystogram. It looks like some of the other apps
-              you have already!...{" "}
-            </OrangeSpan>
-          ) : (
-            <span>
-              To an app called Dystogram. It looks like some of the other apps
-              you have already!...{" "}
-            </span>
-          )
+          <>
+            {game.isHesitant ? (
+              counter === 1 ? (
+                <OrangeSpan>
+                  You've been very focused on preparing for your interviews and
+                  you want to keep preparing...{" "}
+                </OrangeSpan>
+              ) : (
+                <span>
+                  You've been very focused on preparing for your interviews and
+                  you want to keep preparing...{" "}
+                </span>
+              )
+            ) : counter === 1 ? (
+              <OrangeSpan>
+                Now that you have it, you should check it out! Add Allen on
+                it!...{" "}
+              </OrangeSpan>
+            ) : (
+              <span>
+                Now that you have it, you should check it out! Add Allen on
+                it!...{" "}
+              </span>
+            )}
+          </>
         ) : null}
         {counter >= 2 ? (
-          counter === 2 ? (
-            <OrangeSpan>
-              5/5 stars! That's cool! Press the download button...{" "}
-            </OrangeSpan>
-          ) : (
-            <span>5/5 stars! That's cool! Press the download button... </span>
-          )
+          <>
+            {game.isHesitant ? (
+              counter === 2 ? (
+                <OrangeSpan>
+                  Keep studying! Maybe you can check out the app in the car on
+                  the way to the first interview. After you are done preparing
+                  more, head to your first interview!...{" "}
+                </OrangeSpan>
+              ) : (
+                <span>
+                  Keep studying! Maybe you can check out the app in the car on
+                  the way to the first interview. After you are done preparing
+                  more, head to your first interview!...{" "}
+                </span>
+              )
+            ) : counter === 2 ? (
+              <OrangeSpan>
+                Time flew by! How is it already time to leave for your first
+                interview? Check out the app in the car on the way!...{" "}
+              </OrangeSpan>
+            ) : (
+              <span>
+                Time flew by! How is it already time to leave for your first
+                interview? Check out the app in the car on the way!...{" "}
+              </span>
+            )}
+          </>
         ) : null}
-        {counter === 2 ? null : (
+        {counter >= 3 ? (
+          <>
+            {game.isHesitant ? (
+              counter === 3 ? (
+                <OrangeSpan>
+                  It's going to be starting soon and you don't want to be late.
+                  Good thing you have one of those self-driving cars so you can
+                  use your phone on the way!...{" "}
+                </OrangeSpan>
+              ) : (
+                <span>
+                  It's going to be starting soon and you don't want to be late.
+                  Good thing you have one of those self-driving cars so you can
+                  use your phone on the way!...{" "}
+                </span>
+              )
+            ) : counter === 3 ? (
+              <OrangeSpan>
+                Good thing you have one of those self-driving cars so you are
+                able to go on your phone on the way!...{" "}
+              </OrangeSpan>
+            ) : (
+              <span>
+                Good thing you have one of those self-driving cars so you are
+                able to go on your phone on the way!...{" "}
+              </span>
+            )}
+          </>
+        ) : null}
+        {counter === 3 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 2 && (
+      {counter === 3 && (
         <div
           style={{
             position: "absolute",
@@ -181,7 +244,7 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
             }}
             onClick={nextCheckpoint}
           >
-            Download Dystogram.
+            Get in your car and head to your first interview.
           </button>
         </div>
       )}
@@ -189,4 +252,4 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
   );
 };
 
-export default Checkpoint4;
+export default Checkpoint5;
