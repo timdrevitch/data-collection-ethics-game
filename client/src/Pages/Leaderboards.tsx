@@ -140,7 +140,6 @@ const Leaderboards = () => {
                   </tr>
                 ))
             )}
-            <br />
             <tr style={{ color: "white", backgroundColor: "#ffffff2d" }}>
               <td>Your Rank (out of {playersFinished.length})</td>
               <td></td>
