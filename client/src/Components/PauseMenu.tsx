@@ -6,7 +6,7 @@ import { GreenSpan } from "../Styles/SharedStyles";
 const PauseMenu = () => {
   const { game } = useContext(Context);
   const navigate = useNavigate();
-  const TOTAL_CHECKPOINTS: number = 3;
+  const TOTAL_CHECKPOINTS: number = 12;
   return (
     <details
       style={{

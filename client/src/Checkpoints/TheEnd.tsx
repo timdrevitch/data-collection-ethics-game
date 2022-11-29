@@ -1,6 +1,6 @@
 import axios from "axios";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import { GreenSpan } from "../Styles/SharedStyles";
+import { GreenSpan, OrangeSpan, RedSpan } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   CityGif,
@@ -50,7 +50,15 @@ const TheEnd = ({ url, playerId, game }) => {
           textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
         }}
       >
-        You got the <GreenSpan>bad</GreenSpan>/average/good ending!
+        You got the{" "}
+        {!game.isHesitant && !game.readTerms ? (
+          <RedSpan>BAD</RedSpan>
+        ) : !game.isHesitant || !game.readTerms ? (
+          <OrangeSpan>AVERAGE</OrangeSpan>
+        ) : game.isHesitant && game.readTerms ? (
+          <GreenSpan>GREAT</GreenSpan>
+        ) : null}{" "}
+        ending!
       </h2>
       <button
         style={{

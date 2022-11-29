@@ -14,6 +14,10 @@ const risePlayer = keyframes`
     0% {top: 23em}
     100% {top: 14em}
 `;
+const riseDystogram = keyframes`
+    0% {top: 23em}
+    100% {top: 23.7%}
+`;
 const risePlayerSince = keyframes`
     0% {top: 32em}
     100% {top: 20em}
@@ -228,12 +232,29 @@ export const WelcomePlayerContainer = styled.div`
   color: #1a1d22;
   animation: ${risePlayer} 2s 1;
 `;
+export const DystContainer = styled.div`
+  position: absolute;
+  height: 29em;
+  width: 14em;
+  top: 14em;
+  right: 34%;
+  font-size: 1.3vw;
+  text-align: left;
+  color: #1a1d22;
+  animation: ${riseDystogram} 2s 1;
+`;
 export const PlayerImage = styled.img`
   display: inline-block;
   width: 1.2em;
   border-radius: 100%;
   vertical-align: bottom;
   animation: ${risePlayer} 2s 1;
+`;
+export const DystrogramImage = styled.img`
+  display: inline-block;
+  width: 1.2em;
+  vertical-align: bottom;
+  animation: ${riseDystogram} 2s 1;
 `;
 export const PlayerSinceContainer = styled.div`
   position: absolute;

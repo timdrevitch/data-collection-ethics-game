@@ -2,10 +2,16 @@ import axios from "axios";
 import { FC, useContext, useEffect, useState } from "react";
 import Checkpoint0 from "../Checkpoints/Checkpoint0";
 import Checkpoint1 from "../Checkpoints/Checkpoint1";
+import Checkpoint10 from "../Checkpoints/Checkpoint10";
+import Checkpoint11 from "../Checkpoints/Checkpoint11";
 import Checkpoint2 from "../Checkpoints/Checkpoint2";
 import Checkpoint3 from "../Checkpoints/Checkpoint3";
 import Checkpoint4 from "../Checkpoints/Checkpoint4";
 import Checkpoint5 from "../Checkpoints/Checkpoint5";
+import Checkpoint6 from "../Checkpoints/Checkpoint6";
+import Checkpoint7 from "../Checkpoints/Checkpoint7";
+import Checkpoint8 from "../Checkpoints/Checkpoint8";
+import Checkpoint9 from "../Checkpoints/Checkpoint9";
 import TheEnd from "../Checkpoints/TheEnd";
 import PauseMenu from "../Components/PauseMenu";
 import ProgressUI from "../Components/ProgressUI";
@@ -95,7 +101,56 @@ const Game: FC = (): JSX.Element => {
           setRender={setRender}
         />
       )}
-      {game.checkpoint > 5 && (
+      {game.checkpoint === 6 && (
+        <Checkpoint6
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint === 7 && (
+        <Checkpoint7
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint === 8 && (
+        <Checkpoint8
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint === 9 && (
+        <Checkpoint9
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint === 10 && (
+        <Checkpoint10
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+          player={player}
+        />
+      )}
+      {game.checkpoint === 11 && (
+        <Checkpoint11
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint > 11 && (
         <TheEnd url={url} playerId={player._id} game={game} />
       )}
     </>

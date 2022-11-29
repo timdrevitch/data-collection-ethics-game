@@ -75,6 +75,9 @@ router.route("/nextcheckpoint/:id").put((req, res) => {
       if (req.body.isHesitantChoice !== undefined) {
         Game.isHesitant = req.body.isHesitantChoice;
       }
+      if (req.body.readTermsChoice !== undefined) {
+        Game.readTerms = req.body.readTermsChoice;
+      }
       Game.save()
         .then(() => res.json("Next checkpoint."))
         .catch((err) =>

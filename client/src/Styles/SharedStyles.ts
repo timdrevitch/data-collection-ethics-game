@@ -48,8 +48,8 @@ export const NextButton = styled.button`
   border-radius: 15px;
   text-align: center;
   color: white;
-  width: 6vw;
-  height: 1.7vw;
+  min-width: 6vw;
+  min-height: 1.7vw;
   vertical-align: middle;
   transition: all 0.5s ease-in-out;
   animation: ${shine} 1.5s infinite;

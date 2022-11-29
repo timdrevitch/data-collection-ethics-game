@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { Context } from "../Shared/Context";
-import { LimeGreenSpan } from "../Styles/SharedStyles";
+import { LimeGreenSpan, OrangeSpan, RedSpan } from "../Styles/SharedStyles";
 
 const PauseMenu = () => {
   const { game } = useContext(Context);
-  const TOTAL_CHECKPOINTS: number = 6;
+  const TOTAL_CHECKPOINTS: number = 12;
   const percentDone: number = +(
     (game.checkpoint / TOTAL_CHECKPOINTS) *
     100
@@ -47,7 +47,13 @@ const PauseMenu = () => {
             textAlign: "center",
           }}
         >
-          <LimeGreenSpan>Progress: {percentDone}%</LimeGreenSpan>
+          {percentDone < 50 ? (
+            <RedSpan>Progress: {percentDone}%</RedSpan>
+          ) : percentDone < 75 ? (
+            <OrangeSpan>Progress: {percentDone}%</OrangeSpan>
+          ) : (
+            <LimeGreenSpan>Progress: {percentDone}%</LimeGreenSpan>
+          )}
         </p>
       </div>
     </div>
