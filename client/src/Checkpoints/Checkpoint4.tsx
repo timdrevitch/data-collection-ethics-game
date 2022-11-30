@@ -17,7 +17,7 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
 
   useEffect(() => {
     console.log(counter);
-    console.log(game.isNervious);
+    console.log(game.isNervous);
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {

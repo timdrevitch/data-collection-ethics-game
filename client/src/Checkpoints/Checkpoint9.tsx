@@ -18,7 +18,7 @@ const Checkpoint9 = ({ url, game, render, setRender }) => {
 
   useEffect(() => {
     console.log(counter);
-    console.log(game.isNervious);
+    console.log(game.isNervous);
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
@@ -140,27 +140,27 @@ const Checkpoint9 = ({ url, game, render, setRender }) => {
         ) : null}
         {counter >= 2 ? (
           <>
-            {game.isNervious ? (
+            {game.isNervous ? (
               counter === 2 ? (
                 <OrangeSpan>
-                  You were nervious this morning, but you are definitely going
-                  to do great! Don't be stressed!...{" "}
+                  You were nervous this morning, but you are definitely going to
+                  do great! Don't be stressed!...{" "}
                 </OrangeSpan>
               ) : (
                 <span>
-                  You were nervious this morning, but you are definitely going
-                  to do great! Don't be stressed!...{" "}
+                  You were nervous this morning, but you are definitely going to
+                  do great! Don't be stressed!...{" "}
                 </span>
               )
             ) : counter === 2 ? (
               <OrangeSpan>
-                You weren't nervious this morning, and you still don't look
-                nervious, you'll do great!...{" "}
+                You weren't nervous this morning, and you still don't look
+                nervous, you'll do great!...{" "}
               </OrangeSpan>
             ) : (
               <span>
-                You weren't nervious this morning, and you still don't look
-                nervious, you'll do great!...{" "}
+                You weren't nervous this morning, and you still don't look
+                nervous, you'll do great!...{" "}
               </span>
             )}
           </>
