@@ -132,6 +132,7 @@ const Login = () => {
               </RedInfoP>
               <CreateAccountInput
                 required
+                maxlength="20"
                 type="text"
                 placeholder="Enter any player name here..."
                 value={playerName}

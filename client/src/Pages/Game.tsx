@@ -4,6 +4,8 @@ import Checkpoint0 from "../Checkpoints/Checkpoint0";
 import Checkpoint1 from "../Checkpoints/Checkpoint1";
 import Checkpoint10 from "../Checkpoints/Checkpoint10";
 import Checkpoint11 from "../Checkpoints/Checkpoint11";
+import Checkpoint12 from "../Checkpoints/Checkpoint12";
+import Checkpoint13 from "../Checkpoints/Checkpoint13";
 import Checkpoint2 from "../Checkpoints/Checkpoint2";
 import Checkpoint3 from "../Checkpoints/Checkpoint3";
 import Checkpoint4 from "../Checkpoints/Checkpoint4";
@@ -150,7 +152,23 @@ const Game: FC = (): JSX.Element => {
           setRender={setRender}
         />
       )}
-      {game.checkpoint > 11 && (
+      {game.checkpoint === 12 && (
+        <Checkpoint12
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint === 13 && (
+        <Checkpoint13
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint > 13 && (
         <TheEnd url={url} playerId={player._id} game={game} />
       )}
     </>
