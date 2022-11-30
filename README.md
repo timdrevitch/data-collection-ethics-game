@@ -5,7 +5,7 @@
 <h1 align="center"><em>Dystocity: Job Hunt</em></h1>
 <p align="center">WPI Master's Degree (MS) Thesis Project (2022-23)</p>
 
-https://img.shields.io/github/contributors/timdrevitch/data-collection-ethics-game
+![GitHub contributors](https://img.shields.io/github/contributors/timdrevitch/data-collection-ethics-game)
 
 > This game aims to double as a didactic learning tool and an interactive experience.   After playing through the 
 > game, the goal is for players to have had to think critically about how they share their personal data and how
