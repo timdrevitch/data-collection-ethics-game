@@ -21,7 +21,6 @@ export const LoginPositionContainer = styled.div`
   font-size: 1.5vw;
   color: orange;
   /* border: 1px solid red; */
-
   animation: ${shine} 1.5s infinite;
 `;
 export const LoadingText = styled.div`
