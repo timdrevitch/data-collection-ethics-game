@@ -123,7 +123,9 @@ const Login = () => {
           <TitleScreenMenu player={player} url={url} setGameId={setGameId} />
         ) : userIsNewAndNeedsToSignUp ? (
           <>
-            <GameTitle>Dystocity: Job Hunt</GameTitle>
+            <GameTitle>
+              <em>Dystocity: Job Hunt</em>
+            </GameTitle>
             <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer>
             <CreateAccountForm onSubmit={handleSignUp}>
               <RedInfoP>
@@ -150,7 +152,9 @@ const Login = () => {
           </>
         ) : (
           <>
-            <GameTitle>Dystocity: Job Hunt</GameTitle>
+            <GameTitle>
+              <em>Dystocity: Job Hunt</em>
+            </GameTitle>
             <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer>
             <LoginPositionContainer>
               <GoogleLoginContainer>

@@ -6,15 +6,23 @@ const blink = keyframes`
     50% {opacity: 0%}
     100% {opacity: 100%}
 `;
+const shine = keyframes`
+    0% { box-shadow: 1px 0 25px 2px midnightblue; }
+    50% { box-shadow: 1px -8px 25px 2px skyblue; }
+    100% { box-shadow: 1px 0 25px 2px midnightblue; }
+`;
 
 //Login
 export const LoginPositionContainer = styled.div`
   position: absolute;
-  width: 40%;
+  width: 222px;
   top: 10em;
   margin-left: 5%;
   font-size: 1.5vw;
   color: orange;
+  /* border: 1px solid red; */
+
+  animation: ${shine} 1.5s infinite;
 `;
 export const LoadingText = styled.div`
   width: 80%;
