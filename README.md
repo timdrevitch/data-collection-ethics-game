@@ -8,7 +8,7 @@
 <div align="center">
   
 <a href="https://github.com/timdrevitch/data-collection-ethics-game/graphs/contributors">![GitHub contributors](https://img.shields.io/github/contributors/timdrevitch/data-collection-ethics-game)</a>
-<a href="">![GitHub issues](https://img.shields.io/github/issues-raw/timdrevitch/data-collection-ethics-game)</a>
+<a href="https://github.com/timdrevitch/data-collection-ethics-game/issues">![GitHub issues](https://img.shields.io/github/issues-raw/timdrevitch/data-collection-ethics-game)</a>
 <a href="">![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/timdrevitch/data-collection-ethics-game)</a>
 <a href="">![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/timdrevitch/data-collection-ethics-game)</a>
 <a href="">![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/timdrevitch/data-collection-ethics-game)</a>
