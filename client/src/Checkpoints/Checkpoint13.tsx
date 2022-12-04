@@ -60,7 +60,7 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
         style={{
           position: "absolute",
           width: "90%",
-          top: "8em",
+          top: "6em",
           marginLeft: "5%",
           fontSize: "2vw",
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",

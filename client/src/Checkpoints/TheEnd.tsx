@@ -38,7 +38,7 @@ const TheEnd = ({ url, playerId, game }) => {
           textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
         }}
       >
-        Congradulations! You reached the end of the game!
+        Congratulations! You reached the end of the game!
       </h1>
       <h2
         style={{

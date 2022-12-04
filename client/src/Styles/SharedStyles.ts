@@ -38,6 +38,9 @@ export const RedItalicSpan = styled.span`
 export const RedSpan = styled.span`
   color: red;
 `;
+export const BlueSpan = styled.span`
+  color: blue;
+`;
 export const DarkRedSpan = styled.span`
   color: darkred;
 `;
