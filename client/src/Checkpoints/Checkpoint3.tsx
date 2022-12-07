@@ -30,166 +30,191 @@ const Checkpoint3 = ({ url, game, render, setRender }) => {
   };
 
   return (
-    <div style={{ position: "relative" }}>
-      <BackgroundImage
+    <>
+      <img
         style={{
-          height: "55vw",
+          // position: "fixed",
+          // fontSize: "1vw",
+          // height: "20vw",
+          // zIndex: "101",
+          // marginTop: "21.7em",
+          // marginLeft: "53em",
+          opacity: "80%",
+          position: "absolute",
+          zIndex: "101",
+          width: "30%",
+          top: "13.5em",
+          marginLeft: "51.5%",
+          fontSize: "1.5vw",
         }}
-        src={require("../Assets/Bedroom.png")}
-        alt="bedroomimage"
+        src={require("../Assets/catGif3.gif")}
+        alt="cat"
       />
-      {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
-      <DarkFooter></DarkFooter>
-      <DarkFooter2></DarkFooter2>
-      <h1
-        style={{
-          position: "absolute",
-          width: "100%",
-          top: "1em",
-          textAlign: "center",
-          fontSize: "3.5vw",
-          textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
-        }}
-      >
-        Checkpoint: {game.checkpoint}
-      </h1>
-      <div
-        style={{
-          position: "absolute",
-          width: "90%",
-          top: "10em",
-          marginLeft: "5%",
-          fontSize: "2vw",
-          textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
-        }}
-      >
-        {game.isHesitant ? (
-          counter === 0 ? (
+      <div style={{ position: "relative" }}>
+        <BackgroundImage
+          style={{
+            height: "55vw",
+          }}
+          src={require("../Assets/Bedroom.png")}
+          alt="bedroomimage"
+        />
+        {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
+        <DarkFooter></DarkFooter>
+        <DarkFooter2></DarkFooter2>
+        <h1
+          style={{
+            position: "absolute",
+            width: "100%",
+            top: "1em",
+            textAlign: "center",
+            fontSize: "3.5vw",
+            textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
+          }}
+        >
+          Checkpoint: {game.checkpoint}
+        </h1>
+        <div
+          style={{
+            position: "absolute",
+            width: "90%",
+            top: "10em",
+            marginLeft: "5%",
+            fontSize: "2vw",
+            textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
+            zIndex: "102",
+          }}
+        >
+          {game.isHesitant ? (
+            counter === 0 ? (
+              <OrangeSpan>
+                <YellowSpan>Allen:</YellowSpan> "
+                <em>That's okay, I understand. Keep preparing then!</em>"
+              </OrangeSpan>
+            ) : (
+              <span>
+                <YellowSpan>Allen:</YellowSpan> "
+                <em>That's okay, I understand. Keep preparing then!</em>"
+              </span>
+            )
+          ) : counter === 0 ? (
             <OrangeSpan>
               <YellowSpan>Allen:</YellowSpan> "
-              <em>That's okay, I understand. Keep preparing then!</em>"
+              <em>
+                Awesome! It'll definely help you get your mind off of these
+                interviews
+              </em>
+              "
             </OrangeSpan>
           ) : (
             <span>
               <YellowSpan>Allen:</YellowSpan> "
-              <em>That's okay, I understand. Keep preparing then!</em>"
+              <em>
+                Awesome! It'll definely help you get your mind off of these
+                interviews
+              </em>
+              "
             </span>
-          )
-        ) : counter === 0 ? (
-          <OrangeSpan>
-            <YellowSpan>Allen:</YellowSpan> "
-            <em>
-              Awesome! It'll definely help you get your mind off of these
-              interviews
-            </em>
-            "
-          </OrangeSpan>
-        ) : (
-          <span>
-            <YellowSpan>Allen:</YellowSpan> "
-            <em>
-              Awesome! It'll definely help you get your mind off of these
-              interviews
-            </em>
-            "
-          </span>
-        )}
-        {counter >= 1 ? (
-          <>
-            <br />
-            {game.isHesitant ? (
-              counter === 1 ? (
+          )}
+          {counter >= 1 ? (
+            <>
+              <br />
+              {game.isHesitant ? (
+                counter === 1 ? (
+                  <OrangeSpan>
+                    <YellowSpan>Allen:</YellowSpan> "
+                    <em>
+                      Could you at least download the app now even if you aren't
+                      going to use it yet? I want to add you as a friend on it!
+                    </em>
+                    "
+                  </OrangeSpan>
+                ) : (
+                  <span>
+                    <YellowSpan>Allen:</YellowSpan> "
+                    <em>
+                      Could you at least download the app now even if you aren't
+                      going to use it yet? I want to add you as a friend on it!
+                    </em>
+                    "
+                  </span>
+                )
+              ) : counter === 1 ? (
                 <OrangeSpan>
                   <YellowSpan>Allen:</YellowSpan> "
-                  <em>
-                    Could you at least download the app now even if you aren't
-                    going to use it yet? I want to add you as a friend on it!
-                  </em>
+                  <em>When you get it, I want to add you as a friend on it!</em>
                   "
                 </OrangeSpan>
               ) : (
                 <span>
                   <YellowSpan>Allen:</YellowSpan> "
-                  <em>
-                    Could you at least download the app now even if you aren't
-                    going to use it yet? I want to add you as a friend on it!
-                  </em>
+                  <em>When you get it, I want to add you as a friend on it!</em>
                   "
                 </span>
-              )
-            ) : counter === 1 ? (
-              <OrangeSpan>
-                <YellowSpan>Allen:</YellowSpan> "
-                <em>When you get it, I want to add you as a friend on it!</em>"
-              </OrangeSpan>
-            ) : (
-              <span>
-                <YellowSpan>Allen:</YellowSpan> "
-                <em>When you get it, I want to add you as a friend on it!</em>"
-              </span>
-            )}
-          </>
-        ) : null}
-        {counter >= 2 ? (
-          <>
-            <br />
-            {counter === 2 ? (
-              <OrangeSpan>
-                <YellowSpan>Allen:</YellowSpan> "
-                <em>Here, I'll send you a link to the app!</em>"
-              </OrangeSpan>
-            ) : (
-              <span>
-                <YellowSpan>Allen:</YellowSpan> "
-                <em>Here, I'll send you a link to the app!</em>"
-              </span>
-            )}
-          </>
-        ) : null}
-        {counter === 2 ? null : (
-          <NextButton onClick={() => setCounter(counter + 1)}>
-            Next{" "}
-            <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
-          </NextButton>
+              )}
+            </>
+          ) : null}
+          {counter >= 2 ? (
+            <>
+              <br />
+              {counter === 2 ? (
+                <OrangeSpan>
+                  <YellowSpan>Allen:</YellowSpan> "
+                  <em>Here, I'll send you a link to the app!</em>"
+                </OrangeSpan>
+              ) : (
+                <span>
+                  <YellowSpan>Allen:</YellowSpan> "
+                  <em>Here, I'll send you a link to the app!</em>"
+                </span>
+              )}
+            </>
+          ) : null}
+          {counter === 2 ? null : (
+            <NextButton onClick={() => setCounter(counter + 1)}>
+              Next{" "}
+              <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
+            </NextButton>
+          )}
+        </div>
+        {counter === 2 && (
+          <div
+            style={{
+              position: "absolute",
+              left: "0",
+              right: "0",
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "25%",
+              height: "10%",
+              top: "35em",
+              margin: "0 auto",
+              fontSize: "1vw",
+              color: "white",
+              zIndex: "102",
+            }}
+          >
+            <button
+              style={{
+                cursor: "pointer",
+                float: "left",
+                width: "100%",
+                height: "100%",
+                fontSize: "1vw",
+                backgroundColor: "orange",
+                border: "1px solid white",
+                borderRadius: "15px",
+                textAlign: "left",
+                padding: "0 1.5em",
+                color: "white",
+              }}
+              onClick={nextCheckpoint}
+            >
+              Download the social media app.
+            </button>
+          </div>
         )}
       </div>
-      {counter === 2 && (
-        <div
-          style={{
-            position: "absolute",
-            left: "0",
-            right: "0",
-            marginLeft: "auto",
-            marginRight: "auto",
-            width: "25%",
-            height: "10%",
-            top: "35em",
-            margin: "0 auto",
-            fontSize: "1vw",
-            color: "white",
-          }}
-        >
-          <button
-            style={{
-              cursor: "pointer",
-              float: "left",
-              width: "100%",
-              height: "100%",
-              fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
-              padding: "0 1.5em",
-              color: "white",
-            }}
-            onClick={nextCheckpoint}
-          >
-            Download the social media app.
-          </button>
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 

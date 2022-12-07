@@ -114,6 +114,7 @@ const Checkpoint6 = ({ url, game, render, setRender }) => {
           marginLeft: "5%",
           fontSize: "2vw",
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
+          zIndex: "102",
         }}
       >
         {counter === 0 ? (
