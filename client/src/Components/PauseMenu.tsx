@@ -7,7 +7,7 @@ import { FaPauseCircle } from "react-icons/fa";
 const PauseMenu = () => {
   const { game } = useContext(Context);
   const navigate = useNavigate();
-  const TOTAL_CHECKPOINTS: number = 15;
+  const TOTAL_CHECKPOINTS: number = 16;
   return (
     <details
       style={{

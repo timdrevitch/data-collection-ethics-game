@@ -21,7 +21,7 @@ import {
   WelcomePlayerContainer,
 } from "../Styles/TitleScreenStyles";
 
-const Checkpoint14 = ({ url, game, render, setRender, player }) => {
+const Checkpoint15 = ({ url, game, render, setRender, player }) => {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 1) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
@@ -83,11 +83,11 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
           color: "white",
         }}
       >
-        Profile&nbsp;&nbsp;&nbsp;Friends&nbsp;&nbsp;&nbsp;
+        Profile&nbsp;&nbsp;&nbsp;
         <span style={{ textDecoration: "underline", color: "yellow" }}>
-          News Feed
+          Friends
         </span>
-        &nbsp;&nbsp;&nbsp;Settings
+        &nbsp;&nbsp;&nbsp; News Feed &nbsp;&nbsp;&nbsp;Settings
       </PlayerSinceContainer>
       <PlayerSinceContainer
         style={{
@@ -97,78 +97,169 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
           width: "18em",
         }}
       >
+        <input
+          style={{ width: "95%" }}
+          type="search"
+          placeholder="Search users 🔍"
+          disabled
+        />
         <hr />
-        User_12345 <YellowSpan>posted 6 minutes ago...</YellowSpan>
+        👤 User_12345{" "}
+        <YellowSpan
+          style={{
+            background: "blue",
+            border: "1px solid white",
+            borderRadius: "5px",
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            color: "white",
+          }}
+        >
+          Add Friend
+        </YellowSpan>
         <br />
         <div
           style={{
             width: "90%",
-            backgroundColor: "white",
+            backgroundColor: "gray",
             opacity: "70%",
             color: "black",
             padding: ".1em",
           }}
         >
-          Someone tell me why I can't stop using this app since downloading it
-          today <BlueSpan>#INeedToGoBuySomeGrapes</BlueSpan>
+          About:{" "}
+          <span style={{ color: "white" }}>
+            ⭐️Alexis⭐️ ▪️ AZ ✈️ NJ ▪️ College Athlete 🏀{" "}
+          </span>
         </div>
         <br />
-        AD: DriverlessCarsNearYou <YellowSpan>posted...</YellowSpan>
+        👤 Salopes_1{" "}
+        <YellowSpan
+          style={{
+            background: "blue",
+            border: "1px solid white",
+            borderRadius: "5px",
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            color: "white",
+          }}
+        >
+          Add Friend
+        </YellowSpan>
+        <br />
         <div
           style={{
             width: "90%",
-            backgroundColor: "white",
+            backgroundColor: "gray",
             opacity: "70%",
             color: "black",
             padding: ".1em",
           }}
         >
-          Stop by the Dystocity RT1 Auto Mile and or visit our official website
-          to get 20% your first self-driving vehicle{" "}
-          <BlueSpan>#DriverlessCarsNearYou #AutoSale</BlueSpan>
+          About: <span style={{ color: "white" }}>Be kind </span>
         </div>
         <br />
-        AllenJackobs3 <YellowSpan>posted 19 minutes...</YellowSpan>
+        👤 AllenJackobs3{" "}
+        {counter > 1 ? (
+          <YellowSpan
+            style={{
+              background: "green",
+              border: "1px solid white",
+              borderRadius: "5px",
+              paddingLeft: "5px",
+              paddingRight: "5px",
+              color: "white",
+            }}
+          >
+            Remove Friend
+          </YellowSpan>
+        ) : (
+          <YellowSpan
+            style={{
+              background: "blue",
+              border: "1px solid white",
+              borderRadius: "5px",
+              paddingLeft: "5px",
+              paddingRight: "5px",
+              color: "white",
+            }}
+          >
+            Add Friend
+          </YellowSpan>
+        )}
+        <br />
         <div
           style={{
             width: "90%",
-            backgroundColor: "white",
+            backgroundColor: "gray",
             opacity: "70%",
             color: "black",
             padding: ".1em",
           }}
         >
-          Good luck to my good friend <BlueSpan>@{player.playername}</BlueSpan>{" "}
-          on his first round of interviews today!!
-          <BlueSpan> #JobHunt</BlueSpan>
+          About:{" "}
+          <span style={{ color: "white" }}>
+            CS graduate ('42) Working at Dystocity Soft. and Co. as a developer
+            intern{" "}
+          </span>
         </div>
         <br />
-        PresidentBillyBobOfficail <YellowSpan>posted 30...</YellowSpan>
+        👤 PresidentBillyBob{" "}
+        <YellowSpan
+          style={{
+            background: "blue",
+            border: "1px solid white",
+            borderRadius: "5px",
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            color: "white",
+          }}
+        >
+          Add Friend
+        </YellowSpan>
+        <br />
         <div
           style={{
             width: "90%",
-            backgroundColor: "white",
+            backgroundColor: "gray",
             opacity: "70%",
             color: "black",
             padding: ".1em",
           }}
         >
-          Our city has risen to the occasion! I'd like to thank everyone for
-          being so supportive! <BlueSpan> #Community #Dystocity</BlueSpan>
+          About:{" "}
+          <span style={{ color: "white" }}>
+            BS PhD Student. Former Salesman 💼{" "}
+          </span>
         </div>
         <br />
-        AD: DystocitySquareShops <YellowSpan>posted...</YellowSpan>
+        👤 DystocitySquareShops{" "}
+        <YellowSpan
+          style={{
+            background: "blue",
+            border: "1px solid white",
+            borderRadius: "5px",
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            color: "white",
+          }}
+        >
+          Follow
+        </YellowSpan>
+        <br />
         <div
           style={{
             width: "90%",
-            backgroundColor: "white",
+            backgroundColor: "gray",
             opacity: "70%",
             color: "black",
             padding: ".1em",
           }}
         >
-          Have a cat? Visit the commons this week and this week only for premium
-          cat litter<BlueSpan> #Cats #Kittens</BlueSpan>
+          About:{" "}
+          <span style={{ color: "white" }}>
+            Non-Profit Organization in the Greater Dystocity Area{" "}
+          </span>
         </div>
         <br />
       </PlayerSinceContainer>
@@ -198,44 +289,43 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
         }}
       >
         {counter === 0 ? (
-          <OrangeSpan>
-            This app is cool! It looks like people can post things here and have
-            all their friends see!...{" "}
-          </OrangeSpan>
+          <OrangeSpan>Do you see Allan listed there?... </OrangeSpan>
         ) : (
-          <span>
-            This app is cool! It looks like people can post things here and have
-            all their friends see!...{" "}
-          </span>
+          <span>Do you see Allen listed there?... </span>
         )}
         {counter >= 1 ? (
           counter === 1 ? (
-            <OrangeSpan>
-              Go to the Friends tab on the app and add Allen!...{" "}
-            </OrangeSpan>
+            <OrangeSpan>Add him as a friend!... </OrangeSpan>
           ) : (
-            <span>Go to the Friends tab on the app and add Allen!... </span>
+            <span>Add him as a friend!... </span>
           )
         ) : null}
-        {counter === 1 ? null : (
+        {counter >= 2 ? (
+          counter === 2 ? (
+            <OrangeSpan>Good! Now check out his profile!... </OrangeSpan>
+          ) : (
+            <span>Good! Now check out his profile!... </span>
+          )
+        ) : null}
+        {counter === 2 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 1 && (
+      {counter === 2 && (
         <div
           style={{
             position: "absolute",
-            left: "0",
-            right: "0",
-            marginLeft: "auto",
-            marginRight: "auto",
+            // left: "0",
+            right: "15%",
+            marginLeft: "60%",
+            // marginRight: "10%",
             width: "25%",
             height: "10%",
             top: "35em",
-            margin: "0 auto",
+            // margin: "0 auto",
             fontSize: "1vw",
             color: "white",
           }}
@@ -243,7 +333,7 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
           <button
             style={{
               cursor: "pointer",
-              float: "left",
+              float: "right",
               width: "100%",
               height: "100%",
               fontSize: "1vw",
@@ -256,7 +346,7 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
             }}
             onClick={nextCheckpoint}
           >
-            Add Allen as a friend.
+            Visit Allen's Profile.
           </button>
         </div>
       )}
@@ -264,4 +354,4 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
   );
 };
 
-export default Checkpoint14;
+export default Checkpoint15;
