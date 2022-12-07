@@ -14,7 +14,7 @@ router.route("/:id").delete((req, res) => {
 router.route("/players/gamesfinished").get((req, res) => {
   Player.find()
     .sort({ gamesFinished: -1 })
-    .limit(10)
+    // .limit(10)
     .then((Player) => res.json(Player))
     .catch((err) => res.status(400).json("Error: " + err));
 });

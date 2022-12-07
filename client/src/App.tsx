@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { Context } from "./Shared/Context";
 import "./App.css";
 import Login from "./Pages/Login";
@@ -7,8 +7,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PlayerStats from "./Pages/PlayerStats";
 import Game from "./Pages/Game";
 import Leaderboards from "./Pages/Leaderboards";
-import AudioToggle from "./Components/AudioToggle";
-import ReactAudioPlayer from "react-audio-player";
 import { ImVolumeHigh, ImVolumeMute2 } from "react-icons/im";
 
 const App: FC = (): JSX.Element => {
