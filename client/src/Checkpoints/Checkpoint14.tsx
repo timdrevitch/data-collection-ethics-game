@@ -228,14 +228,14 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
         <div
           style={{
             position: "absolute",
-            left: "0",
-            right: "0",
-            marginLeft: "auto",
-            marginRight: "auto",
+            // left: "0",
+            right: "15%",
+            marginLeft: "60%",
+            // marginRight: "10%",
             width: "25%",
             height: "10%",
             top: "35em",
-            margin: "0 auto",
+            // margin: "0 auto",
             fontSize: "1vw",
             color: "white",
           }}

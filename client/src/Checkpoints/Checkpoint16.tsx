@@ -14,7 +14,7 @@ import {
   WelcomePlayerContainer,
 } from "../Styles/TitleScreenStyles";
 
-const Checkpoint15 = ({ url, game, render, setRender, player }) => {
+const Checkpoint16 = ({ url, game, render, setRender, player }) => {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
@@ -84,9 +84,35 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
       </PlayerSinceContainer>
       <PlayerSinceContainer
         style={{
-          right: "46%",
+          right: "34.3%",
           color: "white",
           marginTop: "2em",
+        }}
+      >
+        <img
+          src={require("../Assets/drev.png")}
+          alt="carl"
+          style={{ display: "inline-block", borderRadius: "50%", width: "5%" }}
+        />
+        AllenJacobs3{" "}
+        <YellowSpan
+          style={{
+            background: "green",
+            border: "1px solid white",
+            borderRadius: "5px",
+            paddingLeft: "3px",
+            paddingRight: "3px",
+            color: "white",
+          }}
+        >
+          Remove Friend
+        </YellowSpan>
+      </PlayerSinceContainer>
+      <PlayerSinceContainer
+        style={{
+          right: "46%",
+          color: "white",
+          marginTop: "4em",
           width: "18em",
         }}
       >
@@ -152,7 +178,7 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
           About: <span style={{ color: "white" }}>Be kind </span>
         </div>
         <br />
-        👤 AllenJacobs3{" "}
+        👤 AllenJackobs3{" "}
         {counter > 1 ? (
           <YellowSpan
             style={{
@@ -347,4 +373,4 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
   );
 };
 
-export default Checkpoint15;
+export default Checkpoint16;
