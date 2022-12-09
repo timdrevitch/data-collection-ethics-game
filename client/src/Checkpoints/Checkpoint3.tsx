@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { Context } from "../Shared/Context";
 import { NextButton, OrangeSpan, YellowSpan } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
@@ -10,6 +11,7 @@ import {
 
 const Checkpoint3 = ({ url, game, render, setRender }) => {
   const [counter, setCounter] = useState<number>(0);
+  const { isMuted } = useContext(Context);
 
   useEffect(() => {
     console.log(counter);
@@ -89,6 +91,18 @@ const Checkpoint3 = ({ url, game, render, setRender }) => {
               <OrangeSpan>
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>That's okay, I understand. Keep preparing then!</em>"
+                <audio
+                  autoPlay={true}
+                  controls={false}
+                  loop={false}
+                  muted={isMuted}
+                  id="myAudio"
+                >
+                  <source
+                    src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                    type="audio/wav"
+                  />
+                </audio>
               </OrangeSpan>
             ) : (
               <span>
@@ -104,6 +118,18 @@ const Checkpoint3 = ({ url, game, render, setRender }) => {
                 interviews
               </em>
               "
+              <audio
+                autoPlay={true}
+                controls={false}
+                loop={false}
+                muted={isMuted}
+                id="myAudio"
+              >
+                <source
+                  src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                  type="audio/wav"
+                />
+              </audio>
             </OrangeSpan>
           ) : (
             <span>
@@ -127,6 +153,18 @@ const Checkpoint3 = ({ url, game, render, setRender }) => {
                       going to use it yet? I want to add you as a friend on it!
                     </em>
                     "
+                    <audio
+                      autoPlay={true}
+                      controls={false}
+                      loop={false}
+                      muted={isMuted}
+                      id="myAudio"
+                    >
+                      <source
+                        src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                        type="audio/wav"
+                      />
+                    </audio>
                   </OrangeSpan>
                 ) : (
                   <span>
@@ -143,6 +181,18 @@ const Checkpoint3 = ({ url, game, render, setRender }) => {
                   <YellowSpan>Allen:</YellowSpan> "
                   <em>When you get it, I want to add you as a friend on it!</em>
                   "
+                  <audio
+                    autoPlay={true}
+                    controls={false}
+                    loop={false}
+                    muted={isMuted}
+                    id="myAudio"
+                  >
+                    <source
+                      src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                      type="audio/wav"
+                    />
+                  </audio>
                 </OrangeSpan>
               ) : (
                 <span>
@@ -160,6 +210,18 @@ const Checkpoint3 = ({ url, game, render, setRender }) => {
                 <OrangeSpan>
                   <YellowSpan>Allen:</YellowSpan> "
                   <em>Here, I'll send you a link to the app!</em>"
+                  <audio
+                    autoPlay={true}
+                    controls={false}
+                    loop={false}
+                    muted={isMuted}
+                    id="myAudio"
+                  >
+                    <source
+                      src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                      type="audio/wav"
+                    />
+                  </audio>
                 </OrangeSpan>
               ) : (
                 <span>

@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { Context } from "../Shared/Context";
 import { NextButton, OrangeSpan } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
@@ -10,6 +11,7 @@ import {
 
 const Checkpoint1 = ({ url, game, render, setRender }) => {
   const [counter, setCounter] = useState<number>(0);
+  const { isMuted } = useContext(Context);
 
   useEffect(() => {
     console.log(counter);
@@ -111,6 +113,18 @@ const Checkpoint1 = ({ url, game, render, setRender }) => {
             counter === 1 ? (
               <OrangeSpan>
                 <em>Ding... </em>
+                <audio
+                  autoPlay={true}
+                  controls={false}
+                  loop={false}
+                  muted={isMuted}
+                  id="myAudio"
+                >
+                  <source
+                    src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                    type="audio/wav"
+                  />
+                </audio>
               </OrangeSpan>
             ) : (
               <span>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NextButton, OrangeSpan, YellowSpan } from "../Styles/SharedStyles";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import {
@@ -7,9 +7,11 @@ import {
   DarkFooter,
   DarkFooter2,
 } from "../Styles/TitleScreenStyles";
+import { Context } from "../Shared/Context";
 
 const Checkpoint2 = ({ url, game, render, setRender }) => {
   const [counter, setCounter] = useState<number>(0);
+  const { isMuted } = useContext(Context);
 
   useEffect(() => {
     console.log(counter + " useEffect");
@@ -102,6 +104,18 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                     much. You'll do great!
                   </em>
                   "
+                  <audio
+                    autoPlay={true}
+                    controls={false}
+                    loop={false}
+                    muted={isMuted}
+                    id="myAudio"
+                  >
+                    <source
+                      src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                      type="audio/wav"
+                    />
+                  </audio>
                 </OrangeSpan>
               ) : (
                 <span>
@@ -126,6 +140,18 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                     and {game.isNervous ? "stressed." : "preparing more."}
                   </em>
                   "{" "}
+                  <audio
+                    autoPlay={true}
+                    controls={false}
+                    loop={false}
+                    muted={isMuted}
+                    id="myAudio"
+                  >
+                    <source
+                      src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                      type="audio/wav"
+                    />
+                  </audio>
                 </OrangeSpan>
               ) : (
                 <span>
@@ -150,6 +176,18 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                     you to try!
                   </em>
                   "{" "}
+                  <audio
+                    autoPlay={true}
+                    controls={false}
+                    loop={false}
+                    muted={isMuted}
+                    id="myAudio"
+                  >
+                    <source
+                      src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                      type="audio/wav"
+                    />
+                  </audio>
                 </OrangeSpan>
               ) : (
                 <span>
@@ -175,6 +213,18 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                       : "You've easily prepared enough already. You should take a break from preparing and download it!"}
                   </em>
                   "{" "}
+                  <audio
+                    autoPlay={true}
+                    controls={false}
+                    loop={false}
+                    muted={isMuted}
+                    id="myAudio"
+                  >
+                    <source
+                      src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                      type="audio/wav"
+                    />
+                  </audio>
                 </OrangeSpan>
               ) : (
                 <span>

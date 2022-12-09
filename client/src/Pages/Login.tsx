@@ -126,7 +126,7 @@ const Login = () => {
             <GameTitle>
               <em>Dystocity: Job Hunt</em>
             </GameTitle>
-            <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer>
+            {/* <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer> */}
             <CreateAccountForm onSubmit={handleSignUp}>
               <RedInfoP>
                 Looks like you are new. Choose any player name and then press
@@ -155,7 +155,7 @@ const Login = () => {
             <GameTitle>
               <em>Dystocity: Job Hunt</em>
             </GameTitle>
-            <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer>
+            {/* <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer> */}
             <LoginPositionContainer>
               <GoogleLoginContainer>
                 <GoogleLogin

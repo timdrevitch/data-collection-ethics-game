@@ -1,20 +1,18 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { Context } from "../Shared/Context";
 import { NextButton, OrangeSpan } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   CityGif,
   DarkFooter,
   DarkFooter2,
-  PhoneImage,
-  PlayerImage,
-  PlayerSinceContainer,
-  WelcomePlayerContainer,
 } from "../Styles/TitleScreenStyles";
 
 const Checkpoint6 = ({ url, game, render, setRender }) => {
   const [counter, setCounter] = useState<number>(0);
+  const { isMuted } = useContext(Context);
 
   useEffect(() => {
     console.log(counter);
@@ -121,6 +119,18 @@ const Checkpoint6 = ({ url, game, render, setRender }) => {
           <OrangeSpan>
             Looks like it's going to take a bit of time to get to this
             interview...{" "}
+            <audio
+              autoPlay={true}
+              controls={false}
+              loop={false}
+              muted={isMuted}
+              id="myAudio"
+            >
+              <source
+                src={require("../Assets/Assets-Fangtai/Audio/SFX/Car_Start.wav")}
+                type="audio/wav"
+              />
+            </audio>
           </OrangeSpan>
         ) : (
           <span>

@@ -200,7 +200,7 @@ export const CreateAccountInput = styled.input`
 export const AuthorsContainer = styled.div`
   position: absolute;
   width: 40%;
-  top: 7.5em;
+  top: 10.5em;
   margin-left: 5%;
   font-size: 1.5vw;
   color: lightsalmon;
@@ -208,7 +208,7 @@ export const AuthorsContainer = styled.div`
 export const GameTitle = styled.h1`
   position: absolute;
   width: 100%;
-  top: 1em;
+  top: 3em;
   margin-left: 5%;
   font-size: 3.5vw;
   text-shadow: 1px 1px 4px lightsalmon, 1px 1px 4px lightsalmon;

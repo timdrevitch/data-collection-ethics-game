@@ -54,6 +54,7 @@ export const NextButton = styled.button`
   min-width: 6vw;
   min-height: 1.7vw;
   vertical-align: middle;
+  z-index: 1000;
   transition: all 0.5s ease-in-out;
   animation: ${shine} 1.5s infinite;
   &:hover {

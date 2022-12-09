@@ -15,8 +15,8 @@ const shine = keyframes`
 //Login
 export const LoginPositionContainer = styled.div`
   position: absolute;
-  width: 222px;
-  top: 10em;
+  width: 200px;
+  top: 13em;
   margin-left: 5%;
   font-size: 1.5vw;
   color: orange;
