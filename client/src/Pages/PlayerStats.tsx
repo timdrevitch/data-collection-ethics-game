@@ -44,7 +44,7 @@ const PlayerStats = () => {
       .then((response) => setPlayer(response.data))
       .catch((error) => console.warn(error));
     // }
-  }, [setUpdate, update]);
+  }, [setUpdate, update, url]);
 
   // functions to update the pocode
   const handleNewPlayerNameTyped = (val: string) => {

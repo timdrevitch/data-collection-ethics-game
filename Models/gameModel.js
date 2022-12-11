@@ -25,6 +25,9 @@ const gameSchema = new mongoose.Schema(
     readTerms: {
       type: Boolean,
     },
+    commentIncludesInterviewCount: {
+      type: Boolean,
+    },
   },
   { timestamps: true }
 );

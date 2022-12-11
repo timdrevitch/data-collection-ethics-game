@@ -282,7 +282,7 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
         }}
       >
         {counter === 0 ? (
-          <OrangeSpan>Do you see Allan listed there?... </OrangeSpan>
+          <OrangeSpan>Do you see Allen listed there?... </OrangeSpan>
         ) : (
           <span>Do you see Allen listed there?... </span>
         )}

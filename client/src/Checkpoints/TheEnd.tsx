@@ -60,13 +60,94 @@ const TheEnd = ({ url, playerId, game }) => {
         ) : null}{" "}
         ending!
       </h2>
+      <div
+        style={{
+          background: "gray",
+          position: "absolute",
+          width: "70%",
+          top: "7.9em",
+          textAlign: "center",
+          fontSize: "2vw",
+          marginLeft: "15%",
+          textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
+        }}
+      >
+        Your selections (not all selections affect the ending you got)
+      </div>
+      <table
+        style={{
+          position: "absolute",
+          width: "70%",
+          marginLeft: "15%",
+          top: "12em",
+          textAlign: "left",
+          fontSize: "1.5vw",
+          textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
+          border: "1px solid gray",
+        }}
+      >
+        <thead>
+          <tr>
+            <td
+              style={{
+                borderBottom: "1px solid gray",
+                background: "#3a3a3abe",
+              }}
+            >
+              Question
+            </td>
+            <td
+              style={{
+                borderBottom: "1px solid gray",
+                background: "#3a3a3abe",
+              }}
+            >
+              Answer
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Where you nervous for your interviews?</td>
+            <td>{game.isNervous ? "Yes" : "No"}</td>
+          </tr>
+          <tr>
+            <td>Did you study more before opening Dystogram?</td>
+            <td>{game.isHesitant ? "Yes" : "No"}</td>
+          </tr>
+          <tr>
+            <td>
+              Did you read Dystogram's Terms of Service before accepting them?
+            </td>
+            <td>{game.readTerms ? "Yes" : "No"}</td>
+          </tr>
+          <tr>
+            <td>
+              Did you choose to fill out optional fields when signing up for the
+              Dystogram app?
+            </td>
+            <td>{game.readTerms ? "No" : "Yes"}</td>
+          </tr>
+          <tr>
+            <td>Did you get the best answer in the first interview?</td>
+            <td>{game.isHesitant ? "Yes" : "No"}</td>
+          </tr>
+          <tr>
+            <td>
+              Did you include how many interviews you have in your comment to
+              Allen?
+            </td>
+            <td>{game.commentIncludesInterviewCount ? "Yes" : "No"}</td>
+          </tr>
+        </tbody>
+      </table>
       <button
         style={{
           cursor: "pointer",
           position: "absolute",
           width: "30%",
           height: "5%",
-          top: "30em",
+          top: "40em",
           left: "35%",
           fontSize: "1vw",
           backgroundColor: "orange",

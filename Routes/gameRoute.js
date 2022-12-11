@@ -78,6 +78,9 @@ router.route("/nextcheckpoint/:id").put((req, res) => {
       if (req.body.readTermsChoice !== undefined) {
         Game.readTerms = req.body.readTermsChoice;
       }
+      if (req.body.commentChoice !== undefined) {
+        Game.commentIncludesInterviewCount = req.body.commentChoice;
+      }
       Game.save()
         .then(() => res.json("Next checkpoint."))
         .catch((err) =>
@@ -472,60 +475,60 @@ router.route("/updatename/:id").put((req, res) => {
 // })
 
 //update an order
-router.route("/:id").put((req, res) => {
-  Player.findById(req.params.id)
-    .then((Player) => {
-      console.log("The new status sent to the backend: " + req.body.status);
-      console.log("The order's status before being updated: " + Player.status);
-      //update status
-      if (req.body.statusChange === "delivering") {
-        Player.deliveredBy = req.body.deliveredBy;
-      }
-      if (req.body.statusChange === "receiving") {
-        Player.receivedBy = req.body.receivedBy;
-      }
-      if (req.body.statusChange === "approving") {
-        Player.approvedBy = req.body.approvedBy;
-      }
-      if (req.body.statusChange === "purchasing") {
-        Player.approvedBy = req.body.approvedBy;
-        Player.purchasedBy = req.body.purchasedBy;
-        Player.tax = req.body.tax;
-        Player.shipping = req.body.shipping;
-        Player.purchaseDate = new Date();
-        //make the date purchased today's date
-        const current = new Date();
-        Player.purchaseDateString = `${
-          current.getMonth() + 1
-        }/${current.getDate()}/${current.getFullYear()}`;
+// router.route("/:id").put((req, res) => {
+//   Player.findById(req.params.id)
+//     .then((Player) => {
+//       console.log("The new status sent to the backend: " + req.body.status);
+//       console.log("The order's status before being updated: " + Player.status);
+//       //update status
+//       if (req.body.statusChange === "delivering") {
+//         Player.deliveredBy = req.body.deliveredBy;
+//       }
+//       if (req.body.statusChange === "receiving") {
+//         Player.receivedBy = req.body.receivedBy;
+//       }
+//       if (req.body.statusChange === "approving") {
+//         Player.approvedBy = req.body.approvedBy;
+//       }
+//       if (req.body.statusChange === "purchasing") {
+//         Player.approvedBy = req.body.approvedBy;
+//         Player.purchasedBy = req.body.purchasedBy;
+//         Player.tax = req.body.tax;
+//         Player.shipping = req.body.shipping;
+//         Player.purchaseDate = new Date();
+//         //make the date purchased today's date
+//         const current = new Date();
+//         Player.purchaseDateString = `${
+//           current.getMonth() + 1
+//         }/${current.getDate()}/${current.getFullYear()}`;
 
-        const min = Math.ceil(1);
-        const max = Math.floor(999999999);
-        const num = Math.floor(Math.random() * (max - min));
-        Player.purchaseNumber = num;
-        Player.paymentMethod = req.body.method;
-        // Player.invoice = req.body.invoice
-        //Player.invoice = req.file.originalname
-      }
-      if (req.body.statusChange === "denying") {
-        Player.approvedBy = req.body.deniedBy;
-      }
-      Player.status = req.body.status;
+//         const min = Math.ceil(1);
+//         const max = Math.floor(999999999);
+//         const num = Math.floor(Math.random() * (max - min));
+//         Player.purchaseNumber = num;
+//         Player.paymentMethod = req.body.method;
+//         // Player.invoice = req.body.invoice
+//         //Player.invoice = req.file.originalname
+//       }
+//       if (req.body.statusChange === "denying") {
+//         Player.approvedBy = req.body.deniedBy;
+//       }
+//       Player.status = req.body.status;
 
-      // console.log("The player's status after being updated: " + Player.status)
-      // console.log("Approved by: " + Player.approvedBy)
-      // console.log("Purchased by: " + Player.purchasedBy)
-      // console.log("Received by: " + Player.receivedBy)
-      // console.log("Delivered by: " + Player.deliveredBy)
+//       // console.log("The player's status after being updated: " + Player.status)
+//       // console.log("Approved by: " + Player.approvedBy)
+//       // console.log("Purchased by: " + Player.purchasedBy)
+//       // console.log("Received by: " + Player.receivedBy)
+//       // console.log("Delivered by: " + Player.deliveredBy)
 
-      Player.save()
-        .then(() => res.json("Player updated."))
-        .catch((err) =>
-          res.status(400).json("Error when saving update to database: " + err)
-        );
-    })
-    .catch((err) => res.status(400).json("Error: " + err));
-});
+//       Player.save()
+//         .then(() => res.json("Player updated."))
+//         .catch((err) =>
+//           res.status(400).json("Error when saving update to database: " + err)
+//         );
+//     })
+//     .catch((err) => res.status(400).json("Error: " + err));
+// });
 
 // //add an order to the archive
 // router.route("/").post((req, res) => {

@@ -1,7 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { NextButton, OrangeSpan, YellowSpan } from "../Styles/SharedStyles";
+import { FaHeart } from "react-icons/fa";
+import {
+  BlueSpan,
+  NextButton,
+  OrangeSpan,
+  YellowSpan,
+} from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   CityGif,
@@ -23,14 +29,15 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 1) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
   });
 
-  const nextCheckpoint = () => {
-    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
+  const nextCheckpoint = (commentChoice: boolean) => {
+    let data = { commentChoice: commentChoice };
+    axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
       setRender(!render);
     });
   };
@@ -81,6 +88,7 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
           Friends
         </span>
         &nbsp;&nbsp;&nbsp; News Feed &nbsp;&nbsp;&nbsp;Settings
+        <hr style={{ width: "58%", float: "left" }} />
       </PlayerSinceContainer>
       <PlayerSinceContainer
         style={{
@@ -116,97 +124,6 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
           width: "18em",
         }}
       >
-        <input
-          style={{ width: "95%" }}
-          type="search"
-          placeholder="Search users 🔍"
-          disabled
-        />
-        <hr />
-        👤 User_12345{" "}
-        <YellowSpan
-          style={{
-            background: "blue",
-            border: "1px solid white",
-            borderRadius: "5px",
-            paddingLeft: "5px",
-            paddingRight: "5px",
-            color: "white",
-          }}
-        >
-          Add Friend
-        </YellowSpan>
-        <br />
-        <div
-          style={{
-            width: "90%",
-            backgroundColor: "gray",
-            opacity: "70%",
-            color: "black",
-            padding: ".1em",
-          }}
-        >
-          About:{" "}
-          <span style={{ color: "white" }}>
-            ⭐️Alexis⭐️ ▪️ AZ ✈️ NJ ▪️ College Athlete 🏀{" "}
-          </span>
-        </div>
-        <br />
-        👤 Salopes_1{" "}
-        <YellowSpan
-          style={{
-            background: "blue",
-            border: "1px solid white",
-            borderRadius: "5px",
-            paddingLeft: "5px",
-            paddingRight: "5px",
-            color: "white",
-          }}
-        >
-          Add Friend
-        </YellowSpan>
-        <br />
-        <div
-          style={{
-            width: "90%",
-            backgroundColor: "gray",
-            opacity: "70%",
-            color: "black",
-            padding: ".1em",
-          }}
-        >
-          About: <span style={{ color: "white" }}>Be kind </span>
-        </div>
-        <br />
-        👤 AllenJackobs3{" "}
-        {counter > 1 ? (
-          <YellowSpan
-            style={{
-              background: "green",
-              border: "1px solid white",
-              borderRadius: "5px",
-              paddingLeft: "5px",
-              paddingRight: "5px",
-              color: "white",
-            }}
-          >
-            Remove Friend
-          </YellowSpan>
-        ) : (
-          <YellowSpan
-            style={{
-              background: "blue",
-              border: "1px solid white",
-              borderRadius: "5px",
-              paddingLeft: "5px",
-              paddingRight: "5px",
-              color: "white",
-            }}
-          >
-            Add Friend
-          </YellowSpan>
-        )}
-        <br />
         <div
           style={{
             width: "90%",
@@ -223,63 +140,113 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
           </span>
         </div>
         <br />
-        👤 PresidentBillyBob{" "}
-        <YellowSpan
-          style={{
-            background: "blue",
-            border: "1px solid white",
-            borderRadius: "5px",
-            paddingLeft: "5px",
-            paddingRight: "5px",
-            color: "white",
-          }}
-        >
-          Add Friend
-        </YellowSpan>
+        <div>
+          <span style={{ textDecoration: "underline", color: "yellow" }}>
+            Posts (31)
+          </span>
+          &nbsp;&nbsp;&nbsp; Friends (83) &nbsp;&nbsp;&nbsp;
+        </div>
+        <hr style={{ width: "95%", float: "left" }} />
         <br />
+        AllenJackobs3 <YellowSpan>posted 19 minutes...</YellowSpan>
         <div
           style={{
             width: "90%",
-            backgroundColor: "gray",
+            backgroundColor: "white",
             opacity: "70%",
             color: "black",
             padding: ".1em",
           }}
         >
-          About:{" "}
-          <span style={{ color: "white" }}>
-            BS PhD Student. Former Salesman 💼{" "}
-          </span>
+          Good luck to my good friend <BlueSpan>@{player.playername}</BlueSpan>{" "}
+          on their first round of interviews today!!
+          <BlueSpan> #JobHunt</BlueSpan>
         </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        {counter > 0 ? (
+          <>
+            <button disabled style={{ background: "green", fontSize: "1vw" }}>
+              Comment
+            </button>
+            <br />
+            <input
+              placeholder="Type your comment here..."
+              style={{ height: "50%", width: "90%", fontSize: "1vw" }}
+            />
+          </>
+        ) : (
+          <button style={{ fontSize: "1vw" }} disabled>
+            Comment
+          </button>
+        )}
         <br />
-        👤 DystocitySquareShops{" "}
-        <YellowSpan
-          style={{
-            background: "blue",
-            border: "1px solid white",
-            borderRadius: "5px",
-            paddingLeft: "5px",
-            paddingRight: "5px",
-            color: "white",
-          }}
-        >
-          Follow
-        </YellowSpan>
         <br />
+        AllenJackobs3 <YellowSpan>posted 1 day ago...</YellowSpan>
         <div
           style={{
             width: "90%",
-            backgroundColor: "gray",
+            backgroundColor: "white",
             opacity: "70%",
             color: "black",
             padding: ".1em",
           }}
         >
-          About:{" "}
-          <span style={{ color: "white" }}>
-            Non-Profit Organization in the Greater Dystocity Area{" "}
-          </span>
+          Dystocity seems less busy lately. All these self-driving cars
+          practically got rid of traffic all together!
+          <BlueSpan> #City #Dystocity</BlueSpan>
         </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+        AllenJackobs3 <YellowSpan>posted 3 days ago...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          I have only had this app for about a week now, and I can't stop going
+          back to it! It's so cool that I can keep up with my friends on here
+          whenever I want!
+          <BlueSpan> #Dystogram</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+        AllenJackobs3 <YellowSpan>posted 3 days ago...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          It is so nice out today. I need to go outside later!
+          <BlueSpan> #GoodWeather</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
         <br />
       </PlayerSinceContainer>
       <PhoneImage src={require("../Assets/phoneNoBg.png")} alt="phone" />
@@ -308,32 +275,27 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
         }}
       >
         {counter === 0 ? (
-          <OrangeSpan>Do you see Allan listed there?... </OrangeSpan>
+          <OrangeSpan>
+            His last post was about you! Comment back to him!...{" "}
+          </OrangeSpan>
         ) : (
-          <span>Do you see Allen listed there?... </span>
+          <span>His last post was about you! Comment back to him!... </span>
         )}
         {counter >= 1 ? (
           counter === 1 ? (
-            <OrangeSpan>Add him as a friend!... </OrangeSpan>
+            <OrangeSpan>What would you like to comment?... </OrangeSpan>
           ) : (
-            <span>Add him as a friend!... </span>
+            <span>What would you like to comment?... </span>
           )
         ) : null}
-        {counter >= 2 ? (
-          counter === 2 ? (
-            <OrangeSpan>Good! Now check out his profile!... </OrangeSpan>
-          ) : (
-            <span>Good! Now check out his profile!... </span>
-          )
-        ) : null}
-        {counter === 2 ? null : (
+        {counter === 1 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 2 && (
+      {counter === 1 && (
         <div
           style={{
             position: "absolute",
@@ -343,7 +305,7 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
             // marginRight: "10%",
             width: "25%",
             height: "10%",
-            top: "35em",
+            top: "33em",
             // margin: "0 auto",
             fontSize: "1vw",
             color: "white",
@@ -362,10 +324,35 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
               textAlign: "left",
               padding: "0 1.5em",
               color: "white",
+              marginBottom: "1em",
             }}
-            onClick={nextCheckpoint}
+            onClick={() => nextCheckpoint(true)}
           >
-            Visit Allen's Profile.
+            Comment:
+            <br />
+            "Thanks Allen! One down, one to go! I'll let you know how it goes
+            :)."
+          </button>
+          <button
+            style={{
+              cursor: "pointer",
+              float: "right",
+              width: "100%",
+              height: "100%",
+              fontSize: "1vw",
+              backgroundColor: "orange",
+              border: "1px solid white",
+              borderRadius: "15px",
+              textAlign: "left",
+              padding: "0 1.5em",
+              color: "white",
+            }}
+            onClick={() => nextCheckpoint(false)}
+          >
+            Comment:
+            <br />
+            "Thanks Allen! Hopefully all of this preparing will pay off! I'll
+            let you know how it goes :)."
           </button>
         </div>
       )}

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
 import {
   BlueSpan,
   NextButton,
@@ -112,6 +113,13 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
           Someone tell me why I can't stop using this app since downloading it
           today <BlueSpan>#INeedToGoBuySomeGrapes</BlueSpan>
         </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
         <br />
         AD: DriverlessCarsNearYou <YellowSpan>posted...</YellowSpan>
         <div
@@ -127,6 +135,13 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
           to get 20% your first self-driving vehicle{" "}
           <BlueSpan>#DriverlessCarsNearYou #AutoSale</BlueSpan>
         </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
         <br />
         AllenJackobs3 <YellowSpan>posted 19 minutes...</YellowSpan>
         <div
@@ -142,6 +157,13 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
           on his first round of interviews today!!
           <BlueSpan> #JobHunt</BlueSpan>
         </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
         <br />
         PresidentBillyBobOfficail <YellowSpan>posted 30...</YellowSpan>
         <div
@@ -156,6 +178,13 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
           Our city has risen to the occasion! I'd like to thank everyone for
           being so supportive! <BlueSpan> #Community #Dystocity</BlueSpan>
         </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
         <br />
         AD: DystocitySquareShops <YellowSpan>posted...</YellowSpan>
         <div
@@ -170,6 +199,13 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
           Have a cat? Visit the commons this week and this week only for premium
           cat litter<BlueSpan> #Cats #Kittens</BlueSpan>
         </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
         <br />
       </PlayerSinceContainer>
       <PhoneImage src={require("../Assets/phoneNoBg.png")} alt="phone" />
