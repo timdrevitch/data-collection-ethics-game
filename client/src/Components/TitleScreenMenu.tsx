@@ -37,10 +37,10 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
       <PhoneImage src={require("../Assets/phoneBg.png")} alt="phone" />
       <WelcomePlayerContainer>
         <strong>Welcome, {player.playername} </strong>
-        <PlayerImage src={player.image} alt="playerimage" />
+        {/* <PlayerImage src={player.image} alt="playerimage" /> */}
       </WelcomePlayerContainer>
       <PlayerSinceContainer>
-        Player since: <em>{player.joinDateString}</em>
+        Joined: <em>{player.joinDateString}</em>
       </PlayerSinceContainer>
       {player.gameInProgress ? (
         <MenuButtonContinue

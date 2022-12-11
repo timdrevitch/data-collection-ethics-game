@@ -106,6 +106,20 @@ router.route("/newgame/:id").put((req, res) => {
       res.status(400).json("Error when saving updates to database: " + err)
     );
 });
+//update playername
+router.route("/playerstats/updateplayername/:id").put((req, res) => {
+  console.log(
+    "Data sent to the backend: " + req.body.playername + ", " + req.params.id
+  );
+  Player.updateOne(
+    { _id: req.params.id },
+    { $set: { playername: req.body.playername } }
+  )
+    .then(() => res.json("Player name updated."))
+    .catch((err) =>
+      res.status(400).json("Error when saving updates to database: " + err)
+    );
+});
 
 //Create new game
 router.route("/newgame/create/:id").post((req, res) => {
