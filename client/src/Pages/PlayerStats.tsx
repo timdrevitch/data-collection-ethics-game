@@ -21,6 +21,8 @@ const PlayerStats = () => {
   const location: Location = useLocation();
   const navigate: NavigateFunction = useNavigate();
   const right: CSSProperties = { float: "right" };
+  const Filter = require("bad-words");
+  const filter = new Filter();
   const [newPlayerName, setNewPlayerName] = useState<string>(player.playername);
   const [ifUpdatePlayerName, setIfUpdatePlayerName] = useState(false);
   const [update, setUpdate] = useState<boolean>(false); //after updating a field, this variable changes which causes useEffect to fire
@@ -45,12 +47,15 @@ const PlayerStats = () => {
   }, [setUpdate, update]);
 
   // functions to update the pocode
-  const handleNewPlayerNameTyped = (val) => setNewPlayerName(val);
+  const handleNewPlayerNameTyped = (val: string) => {
+    setNewPlayerName(val);
+  };
   const openPlayerNameEdit = () => setIfUpdatePlayerName(true);
   const updatePlayerName = () => {
+    let censoredName = filter.clean(newPlayerName);
     axios
       .put(`${url}/playerstats/updateplayername/${player._id}`, {
-        playername: newPlayerName,
+        playername: censoredName,
       })
       .then((response) => console.log(response))
       .catch((error) => console.warn(error));
@@ -101,6 +106,7 @@ const PlayerStats = () => {
                 New Player Name:{" "}
                 <input
                   type="text"
+                  maxLength={20}
                   name="playername"
                   value={newPlayerName}
                   style={{
