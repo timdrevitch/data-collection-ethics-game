@@ -9,6 +9,7 @@ import Checkpoint13 from "../Checkpoints/Checkpoint13";
 import Checkpoint14 from "../Checkpoints/Checkpoint14";
 import Checkpoint15 from "../Checkpoints/Checkpoint15";
 import Checkpoint16 from "../Checkpoints/Checkpoint16";
+import Checkpoint17 from "../Checkpoints/Checkpoint17";
 import Checkpoint2 from "../Checkpoints/Checkpoint2";
 import Checkpoint3 from "../Checkpoints/Checkpoint3";
 import Checkpoint4 from "../Checkpoints/Checkpoint4";
@@ -23,7 +24,16 @@ import ProgressUI from "../Components/ProgressUI";
 import { Context } from "../Shared/Context";
 
 const Game: FC = (): JSX.Element => {
-  const { url, gameId, setGame, player, game } = useContext(Context);
+  const {
+    url,
+    gameId,
+    setGame,
+    player,
+    game,
+    isMuted,
+    backgroundMusic,
+    setBackgroundMusic,
+  } = useContext(Context);
   const [render, setRender] = useState<boolean>(false);
 
   useEffect(() => {
@@ -198,9 +208,42 @@ const Game: FC = (): JSX.Element => {
           player={player}
         />
       )}
-      {game.checkpoint > 16 && (
+      {game.checkpoint === 17 && (
+        <Checkpoint17
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+          player={player}
+        />
+      )}
+      {game.checkpoint > 17 && (
         <TheEnd url={url} playerId={player._id} game={game} />
       )}
+      {/* <audio
+        autoPlay={true}
+        controls={false}
+        loop={true}
+        muted={isMuted}
+        id="myAudio"
+      >
+        {backgroundMusic === "home" ? (
+          <source
+            src={require("../Assets/Assets-Fangtai/Audio/BGM/HomeSceneCut.wav")}
+            type="audio/wav"
+          />
+        ) : backgroundMusic === "car" ? (
+          <source
+            src={require("../Assets/Assets-Fangtai/Audio/BGM/CarScene.wav")}
+            type="audio/wav"
+          />
+        ) : (
+          <source
+            src={require("../Assets/Assets-Fangtai/Audio/BGM/InterviewScene.wav")}
+            type="audio/wav"
+          />
+        )}
+      </audio> */}
     </>
   );
 };

@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import { IPlayer } from "../Interfaces/IPlayer";
 import { GraySpan, OrangeSpan } from "../Styles/SharedStyles";
+import { RiVipCrown2Fill } from "react-icons/ri";
+import { GiImperialCrown, GiLaurelCrown, GiQueenCrown } from "react-icons/gi";
 
 const Leaderboards = () => {
   const { url, player, setPlayer } = useContext(Context);
@@ -43,13 +45,43 @@ const Leaderboards = () => {
           margin: "0 auto",
         }}
       >
-        <h2>Most Completed Playthroughs (Top 10)</h2>
+        <button
+          style={{
+            background: "skyblue",
+            border: "none",
+            borderRadius: "3px",
+            color: "white",
+            cursor: "pointer",
+            padding: "5px 10px",
+            fontFamily: "Trebuchet MS, sans-serif",
+            verticalAlign: "2%",
+          }}
+          onClick={() => navigate("/")}
+        >
+          Home
+        </button>
+        <h2>
+          Top 10 Most Completed Playthroughs (
+          <em>
+            Out of{" "}
+            <span style={{ color: "gold" }}>{playersFinished.length}</span>{" "}
+            Total Players
+          </em>
+          )
+        </h2>
         <table
           style={{ width: "100%", color: "#d1cfcf", border: "1px solid black" }}
         >
           <thead>
+            <tr>
+              <td style={{ color: "gold" }}>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>Top Players</em>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
             <tr style={{ color: "white", backgroundColor: "#ffffff2d" }}>
-              <td>Rank</td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rank</td>
               <td>Player</td>
               <td>Completed Playthroughs</td>
             </tr>
@@ -66,22 +98,48 @@ const Leaderboards = () => {
                     <td>
                       {index === 0 ? (
                         <span style={{ color: "gold" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <GiLaurelCrown style={{ verticalAlign: "-10%" }} />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : index === 1 ? (
                         <span style={{ color: "#999898" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <GiQueenCrown style={{ verticalAlign: "-10%" }} />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : index === 2 ? (
                         <span style={{ color: "#b44848" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <RiVipCrown2Fill
+                              style={{ verticalAlign: "-10%" }}
+                            />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : (
-                        <>{ordinal(index + 1)}</>
+                        <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ordinal(index + 1)}</>
                       )}
                     </td>
                     <td>
-                      {playerFinished.playername} ({playerFinished.firstname})
+                      {playerFinished.playername} ({playerFinished.firstname}){" "}
+                      <button
+                        onClick={() => navigate(`../playerstats/${player._id}`)}
+                        style={{
+                          background: "orange",
+                          border: "none",
+                          borderRadius: "3px",
+                          color: "white",
+                          cursor: "pointer",
+                          padding: "0 10px",
+                          fontFamily: "Trebuchet MS, sans-serif",
+                          verticalAlign: "2%",
+                        }}
+                      >
+                        Edit Name
+                      </button>
                     </td>
                     <td>{playerFinished.gamesFinished}</td>
                   </tr>
@@ -93,18 +151,29 @@ const Leaderboards = () => {
                     <td>
                       {index === 0 ? (
                         <span style={{ color: "gold" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <GiLaurelCrown style={{ verticalAlign: "-10%" }} />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : index === 1 ? (
                         <span style={{ color: "#999898" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <GiQueenCrown style={{ verticalAlign: "-10%" }} />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : index === 2 ? (
                         <span style={{ color: "#b44848" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <RiVipCrown2Fill
+                              style={{ verticalAlign: "-10%" }}
+                            />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : (
-                        ordinal(index + 1)
+                        <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ordinal(index + 1)}</>
                       )}
                     </td>
                     <td>
@@ -118,18 +187,29 @@ const Leaderboards = () => {
                     <td>
                       {index === 0 ? (
                         <span style={{ color: "gold" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <GiLaurelCrown style={{ verticalAlign: "-10%" }} />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : index === 1 ? (
                         <span style={{ color: "#999898" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <GiQueenCrown style={{ verticalAlign: "-10%" }} />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : index === 2 ? (
                         <span style={{ color: "#b44848" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <RiVipCrown2Fill
+                              style={{ verticalAlign: "-10%" }}
+                            />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : (
-                        ordinal(index + 1)
+                        <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ordinal(index + 1)}</>
                       )}
                     </td>
                     <td>
@@ -140,10 +220,17 @@ const Leaderboards = () => {
                   </tr>
                 ))
             )}
+            <tr>
+              <td style={{ color: "gold" }}>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>Personal</em>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
             <tr style={{ color: "white", backgroundColor: "#ffffff2d" }}>
-              <td>Your Rank (out of {playersFinished.length})</td>
-              <td></td>
-              <td></td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your Rank</td>
+              <td>Your Player Name</td>
+              <td>Your Completed Playthroughs</td>
             </tr>
             {playersFinished?.map(
               (playerFinished: IPlayer, index: number) =>
@@ -155,22 +242,50 @@ const Leaderboards = () => {
                     <td>
                       {index === 0 ? (
                         <span style={{ color: "gold" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <GiLaurelCrown style={{ verticalAlign: "-10%" }} />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : index === 1 ? (
                         <span style={{ color: "#999898" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <GiQueenCrown style={{ verticalAlign: "-10%" }} />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : index === 2 ? (
                         <span style={{ color: "#b44848" }}>
-                          <strong>{ordinal(index + 1)}</strong>
+                          <strong>
+                            <RiVipCrown2Fill
+                              style={{ verticalAlign: "-10%" }}
+                            />{" "}
+                            {ordinal(index + 1)}
+                          </strong>
                         </span>
                       ) : (
-                        ordinal(index + 1)
+                        <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ordinal(index + 1)}</>
                       )}
                     </td>
                     <td>
-                      {playerFinished.playername} ({playerFinished.firstname})
+                      {playerFinished.playername} ({playerFinished.firstname}){" "}
+                      <button
+                        onClick={() =>
+                          navigate(`../playerstats/${playerFinished._id}`)
+                        }
+                        style={{
+                          background: "orange",
+                          border: "none",
+                          borderRadius: "3px",
+                          color: "white",
+                          cursor: "pointer",
+                          padding: "0 10px",
+                          fontFamily: "Trebuchet MS, sans-serif",
+                          verticalAlign: "2%",
+                        }}
+                      >
+                        Edit Name
+                      </button>
                     </td>
                     <td>{playerFinished.gamesFinished}</td>
                   </tr>
@@ -179,8 +294,20 @@ const Leaderboards = () => {
           </tbody>
         </table>
         <br />
-        <button style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
-          Back
+        <button
+          style={{
+            background: "skyblue",
+            border: "none",
+            borderRadius: "3px",
+            color: "white",
+            cursor: "pointer",
+            padding: "5px 10px",
+            fontFamily: "Trebuchet MS, sans-serif",
+            verticalAlign: "2%",
+          }}
+          onClick={() => navigate("/")}
+        >
+          Home
         </button>
       </div>
     </>

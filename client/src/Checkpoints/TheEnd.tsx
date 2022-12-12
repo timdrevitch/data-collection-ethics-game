@@ -108,7 +108,7 @@ const TheEnd = ({ url, playerId, game }) => {
         </thead>
         <tbody>
           <tr>
-            <td>Where you nervous for your interviews?</td>
+            <td>Were you nervous for your interviews?</td>
             <td>{game.isNervous ? "Yes" : "No"}</td>
           </tr>
           <tr>
@@ -138,6 +138,10 @@ const TheEnd = ({ url, playerId, game }) => {
               Allen?
             </td>
             <td>{game.commentIncludesInterviewCount ? "Yes" : "No"}</td>
+          </tr>
+          <tr>
+            <td>Was your Dystogram post good?</td>
+            <td>{game.postIsGood ? "Yes" : "No"}</td>
           </tr>
         </tbody>
       </table>

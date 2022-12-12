@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { Context } from "../Shared/Context";
 import { NextButton, OrangeSpan } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
@@ -14,6 +15,7 @@ import {
 
 const Checkpoint5 = ({ url, game, render, setRender }) => {
   const [counter, setCounter] = useState<number>(0);
+  const { setBackgroundMusic } = useContext(Context);
 
   useEffect(() => {
     console.log(counter);
@@ -30,6 +32,7 @@ const Checkpoint5 = ({ url, game, render, setRender }) => {
   const nextCheckpoint = () => {
     axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
       setRender(!render);
+      setBackgroundMusic("car");
     });
   };
 
@@ -37,12 +40,6 @@ const Checkpoint5 = ({ url, game, render, setRender }) => {
     <>
       <img
         style={{
-          // position: "fixed",
-          // fontSize: "1vw",
-          // height: "20vw",
-          // zIndex: "101",
-          // marginTop: "21.7em",
-          // marginLeft: "53em",
           opacity: "80%",
           position: "absolute",
           zIndex: "101",

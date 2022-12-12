@@ -12,11 +12,13 @@ import {
 
 const Checkpoint6 = ({ url, game, render, setRender }) => {
   const [counter, setCounter] = useState<number>(0);
-  const { isMuted } = useContext(Context);
+  const { isMuted, backgroundMusic, setBackgroundMusic } = useContext(Context);
 
   useEffect(() => {
     console.log(counter);
     console.log(game.isNervous);
+    setBackgroundMusic("car");
+    console.log(backgroundMusic);
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {

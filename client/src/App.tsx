@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Context } from "./Shared/Context";
 import "./App.css";
 import Login from "./Pages/Login";
@@ -8,11 +8,11 @@ import PlayerStats from "./Pages/PlayerStats";
 import Game from "./Pages/Game";
 import Leaderboards from "./Pages/Leaderboards";
 import { ImVolumeHigh, ImVolumeMute2 } from "react-icons/im";
+const homeAudio = require("./Assets/Assets-Fangtai/Audio/BGM/HomeSceneCut.wav");
+const carAudio = require("./Assets/Assets-Fangtai/Audio/BGM/CarScene.wav");
 
 const App: FC = (): JSX.Element => {
-  const [url, setUrl] = useState<string>(
-    "https://data-ethics-game.herokuapp.com/api/v1"
-  );
+  const [url, setUrl] = useState<string>("http://localhost:4000/api/v1");
   // https://data-ethics-game.herokuapp.com/api/v1 || http://localhost:4000/api/v1
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [userFirstName, setUserFirstName] = useState<string | null>(null);
@@ -27,6 +27,8 @@ const App: FC = (): JSX.Element => {
   const [audioId, setAudioId] = useState(
     document.getElementById("myAudio") as HTMLAudioElement | null
   );
+  const [backgroundMusic, setBackgroundMusic] = useState<string>("home");
+  const [audio, setAudio] = useState<string>(homeAudio);
 
   const toggleAudio = () => {
     if (audioId === null) {
@@ -35,6 +37,15 @@ const App: FC = (): JSX.Element => {
     audioId.play();
     setIsMuted(!isMuted);
   };
+
+  // useEffect(() => {
+  //   if (backgroundMusic === "home") {
+  //     setAudio(homeAudio);
+  //   }
+  //   if (backgroundMusic === "car") {
+  //     setAudio(carAudio);
+  //   }
+  // }, [setBackgroundMusic, backgroundMusic]);
 
   return (
     <Router>
@@ -62,6 +73,8 @@ const App: FC = (): JSX.Element => {
           setGame,
           isMuted,
           setIsMuted,
+          backgroundMusic,
+          setBackgroundMusic,
         }}
       >
         <button
@@ -69,16 +82,18 @@ const App: FC = (): JSX.Element => {
             position: "fixed",
             top: "0",
             left: "0",
-            zIndex: "101",
+            zIndex: "104",
             border: "2px solid #0f1113",
             cursor: "pointer",
             backgroundColor: "#1a1d22",
-            padding: "1.25em",
+            padding: "0 1em",
             color: "white",
+            fontSize: "3.28vw",
+            borderBottomRightRadius: "10px",
           }}
           onClick={toggleAudio}
         >
-          {isMuted ? <ImVolumeMute2 size="50" /> : <ImVolumeHigh size="50" />}
+          {isMuted ? <ImVolumeMute2 /> : <ImVolumeHigh />}
         </button>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -93,10 +108,7 @@ const App: FC = (): JSX.Element => {
           muted={isMuted}
           id="myAudio"
         >
-          <source
-            src={require("./Assets/Assets-Fangtai/Audio/BGM/HomeSceneCut.wav")}
-            type="audio/wav"
-          />
+          <source src={audio} type="audio/wav" />
         </audio>
       </Context.Provider>
     </Router>

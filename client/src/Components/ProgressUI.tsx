@@ -4,7 +4,7 @@ import { LimeGreenSpan, OrangeSpan, RedSpan } from "../Styles/SharedStyles";
 
 const PauseMenu = () => {
   const { game } = useContext(Context);
-  const TOTAL_CHECKPOINTS: number = 17;
+  const TOTAL_CHECKPOINTS: number = 18;
   const percentDone: number = +(
     (game.checkpoint / TOTAL_CHECKPOINTS) *
     100
@@ -15,13 +15,13 @@ const PauseMenu = () => {
       style={{
         position: "fixed",
         top: "0",
-        left: "40%",
-        zIndex: "101",
-        width: "20vw",
-        height: "2vw",
+        left: "10%",
+        zIndex: "104",
+        width: "80vw",
+        height: "3vw",
         textAlign: "center",
         fontSize: "1vw",
-        backgroundColor: "#1a1d22",
+        backgroundColor: "#2e3136",
         border: "2px solid #0f1113",
         overflow: "hidden",
       }}
@@ -31,20 +31,26 @@ const PauseMenu = () => {
           width: `${percentDone}%`,
           height: "100%",
           position: "absolute",
-          backgroundColor: "green",
+          background:
+            "linear-gradient(90deg, rgba(193,233,191,0.5) 0%, rgba(3,150,26,1) 100%)",
           float: "left",
-          border: "1px solid green",
+          // border: "1px solid green",
+          // boxShadow: "0 0 15px #77f577",
+          // clipPath: "inset(0px -15px 0px 0px)",
         }}
       >
         <p
           style={{
             position: "fixed",
-            marginTop: "0.25vw",
+            marginTop: "0.75vw",
             left: "40%",
-            zIndex: "102",
+            zIndex: "106",
             width: "20vw",
-            height: "1.2vw",
+            height: "1vw",
             textAlign: "center",
+            backgroundColor:
+              "linear-gradient(90deg, rgba(193,233,191,0) 0%, rgba(3,150,26,1) 100%)",
+            transition: "all 0.5s ease-in-out",
           }}
         >
           {percentDone < 50 ? (

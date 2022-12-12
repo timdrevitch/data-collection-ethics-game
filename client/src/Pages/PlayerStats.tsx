@@ -85,12 +85,12 @@ const PlayerStats = () => {
                 borderRadius: "3px",
                 color: "white",
                 cursor: "pointer",
-                padding: "3px 10px",
+                padding: "0 10px",
                 fontFamily: "Trebuchet MS, sans-serif",
-                verticalAlign: "middle",
+                verticalAlign: "10%",
               }}
             >
-              Edit
+              Edit Name
             </button>
           </h3>
           {ifUpdatePlayerName ? (
@@ -181,8 +181,36 @@ const PlayerStats = () => {
           (this stat is not accurate yet)
         </div>
         <br />
-        <button style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
-          Back
+        <button
+          onClick={() => navigate(`../leaderboards/${player._id}`)}
+          style={{
+            background: "orange",
+            border: "none",
+            borderRadius: "3px",
+            color: "white",
+            cursor: "pointer",
+            padding: "5px 10px",
+            marginRight: "10px",
+            fontFamily: "Trebuchet MS, sans-serif",
+            verticalAlign: "2%",
+          }}
+        >
+          Leaderboards
+        </button>
+        <button
+          style={{
+            background: "skyblue",
+            border: "none",
+            borderRadius: "3px",
+            color: "white",
+            cursor: "pointer",
+            padding: "5px 10px",
+            fontFamily: "Trebuchet MS, sans-serif",
+            verticalAlign: "2%",
+          }}
+          onClick={() => navigate("/")}
+        >
+          Home
         </button>
       </div>
     </>

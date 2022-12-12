@@ -28,6 +28,9 @@ const gameSchema = new mongoose.Schema(
     commentIncludesInterviewCount: {
       type: Boolean,
     },
+    postIsGood: {
+      type: Boolean,
+    },
   },
   { timestamps: true }
 );

@@ -81,6 +81,9 @@ router.route("/nextcheckpoint/:id").put((req, res) => {
       if (req.body.commentChoice !== undefined) {
         Game.commentIncludesInterviewCount = req.body.commentChoice;
       }
+      if (req.body.postChoice !== undefined) {
+        Game.postIsGood = req.body.postChoice;
+      }
       Game.save()
         .then(() => res.json("Next checkpoint."))
         .catch((err) =>

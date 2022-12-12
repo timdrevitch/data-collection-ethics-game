@@ -34,6 +34,7 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
       const data = { game: res.data._id };
       axios.put(`${url}/newgame/${player._id}`, data).then(() => {
         console.log("user updated, now creating game");
+
         navigate(`./game/${res.data._id}`, {
           state: { id: player._id },
         });
@@ -67,11 +68,11 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
       </PlayerSinceContainer>
       {player.gameInProgress ? (
         <MenuButtonContinue
-          onClick={() =>
+          onClick={() => {
             navigate(`./game/${player.currentGame}`, {
               state: { id: player.currentGame },
-            })
-          }
+            });
+          }}
         >
           Continue
         </MenuButtonContinue>
