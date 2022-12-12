@@ -95,7 +95,7 @@ const PlayerStats = () => {
           </h3>
           {ifUpdatePlayerName ? (
             // <div style={{ background: "#aa69c4" }}>
-            <div>
+            <form onSubmit={updatePlayerName}>
               <div
                 style={{
                   textAlign: "left",
@@ -105,8 +105,9 @@ const PlayerStats = () => {
               >
                 New Player Name:{" "}
                 <input
+                  required
                   type="text"
-                  maxLength={20}
+                  pattern=".{3,20}"
                   name="playername"
                   value={newPlayerName}
                   style={{
@@ -137,7 +138,8 @@ const PlayerStats = () => {
                   Cancel
                 </button>
                 <button
-                  onClick={updatePlayerName}
+                  type="submit"
+                  // onClick={updatePlayerName}
                   style={{
                     cursor: "pointer",
                     border: "1px solid lime",
@@ -152,7 +154,7 @@ const PlayerStats = () => {
                   Submit
                 </button>
               </div>
-            </div>
+            </form>
           ) : null}
         </div>
         <hr />
@@ -166,10 +168,17 @@ const PlayerStats = () => {
           Games finished: <GreenSpan>{player.gamesFinished}</GreenSpan>
         </div>
         <div>
-          Unique Endings reached:{" "}
+          Completion rate:{" "}
+          <GreenSpan>
+            {((player.gamesFinished / player.gamesStarted) * 100).toFixed(2)}%
+          </GreenSpan>
+        </div>
+        <div>
+          Unique endings reached:{" "}
           <GreenSpan>
             {player.endingsReached}/3 ({percentEndingsReached}%)
-          </GreenSpan>
+          </GreenSpan>{" "}
+          (this stat is not accurate yet)
         </div>
         <br />
         <button style={{ cursor: "pointer" }} onClick={() => navigate("/")}>

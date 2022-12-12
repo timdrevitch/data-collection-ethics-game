@@ -1,5 +1,7 @@
 import axios from "axios";
+import { useContext } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { Context } from "../Shared/Context";
 import {
   MenuButtonContinue,
   MenuButtonContinueDisabled,
@@ -15,6 +17,13 @@ import {
 
 const TitleScreenMenu = ({ player, url, setGameId }) => {
   const navigate: NavigateFunction = useNavigate();
+  const {
+    setUserEmail,
+    setUserFullName,
+    setUserImage,
+    setUserLastName,
+    setUserFirstName,
+  } = useContext(Context);
 
   const startNewGame = () => {
     //create new game
@@ -32,11 +41,25 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
     });
   };
 
+  const signOut = () => {
+    setUserEmail(null);
+    setUserFullName(null);
+    setUserImage(null);
+    setUserLastName(null);
+    setUserFirstName(null);
+  };
+
   return (
     <>
       <PhoneImage src={require("../Assets/phoneBg.png")} alt="phone" />
       <WelcomePlayerContainer>
         <strong>Welcome, {player.playername} </strong>
+        <button
+          style={{ cursor: "pointer", fontSize: "1vw" }}
+          onClick={signOut}
+        >
+          Sign out
+        </button>
         {/* <PlayerImage src={player.image} alt="playerimage" /> */}
       </WelcomePlayerContainer>
       <PlayerSinceContainer>

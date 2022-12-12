@@ -124,7 +124,10 @@ const Login = () => {
         ) : userIsNewAndNeedsToSignUp ? (
           <>
             <GameTitle>
-              <em>Dystocity: Job Hunt</em>
+              <em>Dystocity: Job Hunt</em>{" "}
+              <span style={{ color: "orange", fontSize: "1.5vw" }}>
+                Beta Version 0.1.36
+              </span>
             </GameTitle>
             {/* <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer> */}
             <CreateAccountForm onSubmit={handleSignUp}>
@@ -134,6 +137,7 @@ const Login = () => {
               </RedInfoP>
               <CreateAccountInput
                 required
+                minLength={3}
                 maxLength={20}
                 type="text"
                 placeholder="Enter any player name here..."
@@ -153,7 +157,10 @@ const Login = () => {
         ) : (
           <>
             <GameTitle>
-              <em>Dystocity: Job Hunt</em>
+              <em>Dystocity: Job Hunt</em>{" "}
+              <span style={{ color: "orange", fontSize: "1.5vw" }}>
+                Beta Version 0.1.36
+              </span>
             </GameTitle>
             {/* <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer> */}
             <LoginPositionContainer>

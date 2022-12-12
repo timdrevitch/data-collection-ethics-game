@@ -81,7 +81,7 @@ const Leaderboards = () => {
                       )}
                     </td>
                     <td>
-                      {playerFinished.playername} ({playerFinished.fullname})
+                      {playerFinished.playername} ({playerFinished.firstname})
                     </td>
                     <td>{playerFinished.gamesFinished}</td>
                   </tr>
@@ -109,7 +109,7 @@ const Leaderboards = () => {
                     </td>
                     <td>
                       {playerFinished.playername}{" "}
-                      <GraySpan>({playerFinished.fullname})</GraySpan>
+                      <GraySpan>({playerFinished.firstname})</GraySpan>
                     </td>
                     <td>{playerFinished.gamesFinished}</td>
                   </tr>
@@ -134,7 +134,7 @@ const Leaderboards = () => {
                     </td>
                     <td>
                       {playerFinished.playername}{" "}
-                      <GraySpan>({playerFinished.fullname})</GraySpan>
+                      <GraySpan>({playerFinished.firstname})</GraySpan>
                     </td>
                     <td>{playerFinished.gamesFinished}</td>
                   </tr>
@@ -170,7 +170,7 @@ const Leaderboards = () => {
                       )}
                     </td>
                     <td>
-                      {playerFinished.playername} ({playerFinished.fullname})
+                      {playerFinished.playername} ({playerFinished.firstname})
                     </td>
                     <td>{playerFinished.gamesFinished}</td>
                   </tr>
