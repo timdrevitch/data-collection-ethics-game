@@ -8,13 +8,12 @@ import PlayerStats from "./Pages/PlayerStats";
 import Game from "./Pages/Game";
 import Leaderboards from "./Pages/Leaderboards";
 import { ImVolumeHigh, ImVolumeMute2 } from "react-icons/im";
+import { IGame } from "./Interfaces/IGame";
 const homeAudio = require("./Assets/Assets-Fangtai/Audio/BGM/HomeSceneCut.wav");
 const carAudio = require("./Assets/Assets-Fangtai/Audio/BGM/CarScene.wav");
 
 const App: FC = (): JSX.Element => {
-  const [url, setUrl] = useState<string>(
-    "https://data-ethics-game.herokuapp.com/api/v1"
-  );
+  const [url, setUrl] = useState<string>("http://localhost:4000/api/v1");
   // https://data-ethics-game.herokuapp.com/api/v1 || http://localhost:4000/api/v1
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [userFirstName, setUserFirstName] = useState<string | null>(null);
@@ -24,7 +23,7 @@ const App: FC = (): JSX.Element => {
   const [userExists, setUserExists] = useState<boolean | null>(null);
   const [player, setPlayer] = useState<IPlayer>({});
   const [gameId, setGameId] = useState<string>("");
-  const [game, setGame] = useState<any>({});
+  const [game, setGame] = useState<IGame>({});
   const [isMuted, setIsMuted] = useState<boolean>(true);
   const [audioId, setAudioId] = useState(
     document.getElementById("myAudio") as HTMLAudioElement | null

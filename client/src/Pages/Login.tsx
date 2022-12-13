@@ -126,7 +126,7 @@ const Login = () => {
             <GameTitle>
               <em>Dystocity: Job Hunt</em>{" "}
               <span style={{ color: "orange", fontSize: "1.5vw" }}>
-                Beta Version 0.1.38
+                Beta Version 0.1.41
               </span>
             </GameTitle>
             {/* <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer> */}
@@ -159,7 +159,7 @@ const Login = () => {
             <GameTitle>
               <em>Dystocity: Job Hunt</em>{" "}
               <span style={{ color: "orange", fontSize: "1.5vw" }}>
-                Beta Version 0.1.38
+                Beta Version 0.1.41
               </span>
             </GameTitle>
             {/* <AuthorsContainer>Tim Drevitch & Fangtai Bao</AuthorsContainer> */}
