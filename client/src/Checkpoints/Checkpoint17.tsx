@@ -31,7 +31,7 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 1) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
@@ -304,25 +304,26 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
         )}
         {counter >= 1 ? (
           counter === 1 ? (
-            <OrangeSpan>
-              You are almost at your second interview. Try making a post before
-              you get there!...{" "}
-            </OrangeSpan>
+            <OrangeSpan>You are almost at your second interview... </OrangeSpan>
           ) : (
-            <span>
-              You are almost at your second interview. Try making a post before
-              you get there!...{" "}
-            </span>
+            <span>You are almost at your second interview... </span>
           )
         ) : null}
-        {counter === 1 ? null : (
+        {counter >= 2 ? (
+          counter === 2 ? (
+            <OrangeSpan>Try making a post before you get there!... </OrangeSpan>
+          ) : (
+            <span>Try making a post before you get there!... </span>
+          )
+        ) : null}
+        {counter === 2 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 1 && (
+      {counter === 2 && (
         <div
           style={{
             position: "absolute",
@@ -357,7 +358,9 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
           >
             Post:
             <br />
-            "Post option 1 (Good)"
+            "I am always trying to keep my programming skills up to date! Read
+            about my progress on the blog website I built! If you sign up on it,
+            you can leave comments and feedback for me!"
           </button>
           <button
             style={{
@@ -377,7 +380,9 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
           >
             Post:
             <br />
-            "Post option 2 (Bad)"
+            "I have been enjoying creating beautiful website designs lately! My
+            recent side projects have had great UI/UX design, have been
+            responsive, and are easy and intuitive to use!"
           </button>
         </div>
       )}

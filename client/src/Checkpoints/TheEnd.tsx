@@ -10,6 +10,12 @@ import {
 
 const TheEnd = ({ url, playerId, game }) => {
   const navigate: NavigateFunction = useNavigate();
+  const interview1: boolean = game.isHesitant && game.readTerms;
+  const twoOutOfThree: boolean =
+    (!game.commentIncludesInterviewCount && game.postIsGood) ||
+    (!game.commentIncludesInterviewCount && game.apiQuestionCorrect) ||
+    (game.postIsGood && game.apiQuestionCorrect);
+  const interview2: boolean = twoOutOfThree;
 
   const endGame = () => {
     axios
@@ -51,12 +57,12 @@ const TheEnd = ({ url, playerId, game }) => {
         }}
       >
         You got the{" "}
-        {!game.isHesitant && !game.readTerms ? (
-          <RedSpan>BAD</RedSpan>
-        ) : !game.isHesitant || !game.readTerms ? (
+        {!interview1 && !interview2 ? (
+          <RedSpan>WORST</RedSpan>
+        ) : !interview1 || !interview2 ? (
           <OrangeSpan>AVERAGE</OrangeSpan>
-        ) : game.isHesitant && game.readTerms ? (
-          <GreenSpan>GREAT</GreenSpan>
+        ) : interview1 && interview2 ? (
+          <GreenSpan>BEST</GreenSpan>
         ) : null}{" "}
         ending!
       </h2>
@@ -79,9 +85,9 @@ const TheEnd = ({ url, playerId, game }) => {
           position: "absolute",
           width: "70%",
           marginLeft: "15%",
-          top: "12em",
+          top: "14em",
           textAlign: "left",
-          fontSize: "1.5vw",
+          fontSize: "1.3vw",
           textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
           border: "1px solid gray",
         }}
@@ -140,8 +146,46 @@ const TheEnd = ({ url, playerId, game }) => {
             <td>{game.commentIncludesInterviewCount ? "Yes" : "No"}</td>
           </tr>
           <tr>
-            <td>Was your Dystogram post good?</td>
-            <td>{game.postIsGood ? "Yes" : "No"}</td>
+            <td>
+              Did your Dystogram post hurt your chances in the second interview?
+            </td>
+            <td>{game.postIsGood ? "No" : "Yes"}</td>
+          </tr>
+          <tr>
+            <td>Did you get the question from the second interview correct?</td>
+            <td>{game.apiQuestionCorrect ? "Yes" : "No"}</td>
+          </tr>
+          <tr>
+            <td
+              style={{
+                background: "#3a3a3abe",
+              }}
+            >
+              <em>Did the first interview give you a job offer?</em>
+            </td>
+            <td
+              style={{
+                background: "#3a3a3abe",
+              }}
+            >
+              {interview1 ? "Yes" : "No"}
+            </td>
+          </tr>
+          <tr>
+            <td
+              style={{
+                background: "#3a3a3abe",
+              }}
+            >
+              <em>Did the second interview give you a job offer?</em>
+            </td>
+            <td
+              style={{
+                background: "#3a3a3abe",
+              }}
+            >
+              {interview2 ? "Yes" : "No"}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -151,7 +195,7 @@ const TheEnd = ({ url, playerId, game }) => {
           position: "absolute",
           width: "30%",
           height: "5%",
-          top: "40em",
+          top: "44em",
           left: "35%",
           fontSize: "1vw",
           backgroundColor: "orange",

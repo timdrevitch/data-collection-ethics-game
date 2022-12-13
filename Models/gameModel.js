@@ -31,6 +31,9 @@ const gameSchema = new mongoose.Schema(
     postIsGood: {
       type: Boolean,
     },
+    apiQuestionCorrect: {
+      type: Boolean,
+    },
   },
   { timestamps: true }
 );

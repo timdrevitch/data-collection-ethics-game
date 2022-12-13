@@ -84,6 +84,9 @@ router.route("/nextcheckpoint/:id").put((req, res) => {
       if (req.body.postChoice !== undefined) {
         Game.postIsGood = req.body.postChoice;
       }
+      if (req.body.apiQuestionChoice !== undefined) {
+        Game.apiQuestionCorrect = req.body.apiQuestionChoice;
+      }
       Game.save()
         .then(() => res.json("Next checkpoint."))
         .catch((err) =>

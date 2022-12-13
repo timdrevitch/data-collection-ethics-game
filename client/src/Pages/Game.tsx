@@ -10,6 +10,8 @@ import Checkpoint14 from "../Checkpoints/Checkpoint14";
 import Checkpoint15 from "../Checkpoints/Checkpoint15";
 import Checkpoint16 from "../Checkpoints/Checkpoint16";
 import Checkpoint17 from "../Checkpoints/Checkpoint17";
+import Checkpoint18 from "../Checkpoints/Checkpoint18";
+import Checkpoint19 from "../Checkpoints/Checkpoint19";
 import Checkpoint2 from "../Checkpoints/Checkpoint2";
 import Checkpoint3 from "../Checkpoints/Checkpoint3";
 import Checkpoint4 from "../Checkpoints/Checkpoint4";
@@ -217,7 +219,24 @@ const Game: FC = (): JSX.Element => {
           player={player}
         />
       )}
-      {game.checkpoint > 17 && (
+      {game.checkpoint === 18 && (
+        <Checkpoint18
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint === 19 && (
+        <Checkpoint19
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+          player={player}
+        />
+      )}
+      {game.checkpoint > 19 && (
         <TheEnd url={url} playerId={player._id} game={game} />
       )}
       {/* <audio
