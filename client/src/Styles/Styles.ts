@@ -1,17 +1,17 @@
-import styled, { keyframes } from "styled-components"
-import { Link } from "react-router-dom"
+import styled, { keyframes } from "styled-components";
+import { Link } from "react-router-dom";
 
 //Animations
 const shine = keyframes`
     0% {box-shadow: 1px 0 25px 2px white}
     50% {box-shadow: 1px -4px 25px 2px white}
     100% {box-shadow: 1px 0 25px 2px white}
-`
+`;
 const blink = keyframes`
     0% {opacity: 100%}
     50% {opacity: 0%}
     100% {opacity: 100%}
-`
+`;
 const shakeAnimation = keyframes`
     0% {transform: translate(1px, 1px) rotate(0deg)}
     10% {transform: translate(-1px, -2px) rotate(-1deg)}
@@ -24,7 +24,7 @@ const shakeAnimation = keyframes`
     80% {transform: translate(-1px, -1px) rotate(1deg)}
     90% {transform: translate(1px, 2px) rotate(0deg)}
     100% {transform: translate(1px, -2px) rotate(-1deg)}
-`
+`;
 
 //nav bar
 export const NavigationLink = styled(Link)`
@@ -47,52 +47,52 @@ export const NavigationLink = styled(Link)`
     padding-top: 40px;
     border: 1px solid green;
   }
-`
+`;
 export const NavigationLinkContainer = styled.div`
   width: 35%;
   display: inline-block;
   text-align: center;
-`
+`;
 export const NavigationHeader = styled.header`
   overflow: hidden;
   background: black;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.4), 0 7px 20px 0 rgba(0, 0, 0, 0.4);
   font-family: Trebuchet MS, sans-serif;
-`
+`;
 export const NavigationContainer = styled.div`
   width: 95%;
   margin: auto;
-`
+`;
 export const NavigationImageContainer = styled.div`
   width: 9rem;
   display: inline-block;
-`
+`;
 export const NavigationImage = styled.img`
   width: 100%;
   height: 2.3rem;
   margin: 1rem 0;
   display: inline;
   vertical-align: center;
-`
+`;
 export const NavigationImageCentered = styled.img`
   width: 12rem;
   height: 3rem;
   margin: 1rem auto;
   display: block;
   text-align: center;
-`
+`;
 export const NavigationUserContainer = styled.div`
   display: inline;
   float: right;
-`
+`;
 export const NavigationUL = styled.ul`
   display: inline-block;
   text-align: right;
-`
+`;
 export const NavigationLI = styled.li`
   display: inline-block;
   color: white;
-`
+`;
 export const NavigationUserImageContainer = styled.div`
   display: inline-block;
   margin: auto 0.5rem;
@@ -101,26 +101,26 @@ export const NavigationUserImageContainer = styled.div`
   overflow: hidden;
   border-radius: 50%;
   box-shadow: 0px 0px 150px 60px rgba(237, 245, 243, 0.788);
-`
+`;
 export const NavigationUserImg = styled.img`
   width: 2rem;
   height: 2rem;
-`
+`;
 export const NormalTH = styled.th`
   border-bottom: 1px solid;
   background: linear-gradient(135deg, #eeeeee 0%, #cccccc 100%);
-`
+`;
 
 //Expense Reports Page
 export const LeftTH = styled.th`
   text-align: left;
-`
+`;
 export const RightTH = styled.th`
   text-align: right;
-`
+`;
 export const CenterTH = styled.th`
   text-align: center;
-`
+`;
 export const TopWidget = styled.div`
   background: white;
   margin: 3rem auto 0 auto;
@@ -129,7 +129,7 @@ export const TopWidget = styled.div`
   padding: 5px;
   border-radius: 10px;
   box-shadow: 0px 0px 20px 1px rgba(237, 245, 243, 0.788);
-`
+`;
 export const ReportsWidget = styled.div`
   background: white;
   width: 95%;
@@ -139,34 +139,34 @@ export const ReportsWidget = styled.div`
   padding-top: 1rem;
   padding-bottom: 2rem;
   box-shadow: 0px 0px 20px 1px rgba(237, 245, 243, 0.788);
-`
+`;
 export const GrayTd = styled.td`
   background: lightgray;
   white-space: nowrap;
-`
+`;
 export const WhiteTd = styled.td`
   background: white;
   white-space: nowrap;
-`
+`;
 export const ExpenseTable = styled.table`
   width: 98%;
   margin: auto;
-`
+`;
 
 export const NormalTD = styled.td`
   border-bottom: 1px solid #ddd;
-`
+`;
 export const TestingTD = styled.td`
   border-bottom: 1px solid #ddd;
   color: orange;
-`
+`;
 export const MissingInfoTD = styled.td`
   border-bottom: 1px solid #ddd;
   color: red;
-`
+`;
 export const TicketItem = styled.div`
   padding: 10px;
-`
+`;
 
 export const CreateOrderButton = styled.button`
   border: 1px solid skyblue;
@@ -191,7 +191,31 @@ export const CreateOrderButton = styled.button`
     width: 36rem;
     height: 12rem;
   }
-`
+`;
+export const HiddenDetails = styled.details`
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 103;
+  & ::marker {
+    display: none;
+  }
+  & ::-webkit-details-marker {
+    display: none;
+  }
+`;
+export const HiddenSummary = styled.summary`
+  cursor: pointer;
+  list-style: none;
+  border: 2px solid #0f1113;
+  border-bottom-left-radius: 10px;
+  & ::marker {
+    display: none;
+  }
+  & ::-webkit-details-marker {
+    display: none;
+  }
+`;
 
 export const ViewArchivesButton = styled.button`
   border: 1px solid green;
@@ -216,7 +240,7 @@ export const ViewArchivesButton = styled.button`
     width: 36rem;
     height: 12rem;
   }
-`
+`;
 
 export const AnalyticsHover = styled.div`
   overflow: hidden;
@@ -241,7 +265,7 @@ export const AnalyticsHover = styled.div`
     width: 36rem;
     height: 10.3rem;
   }
-`
+`;
 
 export const ViewStatsButton = styled.button`
   color: white;
@@ -262,7 +286,7 @@ export const ViewStatsButton = styled.button`
     color: orange;
     border: 1px solid orange;
   }
-`
+`;
 
 export const BulkActionButton = styled.button`
   border: 1px solid green;
@@ -287,7 +311,7 @@ export const BulkActionButton = styled.button`
     width: 36rem;
     height: 12rem;
   }
-`
+`;
 
 export const ActionsSection = styled.div`
   display: flex;
@@ -304,7 +328,7 @@ export const ActionsSection = styled.div`
     height: 12rem;
     width: 80%;
   }
-`
+`;
 
 export const ArchiveButton = styled.button`
   border: 1px solid white;
@@ -323,7 +347,7 @@ export const ArchiveButton = styled.button`
     color: green;
     border: 1px solid green;
   }
-`
+`;
 
 export const UndenyButton = styled.button`
   border: 1px solid white;
@@ -342,7 +366,7 @@ export const UndenyButton = styled.button`
     color: red;
     border: 1px solid red;
   }
-`
+`;
 
 export const ReceiveButton = styled.button`
   border: 1px solid white;
@@ -361,7 +385,7 @@ export const ReceiveButton = styled.button`
     color: darkcyan;
     border: 1px solid darkcyan;
   }
-`
+`;
 
 export const DeliverButton = styled.button`
   border: 1px solid white;
@@ -386,7 +410,7 @@ export const DeliverButton = styled.button`
     color: darkblue;
     border: 1px solid darkblue;
   }
-`
+`;
 
 export const ViewLink = styled(Link)`
   border: 1px solid white;
@@ -406,7 +430,7 @@ export const ViewLink = styled(Link)`
     color: orange;
     border: 1px solid orange;
   }
-`
+`;
 
 //Loading
 export const LoadingContainer = styled.div`
@@ -420,11 +444,11 @@ export const LoadingContainer = styled.div`
   padding-bottom: 20px;
   background: black;
   overflow: hidden;
-`
+`;
 export const Loading = styled.h3`
   color: #5fc75d;
   animation: ${blink} 1s infinite;
-`
+`;
 
 //Create Form
 export const FormLabel = styled.div`
@@ -437,12 +461,12 @@ export const FormLabel = styled.div`
   width: 90%;
   text-align: left;
   margin: 2rem auto 0 auto;
-`
+`;
 export const BackButtonContainer = styled.div`
   width: 90%;
   text-align: left;
   margin: 2rem auto 0 auto;
-`
+`;
 export const FormInput = styled.input`
   background: linear-gradient(135deg, #ffffff 0%, #e5e6e4 44%, #939e93 100%);
   padding: 0;
@@ -453,7 +477,7 @@ export const FormInput = styled.input`
   font-family: Trebuchet MS, sans-serif;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-`
+`;
 export const FormSubmit = styled.input`
   box-shadow: 0px 0px 100px 1px rgba(237, 245, 243, 0.582);
   color: white;
@@ -473,4 +497,4 @@ export const FormSubmit = styled.input`
     transition: all 0.3s ease-in-out;
     animation: ${shakeAnimation} 1s 1;
   }
-`
+`;

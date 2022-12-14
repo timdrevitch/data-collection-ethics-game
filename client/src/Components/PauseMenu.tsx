@@ -3,28 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../Shared/Context";
 import { GreenSpan } from "../Styles/SharedStyles";
 import { FaPauseCircle } from "react-icons/fa";
+import { HiddenDetails, HiddenSummary } from "../Styles/Styles";
 
 const PauseMenu = () => {
   const { game } = useContext(Context);
   const navigate = useNavigate();
   const TOTAL_CHECKPOINTS: number = 20;
   return (
-    <details
-      style={{
-        position: "fixed",
-        top: "0",
-        right: "0",
-        zIndex: "103",
-      }}
-    >
-      <summary
-        style={{
-          cursor: "pointer",
-          listStyle: "none",
-          border: "2px solid #0f1113",
-          borderBottomLeftRadius: "10px",
-        }}
-      >
+    <HiddenDetails>
+      <HiddenSummary>
         <div
           style={{
             border: "1px sold white",
@@ -37,7 +24,7 @@ const PauseMenu = () => {
         >
           <FaPauseCircle />
         </div>
-      </summary>
+      </HiddenSummary>
       <div
         style={{
           width: "96vw",
@@ -78,7 +65,7 @@ const PauseMenu = () => {
           </button>
         </div>
       </div>
-    </details>
+    </HiddenDetails>
   );
 };
 
