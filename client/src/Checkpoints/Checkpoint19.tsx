@@ -259,10 +259,10 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
                 <OrangeSpan>
                   <YellowSpan>Interviewer:</YellowSpan> "
                   <em>
-                    I believe it! Could you do answer a quick question just to
-                    show me how good you are at it? The question is: if you
-                    wanted to update data in a database, which REST operation
-                    would you use?
+                    I believe it! Could you answer a quick question just to show
+                    me how good you are at it? The question is: if you wanted to
+                    update data in a database, which REST operation would you
+                    use?
                   </em>
                   "
                 </OrangeSpan>
@@ -270,10 +270,10 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
                 <span>
                   <YellowSpan>Interviewer:</YellowSpan> "
                   <em>
-                    I believe it! Could you do answer a quick question just to
-                    show me how good you are at it? The question is: if you
-                    wanted to update data in a database, which REST operation
-                    would you use?
+                    I believe it! Could you answer a quick question just to show
+                    me how good you are at it? The question is: if you wanted to
+                    update data in a database, which REST operation would you
+                    use?
                   </em>
                   "
                 </span>
@@ -328,7 +328,7 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
             marginRight: "auto",
             width: "50%",
             height: "12%",
-            top: "39em",
+            top: "40em",
             margin: "0 auto",
             fontSize: "1vw",
             color: "white",

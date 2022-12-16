@@ -34,6 +34,9 @@ const gameSchema = new mongoose.Schema(
     apiQuestionCorrect: {
       type: Boolean,
     },
+    likeApp: {
+      type: Boolean,
+    },
   },
   { timestamps: true }
 );

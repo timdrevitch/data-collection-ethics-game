@@ -13,7 +13,9 @@ const homeAudio = require("./Assets/Assets-Fangtai/Audio/BGM/HomeSceneCut.wav");
 const carAudio = require("./Assets/Assets-Fangtai/Audio/BGM/CarScene.wav");
 
 const App: FC = (): JSX.Element => {
-  const [url, setUrl] = useState<string>("http://localhost:4000/api/v1");
+  const [url, setUrl] = useState<string>(
+    "https://data-ethics-game.herokuapp.com/api/v1"
+  );
   // https://data-ethics-game.herokuapp.com/api/v1 || http://localhost:4000/api/v1
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [userFirstName, setUserFirstName] = useState<string | null>(null);
@@ -87,7 +89,7 @@ const App: FC = (): JSX.Element => {
             border: "2px solid #0f1113",
             cursor: "pointer",
             backgroundColor: "#1a1d22",
-            padding: "0 1em",
+            width: "3em",
             color: "white",
             fontSize: "3.28vw",
             borderBottomRightRadius: "10px",

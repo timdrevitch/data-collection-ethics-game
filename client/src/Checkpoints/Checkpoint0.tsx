@@ -77,7 +77,7 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
           style={{
             position: "absolute",
             width: "50%",
-            top: "6em",
+            top: "5.5em",
             marginLeft: "25%",
             fontSize: "2vw",
             textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
@@ -85,16 +85,16 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
             zIndex: "102",
           }}
         >
-          Press the{" "}
+          Press the "SPACE" or "RIGHT ARROW" key{" "}
           <img
             style={{
               height: "5vw",
-              verticalAlign: "bottom",
+              verticalAlign: "-50%",
             }}
-            src={require("../Assets/arrows.png")}
-            alt="rightarrow"
+            src={require("../Assets/keyboard.png")}
+            alt="keyboard"
           />{" "}
-          key or the <OrangeSpan>NEXT</OrangeSpan> button to progress
+          or click on the <OrangeSpan>NEXT</OrangeSpan> button to progress
         </div>
         <div
           style={{

@@ -292,3 +292,12 @@ export const DarkFooter2 = styled.div`
   background-color: #1a1d22;
   z-index: 2000;
 `;
+export const DarkFooter3 = styled.div`
+  margin-top: -5vw;
+  position: absolute;
+  width: 100vw;
+  height: 100vw;
+  opacity: 100%;
+  background-color: #1a1d22;
+  z-index: 2000;
+`;

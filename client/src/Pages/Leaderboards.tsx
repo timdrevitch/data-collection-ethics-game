@@ -41,7 +41,7 @@ const Leaderboards = () => {
         style={{
           width: "90%",
           textAlign: "left",
-          paddingTop: "5rem",
+          paddingTop: "6rem",
           margin: "0 auto",
         }}
       >

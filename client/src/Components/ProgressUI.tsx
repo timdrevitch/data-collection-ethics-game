@@ -4,7 +4,7 @@ import { LimeGreenSpan, OrangeSpan, RedSpan } from "../Styles/SharedStyles";
 
 const PauseMenu = () => {
   const { game } = useContext(Context);
-  const TOTAL_CHECKPOINTS: number = 20;
+  const TOTAL_CHECKPOINTS: number = 23;
   const percentDone: number = +(
     (game.checkpoint / TOTAL_CHECKPOINTS) *
     100

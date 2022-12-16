@@ -13,6 +13,9 @@ import Checkpoint17 from "../Checkpoints/Checkpoint17";
 import Checkpoint18 from "../Checkpoints/Checkpoint18";
 import Checkpoint19 from "../Checkpoints/Checkpoint19";
 import Checkpoint2 from "../Checkpoints/Checkpoint2";
+import Checkpoint20 from "../Checkpoints/Checkpoint20";
+import Checkpoint21 from "../Checkpoints/Checkpoint21";
+import Checkpoint22 from "../Checkpoints/Checkpoint22";
 import Checkpoint3 from "../Checkpoints/Checkpoint3";
 import Checkpoint4 from "../Checkpoints/Checkpoint4";
 import Checkpoint5 from "../Checkpoints/Checkpoint5";
@@ -24,6 +27,7 @@ import TheEnd from "../Checkpoints/TheEnd";
 import PauseMenu from "../Components/PauseMenu";
 import ProgressUI from "../Components/ProgressUI";
 import { Context } from "../Shared/Context";
+import { DarkFooter3 } from "../Styles/TitleScreenStyles";
 
 const Game: FC = (): JSX.Element => {
   const {
@@ -236,9 +240,34 @@ const Game: FC = (): JSX.Element => {
           player={player}
         />
       )}
-      {game.checkpoint > 19 && (
+      {game.checkpoint === 20 && (
+        <Checkpoint20
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint === 21 && (
+        <Checkpoint21
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint === 22 && (
+        <Checkpoint22
+          url={url}
+          game={game}
+          render={render}
+          setRender={setRender}
+        />
+      )}
+      {game.checkpoint > 22 && (
         <TheEnd url={url} playerId={player._id} game={game} />
       )}
+      {/* <DarkFooter3></DarkFooter3> */}
       {/* <audio
         autoPlay={true}
         controls={false}

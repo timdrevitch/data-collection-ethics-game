@@ -64,7 +64,14 @@ const TheEnd = ({ url, playerId, game }) => {
         ) : interview1 && interview2 ? (
           <GreenSpan>BEST</GreenSpan>
         ) : null}{" "}
-        ending!
+        ending!{" "}
+        {!interview1 && !interview2 ? (
+          <RedSpan>Neither interview gave you a job offer.</RedSpan>
+        ) : !interview1 || !interview2 ? (
+          <OrangeSpan>One interview gave you a job offer.</OrangeSpan>
+        ) : interview1 && interview2 ? (
+          <GreenSpan>Both interviews gave you job offers!</GreenSpan>
+        ) : null}{" "}
       </h2>
       <div
         style={{
@@ -154,6 +161,10 @@ const TheEnd = ({ url, playerId, game }) => {
           <tr>
             <td>Did you get the question from the second interview correct?</td>
             <td>{game.apiQuestionCorrect ? "Yes" : "No"}</td>
+          </tr>
+          <tr>
+            <td>Did you like the Dystogram app?</td>
+            <td>{game.likeApp ? "Yes" : "No"}</td>
           </tr>
           <tr>
             <td

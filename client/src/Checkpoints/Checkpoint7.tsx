@@ -7,6 +7,7 @@ import {
   CityGif,
   DarkFooter,
   DarkFooter2,
+  DarkFooter3,
   DystContainer,
   DystrogramImage,
   PhoneImage,
@@ -46,6 +47,7 @@ const Checkpoint7 = ({ url, game, render, setRender }) => {
       <CityGif src={require("../Assets/city.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
+      <DarkFooter3></DarkFooter3>
       <DystContainer
         style={{
           right: "47%",
