@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { NextButton, OrangeSpan } from "../Styles/SharedStyles";
+import {
+  CheckpointButton,
+  NextButton,
+  OrangeSpan,
+} from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   DarkFooter,
@@ -83,6 +87,7 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
             textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
             textAlign: "center",
             zIndex: "102",
+            color: "greenyellow",
           }}
         >
           Press the "SPACE" or "RIGHT ARROW" key{" "}
@@ -100,7 +105,7 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
           style={{
             position: "absolute",
             width: "90%",
-            top: "10em",
+            top: "12em",
             marginLeft: "5%",
             fontSize: "2vw",
             zIndex: "102",
@@ -153,52 +158,28 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
               marginLeft: "auto",
               marginRight: "auto",
               width: "50%",
-              height: "10%",
-              top: "35em",
+              height: "14.7%",
+              top: "38em",
               margin: "0 auto",
               fontSize: "1vw",
               color: "white",
               zIndex: "102",
             }}
           >
-            <button
-              style={{
-                cursor: "pointer",
-                float: "left",
-                width: "45%",
-                height: "100%",
-                fontSize: "1vw",
-                backgroundColor: "orange",
-                border: "1px solid white",
-                borderRadius: "15px",
-                textAlign: "left",
-                padding: "0 1.5em",
-                color: "white",
-              }}
+            <CheckpointButton
+              style={{ float: "left" }}
               onClick={() => nextCheckpoint(false)}
             >
               I am not nervous for the interviews. I just woke up early to
               prepare extra.
-            </button>
-            <button
-              style={{
-                cursor: "pointer",
-                float: "right",
-                width: "45%",
-                height: "100%",
-                fontSize: "1vw",
-                backgroundColor: "orange",
-                border: "1px solid white",
-                borderRadius: "15px",
-                textAlign: "left",
-                padding: "0 1.5em",
-                color: "white",
-              }}
+            </CheckpointButton>
+            <CheckpointButton
+              style={{ float: "right" }}
               onClick={() => nextCheckpoint(true)}
             >
               I've definitely been a little nervous. I want to do well and get
               at least one of these jobs.
-            </button>
+            </CheckpointButton>
           </div>
         )}
       </div>

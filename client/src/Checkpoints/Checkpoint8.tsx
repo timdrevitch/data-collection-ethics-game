@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import {
+  CheckpointButton,
   NextButton,
   OrangeSpan,
   RedSpan,
@@ -202,90 +203,58 @@ const Checkpoint8 = ({ url, game, render, setRender }) => {
             right: "0",
             marginLeft: "auto",
             marginRight: "auto",
-            width: "25%",
-            height: "10%",
-            top: "35em",
+            width: "50%",
+            height: "13%",
+            top: "38em",
             margin: "0 auto",
             fontSize: "1vw",
             color: "white",
+            zIndex: "102",
           }}
         >
           {game.readTerms ? (
             <>
-              <button
-                style={{
-                  float: "left",
-                  width: "45%",
-                  height: "100%",
-                  fontSize: "1vw",
-                  backgroundColor: "red",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  padding: "0 1.5em",
-                  color: "white",
-                }}
+              <CheckpointButton
+                style={{ float: "left", opacity: "40%", cursor: "not-allowed" }}
                 disabled
               >
-                <em>First choice unavailable due to prior actions.</em>
-              </button>
-              <button
-                style={{
-                  cursor: "pointer",
-                  float: "right",
-                  width: "45%",
-                  height: "100%",
-                  fontSize: "1vw",
-                  backgroundColor: "orange",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  padding: "0 1.5em",
-                  color: "white",
-                }}
+                <em>
+                  <RedSpan>Unavailable due to prior actions.</RedSpan>
+                </em>
+                <br />
+                Fill out the FULL sign up form and continue.
+              </CheckpointButton>
+              <CheckpointButton
+                style={{ float: "right" }}
                 onClick={nextCheckpoint}
               >
                 Fill out ONLY the required parts of the sign up form and
                 continue.
-              </button>
+              </CheckpointButton>
             </>
           ) : (
             <>
-              <button
-                style={{
-                  cursor: "pointer",
-                  float: "left",
-                  width: "45%",
-                  height: "100%",
-                  fontSize: "1vw",
-                  backgroundColor: "orange",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  padding: "0 1.5em",
-                  color: "white",
-                }}
+              <CheckpointButton
+                style={{ float: "left" }}
                 onClick={nextCheckpoint}
               >
                 Fill out the FULL sign up form and continue.
-              </button>
-              <button
+              </CheckpointButton>
+              <CheckpointButton
                 style={{
                   float: "right",
-                  width: "45%",
-                  height: "100%",
-                  fontSize: "1vw",
-                  backgroundColor: "red",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  padding: "0 1.5em",
-                  color: "white",
+                  opacity: "40%",
+                  cursor: "not-allowed",
                 }}
                 disabled
               >
-                <em>Second choice unavailable due to prior actions.</em>
-              </button>
+                <em>
+                  <RedSpan>Unavailable due to prior actions.</RedSpan>
+                </em>
+                <br />
+                Fill out ONLY the required parts of the sign up form and
+                continue.
+              </CheckpointButton>
             </>
           )}
         </div>

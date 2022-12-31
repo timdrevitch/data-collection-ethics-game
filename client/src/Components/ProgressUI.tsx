@@ -15,9 +15,9 @@ const PauseMenu = () => {
       style={{
         position: "fixed",
         top: "0",
-        left: "10%",
+        left: "15%",
         zIndex: "104",
-        width: "80vw",
+        width: "70vw",
         height: "3vw",
         textAlign: "center",
         fontSize: "1vw",

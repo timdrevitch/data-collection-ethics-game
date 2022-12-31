@@ -4,6 +4,7 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import {
   BlueSpan,
+  CheckpointButton,
   NextButton,
   OrangeSpan,
   YellowSpan,
@@ -268,7 +269,7 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
         style={{
           position: "absolute",
           width: "30%",
-          top: "10.5em",
+          top: "7.5em",
           marginLeft: "60%",
           fontSize: "2vw",
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
@@ -303,57 +304,42 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
             right: "15%",
             marginLeft: "60%",
             // marginRight: "10%",
-            width: "25%",
-            height: "10%",
-            top: "33em",
+            width: "55%",
+            height: "14.2%",
+            top: "25em",
             // margin: "0 auto",
             fontSize: "1vw",
             color: "white",
           }}
         >
-          <button
-            style={{
-              cursor: "pointer",
-              float: "right",
-              width: "100%",
-              height: "100%",
-              fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
-              padding: "0 1.5em",
-              color: "white",
-              marginBottom: "1em",
-            }}
+          <CheckpointButton
+            style={{ float: "right", borderRadius: "67px" }}
             onClick={() => nextCheckpoint(true)}
           >
             Comment:
             <br />
             "Thanks Allen! One down, one to go! I'll let you know how it goes
             :)."
-          </button>
-          <button
-            style={{
-              cursor: "pointer",
-              float: "right",
-              width: "100%",
-              height: "100%",
-              fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
-              padding: "0 1.5em",
-              color: "white",
-            }}
+          </CheckpointButton>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <CheckpointButton
+            style={{ float: "right", borderRadius: "67px" }}
             onClick={() => nextCheckpoint(false)}
           >
             Comment:
             <br />
             "Thanks Allen! Hopefully all of this preparing will pay off! I'll
             let you know how it goes :)."
-          </button>
+          </CheckpointButton>
         </div>
       )}
     </div>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import {
+  CheckpointButton,
   GreenSpan,
   LimeGreenSpan,
   NextButton,
@@ -276,34 +277,20 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
             position: "absolute",
             left: "0",
             right: "0",
-            marginLeft: "auto",
+            marginLeft: "0",
             marginRight: "auto",
-            width: "25%",
-            height: "10%",
+            width: "50%",
+            height: "14%",
             top: "40em",
             margin: "0 auto",
             fontSize: "1vw",
             color: "white",
+            zIndex: "102",
           }}
         >
-          <button
-            style={{
-              cursor: "pointer",
-              float: "left",
-              width: "100%",
-              height: "100%",
-              fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
-              padding: "0 1.5em",
-              color: "white",
-            }}
-            onClick={nextCheckpoint}
-          >
+          <CheckpointButton style={{ float: "right" }} onClick={nextCheckpoint}>
             Open Dystogram.
-          </button>
+          </CheckpointButton>
         </div>
       )}
     </div>

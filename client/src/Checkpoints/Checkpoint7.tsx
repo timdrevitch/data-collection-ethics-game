@@ -1,7 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { NextButton, OrangeSpan, YellowSpan } from "../Styles/SharedStyles";
+import {
+  CheckpointButton,
+  NextButton,
+  OrangeSpan,
+  YellowSpan,
+} from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   CityGif,
@@ -168,50 +173,27 @@ const Checkpoint7 = ({ url, game, render, setRender }) => {
             right: "0",
             marginLeft: "auto",
             marginRight: "auto",
-            width: "25%",
-            height: "10%",
-            top: "35em",
+            width: "50%",
+            height: "13%",
+            top: "38em",
             margin: "0 auto",
             fontSize: "1vw",
             color: "white",
+            zIndex: "102",
           }}
         >
-          <button
-            style={{
-              cursor: "pointer",
-              float: "left",
-              width: "45%",
-              height: "100%",
-              fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
-              padding: "0 1.5em",
-              color: "white",
-            }}
+          <CheckpointButton
+            style={{ float: "left" }}
             onClick={() => nextCheckpoint(false)}
           >
             Accept the Terms of Service.
-          </button>
-          <button
-            style={{
-              cursor: "pointer",
-              float: "right",
-              width: "45%",
-              height: "100%",
-              fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
-              padding: "0 1.5em",
-              color: "white",
-            }}
+          </CheckpointButton>
+          <CheckpointButton
+            style={{ float: "right" }}
             onClick={() => nextCheckpoint(true)}
           >
-            Read the Terms of Service in depth and then accept them.
-          </button>
+            Read the Terms of Service.
+          </CheckpointButton>
         </div>
       )}
     </div>

@@ -1,7 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { NextButton, OrangeSpan, YellowSpan } from "../Styles/SharedStyles";
+import {
+  CheckpointButton,
+  NextButton,
+  OrangeSpan,
+  YellowSpan,
+} from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   CityGif,
@@ -275,7 +280,7 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
         style={{
           position: "absolute",
           width: "30%",
-          top: "10.5em",
+          top: "7.5em",
           marginLeft: "60%",
           fontSize: "2vw",
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
@@ -315,32 +320,20 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
             right: "15%",
             marginLeft: "60%",
             // marginRight: "10%",
-            width: "25%",
-            height: "10%",
+            width: "55%",
+            height: "14.2%",
             top: "35em",
             // margin: "0 auto",
             fontSize: "1vw",
             color: "white",
           }}
         >
-          <button
-            style={{
-              cursor: "pointer",
-              float: "right",
-              width: "100%",
-              height: "100%",
-              fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
-              padding: "0 1.5em",
-              color: "white",
-            }}
+          <CheckpointButton
+            style={{ float: "right", borderRadius: "67px" }}
             onClick={nextCheckpoint}
           >
             Visit Allen's Profile.
-          </button>
+          </CheckpointButton>
         </div>
       )}
     </div>

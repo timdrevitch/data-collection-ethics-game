@@ -64,3 +64,27 @@ export const NextButton = styled.button`
     border: 1px solid lightsalmon;
   }
 `;
+export const CheckpointButton = styled.button`
+  cursor: pointer;
+  //float: right;
+  width: 45%;
+  height: 100%;
+  font-size: 1vw;
+  //backgroundColor: orange;
+  //border: 1px solid white;
+  border-radius: 60px;
+  border: none;
+  text-align: left;
+  padding: 0 2.5em;
+  font-family: Trebuchet MS, "sans-serif";
+  color: black;
+  background-image: url("https://www.pngall.com/wp-content/uploads/13/Orange-Button-PNG-Image.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 20px white;
+  }
+`;

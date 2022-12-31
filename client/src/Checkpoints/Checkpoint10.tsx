@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import {
+  CheckpointButton,
   GreenSpan,
   LimeGreenSpan,
   NextButton,
   OrangeSpan,
   PurpleSpan,
+  RedSpan,
   YellowSpan,
 } from "../Styles/SharedStyles";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
@@ -312,78 +314,47 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
             marginLeft: "auto",
             marginRight: "auto",
             width: "50%",
-            height: "12%",
-            top: "39em",
+            height: "14.7%",
+            top: "40em",
             margin: "0 auto",
             fontSize: "1vw",
             color: "white",
+            zIndex: "102",
           }}
         >
           {game.isHesitant ? (
             <>
-              <button
+              <CheckpointButton
                 style={{
                   float: "left",
-                  width: "45%",
-                  height: "100%",
-                  fontSize: "1vw",
-                  backgroundColor: "red",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  padding: "0 1.5em",
-                  color: "white",
+                  opacity: "40%",
+                  cursor: "not-allowed",
+                  fontSize: ".9vw",
+                  paddingLeft: "7%",
                 }}
                 disabled
               >
-                <em>First choice unavailable due to prior actions.</em>
-              </button>
-              <button
-                style={{
-                  cursor: "pointer",
-                  float: "right",
-                  width: "45%",
-                  height: "100%",
-                  fontSize: "1vw",
-                  backgroundColor: "orange",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  padding: "0 1.5em",
-                  color: "white",
-                }}
+                <em>
+                  <RedSpan>Unavailable due to prior actions.</RedSpan>
+                </em>
+                <br />
+              </CheckpointButton>
+              <CheckpointButton
+                style={{ float: "right", fontSize: ".9vw", paddingLeft: "7%" }}
                 onClick={nextCheckpoint}
               >
-                <div>
-                  <GreenSpan>Correct Answer:</GreenSpan>
-                </div>
                 <div>{"const printUsers = (users) => {"}</div>
                 <div>&#160;&#160;{"users?.map((user,index) => ("}</div>
                 <div>&#160;&#160;&#160;&#160;{"console.log(user.name);"}</div>
                 <div>{"))};"}</div>
-              </button>
+              </CheckpointButton>
             </>
           ) : (
             <>
-              <button
-                style={{
-                  cursor: "pointer",
-                  float: "left",
-                  width: "45%",
-                  height: "100%",
-                  fontSize: "1vw",
-                  backgroundColor: "orange",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  padding: "0 1.5em",
-                  color: "white",
-                }}
+              <CheckpointButton
+                style={{ float: "left", fontSize: ".9vw", paddingLeft: "7%" }}
                 onClick={nextCheckpoint}
               >
-                <div>
-                  <GreenSpan>Possible Answer:</GreenSpan>
-                </div>
                 <div>{"public void printUsers(String[] users) {"}</div>
                 <div>
                   &#160;&#160;{"for (int i = 0; i < users.length; i++) {"}
@@ -392,24 +363,26 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
                   &#160;&#160;&#160;&#160;{"System.out.println(users[i]);"}
                 </div>
                 <div>{"}}"}</div>
-              </button>
-              <button
+              </CheckpointButton>
+              <CheckpointButton
                 style={{
                   float: "right",
-                  width: "45%",
-                  height: "100%",
-                  fontSize: "1vw",
-                  backgroundColor: "red",
-                  border: "1px solid white",
-                  borderRadius: "15px",
-                  textAlign: "left",
-                  padding: "0 1.5em",
-                  color: "white",
+                  opacity: "40%",
+                  cursor: "not-allowed",
+                  fontSize: ".9vw",
+                  paddingLeft: "7%",
                 }}
                 disabled
               >
-                <em>Second choice unavailable due to prior actions.</em>
-              </button>
+                <em>
+                  <RedSpan>Unavailable due to prior actions.</RedSpan>
+                </em>
+                <br />
+                <div>{"const printUsers = (users) => {"}</div>
+                <div>&#160;&#160;{"users?.map((user,index) => ("}</div>
+                <div>&#160;&#160;&#160;&#160;{"console.log(user.name);"}</div>
+                <div>{"))};"}</div>
+              </CheckpointButton>
             </>
           )}
         </div>

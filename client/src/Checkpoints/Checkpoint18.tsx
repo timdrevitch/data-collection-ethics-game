@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { NextButton, OrangeSpan } from "../Styles/SharedStyles";
+import {
+  CheckpointButton,
+  NextButton,
+  OrangeSpan,
+} from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   CityGif,
@@ -92,34 +96,20 @@ const Checkpoint18 = ({ url, game, render, setRender }) => {
             position: "absolute",
             left: "0",
             right: "0",
-            marginLeft: "auto",
+            marginLeft: "0",
             marginRight: "auto",
-            width: "25%",
-            height: "10%",
-            top: "35em",
+            width: "50%",
+            height: "13%",
+            top: "40em",
             margin: "0 auto",
             fontSize: "1vw",
             color: "white",
+            zIndex: "102",
           }}
         >
-          <button
-            style={{
-              cursor: "pointer",
-              float: "left",
-              width: "100%",
-              height: "100%",
-              fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
-              padding: "0 1.5em",
-              color: "white",
-            }}
-            onClick={nextCheckpoint}
-          >
+          <CheckpointButton style={{ float: "right" }} onClick={nextCheckpoint}>
             Go to your second interview.
-          </button>
+          </CheckpointButton>
         </div>
       )}
     </div>

@@ -1,6 +1,11 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { NextButton, OrangeSpan, YellowSpan } from "../Styles/SharedStyles";
+import {
+  CheckpointButton,
+  NextButton,
+  OrangeSpan,
+  YellowSpan,
+} from "../Styles/SharedStyles";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import {
   BackgroundImage,
@@ -267,53 +272,29 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
               marginLeft: "auto",
               marginRight: "auto",
               width: "50%",
-              height: "10%",
-              top: "35em",
+              height: "14.7%",
+              top: "38em",
               margin: "0 auto",
               fontSize: "1vw",
               color: "white",
               zIndex: "102",
             }}
           >
-            <button
-              style={{
-                cursor: "pointer",
-                float: "left",
-                width: "45%",
-                height: "100%",
-                fontSize: "1vw",
-                backgroundColor: "orange",
-                border: "1px solid white",
-                borderRadius: "15px",
-                textAlign: "left",
-                padding: "0 1.5em",
-                color: "white",
-              }}
+            <CheckpointButton
+              style={{ float: "left" }}
               onClick={() => nextCheckpoint(true)}
             >
               You: "It sounds cool but I should keep studying more before I have
               to leave for the first interview today."
-            </button>
-            <button
-              style={{
-                cursor: "pointer",
-                float: "right",
-                width: "45%",
-                height: "100%",
-                fontSize: "1vw",
-                backgroundColor: "orange",
-                border: "1px solid white",
-                borderRadius: "15px",
-                textAlign: "left",
-                padding: "0 1.5em",
-                color: "white",
-              }}
+            </CheckpointButton>
+            <CheckpointButton
+              style={{ float: "right" }}
               onClick={() => nextCheckpoint(false)}
             >
               You: "I know I have studied a lot already. I'll check it out.
               Maybe it'll be a good little distraction before this long day
               ahead!"
-            </button>
+            </CheckpointButton>
           </div>
         )}
       </div>
