@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import {
+  CheckpointButton,
   GreenSpan,
   LimeGreenSpan,
   NextButton,
@@ -327,42 +328,37 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
             marginLeft: "auto",
             marginRight: "auto",
             width: "50%",
-            height: "12%",
+            height: "7%",
             top: "40em",
             margin: "0 auto",
             fontSize: "1vw",
             color: "white",
           }}
         >
-          <button
-            style={{
-              cursor: "pointer",
-              float: "left",
-              width: "20%",
-              height: "100%",
-              fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
-              padding: "0 1.5em",
-              color: "white",
-            }}
-            onClick={() => nextCheckpoint(false)}
-          >
-            "Create"
-          </button>
-          <button
+          <CheckpointButton
             style={{
               cursor: "pointer",
               float: "right",
               width: "20%",
               height: "100%",
               fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
+              textAlign: "center",
+              padding: "0 1.5em",
+              color: "white",
+              marginLeft: "6.5%",
+            }}
+            onClick={() => nextCheckpoint(false)}
+          >
+            "Create"
+          </CheckpointButton>
+          <CheckpointButton
+            style={{
+              cursor: "pointer",
+              float: "right",
+              width: "20%",
+              height: "100%",
+              fontSize: "1vw",
+              textAlign: "center",
               padding: "0 1.5em",
               color: "white",
               marginLeft: "6.5%",
@@ -370,18 +366,15 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
             onClick={() => nextCheckpoint(false)}
           >
             "Get"
-          </button>
-          <button
+          </CheckpointButton>
+          <CheckpointButton
             style={{
               cursor: "pointer",
-              float: "left",
+              float: "right",
               width: "20%",
               height: "100%",
               fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
+              textAlign: "center",
               padding: "0 1.5em",
               color: "white",
               marginLeft: "6.5%",
@@ -389,25 +382,22 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
             onClick={() => nextCheckpoint(true)}
           >
             "Put"
-          </button>
-          <button
+          </CheckpointButton>
+          <CheckpointButton
             style={{
               cursor: "pointer",
               float: "right",
               width: "20%",
               height: "100%",
               fontSize: "1vw",
-              backgroundColor: "orange",
-              border: "1px solid white",
-              borderRadius: "15px",
-              textAlign: "left",
+              textAlign: "center",
               padding: "0 1.5em",
               color: "white",
             }}
             onClick={() => nextCheckpoint(false)}
           >
             "Delete"
-          </button>
+          </CheckpointButton>
         </div>
       )}
     </div>

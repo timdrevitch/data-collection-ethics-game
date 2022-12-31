@@ -1,6 +1,11 @@
 import axios from "axios";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import { GreenSpan, OrangeSpan, RedSpan } from "../Styles/SharedStyles";
+import {
+  CheckpointButton,
+  GreenSpan,
+  OrangeSpan,
+  RedSpan,
+} from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   CityGif,
@@ -200,26 +205,23 @@ const TheEnd = ({ url, playerId, game }) => {
           </tr>
         </tbody>
       </table>
-      <button
+      <CheckpointButton
         style={{
           cursor: "pointer",
           position: "absolute",
-          width: "30%",
-          height: "5%",
-          top: "44em",
-          left: "35%",
+          width: "14em",
+          height: "5.5em",
+          top: "72%",
+          left: "43%",
           fontSize: "1vw",
-          backgroundColor: "orange",
-          border: "1px solid white",
-          borderRadius: "15px",
-          textAlign: "left",
+          textAlign: "center",
           paddingLeft: "2em",
           color: "white",
         }}
         onClick={endGame}
       >
         End Game
-      </button>
+      </CheckpointButton>
     </div>
   );
 };
