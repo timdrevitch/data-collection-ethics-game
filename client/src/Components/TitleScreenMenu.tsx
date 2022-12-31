@@ -78,7 +78,7 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
         </MenuButtonContinue>
       ) : (
         <MenuButtonContinueDisabled disabled>
-          Continue (no game in progress)
+          Continue
         </MenuButtonContinueDisabled>
       )}
       {player.gameInProgress ? (

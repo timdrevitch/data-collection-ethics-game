@@ -50,14 +50,18 @@ export const PhoneImage = styled.img`
 export const MenuButtonContinue = styled.button`
   cursor: pointer;
   position: absolute;
-  width: 12%;
-  height: 4%;
-  right: 50%;
+  width: 8%;
+  height: 5.1%;
+  right: 52%;
   top: 23em;
   font-size: 1vw;
-  background-color: lightsalmon;
-  border: 1px solid white;
-  border-radius: 15px;
+  /* background-color: lightsalmon;
+  border: 1px solid white; */
+  background-image: url("https://www.pngall.com/wp-content/uploads/13/Orange-Button-PNG-Image.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 55px;
   text-align: center;
   color: white;
   animation: ${riseContinueButton} 2s 1;
@@ -69,14 +73,18 @@ export const MenuButtonContinue = styled.button`
 `;
 export const MenuButtonContinueDisabled = styled.button`
   position: absolute;
-  width: 12%;
-  height: 4%;
-  right: 50%;
+  width: 8%;
+  height: 5.1%;
+  right: 52%;
   top: 23em;
   font-size: 1vw;
-  background-color: lightsalmon;
-  border: 1px solid white;
-  border-radius: 15px;
+  /* background-color: lightsalmon;
+  border: 1px solid white; */
+  background-image: url("https://www.pngall.com/wp-content/uploads/13/Orange-Button-PNG-Image.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 55px;
   text-align: center;
   color: white;
   opacity: 50%;
@@ -86,14 +94,18 @@ export const MenuButtonContinueDisabled = styled.button`
 export const MenuButtonNewGame = styled.button`
   cursor: pointer;
   position: absolute;
-  width: 12%;
-  height: 4%;
-  right: 50%;
+  width: 8%;
+  height: 5.1%;
+  right: 52%;
   top: 26.5em;
   font-size: 1vw;
-  background-color: lightsalmon;
-  border: 1px solid white;
-  border-radius: 15px;
+  /* background-color: lightsalmon;
+  border: 1px solid white; */
+  background-image: url("https://www.pngall.com/wp-content/uploads/13/Orange-Button-PNG-Image.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 55px;
   text-align: center;
   color: white;
   animation: ${riseNewGameButton} 2s 1;
@@ -105,14 +117,18 @@ export const MenuButtonNewGame = styled.button`
 `;
 export const MenuButtonNewGameDisabled = styled.button`
   position: absolute;
-  width: 12%;
-  height: 4%;
-  right: 50%;
+  width: 8%;
+  height: 5.1%;
+  right: 52%;
   top: 26.5em;
   font-size: 1vw;
-  background-color: lightsalmon;
-  border: 1px solid white;
-  border-radius: 15px;
+  /* background-color: lightsalmon;
+  border: 1px solid white; */
+  background-image: url("https://www.pngall.com/wp-content/uploads/13/Orange-Button-PNG-Image.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 55px;
   text-align: center;
   color: white;
   opacity: 50%;
@@ -121,14 +137,18 @@ export const MenuButtonNewGameDisabled = styled.button`
 export const MenuButtonStats = styled.button`
   cursor: pointer;
   position: absolute;
-  width: 12%;
-  height: 4%;
-  right: 50%;
+  width: 8%;
+  height: 5.1%;
+  right: 52%;
   top: 30em;
   font-size: 1vw;
-  background-color: lightsalmon;
-  border: 1px solid white;
-  border-radius: 15px;
+  /* background-color: lightsalmon;
+  border: 1px solid white; */
+  background-image: url("https://www.pngall.com/wp-content/uploads/13/Orange-Button-PNG-Image.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 55px;
   text-align: center;
   color: white;
   animation: ${riseStatsButton} 2s 1;
@@ -141,14 +161,18 @@ export const MenuButtonStats = styled.button`
 export const MenuButtonLeaderboards = styled.button`
   cursor: pointer;
   position: absolute;
-  width: 12%;
-  height: 4%;
-  right: 50%;
+  width: 8%;
+  height: 5.1%;
+  right: 52%;
   top: 33.5em;
   font-size: 1vw;
-  background-color: lightsalmon;
-  border: 1px solid white;
-  border-radius: 15px;
+  /* background-color: lightsalmon;
+  border: 1px solid white; */
+  background-image: url("https://www.pngall.com/wp-content/uploads/13/Orange-Button-PNG-Image.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 55px;
   text-align: center;
   color: white;
   animation: ${riseLeaderboards} 2s 1;
