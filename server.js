@@ -13,8 +13,8 @@ const app = express();
 //   windowMs: 1 * 60 * 1000, // 1 minute
 //   max: 5000,
 // })
-
 // app.use(limiter)
+
 app.use(cors());
 app.use(express.static(path.join(__dirname, "client", "build")));
 

@@ -10,7 +10,7 @@ import Leaderboards from "./Pages/Leaderboards";
 import { ImVolumeHigh, ImVolumeMute2 } from "react-icons/im";
 import { IGame } from "./Interfaces/IGame";
 const homeAudio = require("./Assets/Assets-Fangtai/Audio/BGM/HomeSceneCut.wav");
-const carAudio = require("./Assets/Assets-Fangtai/Audio/BGM/CarScene.wav");
+//const carAudio = require("./Assets/Assets-Fangtai/Audio/BGM/CarScene.wav");
 
 const App: FC = (): JSX.Element => {
   const [url, setUrl] = useState<string>(
