@@ -8,7 +8,7 @@ import { HiddenDetails, HiddenSummary } from "../Styles/Styles";
 const PauseMenu = () => {
   const { game } = useContext(Context);
   const navigate = useNavigate();
-  const TOTAL_CHECKPOINTS: number = 23;
+  const TOTAL_CHECKPOINTS: number = 25;
   return (
     <HiddenDetails>
       <HiddenSummary>

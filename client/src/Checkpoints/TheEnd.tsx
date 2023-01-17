@@ -4,6 +4,7 @@ import {
   CheckpointButton,
   GreenSpan,
   OrangeSpan,
+  RedItalicSpan,
   RedSpan,
 } from "../Styles/SharedStyles";
 import {
@@ -175,6 +176,7 @@ const TheEnd = ({ url, playerId, game }) => {
             <td
               style={{
                 background: "#3a3a3abe",
+                color: "greenyellow",
               }}
             >
               <em>Did the first interview give you a job offer?</em>
@@ -182,15 +184,17 @@ const TheEnd = ({ url, playerId, game }) => {
             <td
               style={{
                 background: "#3a3a3abe",
+                color: "greenyellow",
               }}
             >
-              {interview1 ? "Yes" : "No"}
+              {interview1 ? <em>YES</em> : <RedItalicSpan>NO</RedItalicSpan>}
             </td>
           </tr>
           <tr>
             <td
               style={{
                 background: "#3a3a3abe",
+                color: "greenyellow",
               }}
             >
               <em>Did the second interview give you a job offer?</em>
@@ -198,9 +202,10 @@ const TheEnd = ({ url, playerId, game }) => {
             <td
               style={{
                 background: "#3a3a3abe",
+                color: "greenyellow",
               }}
             >
-              {interview2 ? "Yes" : "No"}
+              {interview2 ? <em>YES</em> : <RedItalicSpan>NO</RedItalicSpan>}
             </td>
           </tr>
         </tbody>
