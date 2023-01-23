@@ -124,7 +124,7 @@ const Leaderboards = () => {
                       )}
                     </td>
                     <td>
-                      {playerFinished.playername} ({playerFinished.firstname}){" "}
+                      {playerFinished.playername}{" "}
                       <button
                         onClick={() => navigate(`../playerstats/${player._id}`)}
                         style={{
@@ -176,10 +176,7 @@ const Leaderboards = () => {
                         <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ordinal(index + 1)}</>
                       )}
                     </td>
-                    <td>
-                      {playerFinished.playername}{" "}
-                      <GraySpan>({playerFinished.firstname})</GraySpan>
-                    </td>
+                    <td>{playerFinished.playername} </td>
                     <td>{playerFinished.gamesFinished}</td>
                   </tr>
                 ) : (
@@ -212,10 +209,7 @@ const Leaderboards = () => {
                         <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ordinal(index + 1)}</>
                       )}
                     </td>
-                    <td>
-                      {playerFinished.playername}{" "}
-                      <GraySpan>({playerFinished.firstname})</GraySpan>
-                    </td>
+                    <td>{playerFinished.playername} </td>
                     <td>{playerFinished.gamesFinished}</td>
                   </tr>
                 ))
@@ -268,7 +262,7 @@ const Leaderboards = () => {
                       )}
                     </td>
                     <td>
-                      {playerFinished.playername} ({playerFinished.firstname}){" "}
+                      {playerFinished.playername}{" "}
                       <button
                         onClick={() =>
                           navigate(`../playerstats/${playerFinished._id}`)
