@@ -24,7 +24,7 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 7) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 5) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
