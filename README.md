@@ -20,4 +20,3 @@
 > technology could be used against them.
 
 [data-ethics-game.herokuapp.com](https://data-ethics-game.herokuapp.com/)
-
