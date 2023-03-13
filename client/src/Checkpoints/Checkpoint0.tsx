@@ -59,7 +59,7 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
           style={{
             height: "55vw",
           }}
-          src={require("../Assets/Bedroom.png")}
+          src={require("../Assets/bedroom3.jpg")}
           alt="bedroomimage"
         />
         {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}

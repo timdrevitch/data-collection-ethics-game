@@ -177,8 +177,7 @@ const PlayerStats = () => {
           Unique endings reached:{" "}
           <GreenSpan>
             {player.endingsReached}/3 ({percentEndingsReached}%)
-          </GreenSpan>{" "}
-          (this stat is not accurate yet)
+          </GreenSpan>
         </div>
         <br />
         <button

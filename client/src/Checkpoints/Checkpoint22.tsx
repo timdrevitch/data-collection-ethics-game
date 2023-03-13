@@ -39,11 +39,8 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
 
   return (
     <div style={{ position: "relative" }}>
-      <BackgroundImage
-        src={require("../Assets/carbackground.png")}
-        alt="carimage"
-      />
-      <CityGif src={require("../Assets/city.gif")} alt="city" />
+      <BackgroundImage src={require("../Assets/innerCar.png")} alt="carimage" />
+      <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
       <h1
@@ -72,8 +69,8 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
           <OrangeSpan>
             <LimeGreenSpan>You</LimeGreenSpan> "
             <em>
-              Just finished the second interview! I'm want to make sure I got
-              the interviewer's question right... The question was: What REST
+              Just finished the second interview! I want to make sure I got the
+              interviewer's question right... The question was: What REST
               operation should be used when updating data?
             </em>
             "{" "}
@@ -82,8 +79,8 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
           <span>
             <LimeGreenSpan>You</LimeGreenSpan> "
             <em>
-              Just finished the second interview! I'm want to make sure I got
-              the interviewer's question right... The question was: What REST
+              Just finished the second interview! I want to make sure I got the
+              interviewer's question right... The question was: What REST
               operation should be used when updating data?
             </em>
             "{" "}

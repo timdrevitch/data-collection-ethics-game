@@ -37,7 +37,7 @@ const Checkpoint24 = ({ url, game, render, setRender }) => {
 
   return (
     <>
-      <img
+      {/* <img
         style={{
           // position: "fixed",
           // fontSize: "1vw",
@@ -55,13 +55,32 @@ const Checkpoint24 = ({ url, game, render, setRender }) => {
         }}
         src={require("../Assets/catGif3.gif")}
         alt="cat"
+      /> */}
+      <img
+        style={{
+          // position: "fixed",
+          // fontSize: "1vw",
+          // height: "20vw",
+          // zIndex: "101",
+          // marginTop: "21.7em",
+          // marginLeft: "53em",
+          opacity: "80%",
+          position: "absolute",
+          zIndex: "101",
+          width: "30%",
+          top: "13.5em",
+          marginLeft: "51.5%",
+          fontSize: "1.5vw",
+        }}
+        src={require("../Assets/catGif3.gif")}
+        alt="cat"
       />
       <div style={{ position: "relative" }}>
         <BackgroundImage
           style={{
             height: "55vw",
           }}
-          src={require("../Assets/badroom2.jpeg")}
+          src={require("../Assets/bedroom3.jpg")}
           alt="bedroomimage"
         />
         {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}

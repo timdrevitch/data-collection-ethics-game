@@ -42,11 +42,8 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
 
   return (
     <div style={{ position: "relative" }}>
-      <BackgroundImage
-        src={require("../Assets/carbackground.png")}
-        alt="carimage"
-      />
-      <CityGif src={require("../Assets/city.gif")} alt="city" />
+      <BackgroundImage src={require("../Assets/innerCar.png")} alt="carimage" />
+      <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
       <DystContainer
@@ -61,7 +58,7 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
             height: "29em",
             width: "14.9em",
           }}
-          src={require("../Assets/favicon.jpeg")}
+          src={require("../Assets/favicon2.jpg")}
           alt="DystogramPicture"
         />
       </DystContainer>
@@ -261,7 +258,7 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
         </div>
         <br />
       </PlayerSinceContainer>
-      <PhoneImage src={require("../Assets/phoneNoBg.png")} alt="phone" />
+      <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
       <h1

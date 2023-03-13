@@ -297,7 +297,7 @@ export const CityGif = styled.img`
   width: 100%;
   opacity: 50%;
   z-index: -100;
-  margin-top: -150vw;
+  margin-top: -250vw;
 `;
 export const DarkFooter = styled.div`
   margin-top: -100vw;

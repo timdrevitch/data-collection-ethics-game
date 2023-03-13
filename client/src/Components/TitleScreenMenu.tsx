@@ -52,7 +52,7 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
 
   return (
     <>
-      <PhoneImage src={require("../Assets/phoneBg.png")} alt="phone" />
+      <PhoneImage src={require("../Assets/hand.png")} alt="phone" />
       <WelcomePlayerContainer>
         <strong>Welcome, {player.playername} </strong>
         <button

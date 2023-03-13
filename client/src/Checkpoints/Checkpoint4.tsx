@@ -63,10 +63,10 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
           style={{
             height: "55vw",
           }}
-          src={require("../Assets/Bedroom.png")}
+          src={require("../Assets/bedroom3.jpg")}
           alt="bedroomimage"
         />
-        <PhoneImage src={require("../Assets/phoneBg.png")} alt="phone" />
+        <PhoneImage src={require("../Assets/hand.png")} alt="phone" />
         <WelcomePlayerContainer
           style={{
             right: "27%",
@@ -86,7 +86,7 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
               right: "38%",
               borderRadius: "10px",
             }}
-            src={require("../Assets/favicon.jpeg")}
+            src={require("../Assets/favicon2.jpg")}
             alt="DystogramPicture"
           />
         </WelcomePlayerContainer>
