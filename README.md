@@ -19,4 +19,4 @@
 > game, the goal is for players to have had to think critically about how they share their personal data and how
 > technology could be used against them.
 
-[data-ethics-game.herokuapp.com](https://data-ethics-game.herokuapp.com/)
+Game url: [here](https://data-ethics-game.herokuapp.com/)
