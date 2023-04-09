@@ -16,11 +16,11 @@ import {
 
 const TheEnd = ({ url, playerId, game }) => {
   const navigate: NavigateFunction = useNavigate();
-  const interview1: boolean = game.isHesitant && game.readTerms;
+  const interview1: boolean = !game.postedAboutArt && game.readTerms;
   const twoOutOfThree: boolean =
-    (!game.commentIncludesInterviewCount && game.postIsGood) ||
+    (!game.commentIncludesInterviewCount && game.viewedCompanyBeef) ||
     (!game.commentIncludesInterviewCount && game.apiQuestionCorrect) ||
-    (game.postIsGood && game.apiQuestionCorrect);
+    (game.viewedCompanyBeef && game.apiQuestionCorrect);
   const interview2: boolean = twoOutOfThree;
 
   const endGame = () => {
