@@ -69,13 +69,15 @@ router.route("/nextcheckpoint/:id").put((req, res) => {
   Game.findById(req.params.id)
     .then((Game) => {
       Game.checkpoint = Game.checkpoint + 1;
-      if (req.body.nervousChoice !== undefined) {
-        Game.isNervous = req.body.nervousChoice;
+      if (req.body.postedAboutArtChoice !== undefined) {
+        // done
+        Game.postedAboutArt = req.body.postedAboutArtChoice;
       }
-      if (req.body.isHesitantChoice !== undefined) {
-        Game.isHesitant = req.body.isHesitantChoice;
-      }
+      if (req.body.viewedCompanyBeefChoice !== undefined) {
+        Game.viewedCompanyBeef = req.body.viewedCompanyBeefChoice;
+      } // done
       if (req.body.readTermsChoice !== undefined) {
+        // done
         Game.readTerms = req.body.readTermsChoice;
       }
       if (req.body.commentChoice !== undefined) {
@@ -84,9 +86,9 @@ router.route("/nextcheckpoint/:id").put((req, res) => {
       if (req.body.postChoice !== undefined) {
         Game.postIsGood = req.body.postChoice;
       }
-      if (req.body.apiQuestionChoice !== undefined) {
-        Game.apiQuestionCorrect = req.body.apiQuestionChoice;
-      }
+      if (req.body.askedAboutSearchChoice !== undefined) {
+        Game.askedAboutSearch = req.body.askedAboutSearchChoice;
+      } // done
       if (req.body.likeAppChoice !== undefined) {
         Game.likeApp = req.body.likeAppChoice;
       }

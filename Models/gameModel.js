@@ -16,10 +16,10 @@ const gameSchema = new mongoose.Schema(
       trim: true,
       default: 0,
     },
-    isNervous: {
+    postedAboutArt: {
       type: Boolean,
     },
-    isHesitant: {
+    viewedCompanyBeef: {
       type: Boolean,
     },
     readTerms: {
@@ -31,7 +31,7 @@ const gameSchema = new mongoose.Schema(
     postIsGood: {
       type: Boolean,
     },
-    apiQuestionCorrect: {
+    askedAboutSearch: {
       type: Boolean,
     },
     likeApp: {
