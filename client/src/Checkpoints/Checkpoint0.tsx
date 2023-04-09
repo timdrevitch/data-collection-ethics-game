@@ -20,15 +20,15 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 3) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 4) {
       console.log(event.key);
       setCounter(counter + 1);
     }
   });
 
-  const nextCheckpoint = (nervousChoice: boolean) => {
-    let data = { nervousChoice: nervousChoice };
-    axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
+  const nextCheckpoint = () => {
+    // let data = { nervousChoice: nervousChoice };
+    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
       setRender(!render);
     });
   };
@@ -65,7 +65,7 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
         {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
         <DarkFooter></DarkFooter>
         <DarkFooter2></DarkFooter2>
-        <h1
+        {/* <h1
           style={{
             position: "absolute",
             width: "100%",
@@ -76,7 +76,7 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
           }}
         >
           Checkpoint: {game.checkpoint}
-        </h1>
+        </h1> */}
         <div
           style={{
             position: "absolute",
@@ -119,43 +119,107 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
           )}
           {counter >= 1 ? (
             counter === 1 ? (
-              <OrangeSpan>Why have you not been able to sleep?... </OrangeSpan>
+              // <OrangeSpan>Why have you not been able to sleep?... </OrangeSpan>
+              <OrangeSpan>
+                I am a recent graduate with a master's degree in computer
+                science, and I find myself reminiscing about the exhilarating
+                and unforgettable moments from our graduation party just a few
+                days ago...{" "}
+              </OrangeSpan>
             ) : (
-              <span>Why have you not been able to sleep?... </span>
+              <span>
+                I am a recent graduate with a master's degree in computer
+                science, and I find myself reminiscing about the exhilarating
+                and unforgettable moments from our graduation party just a few
+                days ago...{" "}
+              </span>
             )
           ) : null}
           {counter >= 2 ? (
             counter === 2 ? (
+              // <OrangeSpan>
+              //   Is it because of the two interviews you have today?...{" "}
+              // </OrangeSpan>
               <OrangeSpan>
-                Is it because of the two interviews you have today?...{" "}
+                My fellow students danced and sang, making it a night to
+                remember...{" "}
               </OrangeSpan>
             ) : (
               <span>
-                Is it because of the two interviews you have today?...{" "}
+                My fellow students danced and sang, making it a night to
+                remember...{" "}
               </span>
             )
           ) : null}
           {counter >= 3 ? (
             counter === 3 ? (
-              <OrangeSpan>It's okay to be nervous... </OrangeSpan>
+              // <OrangeSpan>It's okay to be nervous... </OrangeSpan>
+              <OrangeSpan>
+                However, now, only days later, I must face reality and attend
+                two interviews - Two companies in my hometown, Dystocity...{" "}
+              </OrangeSpan>
             ) : (
-              <span>It's okay to be nervous... </span>
+              <span>
+                However, now, only days later, I must face reality and attend
+                two interviews - Two companies in my hometown, Dystocity...{" "}
+              </span>
             )
           ) : null}
-          {counter === 3 ? null : (
+          {counter >= 4 ? (
+            counter === 4 ? (
+              // <OrangeSpan>It's okay to be nervous... </OrangeSpan>
+              <OrangeSpan>
+                I hope my interviews go smoothly today...{" "}
+              </OrangeSpan>
+            ) : (
+              <span>I hope my interviews go smoothly today... </span>
+            )
+          ) : null}
+          {counter === 4 ? null : (
             <NextButton onClick={() => setCounter(counter + 1)}>
               Next{" "}
               <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
             </NextButton>
           )}
         </div>
-        {counter === 3 && (
+        {counter === 4 && (
+          // <div
+          //   style={{
+          //     position: "absolute",
+          //     left: "0",
+          //     right: "0",
+          //     marginLeft: "auto",
+          //     marginRight: "auto",
+          //     width: "50%",
+          //     height: "14.7%",
+          //     top: "38em",
+          //     margin: "0 auto",
+          //     fontSize: "1vw",
+          //     color: "white",
+          //     zIndex: "102",
+          //   }}
+          // >
+          //   <CheckpointButton
+          //     style={{ float: "left" }}
+          //     onClick={() => nextCheckpoint(false)}
+          //   >
+          //     I am not nervous for the interviews. I just woke up early to
+          //     prepare extra.
+          //   </CheckpointButton>
+          //   <CheckpointButton
+          //     style={{ float: "right" }}
+          //     onClick={() => nextCheckpoint(true)}
+          //   >
+          //     I've definitely been a little nervous. I want to do well and get
+          //     at least one of these jobs.
+          //   </CheckpointButton>
+          // </div>
           <div
             style={{
               position: "absolute",
               left: "0",
               right: "0",
-              marginLeft: "auto",
+              marginLeft: "0",
               marginRight: "auto",
               width: "50%",
               height: "14.7%",
@@ -167,18 +231,10 @@ const Checkpoint0 = ({ url, game, render, setRender }) => {
             }}
           >
             <CheckpointButton
-              style={{ float: "left" }}
-              onClick={() => nextCheckpoint(false)}
-            >
-              I am not nervous for the interviews. I just woke up early to
-              prepare extra.
-            </CheckpointButton>
-            <CheckpointButton
               style={{ float: "right" }}
-              onClick={() => nextCheckpoint(true)}
+              onClick={nextCheckpoint}
             >
-              I've definitely been a little nervous. I want to do well and get
-              at least one of these jobs.
+              You have a new message. See who messaged you.
             </CheckpointButton>
           </div>
         )}

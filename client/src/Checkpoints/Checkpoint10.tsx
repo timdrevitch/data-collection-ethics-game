@@ -25,7 +25,7 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 5) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 4) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
@@ -49,7 +49,7 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
       {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -60,7 +60,7 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -98,38 +98,46 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
                 <OrangeSpan>
                   <YellowSpan>Interviewer:</YellowSpan> "
                   <em>
-                    It seems that you graduated with a degree in Computer
-                    Science at some point, that's good!
+                    You've truly made a great impression on us! While this role
+                    typically demands significant work experience, your
+                    background as a computer science graduate and your robust
+                    resume have caught our attention.
                   </em>
-                  "
+                  "{" "}
                 </OrangeSpan>
               ) : (
                 <span>
                   <YellowSpan>Interviewer:</YellowSpan> "
                   <em>
-                    It seems that you graduated with a degree in Computer
-                    Science at some point, that's good!
+                    You've truly made a great impression on us! While this role
+                    typically demands significant work experience, your
+                    background as a computer science graduate and your robust
+                    resume have caught our attention.
                   </em>
-                  "
+                  "{" "}
                 </span>
               )
             ) : counter === 1 ? (
               <OrangeSpan>
                 <YellowSpan>Interviewer:</YellowSpan> "
                 <em>
-                  It seems that you just recently graduated with a degree in
-                  Computer Science and are pretty young and new to the industry.
+                  You've truly made a great impression on us! While this role
+                  typically demands significant work experience, your background
+                  as a computer science graduate and your robust resume have
+                  caught our attention.
                 </em>
-                "
+                "{" "}
               </OrangeSpan>
             ) : (
               <span>
                 <YellowSpan>Interviewer:</YellowSpan> "
                 <em>
-                  It seems that you just recently graduated with a degree in
-                  Computer Science and are pretty young and new to the industry.
+                  You've truly made a great impression on us! While this role
+                  typically demands significant work experience, your background
+                  as a computer science graduate and your robust resume have
+                  caught our attention.
                 </em>
-                "
+                "{" "}
               </span>
             )}
           </>
@@ -142,42 +150,42 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
                 <OrangeSpan>
                   <YellowSpan>Interviewer:</YellowSpan> "
                   <em>
-                    We are looking for someone who knows what they are doing and
-                    has many years of experience, so I'll have you do a problem
-                    and see how you do.
+                    Your remarkable portfolio demonstrates your potential. We're
+                    genuinely delighted that you decided to interview with our
+                    company. Even if you do not get this job, we know you are a
+                    good fit for this company.
                   </em>
-                  "
+                  "{" "}
                 </OrangeSpan>
               ) : (
                 <span>
                   <YellowSpan>Interviewer:</YellowSpan> "
                   <em>
-                    We are looking for someone who knows what they are doing and
-                    has many years of experience, so I'll have you do a problem
-                    and see how you do.
+                    Your remarkable portfolio demonstrates your potential. We're
+                    genuinely delighted that you decided to interview with our
+                    company. Even if you do not get this job, we know you are a
+                    good fit for this company.
                   </em>
-                  "
+                  "{" "}
                 </span>
               )
             ) : counter === 2 ? (
               <OrangeSpan>
                 <YellowSpan>Interviewer:</YellowSpan> "
                 <em>
-                  We are looking for someone who knows what they are doing and
-                  has many years of experience, since you are pretty young this
-                  might not be a good fit for you.
+                  Even if you do not get this job, we know you are a good fit
+                  for this company.
                 </em>
-                "
+                "{" "}
               </OrangeSpan>
             ) : (
               <span>
                 <YellowSpan>Interviewer:</YellowSpan> "
                 <em>
-                  We are looking for someone who knows what they are doing and
-                  has many years of experience, since you are pretty young this
-                  might not be a good fit for you.
+                  Even if you do not get this job, we know you are a good fit
+                  for this company.
                 </em>
-                "
+                "{" "}
               </span>
             )}
           </>
@@ -185,48 +193,58 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
         {counter >= 3 ? (
           <>
             <br />
-            {game.readTerms ? (
+            {game.postedAboutArt ? (
               counter === 3 ? (
                 <OrangeSpan>
-                  <LimeGreenSpan>You:</LimeGreenSpan> "
-                  <em>Okay what is the problem?</em>"
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    For instance, we saw from our research that you are an
+                    awesome artist. We have been trying to fill an illustrator
+                    position for the longest time! Would you also be willing to
+                    apply for that postion?
+                  </em>
+                  "{" "}
                 </OrangeSpan>
               ) : (
                 <span>
-                  <LimeGreenSpan>You:</LimeGreenSpan> "
-                  <em>Okay what is the problem?</em>"
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    For instance, we saw from our research that you are an
+                    awesome artist. We have been trying to fill an illustrator
+                    position for the longest time! Would you also be willing to
+                    apply for that postion?
+                  </em>
+                  "{" "}
                 </span>
               )
             ) : counter === 3 ? (
               <OrangeSpan>
-                <LimeGreenSpan>You:</LimeGreenSpan> "
+                <YellowSpan>Interviewer:</YellowSpan> "
                 <em>
-                  Could I at least do a problem to show off my skills to show
-                  that I am just as good as the people that have been doing it
-                  longer?
+                  We saw from our research that you are an awesome programmer. I
+                  think you should be a very good fit for this position!
                 </em>
-                "
+                "{" "}
               </OrangeSpan>
             ) : (
               <span>
-                <LimeGreenSpan>You:</LimeGreenSpan> "
+                <YellowSpan>Interviewer:</YellowSpan> "
                 <em>
-                  Could I at least do a problem to show off my skills to show
-                  that I am just as good as the people that have been doing it
-                  longer?
+                  We saw from our research that you are an awesome programmer. I
+                  think you should be a very good fit for this position!
                 </em>
-                "
+                "{" "}
               </span>
             )}
           </>
         ) : null}
-        {counter >= 4 ? (
+        {/* {counter >= 4 ? (
           <>
             <br />
-            {game.readTerms ? (
+            {game.postedAboutArt ? (
               counter === 4 ? (
                 <OrangeSpan>
-                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <LimeGreenSpan>You:</LimeGreenSpan> "
                   <em>
                     The problem is: Write a JavaScript function that loops
                     through an array of users and prints out their names.
@@ -235,7 +253,7 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
                 </OrangeSpan>
               ) : (
                 <span>
-                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <LimeGreenSpan>You:</LimeGreenSpan> "
                   <em>
                     The problem is: Write a JavaScript function that loops
                     through an array of users and prints out their names.
@@ -245,7 +263,7 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
               )
             ) : counter === 4 ? (
               <OrangeSpan>
-                <YellowSpan>Interviewer:</YellowSpan> "
+                <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
                   Sure, you can try. The problem is: Write a JavaScript function
                   that loops through an array of users and prints out their
@@ -255,7 +273,7 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
               </OrangeSpan>
             ) : (
               <span>
-                <YellowSpan>Interviewer:</YellowSpan> "
+                <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
                   Sure, you can try. The problem is: Write a JavaScript function
                   that loops through an array of users and prints out their
@@ -265,47 +283,43 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
               </span>
             )}
           </>
-        ) : null}
-        {counter >= 5 ? (
+        ) : null} */}
+        {counter >= 4 ? (
           <>
             <br />
-            {game.isHesitant ? (
-              counter === 5 ? (
+            {game.postedAboutArt ? (
+              counter === 4 ? (
                 <OrangeSpan>
-                  Good thing you waited to go on that app until after you got
-                  more studying done earlier. You just practiced something like
-                  this this morning!...{" "}
+                  An illustrator postition? I'm curious what led the interviewer
+                  to believe I have a talent for that...{" "}
                 </OrangeSpan>
               ) : (
                 <span>
-                  Good thing you waited to go on that app until after you got
-                  more studying done earlier. You just practiced something like
-                  this this morning!...{" "}
+                  An illustrator postition? I'm curious what led the interviewer
+                  to believe I have a talent for that...{" "}
                 </span>
               )
-            ) : counter === 5 ? (
+            ) : counter === 4 ? (
               <OrangeSpan>
-                Hmm, weren't you going to study a question similar to this this
-                morning? Maybe you should have done more studying before going
-                on that app...{" "}
+                The interviewer seems to really like me! Maybe I have a chance
+                at getting this position...{" "}
               </OrangeSpan>
             ) : (
               <span>
-                Hmm, weren't you going to study a question similar to this this
-                morning? Maybe you should have done more studying before going
-                on that app...{" "}
+                The interviewer seems to really like me! Maybe I have a chance
+                at getting this position...{" "}
               </span>
             )}
           </>
         ) : null}
-        {counter === 5 ? null : (
+        {counter === 4 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 5 && (
+      {counter === 4 && (
         <div
           style={{
             position: "absolute",
@@ -322,9 +336,9 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
             zIndex: "102",
           }}
         >
-          {game.isHesitant ? (
+          {game.postedAboutArt ? (
             <>
-              <CheckpointButton
+              {/* <CheckpointButton
                 style={{
                   float: "left",
                   opacity: "40%",
@@ -338,33 +352,38 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
                   <RedSpan>Unavailable due to prior actions.</RedSpan>
                 </em>
                 <br />
-              </CheckpointButton>
+              </CheckpointButton> */}
               <CheckpointButton
                 style={{ float: "right", fontSize: ".9vw", paddingLeft: "7%" }}
                 onClick={nextCheckpoint}
               >
-                <div>{"const printUsers = (users) => {"}</div>
+                I appreciate your kind words. I am a pretty good artist, but
+                wanted to try to get into my first programming position with
+                this company.
+                {/* <div>{"const printUsers = (users) => {"}</div>
                 <div>&#160;&#160;{"users?.map((user,index) => ("}</div>
                 <div>&#160;&#160;&#160;&#160;{"console.log(user.name);"}</div>
-                <div>{"))};"}</div>
+                <div>{"))};"}</div> */}
               </CheckpointButton>
             </>
           ) : (
             <>
               <CheckpointButton
-                style={{ float: "left", fontSize: ".9vw", paddingLeft: "7%" }}
+                style={{ float: "right", fontSize: ".9vw", paddingLeft: "7%" }}
                 onClick={nextCheckpoint}
               >
-                <div>{"public void printUsers(String[] users) {"}</div>
+                I appreciate your kind words. I am excited to hear that I have
+                impressed you!
+                {/* <div>{"public void printUsers(String[] users) {"}</div>
                 <div>
                   &#160;&#160;{"for (int i = 0; i < users.length; i++) {"}
                 </div>
                 <div>
                   &#160;&#160;&#160;&#160;{"System.out.println(users[i]);"}
                 </div>
-                <div>{"}}"}</div>
+                <div>{"}}"}</div> */}
               </CheckpointButton>
-              <CheckpointButton
+              {/* <CheckpointButton
                 style={{
                   float: "right",
                   opacity: "40%",
@@ -382,7 +401,7 @@ const Checkpoint10 = ({ url, game, render, setRender, player }) => {
                 <div>&#160;&#160;{"users?.map((user,index) => ("}</div>
                 <div>&#160;&#160;&#160;&#160;{"console.log(user.name);"}</div>
                 <div>{"))};"}</div>
-              </CheckpointButton>
+              </CheckpointButton> */}
             </>
           )}
         </div>
