@@ -16,11 +16,12 @@ import {
 
 const TheEnd = ({ url, playerId, game }) => {
   const navigate: NavigateFunction = useNavigate();
-  const interview1: boolean = !game.postedAboutArt && game.readTerms;
+  const interview1: boolean =
+    !game.postedAboutArt && game.readTerms && !game.postAboutInterviews;
   const twoOutOfThree: boolean =
-    (!game.commentIncludesInterviewCount && game.viewedCompanyBeef) ||
-    (!game.commentIncludesInterviewCount && game.apiQuestionCorrect) ||
-    (game.viewedCompanyBeef && game.apiQuestionCorrect);
+    !game.commentIncludesInterviewCount &&
+    game.viewedCompanyBeef &&
+    !game.askedAboutSearch;
   const interview2: boolean = twoOutOfThree;
 
   const endGame = () => {
@@ -123,14 +124,14 @@ const TheEnd = ({ url, playerId, game }) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          {/* <tr>
             <td>Were you nervous for your interviews?</td>
             <td>{game.isNervous ? "Yes" : "No"}</td>
           </tr>
           <tr>
             <td>Did you study more before opening Dystogram?</td>
             <td>{game.isHesitant ? "Yes" : "No"}</td>
-          </tr>
+          </tr> */}
           <tr>
             <td>
               Did you read Dystogram's Terms of Service before accepting them?
@@ -138,36 +139,40 @@ const TheEnd = ({ url, playerId, game }) => {
             <td>{game.readTerms ? "Yes" : "No"}</td>
           </tr>
           <tr>
+            <td>Did you choose to post your artwork to the Dystogram app?</td>
+            <td>{game.postedAboutArt ? "Yes" : "No"}</td>
+          </tr>
+          <tr>
             <td>
-              Did you choose to fill out optional fields when signing up for the
-              Dystogram app?
+              Did the first interviewer ask you to apply for an illustrator
+              position?
             </td>
-            <td>{game.readTerms ? "No" : "Yes"}</td>
-          </tr>
-          <tr>
-            <td>Did you get the best answer in the first interview?</td>
-            <td>{game.isHesitant ? "Yes" : "No"}</td>
+            <td>{game.postedAboutArt ? "Yes" : "No"}</td>
           </tr>
           <tr>
             <td>
-              Did you include how many interviews you have in your comment to
-              Allen?
+              Did you investigate the news post about two companies being at
+              odds?
+            </td>
+            <td>{game.viewedCompanyBeef ? "Yes" : "No"}</td>
+          </tr>
+          <tr>
+            <td>
+              Did you ask about how the manager knew you had looked him up in
+              the second interview?
+            </td>
+            <td>{game.askedAboutSearch ? "Yes" : "No"}</td>
+          </tr>
+          <tr>
+            <td>
+              Did you tell the second interviewer that you were doing multiple
+              interviews?
             </td>
             <td>{game.commentIncludesInterviewCount ? "Yes" : "No"}</td>
           </tr>
           <tr>
-            <td>
-              Did your Dystogram post hurt your chances in the second interview?
-            </td>
-            <td>{game.postIsGood ? "No" : "Yes"}</td>
-          </tr>
-          <tr>
-            <td>Did you get the question from the second interview correct?</td>
-            <td>{game.apiQuestionCorrect ? "Yes" : "No"}</td>
-          </tr>
-          <tr>
-            <td>Did you like the Dystogram app?</td>
-            <td>{game.likeApp ? "Yes" : "No"}</td>
+            <td>Did you post about your day of interviewing?</td>
+            <td>{game.postAboutInterviews ? "Yes" : "No"}</td>
           </tr>
           <tr>
             <td
