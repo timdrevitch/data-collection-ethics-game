@@ -5,11 +5,15 @@ import {
   CheckpointButton,
   NextButton,
   OrangeSpan,
+  RedSpan,
+  YellowSpan,
 } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   DarkFooter,
   DarkFooter2,
+  DystContainer,
+  DystrogramImage,
   PhoneImage,
   PlayerImage,
   PlayerSinceContainer,
@@ -66,7 +70,7 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
           src={require("../Assets/bedroom3.jpg")}
           alt="bedroomimage"
         />
-        <PhoneImage src={require("../Assets/hand.png")} alt="phone" />
+        {/* <PhoneImage src={require("../Assets/hand.png")} alt="phone" />
         <WelcomePlayerContainer
           style={{
             right: "27%",
@@ -113,11 +117,87 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
           }}
         >
           Download
-        </PlayerSinceContainer>
+        </PlayerSinceContainer> */}
         {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
+        <DystContainer
+          style={{
+            right: "47%",
+            top: "23.7%",
+            background: "white",
+          }}
+        >
+          <DystrogramImage
+            style={{
+              height: "29em",
+              width: "14.9em",
+            }}
+            src={require("../Assets/favicon2.jpg")}
+            alt="DystogramPicture"
+          />
+        </DystContainer>
+        <WelcomePlayerContainer
+          style={{
+            right: "29%",
+            color: "white",
+          }}
+        >
+          <strong>
+            <YellowSpan>Dystogram</YellowSpan>
+          </strong>
+        </WelcomePlayerContainer>
+        <PlayerSinceContainer
+          style={{
+            right: "29%",
+            color: "white",
+          }}
+        >
+          Create Profile
+        </PlayerSinceContainer>
+        <PlayerSinceContainer
+          style={{
+            right: "49.5%",
+            color: "white",
+            marginTop: "2em",
+            width: "12em",
+          }}
+        >
+          <br />
+          Required:
+          <hr />
+          <RedSpan>*</RedSpan> User Name:{" "}
+          <input style={{ width: "90%", height: "15%" }} disabled />
+          <br />
+          <RedSpan>*</RedSpan> Phone:{" "}
+          <input style={{ width: "90%", height: "15%" }} disabled />
+          <br />
+          <RedSpan>*</RedSpan> Email:{" "}
+          <input style={{ width: "90%", height: "15%" }} disabled />
+          <br />
+          <RedSpan>*</RedSpan> Password:{" "}
+          <input style={{ width: "90%", height: "15%" }} disabled />
+          <br />
+          <br />
+          <br />
+          Optional:
+          <hr />
+          Date of Birth:{" "}
+          <input style={{ width: "90%", height: "15%" }} disabled />
+          <br />
+          Occupation: <input style={{ width: "90%", height: "15%" }} disabled />
+          <br />
+          Degree: <input style={{ width: "90%", height: "15%" }} disabled />
+          <br />
+          Relationship Status:{" "}
+          <input style={{ width: "90%", height: "15%" }} disabled />
+          <br />
+          <br />
+          <br />
+          <button>Submit</button>
+        </PlayerSinceContainer>
+        <PhoneImage src={require("../Assets/phoneNoBg.png")} alt="phone" />
         <DarkFooter></DarkFooter>
         <DarkFooter2></DarkFooter2>
-        <h1
+        {/* <h1
           style={{
             position: "absolute",
             width: "100%",
@@ -128,12 +208,12 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
           }}
         >
           Checkpoint: {game.checkpoint}
-        </h1>
+        </h1> */}
         <div
           style={{
             position: "absolute",
             width: "90%",
-            top: "13em",
+            top: "12em",
             marginLeft: "5%",
             fontSize: "2vw",
             textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
@@ -141,30 +221,56 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
           }}
         >
           {counter === 0 ? (
-            <OrangeSpan>The link brought you to the app store... </OrangeSpan>
+            <>
+              {game.readTerms ? (
+                <OrangeSpan>
+                  I thoroughly read the informed consent, but it is quite
+                  complex and difficult to understand completely...{" "}
+                </OrangeSpan>
+              ) : (
+                <OrangeSpan>
+                  I briefly glance at the informed consent...{" "}
+                </OrangeSpan>
+              )}
+            </>
           ) : (
-            <span>The link brought you to the app store... </span>
+            <>
+              {game.readTerms ? (
+                <span>
+                  I thoroughly read the informed consent, but it is quite
+                  complex and difficult to understand completely...{" "}
+                </span>
+              ) : (
+                <span>I briefly glance at the informed consent... </span>
+              )}
+            </>
           )}
           {counter >= 1 ? (
             counter === 1 ? (
               <OrangeSpan>
-                To an app called Dystogram. It looks like some of the other apps
-                you have already!...{" "}
+                After reading it, I register with my mobile phone number and
+                fill in the necessary information...{" "}
               </OrangeSpan>
             ) : (
               <span>
-                To an app called Dystogram. It looks like some of the other apps
-                you have already!...{" "}
+                After reading it, I register with my mobile phone number and
+                fill in the necessary information...{" "}
               </span>
             )
           ) : null}
           {counter >= 2 ? (
             counter === 2 ? (
               <OrangeSpan>
-                5/5 stars! That's cool! Press the download button...{" "}
+                I am aware that in today's world of digital hyperconnectivity,
+                the more information you disclose, the less privacy you're able
+                to maintain...{" "}
               </OrangeSpan>
             ) : (
-              <span>5/5 stars! That's cool! Press the download button... </span>
+              <span>
+                I am aware that in today's world of digital hyperconnectivity,
+                the more information you disclose, the less privacy you're able
+                to maintain...{" "}
+              </span>
             )
           ) : null}
           {counter === 2 ? null : (
@@ -195,7 +301,7 @@ const Checkpoint4 = ({ url, game, render, setRender }) => {
               style={{ float: "right" }}
               onClick={nextCheckpoint}
             >
-              Download Dystogram.
+              Complete registration.
             </CheckpointButton>
           </div>
         )}

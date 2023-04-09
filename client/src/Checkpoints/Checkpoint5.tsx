@@ -6,11 +6,14 @@ import {
   CheckpointButton,
   NextButton,
   OrangeSpan,
+  YellowSpan,
 } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
   DarkFooter,
   DarkFooter2,
+  DystContainer,
+  DystrogramImage,
   PhoneImage,
   PlayerImage,
   PlayerSinceContainer,
@@ -63,58 +66,222 @@ const Checkpoint5 = ({ url, game, render, setRender }) => {
           src={require("../Assets/bedroom3.jpg")}
           alt="bedroomimage"
         />
-        {/* <PhoneImage src={require("../Assets/phoneBg.png")} alt="phone" />
-      <WelcomePlayerContainer
-        style={{
-          right: "27%",
-        }}
-      >
-        <strong>Dystogram</strong>
-      </WelcomePlayerContainer>
-      <WelcomePlayerContainer
-        style={{
-          right: "34%",
-        }}
-      >
-        <PlayerImage
+        <DystContainer
           style={{
-            height: "5em",
-            width: "5em",
-            right: "38%",
-            borderRadius: "10px",
+            right: "47%",
+            top: "23.7%",
+            background: "white",
           }}
-          src={require("../Assets/favicon.jpeg")}
-          alt="DystogramPicture"
-        />
-      </WelcomePlayerContainer>
-      <PlayerSinceContainer
-        style={{
-          right: "27%",
-        }}
-      >
-        ⭐️⭐️⭐️⭐️⭐️
-      </PlayerSinceContainer>
-      <PlayerSinceContainer
-        style={{
-          right: "27%",
-          marginTop: "1.3em",
-        }}
-      >
-        <strong>4.9</strong> (1.7M Ratings)
-      </PlayerSinceContainer>
-      <PlayerSinceContainer
-        style={{
-          right: "27%",
-          textDecoration: "underline",
-          marginTop: "2.6em",
-        }}
-      >
-        Download
-      </PlayerSinceContainer> */}
-        {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
+        >
+          <DystrogramImage
+            style={{
+              height: "29em",
+              width: "14.9em",
+            }}
+            src={require("../Assets/favicon2.jpg")}
+            alt="DystogramPicture"
+          />
+        </DystContainer>
+        <WelcomePlayerContainer
+          style={{
+            right: "29%",
+            color: "white",
+          }}
+        >
+          <strong>
+            <YellowSpan>Dystogram</YellowSpan>
+          </strong>
+        </WelcomePlayerContainer>
+        <PlayerSinceContainer
+          style={{
+            right: "34.3%",
+            color: "white",
+          }}
+        >
+          Profile&nbsp;&nbsp;&nbsp;
+          <span style={{ textDecoration: "underline", color: "yellow" }}>
+            Friends
+          </span>
+          &nbsp;&nbsp;&nbsp; News Feed &nbsp;&nbsp;&nbsp;Settings
+        </PlayerSinceContainer>
+        <PlayerSinceContainer
+          style={{
+            right: "46%",
+            color: "white",
+            marginTop: "2em",
+            width: "18em",
+          }}
+        >
+          <input
+            style={{ width: "95%" }}
+            type="search"
+            placeholder="Search users 🔍"
+            disabled
+          />
+          <hr />
+          👤 User_12345{" "}
+          <YellowSpan
+            style={{
+              background: "blue",
+              border: "1px solid white",
+              borderRadius: "5px",
+              paddingLeft: "5px",
+              paddingRight: "5px",
+              color: "white",
+            }}
+          >
+            Add Friend
+          </YellowSpan>
+          <br />
+          <div
+            style={{
+              width: "90%",
+              backgroundColor: "gray",
+              opacity: "70%",
+              color: "black",
+              padding: ".1em",
+            }}
+          >
+            About:{" "}
+            <span style={{ color: "white" }}>
+              ⭐️Alexis⭐️ ▪️ AZ ✈️ NJ ▪️ College Athlete 🏀{" "}
+            </span>
+          </div>
+          <br />
+          👤 Salopes_1{" "}
+          <YellowSpan
+            style={{
+              background: "blue",
+              border: "1px solid white",
+              borderRadius: "5px",
+              paddingLeft: "5px",
+              paddingRight: "5px",
+              color: "white",
+            }}
+          >
+            Add Friend
+          </YellowSpan>
+          <br />
+          <div
+            style={{
+              width: "90%",
+              backgroundColor: "gray",
+              opacity: "70%",
+              color: "black",
+              padding: ".1em",
+            }}
+          >
+            About: <span style={{ color: "white" }}>Be kind </span>
+          </div>
+          <br />
+          👤 AllenJacobs3{" "}
+          {counter > 0 ? (
+            <YellowSpan
+              style={{
+                background: "green",
+                border: "1px solid white",
+                borderRadius: "5px",
+                paddingLeft: "5px",
+                paddingRight: "5px",
+                color: "white",
+              }}
+            >
+              Remove Friend
+            </YellowSpan>
+          ) : (
+            <YellowSpan
+              style={{
+                background: "blue",
+                border: "1px solid white",
+                borderRadius: "5px",
+                paddingLeft: "5px",
+                paddingRight: "5px",
+                color: "white",
+              }}
+            >
+              Add Friend
+            </YellowSpan>
+          )}
+          <br />
+          <div
+            style={{
+              width: "90%",
+              backgroundColor: "gray",
+              opacity: "70%",
+              color: "black",
+              padding: ".1em",
+            }}
+          >
+            About:{" "}
+            <span style={{ color: "white" }}>
+              CS graduate ('42) Working at Dystocity Soft. and Co. as a
+              developer intern{" "}
+            </span>
+          </div>
+          <br />
+          👤 PresidentBillyBob{" "}
+          <YellowSpan
+            style={{
+              background: "blue",
+              border: "1px solid white",
+              borderRadius: "5px",
+              paddingLeft: "5px",
+              paddingRight: "5px",
+              color: "white",
+            }}
+          >
+            Add Friend
+          </YellowSpan>
+          <br />
+          <div
+            style={{
+              width: "90%",
+              backgroundColor: "gray",
+              opacity: "70%",
+              color: "black",
+              padding: ".1em",
+            }}
+          >
+            About:{" "}
+            <span style={{ color: "white" }}>
+              BS PhD Student. Former Salesman 💼{" "}
+            </span>
+          </div>
+          <br />
+          👤 DystocitySquareShops{" "}
+          <YellowSpan
+            style={{
+              background: "blue",
+              border: "1px solid white",
+              borderRadius: "5px",
+              paddingLeft: "5px",
+              paddingRight: "5px",
+              color: "white",
+            }}
+          >
+            Follow
+          </YellowSpan>
+          <br />
+          <div
+            style={{
+              width: "90%",
+              backgroundColor: "gray",
+              opacity: "70%",
+              color: "black",
+              padding: ".1em",
+            }}
+          >
+            About:{" "}
+            <span style={{ color: "white" }}>
+              Non-Profit Organization in the Greater Dystocity Area{" "}
+            </span>
+          </div>
+          <br />
+        </PlayerSinceContainer>
+        <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" />
         <DarkFooter></DarkFooter>
         <DarkFooter2></DarkFooter2>
-        <h1
+        {/* <h1
           style={{
             position: "absolute",
             width: "100%",
@@ -125,7 +292,7 @@ const Checkpoint5 = ({ url, game, render, setRender }) => {
           }}
         >
           Checkpoint: {game.checkpoint}
-        </h1>
+        </h1> */}
         <div
           style={{
             position: "absolute",
@@ -138,91 +305,57 @@ const Checkpoint5 = ({ url, game, render, setRender }) => {
           }}
         >
           {counter === 0 ? (
-            <OrangeSpan>Nice! Dystogram is downloaded... </OrangeSpan>
+            <OrangeSpan>
+              I use my mobile phone number to locate Allen's account and follow
+              him...{" "}
+            </OrangeSpan>
           ) : (
-            <span>Nice! Dystogram is downloaded... </span>
+            <span>
+              I use my mobile phone number to locate Allen's account and follow
+              him...{" "}
+            </span>
           )}
           {counter >= 1 ? (
             <>
-              {game.isHesitant ? (
-                counter === 1 ? (
-                  <OrangeSpan>
-                    You've been very focused on preparing for your interviews
-                    and you want to keep preparing...{" "}
-                  </OrangeSpan>
-                ) : (
-                  <span>
-                    You've been very focused on preparing for your interviews
-                    and you want to keep preparing...{" "}
-                  </span>
-                )
-              ) : counter === 1 ? (
+              {counter === 1 ? (
                 <OrangeSpan>
-                  Now that you have it, you should check it out! Add Allen on
-                  it!...{" "}
+                  Consequently, Dystogram intelligently suggests numerous other
+                  accounts for me to follow, many of whom are my classmates...{" "}
                 </OrangeSpan>
               ) : (
                 <span>
-                  Now that you have it, you should check it out! Add Allen on
-                  it!...{" "}
+                  Consequently, Dystogram intelligently suggests numerous other
+                  accounts for me to follow, many of whom are my classmates...{" "}
                 </span>
               )}
             </>
           ) : null}
           {counter >= 2 ? (
             <>
-              {game.isHesitant ? (
-                counter === 2 ? (
-                  <OrangeSpan>
-                    Keep studying! Maybe you can check out the app in the car on
-                    the way to the first interview. After you are done preparing
-                    more, head to your first interview!...{" "}
-                  </OrangeSpan>
-                ) : (
-                  <span>
-                    Keep studying! Maybe you can check out the app in the car on
-                    the way to the first interview. After you are done preparing
-                    more, head to your first interview!...{" "}
-                  </span>
-                )
-              ) : counter === 2 ? (
+              {counter === 2 ? (
                 <OrangeSpan>
-                  Time flew by! How is it already time to leave for your first
-                  interview? Check out the app in the car on the way!...{" "}
+                  As I look at the vibrant pictures from the party, my mind
+                  floods with cherished memories of that day...{" "}
                 </OrangeSpan>
               ) : (
                 <span>
-                  Time flew by! How is it already time to leave for your first
-                  interview? Check out the app in the car on the way!...{" "}
+                  As I look at the vibrant pictures from the party, my mind
+                  floods with cherished memories of that day...{" "}
                 </span>
               )}
             </>
           ) : null}
           {counter >= 3 ? (
             <>
-              {game.isHesitant ? (
-                counter === 3 ? (
-                  <OrangeSpan>
-                    It's going to be starting soon and you don't want to be
-                    late. Good thing you have one of those self-driving cars so
-                    you can use your phone on the way!...{" "}
-                  </OrangeSpan>
-                ) : (
-                  <span>
-                    It's going to be starting soon and you don't want to be
-                    late. Good thing you have one of those self-driving cars so
-                    you can use your phone on the way!...{" "}
-                  </span>
-                )
-              ) : counter === 3 ? (
+              {counter === 3 ? (
                 <OrangeSpan>
-                  Good thing you have one of those self-driving cars so you are
-                  able to go on your phone on the way!...{" "}
+                  Oh no! It's later than I thought. I should make my way to the
+                  interview now...{" "}
                 </OrangeSpan>
               ) : (
                 <span>
-                  Good thing you have one of those self-driving cars so you are
-                  able to go on your phone on the way!...{" "}
+                  Oh no! It's later than I thought. I should make my way to the
+                  interview now...{" "}
                 </span>
               )}
             </>
