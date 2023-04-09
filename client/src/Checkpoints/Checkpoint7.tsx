@@ -1,7 +1,10 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
+import { Context } from "../Shared/Context";
 import {
+  BlueSpan,
   CheckpointButton,
   NextButton,
   OrangeSpan,
@@ -21,8 +24,9 @@ import {
   WelcomePlayerContainer,
 } from "../Styles/TitleScreenStyles";
 
-const Checkpoint7 = ({ url, game, render, setRender }) => {
+const Checkpoint7 = ({ url, game, render, setRender, player }) => {
   const [counter, setCounter] = useState<number>(0);
+  const { isMuted } = useContext(Context);
 
   useEffect(() => {
     console.log(counter);
@@ -30,14 +34,14 @@ const Checkpoint7 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 1) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
   });
 
-  const nextCheckpoint = (readTermsChoice: boolean) => {
-    let data = { readTermsChoice: readTermsChoice };
+  const nextCheckpoint = (postedAboutArt: boolean) => {
+    let data = { postedAboutArtChoice: postedAboutArt };
     axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
       setRender(!render);
     });
@@ -78,38 +82,180 @@ const Checkpoint7 = ({ url, game, render, setRender }) => {
       </WelcomePlayerContainer>
       <PlayerSinceContainer
         style={{
-          right: "29.5%",
+          right: "34.3%",
           color: "white",
         }}
       >
-        Terms of Service
+        Profile&nbsp;&nbsp;&nbsp;
+        <span style={{ textDecoration: "underline", color: "yellow" }}>
+          Friends
+        </span>
+        &nbsp;&nbsp;&nbsp; News Feed &nbsp;&nbsp;&nbsp;Settings
+        <hr style={{ width: "58%", float: "left" }} />
       </PlayerSinceContainer>
       <PlayerSinceContainer
         style={{
-          right: "49.5%",
+          right: "34.3%",
           color: "white",
           marginTop: "2em",
-          width: "12em",
         }}
       >
-        ********************************* To use this app, you must specify that
-        you agree to the following terms of use and acknowledge all copyright
-        and privacy details and concerns. *********************************
-        These include, but are not limited to: *********************************{" "}
-        <em>Dystogram</em>'s Privacy Polocies (P1A-P42F) <em>Dystogram</em>'s
-        Personal Data Sharing Polocies (D1A-D23B) <em>Dystogram</em>'s
-        Harassment and Bulying Polocies (H1A-H16G) <em>Dystogram</em>'s Use
-        Protection Clauses (U1A-U3C) <em>Dystogram</em>'s Data Collection
-        Methods Polocies (C1A-C30D) <em>Dystogram</em>'s Photo and Video Sharing
-        Polocies (C1A-C30D) <em>Dystogram</em>'s Govt. Complience & Involvement
-        Procedureal Polocies (G1A-G55I) <em>Dystogram</em>'s Harassment and
-        Bulying Polocies V2 (H1A-H16G) <em>Dystogram</em>'s Use Protection
-        Clauses V2 (U1A-U3C)...
+        <img
+          src={require("../Assets/drev.png")}
+          alt="carl"
+          style={{ display: "inline-block", borderRadius: "50%", width: "5%" }}
+        />
+        AllenJacobs3{" "}
+        <YellowSpan
+          style={{
+            background: "green",
+            border: "1px solid white",
+            borderRadius: "5px",
+            paddingLeft: "3px",
+            paddingRight: "3px",
+            color: "white",
+          }}
+        >
+          Remove Friend
+        </YellowSpan>
       </PlayerSinceContainer>
-      <PhoneImage src={require("../Assets/phoneNoBg.png")} alt="phone" />
+      <PlayerSinceContainer
+        style={{
+          right: "46%",
+          color: "white",
+          marginTop: "4em",
+          width: "18em",
+        }}
+      >
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "gray",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          About:{" "}
+          <span style={{ color: "white" }}>
+            CS graduate ('42) Working at Dystocity Soft. and Co. as a developer
+            intern{" "}
+          </span>
+        </div>
+        <br />
+        <div>
+          <span style={{ textDecoration: "underline", color: "yellow" }}>
+            Posts (31)
+          </span>
+          &nbsp;&nbsp;&nbsp; Friends (83) &nbsp;&nbsp;&nbsp;
+        </div>
+        <hr style={{ width: "95%", float: "left" }} />
+        <br />
+        AllenJackobs3 <YellowSpan>posted 19 minutes...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          Good luck to my good friend <BlueSpan>@{player.playername}</BlueSpan>{" "}
+          on their first round of interviews today!!
+          <BlueSpan> #JobHunt</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        {counter > 0 ? (
+          <>
+            <button disabled style={{ background: "green", fontSize: "1vw" }}>
+              Comment
+            </button>
+            <br />
+            <input
+              placeholder="Type your comment here..."
+              style={{ height: "50%", width: "90%", fontSize: "1vw" }}
+            />
+          </>
+        ) : (
+          <button style={{ fontSize: "1vw" }} disabled>
+            Comment
+          </button>
+        )}
+        <br />
+        <br />
+        AllenJackobs3 <YellowSpan>posted 1 day ago...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          Dystocity seems less busy lately. All these self-driving cars
+          practically got rid of traffic all together!
+          <BlueSpan> #City #Dystocity</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+        AllenJackobs3 <YellowSpan>posted 3 days ago...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          I have only had this app for about a week now, and I can't stop going
+          back to it! It's so cool that I can keep up with my friends on here
+          whenever I want!
+          <BlueSpan> #Dystogram</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+        AllenJackobs3 <YellowSpan>posted 3 days ago...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          It is so nice out today. I need to go outside later!
+          <BlueSpan> #GoodWeather</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+      </PlayerSinceContainer>
+      <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -120,12 +266,12 @@ const Checkpoint7 = ({ url, game, render, setRender }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
           width: "90%",
-          top: "13em",
+          top: "11em",
           marginLeft: "5%",
           fontSize: "2vw",
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
@@ -133,36 +279,101 @@ const Checkpoint7 = ({ url, game, render, setRender }) => {
       >
         {counter === 0 ? (
           <OrangeSpan>
-            Looks cool! The app wants you to accept its terms of service before
-            using it...{" "}
+            Allen must have posted something and tagged me, he just sent me a
+            message too...{" "}
           </OrangeSpan>
         ) : (
           <span>
-            Looks cool! The app wants you to accept its terms of service before
-            using it...{" "}
+            Allen must have posted something and tagged me, he just sent me a
+            message too...{" "}
           </span>
         )}
         {counter >= 1 ? (
-          counter === 1 ? (
-            <OrangeSpan>
-              Go ahead and accept now, the app can't be used without accepting
-              them...{" "}
-            </OrangeSpan>
-          ) : (
-            <span>
-              Go ahead and accept now, the app can't be used without accepting
-              them...{" "}
-            </span>
-          )
+          <>
+            <br />
+            {counter === 1 ? (
+              <OrangeSpan>
+                <YellowSpan>Allen:</YellowSpan> "
+                <em>
+                  Yo <strong>{player.playername}</strong>, you finally hopped on
+                  board! Those party snaps are wild, right? Dystogram's where
+                  it's at for showcasing life's epic moments. You should join in
+                  and post your own stuff
+                </em>
+                "{" "}
+                <audio
+                  autoPlay={true}
+                  controls={false}
+                  loop={false}
+                  muted={isMuted}
+                  id="myAudio"
+                >
+                  <source
+                    src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                    type="audio/wav"
+                  />
+                </audio>
+              </OrangeSpan>
+            ) : (
+              <span>
+                <YellowSpan>Allen:</YellowSpan> "
+                <em>
+                  Yo <strong>{player.playername}</strong>, you finally hopped on
+                  board! Those party snaps are wild, right? Dystogram's where
+                  it's at for showcasing life's epic moments. You should join in
+                  and post your own stuff
+                </em>
+                "{" "}
+              </span>
+            )}
+          </>
         ) : null}
-        {counter === 1 ? null : (
+        {counter >= 2 ? (
+          <>
+            <br />
+            {counter === 2 ? (
+              <OrangeSpan>
+                <YellowSpan>Allen:</YellowSpan> "
+                <em>
+                  You've got mad artistic skills—why not show that off in your
+                  profile? You'll rake in a ton more followers with drawings
+                  like yours. People love that stuff!
+                </em>
+                "{" "}
+                <audio
+                  autoPlay={true}
+                  controls={false}
+                  loop={false}
+                  muted={isMuted}
+                  id="myAudio"
+                >
+                  <source
+                    src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                    type="audio/wav"
+                  />
+                </audio>
+              </OrangeSpan>
+            ) : (
+              <span>
+                <YellowSpan>Allen:</YellowSpan> "
+                <em>
+                  You've got mad artistic skills—why not show that off in your
+                  profile? You'll rake in a ton more followers with drawings
+                  like yours. People love that stuff!
+                </em>
+                "{" "}
+              </span>
+            )}
+          </>
+        ) : null}
+        {counter === 2 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 1 && (
+      {counter === 2 && (
         <div
           style={{
             position: "absolute",
@@ -170,7 +381,7 @@ const Checkpoint7 = ({ url, game, render, setRender }) => {
             right: "0",
             marginLeft: "auto",
             marginRight: "auto",
-            width: "50%",
+            width: "70%",
             height: "13%",
             top: "38em",
             margin: "0 auto",
@@ -180,16 +391,34 @@ const Checkpoint7 = ({ url, game, render, setRender }) => {
           }}
         >
           <CheckpointButton
-            style={{ float: "left" }}
+            style={{
+              float: "left",
+              width: "40%",
+              height: "130%",
+              fontSize: ".9vw",
+              padding: "0 3.5em",
+            }}
             onClick={() => nextCheckpoint(false)}
           >
-            Accept the Terms of Service.
+            "Indeed, I do have some skill in drawing. My main reason for joining
+            was to view those party photos and keep in touch with my friends
+            though. I prefer not to share an excessive amount of personal
+            information."
           </CheckpointButton>
           <CheckpointButton
-            style={{ float: "right" }}
+            style={{
+              float: "right",
+              width: "40%",
+              height: "130%",
+              fontSize: ".9vw",
+              padding: "0 3.5em",
+            }}
             onClick={() => nextCheckpoint(true)}
           >
-            Read the Terms of Service.
+            "You have a point. I am fairly good at drawing. My main worry is
+            about revealing too much information about myself on social media.
+            However, you've made a convincing argument about the potential
+            inspiration from the drawing account and its content."
           </CheckpointButton>
         </div>
       )}

@@ -95,7 +95,7 @@ const Checkpoint6 = ({ url, game, render, setRender }) => {
       {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -106,7 +106,7 @@ const Checkpoint6 = ({ url, game, render, setRender }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -120,8 +120,8 @@ const Checkpoint6 = ({ url, game, render, setRender }) => {
       >
         {counter === 0 ? (
           <OrangeSpan>
-            Looks like it's going to take a bit of time to get to this
-            interview...{" "}
+            I hop into the self-driving car, input the destination, and the car
+            begins its journey...{" "}
             <audio
               autoPlay={true}
               controls={false}
@@ -137,58 +137,48 @@ const Checkpoint6 = ({ url, game, render, setRender }) => {
           </OrangeSpan>
         ) : (
           <span>
-            Looks like it's going to take a bit of time to get to this
-            interview...{" "}
+            I hop into the self-driving car, input the destination, and the car
+            begins its journey...{" "}
           </span>
         )}
         {counter >= 1 ? (
           <>
-            {game.isHesitant ? (
-              counter === 1 ? (
+            {counter === 1 ? (
+              <>
                 <OrangeSpan>
-                  It is good that you spent some extra time preparing this
-                  morning...{" "}
+                  Looks like I have a new notification from Dystogram...{" "}
                 </OrangeSpan>
-              ) : (
-                <span>
-                  It is good that you spent some extra time preparing this
-                  morning...{" "}
-                </span>
-              )
-            ) : counter === 1 ? (
-              <OrangeSpan>
-                Now is a good time to check out the app you just got!...{" "}
-              </OrangeSpan>
+                <audio
+                  autoPlay={true}
+                  controls={false}
+                  loop={false}
+                  muted={isMuted}
+                  id="myAudio"
+                >
+                  <source
+                    src={require("../Assets/Assets-Fangtai/Audio/SFX/New_DystogramChat.wav")}
+                    type="audio/wav"
+                  />
+                </audio>
+              </>
             ) : (
               <span>
-                Now is a good time to check out the app you just got!...{" "}
+                Looks like I have a new notification from Dystogram...{" "}
               </span>
             )}
           </>
         ) : null}
         {counter >= 2 ? (
           <>
-            {game.isHesitant ? (
-              counter === 2 ? (
-                <OrangeSpan>
-                  You didn't want to get distracted by it before but now you
-                  have some downtime on your way so check out that app!...{" "}
-                </OrangeSpan>
-              ) : (
-                <span>
-                  You didn't want to get distracted by it before but now you
-                  have some downtime on your way so check out that app!...{" "}
-                </span>
-              )
-            ) : counter === 2 ? (
+            {counter === 2 ? (
               <OrangeSpan>
-                Open the app and see what it's like! Allen will be happy you
-                checked it out...{" "}
+                I have time to check what it is while the car brings me to this
+                interview...{" "}
               </OrangeSpan>
             ) : (
               <span>
-                Open the app and see what it's like! Allen will be happy you
-                checked it out...{" "}
+                I have time to check what it is while the car brings me to this
+                interview...{" "}
               </span>
             )}
           </>

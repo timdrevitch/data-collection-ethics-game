@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
 import {
+  BlueSpan,
   CheckpointButton,
+  LimeGreenSpan,
   NextButton,
   OrangeSpan,
   RedSpan,
@@ -13,6 +16,7 @@ import {
   CityGif,
   DarkFooter,
   DarkFooter2,
+  DarkFooter3,
   DystContainer,
   DystrogramImage,
   PhoneImage,
@@ -21,8 +25,10 @@ import {
   WelcomePlayerContainer,
 } from "../Styles/TitleScreenStyles";
 
-const Checkpoint8 = ({ url, game, render, setRender }) => {
+const Checkpoint8 = ({ url, game, render, setRender, player }) => {
   const [counter, setCounter] = useState<number>(0);
+  //const value1: string = `: Thanks Allen! One down, one to go! I'll let you know how it goes :).`;
+  const value2: string = `: Thanks Allen! Hopefully all of this preparing will pay off! I'll let you know how it goes :).`;
 
   useEffect(() => {
     console.log(counter);
@@ -30,7 +36,7 @@ const Checkpoint8 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 1) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
@@ -48,6 +54,7 @@ const Checkpoint8 = ({ url, game, render, setRender }) => {
       <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
+      <DarkFooter3></DarkFooter3>
       <DystContainer
         style={{
           right: "47%",
@@ -76,54 +83,201 @@ const Checkpoint8 = ({ url, game, render, setRender }) => {
       </WelcomePlayerContainer>
       <PlayerSinceContainer
         style={{
-          right: "29%",
+          right: "34.3%",
           color: "white",
         }}
       >
-        Create Profile
+        Profile&nbsp;&nbsp;&nbsp;
+        <span style={{ textDecoration: "underline", color: "yellow" }}>
+          Friends
+        </span>
+        &nbsp;&nbsp;&nbsp; News Feed &nbsp;&nbsp;&nbsp;Settings
+        <hr style={{ width: "58%", float: "left" }} />
       </PlayerSinceContainer>
       <PlayerSinceContainer
         style={{
-          right: "49.5%",
+          right: "34.3%",
           color: "white",
           marginTop: "2em",
-          width: "12em",
         }}
       >
-        <br />
-        Required:
-        <hr />
-        <RedSpan>*</RedSpan> User Name:{" "}
-        <input style={{ width: "90%", height: "15%" }} disabled />
-        <br />
-        <RedSpan>*</RedSpan> Email:{" "}
-        <input style={{ width: "90%", height: "15%" }} disabled />
-        <br />
-        <RedSpan>*</RedSpan> Password:{" "}
-        <input style={{ width: "90%", height: "15%" }} disabled />
-        <br />
-        <br />
-        <br />
-        Optional:
-        <hr />
-        Date of Birth:{" "}
-        <input style={{ width: "90%", height: "15%" }} disabled />
-        <br />
-        Occupation: <input style={{ width: "90%", height: "15%" }} disabled />
-        <br />
-        Degree: <input style={{ width: "90%", height: "15%" }} disabled />
-        <br />
-        Relationship Status:{" "}
-        <input style={{ width: "90%", height: "15%" }} disabled />
-        <br />
-        <br />
-        <br />
-        <button>Submit</button>
+        <img
+          src={require("../Assets/drev.png")}
+          alt="carl"
+          style={{ display: "inline-block", borderRadius: "50%", width: "5%" }}
+        />
+        AllenJacobs3{" "}
+        <YellowSpan
+          style={{
+            background: "green",
+            border: "1px solid white",
+            borderRadius: "5px",
+            paddingLeft: "3px",
+            paddingRight: "3px",
+            color: "white",
+          }}
+        >
+          Remove Friend
+        </YellowSpan>
       </PlayerSinceContainer>
-      <PhoneImage src={require("../Assets/phoneNoBg.png")} alt="phone" />
+      <PlayerSinceContainer
+        style={{
+          right: "46%",
+          color: "white",
+          marginTop: "4em",
+          width: "18em",
+        }}
+      >
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "gray",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          About:{" "}
+          <span style={{ color: "white" }}>
+            CS graduate ('42) Working at Dystocity Soft. and Co. as a developer
+            intern{" "}
+          </span>
+        </div>
+        <br />
+        <div>
+          <span style={{ textDecoration: "underline", color: "yellow" }}>
+            Posts (31)
+          </span>
+          &nbsp;&nbsp;&nbsp; Friends (83) &nbsp;&nbsp;&nbsp;
+        </div>
+        <hr style={{ width: "95%", float: "left" }} />
+        <br />
+        AllenJackobs3 <YellowSpan>posted 19 minutes...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          Good luck to my good friend <BlueSpan>@{player.playername}</BlueSpan>{" "}
+          on their first round of interviews today!!
+          <BlueSpan> #JobHunt</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        {game.commentIncludesInterviewCount ? (
+          <>
+            <button disabled style={{ fontSize: "1vw" }}>
+              Comment
+            </button>
+            <br />
+            <div
+              style={{
+                borderLeft: "1px solid white",
+                paddingLeft: "3px",
+                width: "90%",
+                fontSize: "1vw",
+              }}
+            >
+              <YellowSpan>@{player.playername}</YellowSpan>
+              {value2} {/*{value1}*/}
+            </div>
+          </>
+        ) : (
+          <>
+            <button style={{ fontSize: "1vw" }} disabled>
+              Comment
+            </button>
+            <br />
+            <div
+              style={{
+                borderLeft: "1px solid white",
+                paddingLeft: "3px",
+                width: "90%",
+                fontSize: "1vw",
+              }}
+            >
+              <YellowSpan>@{player.playername}</YellowSpan>
+              {value2}
+            </div>
+          </>
+        )}
+        <br />
+        <br />
+        AllenJackobs3 <YellowSpan>posted 1 day ago...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          Dystocity seems less busy lately. All these self-driving cars
+          practically got rid of traffic all together!
+          <BlueSpan> #City #Dystocity</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+        AllenJackobs3 <YellowSpan>posted 3 days ago...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          I have only had this app for about a week now, and I can't stop going
+          back to it! It's so cool that I can keep up with my friends on here
+          whenever I want!
+          <BlueSpan> #Dystogram</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+        AllenJackobs3 <YellowSpan>posted 3 days ago...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          It is so nice out today. I need to go outside later!
+          <BlueSpan> #GoodWeather</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+      </PlayerSinceContainer>
+      <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -134,7 +288,7 @@ const Checkpoint8 = ({ url, game, render, setRender }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -145,60 +299,169 @@ const Checkpoint8 = ({ url, game, render, setRender }) => {
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
         }}
       >
-        {game.readTerms ? (
+        {game.postedAboutArt ? (
           counter === 0 ? (
             <OrangeSpan>
-              The terms says that the app shares user data. You should probably{" "}
-              <em>ONLY</em> provide required info when signing up...{" "}
+              <LimeGreenSpan>You:</LimeGreenSpan> "
+              <em>I am going to add one of my drawings to my profile...</em>"{" "}
             </OrangeSpan>
           ) : (
             <span>
-              The terms says that the app shares user data. You should probably{" "}
-              <em>ONLY</em> provide required info when signing up...{" "}
+              <em>
+                <LimeGreenSpan>You:</LimeGreenSpan> "I am going to add one of my
+                drawings to my profile...
+              </em>
+              "{" "}
             </span>
           )
         ) : counter === 0 ? (
           <OrangeSpan>
-            Looks like it's time to fill out your profile now!...{" "}
+            <LimeGreenSpan>You:</LimeGreenSpan> "
+            <em>For now, I chose not to include painting in my profile...</em>"{" "}
           </OrangeSpan>
         ) : (
-          <span>Looks like it's time to fill out your profile now!... </span>
+          <span>
+            <LimeGreenSpan>You:</LimeGreenSpan> "
+            <em>For now, I chose not to include painting in my profile...</em>"{" "}
+          </span>
         )}
         {counter >= 1 ? (
-          game.readTerms ? (
-            counter === 1 ? (
+          <>
+            <br />
+            {game.postedAboutArt ? (
+              counter === 1 ? (
+                <OrangeSpan>
+                  <YellowSpan>Allen:</YellowSpan> "
+                  <em>
+                    That's what I'm talking about! Now that you're all set, go
+                    ahead and share something chill. Spread the good vibes,{" "}
+                    <strong>{player.playername}</strong>!
+                  </em>
+                  "{" "}
+                </OrangeSpan>
+              ) : (
+                <span>
+                  <YellowSpan>Allen:</YellowSpan> "
+                  <em>
+                    That's what I'm talking about! Now that you're all set, go
+                    ahead and share something chill. Spread the good vibes,{" "}
+                    <strong>{player.playername}</strong>!
+                  </em>
+                  "{" "}
+                </span>
+              )
+            ) : counter === 1 ? (
               <OrangeSpan>
-                Fill out the required fields and then sign up...{" "}
+                <YellowSpan>Allen:</YellowSpan> "
+                <em>
+                  I get it, <strong>{player.playername}</strong>. Finding your
+                  groove might take a hot minute. But hey, now that you're here,
+                  why not throw up a different post? Doesn't have to be personal
+                  stuff.
+                </em>
+                "{" "}
               </OrangeSpan>
             ) : (
-              <span>Fill out the required fields and then sign up... </span>
-            )
-          ) : counter === 1 ? (
-            <OrangeSpan>
-              Fill out the required & optional fields and then complete your
-              sign up!...{" "}
-            </OrangeSpan>
-          ) : (
-            <span>
-              Fill out the required & optional fields and then complete your
-              sign up!...{" "}
-            </span>
-          )
+              <span>
+                <YellowSpan>Allen:</YellowSpan> "
+                <em>
+                  I get it, <strong>{player.playername}</strong>. Finding your
+                  groove might take a hot minute. But hey, now that you're here,
+                  why not throw up a different post? Doesn't have to be personal
+                  stuff.
+                </em>
+                "{" "}
+              </span>
+            )}
+          </>
         ) : null}
-        {counter === 1 ? null : (
+        {counter >= 1 ? (
+          <>
+            <br />
+            {counter === 2 ? (
+              <OrangeSpan>
+                <LimeGreenSpan>You:</LimeGreenSpan> "
+                <em>Alright, I'll give it a shot...</em>"{" "}
+              </OrangeSpan>
+            ) : null}
+          </>
+        ) : null}
+        {counter === 2 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 1 && (
+      {counter === 2 && (
+        // <div
+        //   style={{
+        //     position: "absolute",
+        //     left: "0",
+        //     right: "0",
+        //     marginLeft: "auto",
+        //     marginRight: "auto",
+        //     width: "50%",
+        //     height: "13%",
+        //     top: "38em",
+        //     margin: "0 auto",
+        //     fontSize: "1vw",
+        //     color: "white",
+        //     zIndex: "102",
+        //   }}
+        // >
+        //   {game.readTerms ? (
+        //     <>
+        //       <CheckpointButton
+        //         style={{ float: "left", opacity: "40%", cursor: "not-allowed" }}
+        //         disabled
+        //       >
+        //         <em>
+        //           <RedSpan>Unavailable due to prior actions.</RedSpan>
+        //         </em>
+        //         <br />
+        //         Fill out the FULL sign up form and continue.
+        //       </CheckpointButton>
+        //       <CheckpointButton
+        //         style={{ float: "right" }}
+        //         onClick={nextCheckpoint}
+        //       >
+        //         Fill out ONLY the required parts of the sign up form and
+        //         continue.
+        //       </CheckpointButton>
+        //     </>
+        //   ) : (
+        //     <>
+        //       <CheckpointButton
+        //         style={{ float: "left" }}
+        //         onClick={nextCheckpoint}
+        //       >
+        //         Fill out the FULL sign up form and continue.
+        //       </CheckpointButton>
+        //       <CheckpointButton
+        //         style={{
+        //           float: "right",
+        //           opacity: "40%",
+        //           cursor: "not-allowed",
+        //         }}
+        //         disabled
+        //       >
+        //         <em>
+        //           <RedSpan>Unavailable due to prior actions.</RedSpan>
+        //         </em>
+        //         <br />
+        //         Fill out ONLY the required parts of the sign up form and
+        //         continue.
+        //       </CheckpointButton>
+        //     </>
+        //   )}
+        // </div>
         <div
           style={{
             position: "absolute",
             left: "0",
             right: "0",
-            marginLeft: "auto",
+            marginLeft: "0",
             marginRight: "auto",
             width: "50%",
             height: "13%",
@@ -209,50 +472,20 @@ const Checkpoint8 = ({ url, game, render, setRender }) => {
             zIndex: "102",
           }}
         >
-          {game.readTerms ? (
-            <>
-              <CheckpointButton
-                style={{ float: "left", opacity: "40%", cursor: "not-allowed" }}
-                disabled
-              >
-                <em>
-                  <RedSpan>Unavailable due to prior actions.</RedSpan>
-                </em>
-                <br />
-                Fill out the FULL sign up form and continue.
-              </CheckpointButton>
-              <CheckpointButton
-                style={{ float: "right" }}
-                onClick={nextCheckpoint}
-              >
-                Fill out ONLY the required parts of the sign up form and
-                continue.
-              </CheckpointButton>
-            </>
+          {game.postedAboutArt ? (
+            <CheckpointButton
+              style={{ float: "right" }}
+              onClick={nextCheckpoint}
+            >
+              Make a post with your drawing.
+            </CheckpointButton>
           ) : (
-            <>
-              <CheckpointButton
-                style={{ float: "left" }}
-                onClick={nextCheckpoint}
-              >
-                Fill out the FULL sign up form and continue.
-              </CheckpointButton>
-              <CheckpointButton
-                style={{
-                  float: "right",
-                  opacity: "40%",
-                  cursor: "not-allowed",
-                }}
-                disabled
-              >
-                <em>
-                  <RedSpan>Unavailable due to prior actions.</RedSpan>
-                </em>
-                <br />
-                Fill out ONLY the required parts of the sign up form and
-                continue.
-              </CheckpointButton>
-            </>
+            <CheckpointButton
+              style={{ float: "right" }}
+              onClick={nextCheckpoint}
+            >
+              Make a post about the weather being nice today.
+            </CheckpointButton>
           )}
         </div>
       )}
