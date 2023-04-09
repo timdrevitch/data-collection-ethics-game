@@ -67,7 +67,7 @@ const Checkpoint23 = ({ url, game, render, setRender }) => {
         {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
         <DarkFooter></DarkFooter>
         <DarkFooter2></DarkFooter2>
-        <h1
+        {/* <h1
           style={{
             position: "absolute",
             width: "100%",
@@ -78,7 +78,7 @@ const Checkpoint23 = ({ url, game, render, setRender }) => {
           }}
         >
           Checkpoint: {game.checkpoint}
-        </h1>
+        </h1> */}
         <div
           style={{
             position: "absolute",
@@ -92,34 +92,32 @@ const Checkpoint23 = ({ url, game, render, setRender }) => {
         >
           {counter === 0 ? (
             <OrangeSpan>
-              After a long stressful day, you are finally back home...{" "}
+              After a long stressful day, I am finally back home...{" "}
             </OrangeSpan>
           ) : (
-            <span>
-              After a long stressful day, you are finally back home...{" "}
-            </span>
+            <span>After a long stressful day, I am finally back home... </span>
           )}
           {counter >= 1 ? (
             counter === 1 ? (
               <OrangeSpan>
-                There is no way that those jobs will get back to you today...{" "}
+                There is no way that those jobs will get back to me today...{" "}
               </OrangeSpan>
             ) : (
               <span>
-                There is no way that those jobs will get back to you today...{" "}
+                There is no way that those jobs will get back to me today...{" "}
               </span>
             )
           ) : null}
           {counter >= 2 ? (
             counter === 2 ? (
               <OrangeSpan>
-                How about you head to bed for the night, you can check if they
-                sent you any responses in the morning!...{" "}
+                How about I head to bed for the night, I can check if they sent
+                me any responses in the morning!...{" "}
               </OrangeSpan>
             ) : (
               <span>
-                How about you head to bed for the night, you can check if they
-                sent you any responses in the morning!...{" "}
+                How about I head to bed for the night, I can check if they sent
+                me any responses in the morning!...{" "}
               </span>
             )
           ) : null}

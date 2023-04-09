@@ -23,7 +23,7 @@ const Checkpoint24 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 3) {
       console.log(event.key);
       setCounter(counter + 1);
     }
@@ -86,7 +86,7 @@ const Checkpoint24 = ({ url, game, render, setRender }) => {
         {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
         <DarkFooter></DarkFooter>
         <DarkFooter2></DarkFooter2>
-        <h1
+        {/* <h1
           style={{
             position: "absolute",
             width: "100%",
@@ -97,13 +97,13 @@ const Checkpoint24 = ({ url, game, render, setRender }) => {
           }}
         >
           Checkpoint: {game.checkpoint}
-        </h1>
+        </h1> */}
         <div
           style={{
             position: "absolute",
-            width: "7 0%",
-            top: "10em",
-            marginLeft: "15%",
+            width: "90%",
+            top: "8em",
+            marginLeft: "5%",
             fontSize: "2vw",
             textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
             zIndex: "102",
@@ -111,39 +111,76 @@ const Checkpoint24 = ({ url, game, render, setRender }) => {
         >
           {counter === 0 ? (
             <OrangeSpan>
-              You are up so early again, did you even sleep?...{" "}
+              Finally, the day arrives to check the results of the interviews. I
+              unlock my phone...{" "}
             </OrangeSpan>
           ) : (
-            <span>You are up so early again, did you even sleep?... </span>
+            <span>
+              Finally, the day arrives to check the results of the interviews. I
+              unlock my phone...{" "}
+            </span>
           )}
           {counter >= 1 ? (
             counter === 1 ? (
               <OrangeSpan>
-                You must be stressed waiting for those jobs to message you...{" "}
+                the first thing that pops up is a news headline: <br />
+                "Popular social networking app, Dystogram, is facing legal
+                action over allegations of selling users' data to third-party
+                organizations. This includes private chat records, private post
+                sharing, browsing log records using digital footprint tracking
+                technology, and much more"...{" "}
               </OrangeSpan>
             ) : (
               <span>
-                You must be stressed waiting for those jobs to message you...{" "}
+                the first thing that pops up is a news headline: <br />
+                "Popular social networking app, Dystogram, is facing legal
+                action over allegations of selling users' data to third-party
+                organizations. This includes private chat records, private post
+                sharing, browsing log records using digital footprint tracking
+                technology, and much more"...{" "}
               </span>
             )
           ) : null}
           {counter >= 2 ? (
             counter === 2 ? (
               <OrangeSpan>
-                Check your phone to see if they sent you anything...{" "}
+                <br />
+                That is so bad... maybe my data was being shared with these
+                companies...{" "}
               </OrangeSpan>
             ) : (
-              <span>Check your phone to see if they sent you anything... </span>
+              <span>
+                <br />
+                That is so bad... maybe my data was being shared with these
+                companies...{" "}
+              </span>
             )
           ) : null}
-          {counter === 2 ? null : (
+          {counter >= 3 ? (
+            counter === 3 ? (
+              <OrangeSpan>
+                <br />
+                Hopefully that didn't hurt my chances for these jobs. I need to
+                ckeck and see if I got either of the jobs now, they both
+                messaged me...{" "}
+              </OrangeSpan>
+            ) : (
+              <span>
+                <br />
+                Hopefully that didn't hurt my chances for these jobs. I need to
+                ckeck and see if I got either of the jobs now, they both
+                messaged me...{" "}
+              </span>
+            )
+          ) : null}
+          {counter === 3 ? null : (
             <NextButton onClick={() => setCounter(counter + 1)}>
               Next{" "}
               <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
             </NextButton>
           )}
         </div>
-        {counter === 2 && (
+        {counter === 3 && (
           <div
             style={{
               position: "absolute",
@@ -164,7 +201,7 @@ const Checkpoint24 = ({ url, game, render, setRender }) => {
               style={{ float: "right" }}
               onClick={nextCheckpoint}
             >
-              Check your phone.
+              Check your results.
             </CheckpointButton>
           </div>
         )}
