@@ -161,14 +161,14 @@ const Checkpoint24 = ({ url, game, render, setRender }) => {
               <OrangeSpan>
                 <br />
                 Hopefully that didn't hurt my chances for these jobs. I need to
-                ckeck and see if I got either of the jobs now, they both
+                check and see if I got either of the jobs now, they both
                 messaged me...{" "}
               </OrangeSpan>
             ) : (
               <span>
                 <br />
                 Hopefully that didn't hurt my chances for these jobs. I need to
-                ckeck and see if I got either of the jobs now, they both
+                check and see if I got either of the jobs now, they both
                 messaged me...{" "}
               </span>
             )

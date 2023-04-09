@@ -248,13 +248,13 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
           counter === 1 ? (
             <OrangeSpan>
               One of the news posts is about two companies in our city that are
-              at odds with each other. Hopefully not the thwo companies I'm
+              at odds with each other. Hopefully not the two companies I'm
               interviewing with!...{" "}
             </OrangeSpan>
           ) : (
             <span>
               One of the news posts is about two companies in our city that are
-              at odds with each other. Hopefully not the thwo companies I'm
+              at odds with each other. Hopefully not the two companies I'm
               interviewing with!...{" "}
             </span>
           )
