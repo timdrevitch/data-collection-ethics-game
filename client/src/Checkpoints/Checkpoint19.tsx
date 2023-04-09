@@ -24,14 +24,14 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 6) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 7) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
   });
 
-  const nextCheckpoint = (apiQuestionChoice: boolean) => {
-    let data = { apiQuestionChoice: apiQuestionChoice };
+  const nextCheckpoint = (askedAboutSearchChoice: boolean) => {
+    let data = { askedAboutSearchChoice: askedAboutSearchChoice };
     axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
       setRender(!render);
     });
@@ -49,7 +49,7 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
       {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -60,7 +60,7 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -73,181 +73,89 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
       >
         {counter === 0 ? (
           <OrangeSpan>
-            <YellowSpan>Interviewer:</YellowSpan> "
-            <em>
-              Welcome <strong>{player.playername}</strong>! It is nice to meet
-              you.
-            </em>
-            "{" "}
+            The interviewer reviewed my resume and portfolio and asked me to
+            complete some professional test questions. The topic I tackled was
+            familiar, so it didn't feel difficult...{" "}
           </OrangeSpan>
         ) : (
           <span>
-            <YellowSpan>Interviewer:</YellowSpan> "
-            <em>
-              Welcome <strong>{player.playername}</strong>! It is nice to meet
-              you.
-            </em>
-            "{" "}
+            The interviewer reviewed my resume and portfolio and asked me to
+            complete some professional test questions. The topic I tackled was
+            familiar, so it didn't feel difficult...{" "}
           </span>
         )}
         {counter >= 1 ? (
           <>
             <br />
-            {game.commentIncludesInterviewCount ? (
-              counter === 1 ? (
-                <OrangeSpan>
-                  <YellowSpan>Interviewer:</YellowSpan> "
-                  <em>
-                    This is your second interview of the day? You must be
-                    getting tired.
-                  </em>
-                  "
-                </OrangeSpan>
-              ) : (
-                <span>
-                  <YellowSpan>Interviewer:</YellowSpan> "
-                  <em>
-                    This is your second interview of the day? You must be
-                    getting tired.
-                  </em>
-                  "
-                </span>
-              )
-            ) : counter === 1 ? (
+            {counter === 1 ? (
               <OrangeSpan>
-                <YellowSpan>Interviewer:</YellowSpan> "
-                <em>
-                  How has your day been going? We are exicited to learn more
-                  about you.
-                </em>
-                "
+                I was then asked some follow up questions...{" "}
               </OrangeSpan>
             ) : (
-              <span>
-                <YellowSpan>Interviewer:</YellowSpan> "
-                <em>
-                  How has your day been going? We are exicited to learn more
-                  about you.
-                </em>
-                "
-              </span>
+              <span>I was then asked some follow up questions... </span>
             )}
-            <br />
           </>
         ) : null}
         {counter >= 2 ? (
-          counter === 2 ? (
-            <OrangeSpan>
-              <YellowSpan>Interviewer:</YellowSpan> "
-              <em>
-                We are looking for someone who has a lot of experience with
-                full-stack applications. The person we hire will most likely
-                need to do work on the front end and the back end of our
-                projects.
-              </em>
-              "
-            </OrangeSpan>
-          ) : (
-            <span>
-              <YellowSpan>Interviewer:</YellowSpan> "
-              <em>
-                We are looking for someone who has a lot of experience with
-                full-stack applications. The person we hire will most likely
-                need to do work on the front end and the back end of our
-                projects.
-              </em>
-              "
-            </span>
-          )
-        ) : null}
-        {counter >= 3 ? (
           <>
             <br />
-            {game.postIsGood ? (
-              counter === 3 ? (
-                <OrangeSpan>
-                  <YellowSpan>Interviewer:</YellowSpan> "
-                  <em>
-                    I saw somewhere that you made a blog website detailing your
-                    programming journey. I was impressed that you were able to
-                    let users sign up. That shows me that you know how to do
-                    some full-stack developing.
-                  </em>
-                  "
-                </OrangeSpan>
-              ) : (
-                <span>
-                  <YellowSpan>Interviewer:</YellowSpan> "
-                  <em>
-                    I saw somewhere that you made a blog website detailing your
-                    programming journey. I was impressed that you were able to
-                    let users sign up. That shows me that you know how to do
-                    some full-stack developing.
-                  </em>
-                  "
-                </span>
-              )
-            ) : counter === 3 ? (
+            {counter === 2 ? (
               <OrangeSpan>
                 <YellowSpan>Interviewer:</YellowSpan> "
                 <em>
-                  I saw somewhere that you are really good at designing a good
-                  front end. Have you ever worked with a backend before?
+                  Are you engaged with the trending social app, Dystogram, by
+                  any chance?
                 </em>
-                "
+                "{" "}
               </OrangeSpan>
             ) : (
               <span>
                 <YellowSpan>Interviewer:</YellowSpan> "
                 <em>
-                  I saw somewhere that you are really good at designing a good
-                  front end. Have you ever worked with a backend before?
+                  Are you engaged with the trending social app, Dystogram, by
+                  any chance?
                 </em>
-                "
+                "{" "}
               </span>
             )}
             <br />
           </>
         ) : null}
+        {counter >= 3 ? (
+          counter === 3 ? (
+            <OrangeSpan>
+              <LimeGreenSpan>You:</LimeGreenSpan> "
+              <em>I do have an account, yes. Why do you ask?</em>"{" "}
+            </OrangeSpan>
+          ) : (
+            <span>
+              <LimeGreenSpan>You:</LimeGreenSpan> "
+              <em>I do have an account, yes. Why do you ask?</em>"{" "}
+            </span>
+          )
+        ) : null}
         {counter >= 4 ? (
           <>
-            {game.postIsGood ? (
-              counter === 4 ? (
-                <OrangeSpan>
-                  <LimeGreenSpan>You:</LimeGreenSpan> "
-                  <em>
-                    It was cool that I got that working. I have gotten really
-                    good at the front end and the back end!
-                  </em>
-                  "
-                </OrangeSpan>
-              ) : (
-                <span>
-                  <LimeGreenSpan>You:</LimeGreenSpan> "
-                  <em>
-                    It was cool that I got that working. I have gotten really
-                    good at the front end and the back end!
-                  </em>
-                  "
-                </span>
-              )
-            ) : counter === 4 ? (
+            <br />
+            {counter === 4 ? (
               <OrangeSpan>
-                <LimeGreenSpan>You:</LimeGreenSpan> "
+                <YellowSpan>Interviewer:</YellowSpan> "
                 <em>
-                  Although I am really good at the front end designs, I have
-                  worked with back ends before.
+                  It's no surprise, our manager Nick recognized you. He
+                  mentioned that your expertise must be top-notch, and he wasn't
+                  wrong. He mentioned that you were looking him up today.
                 </em>
-                "
+                "{" "}
               </OrangeSpan>
             ) : (
               <span>
-                <LimeGreenSpan>You:</LimeGreenSpan> "
+                <YellowSpan>Interviewer:</YellowSpan> "
                 <em>
-                  Although I am really good at the front end designs, I have
-                  worked with back ends before.
+                  It's no surprise, our manager Nick recognized you. He
+                  mentioned that your expertise must be top-notch, and he wasn't
+                  wrong. He mentioned that you were looking him up today.
                 </em>
-                "
+                "{" "}
               </span>
             )}
             <br />
@@ -255,47 +163,21 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
         ) : null}
         {counter >= 5 ? (
           <>
-            {game.postIsGood ? (
-              counter === 5 ? (
-                <OrangeSpan>
-                  <YellowSpan>Interviewer:</YellowSpan> "
-                  <em>
-                    I believe it! Could you answer a quick question just to show
-                    me how good you are at it? The question is: if you wanted to
-                    update data in a database, which REST operation would you
-                    use?
-                  </em>
-                  "
-                </OrangeSpan>
-              ) : (
-                <span>
-                  <YellowSpan>Interviewer:</YellowSpan> "
-                  <em>
-                    I believe it! Could you answer a quick question just to show
-                    me how good you are at it? The question is: if you wanted to
-                    update data in a database, which REST operation would you
-                    use?
-                  </em>
-                  "
-                </span>
-              )
-            ) : counter === 5 ? (
+            {counter === 5 ? (
               <OrangeSpan>
-                <YellowSpan>Interviewer:</YellowSpan> "
+                <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
-                  Could you answer a question to show me how well you know
-                  full-stack? The question is: if you wanted to update data in a
-                  database, which REST operation would you use?
+                  Yes, I went to school with Nick! He was a couple grades ahead
+                  of me. Smart guy!
                 </em>
                 "
               </OrangeSpan>
             ) : (
               <span>
-                <YellowSpan>Interviewer:</YellowSpan> "
+                <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
-                  Could you answer a question to show me how well you know
-                  full-stack? The question is: if you wanted to update data in a
-                  database, which REST operation would you use?
+                  Yes, I went to school with Nick! He was a couple grades ahead
+                  of me. Smart guy!
                 </em>
                 "
               </span>
@@ -306,20 +188,36 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
         {counter >= 6 ? (
           <>
             {counter === 6 ? (
+              <OrangeSpan>
+                How did Nick see that I looked him up today? I didn't follow him
+                or message him. This is so strange.
+              </OrangeSpan>
+            ) : (
+              <span>
+                How did Nick see that I looked him up today? I didn't follow him
+                or message him. This is so strange.
+              </span>
+            )}
+            <br />
+          </>
+        ) : null}
+        {counter >= 7 ? (
+          <>
+            {counter === 7 ? (
               <OrangeSpan>Choose a response... </OrangeSpan>
             ) : (
               <span>Choose a response... </span>
             )}
           </>
         ) : null}
-        {counter === 6 ? null : (
+        {counter === 7 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 6 && (
+      {counter === 7 && (
         <div
           style={{
             position: "absolute",
@@ -328,75 +226,25 @@ const Checkpoint19 = ({ url, game, render, setRender, player }) => {
             marginLeft: "auto",
             marginRight: "auto",
             width: "50%",
-            height: "7%",
-            top: "40em",
+            height: "13%",
+            top: "38em",
             margin: "0 auto",
             fontSize: "1vw",
             color: "white",
+            zIndex: "102",
           }}
         >
           <CheckpointButton
-            style={{
-              cursor: "pointer",
-              float: "right",
-              width: "20%",
-              height: "100%",
-              fontSize: "1vw",
-              textAlign: "center",
-              padding: "0 1.5em",
-              color: "white",
-              marginLeft: "6.5%",
-            }}
+            style={{ float: "left", height: "100%", width: "40%" }}
             onClick={() => nextCheckpoint(false)}
           >
-            "Create"
+            Are there any specific character requirements for this position?
           </CheckpointButton>
           <CheckpointButton
-            style={{
-              cursor: "pointer",
-              float: "right",
-              width: "20%",
-              height: "100%",
-              fontSize: "1vw",
-              textAlign: "center",
-              padding: "0 1.5em",
-              color: "white",
-              marginLeft: "6.5%",
-            }}
-            onClick={() => nextCheckpoint(false)}
-          >
-            "Get"
-          </CheckpointButton>
-          <CheckpointButton
-            style={{
-              cursor: "pointer",
-              float: "right",
-              width: "20%",
-              height: "100%",
-              fontSize: "1vw",
-              textAlign: "center",
-              padding: "0 1.5em",
-              color: "white",
-              marginLeft: "6.5%",
-            }}
+            style={{ float: "right", height: "100%", width: "40%" }}
             onClick={() => nextCheckpoint(true)}
           >
-            "Put"
-          </CheckpointButton>
-          <CheckpointButton
-            style={{
-              cursor: "pointer",
-              float: "right",
-              width: "20%",
-              height: "100%",
-              fontSize: "1vw",
-              textAlign: "center",
-              padding: "0 1.5em",
-              color: "white",
-            }}
-            onClick={() => nextCheckpoint(false)}
-          >
-            "Delete"
+            What did you mean when you said he saw me looking him up?
           </CheckpointButton>
         </div>
       )}

@@ -14,6 +14,7 @@ import {
   CityGif,
   DarkFooter,
   DarkFooter2,
+  DarkFooter3,
   DystContainer,
   DystrogramImage,
   PhoneImage,
@@ -24,7 +25,7 @@ import {
 const Checkpoint17 = ({ url, game, render, setRender, player }) => {
   const [counter, setCounter] = useState<number>(0);
   const value1: string = `: Thanks Allen! One down, one to go! I'll let you know how it goes :).`;
-  const value2: string = `: Thanks Allen! Hopefully all of this preparing will pay off! I'll let you know how it goes :).`;
+  const value2: string = `: I've also been seeing many other companies do this as well.`;
 
   useEffect(() => {
     console.log(counter);
@@ -38,9 +39,8 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
     }
   });
 
-  const nextCheckpoint = (postChoice: boolean) => {
-    let data = { postChoice: postChoice };
-    axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
+  const nextCheckpoint = () => {
+    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
       setRender(!render);
     });
   };
@@ -51,6 +51,7 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
       <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
+      <DarkFooter3></DarkFooter3>
       <DystContainer
         style={{
           right: "47%",
@@ -98,11 +99,16 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
         }}
       >
         <img
-          src={require("../Assets/drev.png")}
+          src={require("../Assets/IMG_0622.JPG")}
           alt="carl"
-          style={{ display: "inline-block", borderRadius: "50%", width: "5%" }}
+          style={{
+            display: "inline-block",
+            borderRadius: "50%",
+            width: "5%",
+            height: "50%",
+          }}
         />
-        AllenJacobs3{" "}
+        Nick_Durgesh{" "}
         <YellowSpan
           style={{
             background: "green",
@@ -113,7 +119,7 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
             color: "white",
           }}
         >
-          Remove Friend
+          Add Friend
         </YellowSpan>
       </PlayerSinceContainer>
       <PlayerSinceContainer
@@ -135,20 +141,20 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
         >
           About:{" "}
           <span style={{ color: "white" }}>
-            CS graduate ('42) Working at Dystocity Soft. and Co. as a developer
-            intern{" "}
+            CS graduate ('39) Working at Dystocity Technology Solutions Inc. as
+            a Lead Development Manager{" "}
           </span>
         </div>
         <br />
         <div>
           <span style={{ textDecoration: "underline", color: "yellow" }}>
-            Posts (31)
+            Posts (186)
           </span>
-          &nbsp;&nbsp;&nbsp; Friends (83) &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp; Friends (361) &nbsp;&nbsp;&nbsp;
         </div>
         <hr style={{ width: "95%", float: "left" }} />
         <br />
-        AllenJackobs3 <YellowSpan>posted 19 minutes...</YellowSpan>
+        Nick_Durgesh <YellowSpan>posted 19 minutes...</YellowSpan>
         <div
           style={{
             width: "90%",
@@ -158,9 +164,9 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
             padding: ".1em",
           }}
         >
-          Good luck to my good friend <BlueSpan>@{player.playername}</BlueSpan>{" "}
-          on their first round of interviews today!!
-          <BlueSpan> #JobHunt</BlueSpan>
+          I have been experimenting with some of the old-school agile
+          methodologies lately and my team seems to be liking it!
+          <BlueSpan> #Scrum</BlueSpan>
         </div>
         <button style={{ fontSize: "1vw" }} disabled>
           <FaHeart />
@@ -197,14 +203,14 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
                 fontSize: "1vw",
               }}
             >
-              <YellowSpan>@{player.playername}</YellowSpan>
+              <YellowSpan>@User_4968247e</YellowSpan>
               {value2}
             </div>
           </>
         )}
         <br />
         <br />
-        AllenJackobs3 <YellowSpan>posted 1 day ago...</YellowSpan>
+        Nick_Durgesh <YellowSpan>posted 1 day ago...</YellowSpan>
         <div
           style={{
             width: "90%",
@@ -214,8 +220,8 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
             padding: ".1em",
           }}
         >
-          Dystocity seems less busy lately. All these self-driving cars
-          practically got rid of traffic all together!
+          Dystocity has been on the rise with better and better software
+          engineers joining the workforce and helping out companies like mine!
           <BlueSpan> #City #Dystocity</BlueSpan>
         </div>
         <button style={{ fontSize: "1vw" }} disabled>
@@ -226,7 +232,7 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
         </button>
         <br />
         <br />
-        AllenJackobs3 <YellowSpan>posted 3 days ago...</YellowSpan>
+        Nick_Durgesh <YellowSpan>posted 3 days ago...</YellowSpan>
         <div
           style={{
             width: "90%",
@@ -249,7 +255,7 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
         </button>
         <br />
         <br />
-        AllenJackobs3 <YellowSpan>posted 3 days ago...</YellowSpan>
+        Nick_Durgesh <YellowSpan>posted 3 days ago...</YellowSpan>
         <div
           style={{
             width: "90%",
@@ -273,7 +279,7 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
       <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -284,34 +290,54 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
-          width: "30%",
-          top: "7.5em",
+          width: "35%",
+          top: "6em",
           marginLeft: "60%",
           fontSize: "2vw",
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
         }}
       >
         {counter === 0 ? (
-          <OrangeSpan>Nice comment!... </OrangeSpan>
+          <OrangeSpan>
+            Considering that Nick is the manager of the company I am traveling
+            to right now, I grow curious about him. I search for his account and
+            browse his Dystogram profile...{" "}
+          </OrangeSpan>
         ) : (
-          <span>Nice comment!... </span>
+          <span>
+            Considering that Nick is the manager of the company I am traveling
+            to right now, I grow curious about him. I search for his account and
+            browse his Dystogram profile...{" "}
+          </span>
         )}
         {counter >= 1 ? (
           counter === 1 ? (
-            <OrangeSpan>You are almost at your second interview... </OrangeSpan>
+            <OrangeSpan>
+              I browse his homepage for a long time, contemplating whether to
+              send him a private message to remind him that I'm an old classmate
+              who's coming for an interview...{" "}
+            </OrangeSpan>
           ) : (
-            <span>You are almost at your second interview... </span>
+            <span>
+              I browse his homepage for a long time, contemplating whether to
+              send him a private message to remind him that I'm an old classmate
+              who's coming for an interview...{" "}
+            </span>
           )
         ) : null}
         {counter >= 2 ? (
           counter === 2 ? (
-            <OrangeSpan>Try making a post before you get there!... </OrangeSpan>
+            <OrangeSpan>
+              In the end, I choose not to do so and I don't follow him either...{" "}
+            </OrangeSpan>
           ) : (
-            <span>Try making a post before you get there!... </span>
+            <span>
+              In the end, I choose not to do so and I don't follow him either...{" "}
+            </span>
           )
         ) : null}
         {counter === 2 ? null : (
@@ -331,51 +357,17 @@ const Checkpoint17 = ({ url, game, render, setRender, player }) => {
             // marginRight: "10%",
             width: "55%",
             height: "14.2%",
-            top: "25em",
+            top: "40em",
             // margin: "0 auto",
             fontSize: "1vw",
             color: "white",
           }}
         >
           <CheckpointButton
-            style={{
-              float: "right",
-              borderRadius: "67px",
-              fontSize: ".85vw",
-              paddingLeft: "6%",
-            }}
-            onClick={() => nextCheckpoint(true)}
+            style={{ float: "right", borderRadius: "67px" }}
+            onClick={nextCheckpoint}
           >
-            Post:
-            <br />
-            "I am always trying to keep my programming skills up to date! Read
-            about my progress on the blog website I built! If you sign up on it,
-            you can leave comments and feedback for me!"
-          </CheckpointButton>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <CheckpointButton
-            style={{
-              float: "right",
-              borderRadius: "67px",
-              fontSize: ".85vw",
-              paddingLeft: "6%",
-            }}
-            onClick={() => nextCheckpoint(false)}
-          >
-            Post:
-            <br />
-            "I have been enjoying creating beautiful website designs lately! My
-            recent side projects have had great UI/UX design, have been
-            responsive, and are easy and intuitive to use!"
+            Continue on your ride.
           </CheckpointButton>
         </div>
       )}

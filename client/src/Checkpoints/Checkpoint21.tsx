@@ -44,55 +44,6 @@ const Checkpoint21 = ({ url, game, render, setRender }) => {
       <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      {/* <PhoneImage src={require("../Assets/phoneBg.png")} alt="phone" />
-      <WelcomePlayerContainer
-        style={{
-          right: "27%",
-        }}
-      >
-        <strong>Dystogram</strong>
-      </WelcomePlayerContainer>
-      <WelcomePlayerContainer
-        style={{
-          right: "34%",
-        }}
-      >
-        <PlayerImage
-          style={{
-            height: "5em",
-            width: "5em",
-            right: "38%",
-            borderRadius: "10px",
-          }}
-          src={require("../Assets/favicon.jpeg")}
-          alt="DystogramPicture"
-        />
-      </WelcomePlayerContainer>
-      <PlayerSinceContainer
-        style={{
-          right: "27%",
-        }}
-      >
-        ⭐️⭐️⭐️⭐️⭐️
-      </PlayerSinceContainer>
-      <PlayerSinceContainer
-        style={{
-          right: "27%",
-          marginTop: "1.3em",
-        }}
-      >
-        <strong>4.9</strong> (1.7M Ratings)
-      </PlayerSinceContainer>
-      <PlayerSinceContainer
-        style={{
-          right: "27%",
-          textDecoration: "underline",
-          marginTop: "2.6em",
-        }}
-      >
-        Download
-      </PlayerSinceContainer> */}
-      {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
       <h1

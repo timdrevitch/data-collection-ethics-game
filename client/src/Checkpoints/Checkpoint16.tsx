@@ -5,6 +5,7 @@ import { FaHeart } from "react-icons/fa";
 import {
   BlueSpan,
   CheckpointButton,
+  LimeGreenSpan,
   NextButton,
   OrangeSpan,
   YellowSpan,
@@ -30,15 +31,14 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 1) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
   });
 
-  const nextCheckpoint = (commentChoice: boolean) => {
-    let data = { commentChoice: commentChoice };
-    axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
+  const nextCheckpoint = () => {
+    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
       setRender(!render);
     });
   };
@@ -49,7 +49,7 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
       <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <DystContainer
+      {/* <DystContainer
         style={{
           right: "47%",
           top: "23.7%",
@@ -247,10 +247,10 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
         </button>
         <br />
       </PlayerSinceContainer>
-      <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" />
+      <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -261,81 +261,120 @@ const Checkpoint16 = ({ url, game, render, setRender, player }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
-          width: "30%",
-          top: "7.5em",
-          marginLeft: "60%",
+          width: "90%",
+          top: "8em",
+          marginLeft: "5%",
           fontSize: "2vw",
+          zIndex: "102",
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
         }}
       >
         {counter === 0 ? (
           <OrangeSpan>
-            His last post was about you! Comment back to him!...{" "}
+            <YellowSpan>Allen:</YellowSpan> "
+            <em>
+              Yo <strong>{player.playername}</strong>, this is nuts! You
+              remember John right? We had that Data Structures and Algorithms
+              class together, and he was like the biggest slacker.
+            </em>
+            "{" "}
           </OrangeSpan>
         ) : (
-          <span>His last post was about you! Comment back to him!... </span>
+          <span>
+            <YellowSpan>Allen:</YellowSpan> "
+            <em>
+              Yo <strong>{player.playername}</strong>, this is nuts! You
+              remember John right? We had that Data Structures and Algorithms
+              class together, and he was like the biggest slacker.
+            </em>
+            "{" "}
+          </span>
         )}
         {counter >= 1 ? (
-          counter === 1 ? (
-            <OrangeSpan>What would you like to comment?... </OrangeSpan>
-          ) : (
-            <span>What would you like to comment?... </span>
-          )
+          <>
+            <br />
+            {counter === 1 ? (
+              <OrangeSpan>
+                <YellowSpan>Allen:</YellowSpan> "
+                <em>
+                  I just found his Dystogram, and the guy's raking in double my
+                  dough now. And get this—Nick's on there too. He's apparently
+                  the manager at the second company you're trying to get in
+                  with.
+                </em>
+                "{" "}
+              </OrangeSpan>
+            ) : (
+              <span>
+                <YellowSpan>Allen:</YellowSpan> "
+                <em>
+                  I just found his Dystogram, and the guy's raking in double my
+                  dough now. And get this—Nick's on there too. He's apparently
+                  the manager at the second company you're trying to get in
+                  with.
+                </em>
+                "{" "}
+              </span>
+            )}
+          </>
         ) : null}
-        {counter === 1 ? null : (
+        {counter >= 2 ? (
+          <>
+            <br />
+            {counter === 2 ? (
+              <OrangeSpan>
+                <LimeGreenSpan>You:</LimeGreenSpan> "
+                <em>
+                  No need to compare yourself! You're doing fine! But wow what a
+                  coincidence.
+                </em>
+                "{" "}
+              </OrangeSpan>
+            ) : (
+              <span>
+                <LimeGreenSpan>You:</LimeGreenSpan> "
+                <em>
+                  No need to compare yourself! You're doing fine! But wow what a
+                  coincidence.
+                </em>
+                "{" "}
+              </span>
+            )}
+          </>
+        ) : null}
+        {counter === 2 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 1 && (
+      {counter === 2 && (
         <div
           style={{
             position: "absolute",
-            // left: "0",
-            right: "15%",
-            marginLeft: "60%",
-            // marginRight: "10%",
-            width: "55%",
-            height: "14.2%",
-            top: "25em",
-            // margin: "0 auto",
+            left: "0",
+            right: "0",
+            marginLeft: "0",
+            marginRight: "auto",
+            width: "50%",
+            height: "14.7%",
+            top: "38em",
+            margin: "0 auto",
             fontSize: "1vw",
             color: "white",
+            zIndex: "102",
           }}
         >
           <CheckpointButton
-            style={{ float: "right", borderRadius: "67px" }}
-            onClick={() => nextCheckpoint(true)}
+            style={{ float: "right", height: "100%", width: "50%" }}
+            onClick={nextCheckpoint}
           >
-            Comment:
-            <br />
-            "Thanks Allen! One down, one to go! I'll let you know how it goes
-            :)."
-          </CheckpointButton>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <CheckpointButton
-            style={{ float: "right", borderRadius: "67px" }}
-            onClick={() => nextCheckpoint(false)}
-          >
-            Comment:
-            <br />
-            "Thanks Allen! Hopefully all of this preparing will pay off! I'll
-            let you know how it goes :)."
+            Get back to looking at Dystogram.
           </CheckpointButton>
         </div>
       )}

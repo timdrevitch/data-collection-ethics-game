@@ -42,7 +42,7 @@ const Checkpoint18 = ({ url, game, render, setRender }) => {
       <DarkFooter2></DarkFooter2>
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -53,7 +53,7 @@ const Checkpoint18 = ({ url, game, render, setRender }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -66,18 +66,16 @@ const Checkpoint18 = ({ url, game, render, setRender }) => {
       >
         {counter === 0 ? (
           <OrangeSpan>
-            Nice post! Looks like you've arrived at the second interview now...{" "}
+            Looks like I've arrived at the second interview now...{" "}
           </OrangeSpan>
         ) : (
-          <span>
-            Nice post! Looks like you've arrived at the second interview now...{" "}
-          </span>
+          <span>Looks like I've arrived at the second interview now... </span>
         )}
         {counter >= 1 ? (
           counter === 1 ? (
-            <OrangeSpan>You're going to do great. Good luck!... </OrangeSpan>
+            <OrangeSpan>I'm going to do great. Time to head in!... </OrangeSpan>
           ) : (
-            <span>You're going to do great. Good luck!... </span>
+            <span>I'm going to do great. Time to head in!... </span>
           )
         ) : null}
         {counter === 1 ? null : (
