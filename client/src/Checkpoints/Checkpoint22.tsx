@@ -16,7 +16,7 @@ import {
   DarkFooter2,
 } from "../Styles/TitleScreenStyles";
 
-const Checkpoint22 = ({ url, game, render, setRender }) => {
+const Checkpoint22 = ({ url, game, render, setRender, player }) => {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
@@ -24,14 +24,14 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 5) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 3) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
   });
 
-  const nextCheckpoint = (likeAppChoice: boolean) => {
-    let data = { likeAppChoice: likeAppChoice };
+  const nextCheckpoint = (postAboutInterviewsChoice: boolean) => {
+    let data = { postAboutInterviewsChoice: postAboutInterviewsChoice };
     axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
       setRender(!render);
     });
@@ -43,7 +43,7 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
       <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -54,7 +54,7 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -69,9 +69,9 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
           <OrangeSpan>
             <LimeGreenSpan>You</LimeGreenSpan> "
             <em>
-              Just finished the second interview! I want to make sure I got the
-              interviewer's question right... The question was: What REST
-              operation should be used when updating data?
+              Just finished the second interview! I think it went well... it's
+              strange though, I feel like the interviewer knew more about me
+              than what I gave them on my resume and in my portfolio.
             </em>
             "{" "}
           </OrangeSpan>
@@ -79,9 +79,9 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
           <span>
             <LimeGreenSpan>You</LimeGreenSpan> "
             <em>
-              Just finished the second interview! I want to make sure I got the
-              interviewer's question right... The question was: What REST
-              operation should be used when updating data?
+              Just finished the second interview! I think it went well... it's
+              strange though, I feel like the interviewer knew more about me
+              than what I gave them on my resume and in my portfolio.
             </em>
             "{" "}
           </span>
@@ -92,13 +92,21 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
             {counter === 1 ? (
               <OrangeSpan>
                 <YellowSpan>Allen:</YellowSpan> "
-                <em>Nice!!! And I would have said a "PUT" request probably.</em>
+                <em>
+                  Nice!!! And I don't know what you're talking about but I'm
+                  sure youre just overthinking it{" "}
+                  <strong>{player.playername}</strong>!
+                </em>
                 "{" "}
               </OrangeSpan>
             ) : (
               <span>
                 <YellowSpan>Allen:</YellowSpan> "
-                <em>Nice!!! And I would have said a "PUT" request probably.</em>
+                <em>
+                  Nice!!! And I don't know what you're talking about but I'm
+                  sure youre just overthinking it{" "}
+                  <strong>{player.playername}</strong>!
+                </em>
                 "{" "}
               </span>
             )}
@@ -111,12 +119,18 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
               <OrangeSpan>
                 <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
-                  {game.apiQuestionCorrect ? (
-                    <span>Oh sweet! That's what I answered with!</span>
+                  {game.postedAboutArt ? (
+                    <span>
+                      I probably am just overthinking it. But even in my first
+                      interview I felt like there was no reason the interviewer
+                      should have known I was good at art. And then in this one,
+                      the interviewer was asking if I used the Dystogram app...
+                    </span>
                   ) : (
                     <span>
-                      Noooo, I gave a different answer... maybe it won't matter
-                      if I got one question wrong on the spot.
+                      I probably am just overthinking it. But the interviewer
+                      was asking if I used the Dystogram app and if I had viewed
+                      Nick's profile for some reason...
                     </span>
                   )}
                 </em>
@@ -126,12 +140,18 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
               <span>
                 <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
-                  {game.apiQuestionCorrect ? (
-                    <span>Oh sweet! That's what I answered with!</span>
+                  {game.postedAboutArt ? (
+                    <span>
+                      I probably am just overthinking it. But even in my first
+                      interview I felt like there was no reason the interviewer
+                      should have known I was good at art. And then in this one,
+                      the interviewer was asking if I used the Dystogram app...
+                    </span>
                   ) : (
                     <span>
-                      Noooo, I gave a different answer... maybe it won't matter
-                      if I got one question wrong on the spot.
+                      I probably am just overthinking it. But the interviewer
+                      was asking if I used the Dystogram app and if I had viewed
+                      Nick's profile for some reason...
                     </span>
                   )}
                 </em>
@@ -147,17 +167,11 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
               <OrangeSpan>
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>
-                  {game.apiQuestionCorrect ? (
-                    <span>
-                      Nice! On your way home now? I saw you commented on my
-                      post!
-                    </span>
-                  ) : (
-                    <span>
-                      I'm sure it won't even matter. There's a good chance I'm
-                      wrong too so don't worry! You on your way hhome finally?
-                    </span>
-                  )}
+                  <span>
+                    That is weird... you on your way home now? Make a post about
+                    how the interviews went! Our friends would love to hear
+                    about it!
+                  </span>
                 </em>
                 "{" "}
               </OrangeSpan>
@@ -165,67 +179,25 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
               <span>
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>
-                  {game.apiQuestionCorrect ? (
-                    <span>
-                      Nice! On your way home now? I saw you commented on my
-                      post!
-                    </span>
-                  ) : (
-                    <span>
-                      I'm sure it won't even matter. There's a good chance I'm
-                      wrong too so don't worry! You on your way hhome finally?
-                    </span>
-                  )}
+                  <span>
+                    That is weird... you on your way home now? Make a post about
+                    how the interviews went! Our friends would love to hear
+                    about it!
+                  </span>
                 </em>
                 "{" "}
               </span>
             )}
           </>
         ) : null}
-        {counter >= 4 ? (
-          <>
-            <br />
-            {counter === 4 ? (
-              <OrangeSpan>
-                <LimeGreenSpan>You:</LimeGreenSpan> "
-                <em>
-                  On my way home! It's been a long day. I'm already tired!
-                  Should have slept more last night! And yeah, I was using the
-                  Dystogram app for a bit today!
-                </em>
-                "{" "}
-              </OrangeSpan>
-            ) : (
-              <span>
-                <LimeGreenSpan>You:</LimeGreenSpan> "
-                <em>
-                  On my way home! It's been a long day. I'm already tired!
-                  Should have slept more last night! And yeah, I was using the
-                  Dystogram app for a bit today!
-                </em>
-                "{" "}
-              </span>
-            )}
-          </>
-        ) : null}
-        {counter >= 5 ? (
-          <>
-            <br />
-            {counter === 5 ? (
-              <OrangeSpan>Do you like the Dystogram app so far?... </OrangeSpan>
-            ) : (
-              <span>Do you like the Dystogram app so far?... </span>
-            )}
-          </>
-        ) : null}
-        {counter === 5 ? null : (
+        {counter === 3 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 5 && (
+      {counter === 3 && (
         <div
           style={{
             position: "absolute",
@@ -246,13 +218,13 @@ const Checkpoint22 = ({ url, game, render, setRender }) => {
             style={{ float: "left" }}
             onClick={() => nextCheckpoint(false)}
           >
-            Tell Allen that you don't like the app.
+            Tell Allen that you are too tired, maybe tomorrow though.
           </CheckpointButton>
           <CheckpointButton
             style={{ float: "right" }}
             onClick={() => nextCheckpoint(true)}
           >
-            Tell Allen that you like the app.
+            Make a post about the day you've had so your friends can see it.
           </CheckpointButton>
         </div>
       )}

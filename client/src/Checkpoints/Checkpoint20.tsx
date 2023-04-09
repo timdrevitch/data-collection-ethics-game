@@ -5,6 +5,7 @@ import {
   CheckpointButton,
   NextButton,
   OrangeSpan,
+  YellowSpan,
 } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
@@ -27,8 +28,9 @@ const Checkpoint20 = ({ url, game, render, setRender }) => {
     }
   });
 
-  const nextCheckpoint = () => {
-    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
+  const nextCheckpoint = (commentChoice: boolean) => {
+    let data = { commentChoice: commentChoice };
+    axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
       setRender(!render);
     });
   };
@@ -45,7 +47,7 @@ const Checkpoint20 = ({ url, game, render, setRender }) => {
       {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -56,34 +58,131 @@ const Checkpoint20 = ({ url, game, render, setRender }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
           width: "90%",
-          top: "10em",
+          top: "8em",
           marginLeft: "5%",
           fontSize: "2vw",
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
         }}
       >
-        {counter === 0 ? (
-          <OrangeSpan>Good job completing your second interview... </OrangeSpan>
+        {game.askedAboutSearch ? (
+          <>
+            <br />
+            {counter === 0 ? (
+              <>
+                <OrangeSpan>
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    Nick brought up that an old classmate had been viewing his
+                    content for a long time today. He mentioned you both
+                    attended college together and that you possess exceptional
+                    professional expertise. He was absolutely correct.
+                  </em>
+                  "{" "}
+                </OrangeSpan>
+              </>
+            ) : (
+              <>
+                <span>
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    Nick brought up that an old classmate had been viewing his
+                    content for a long time today. He mentioned you both
+                    attended college together and that you possess exceptional
+                    professional expertise. He was absolutely correct.
+                  </em>
+                  "{" "}
+                </span>
+              </>
+            )}
+          </>
         ) : (
-          <span>Good job completing your second interview... </span>
+          <>
+            <br />
+            {counter === 0 ? (
+              <>
+                <OrangeSpan>
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    We believe that anyone with a reasonable disposition can
+                    succeed here. And naturally, we highly value honesty in our
+                    team members.
+                  </em>
+                  "{" "}
+                </OrangeSpan>
+              </>
+            ) : (
+              <>
+                <span>
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    We believe that anyone with a reasonable disposition can
+                    succeed here. And naturally, we highly value honesty in our
+                    team members.
+                  </em>
+                  "{" "}
+                </span>
+              </>
+            )}
+          </>
         )}
         {counter >= 1 ? (
-          counter === 1 ? (
-            <OrangeSpan>
-              Get back in your self-driving car and head home, it's been a log
-              day!...{" "}
-            </OrangeSpan>
-          ) : (
-            <span>
-              Get back in your self-driving car and head home, it's been a log
-              day!...{" "}
-            </span>
-          )
+          <>
+            <br />
+            {game.askedAboutSearch ? (
+              counter === 1 ? (
+                <>
+                  <OrangeSpan>
+                    <YellowSpan>Interviewer:</YellowSpan> "
+                    <em>
+                      Moreover, your professional skill set is quite remarkable.
+                      I understand that multiple companies are conducting
+                      interviews today. Have you attended any others? If so, how
+                      do they compare to us?
+                    </em>
+                    "{" "}
+                  </OrangeSpan>
+                </>
+              ) : (
+                <OrangeSpan>
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    Moreover, your professional skill set is quite remarkable. I
+                    understand that multiple companies are conducting interviews
+                    today. Have you attended any others? If so, how do they
+                    compare to us?
+                  </em>
+                  "{" "}
+                </OrangeSpan>
+              )
+            ) : counter === 1 ? (
+              <span>
+                <YellowSpan>Interviewer:</YellowSpan> "
+                <em>
+                  Moreover, your professional skill set is quite remarkable. I
+                  understand that multiple companies are conducting interviews
+                  today. Have you attended any others? If so, how do they
+                  compare to us?
+                </em>
+                "{" "}
+              </span>
+            ) : (
+              <span>
+                <YellowSpan>Interviewer:</YellowSpan> "
+                <em>
+                  Moreover, your professional skill set is quite remarkable. I
+                  understand that multiple companies are conducting interviews
+                  today. Have you attended any others? If so, how do they
+                  compare to us?
+                </em>
+                "{" "}
+              </span>
+            )}
+          </>
         ) : null}
         {counter === 1 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
@@ -98,10 +197,10 @@ const Checkpoint20 = ({ url, game, render, setRender }) => {
             position: "absolute",
             left: "0",
             right: "0",
-            marginLeft: "0",
+            marginLeft: "auto",
             marginRight: "auto",
             width: "50%",
-            height: "14.7%",
+            height: "13%",
             top: "38em",
             margin: "0 auto",
             fontSize: "1vw",
@@ -109,8 +208,17 @@ const Checkpoint20 = ({ url, game, render, setRender }) => {
             zIndex: "102",
           }}
         >
-          <CheckpointButton style={{ float: "right" }} onClick={nextCheckpoint}>
-            Get back in your car.
+          <CheckpointButton
+            style={{ float: "left", height: "100%", width: "40%" }}
+            onClick={() => nextCheckpoint(false)}
+          >
+            "I really like this place so far, so I came to this company."
+          </CheckpointButton>
+          <CheckpointButton
+            style={{ float: "right", height: "100%", width: "40%" }}
+            onClick={() => nextCheckpoint(true)}
+          >
+            "I visited two companies, but I like what I see here so far.”
           </CheckpointButton>
         </div>
       )}

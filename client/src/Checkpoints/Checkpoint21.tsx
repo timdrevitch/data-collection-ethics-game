@@ -5,6 +5,7 @@ import {
   CheckpointButton,
   NextButton,
   OrangeSpan,
+  YellowSpan,
 } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
@@ -40,13 +41,18 @@ const Checkpoint21 = ({ url, game, render, setRender }) => {
 
   return (
     <div style={{ position: "relative" }}>
-      <BackgroundImage src={require("../Assets/innerCar.png")} alt="carimage" />
-      <CityGif src={require("../Assets/drive3.gif")} alt="city" />
+      <BackgroundImage
+        style={{
+          height: "55vw",
+        }}
+        src={require("../Assets/interview2.jpg")}
+        alt="interviewbackground"
+      />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -57,7 +63,7 @@ const Checkpoint21 = ({ url, game, render, setRender }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -68,74 +74,82 @@ const Checkpoint21 = ({ url, game, render, setRender }) => {
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
         }}
       >
-        {game.commentIncludesInterviewCount ? (
+        {game.viewedCompanyBeef ? (
           counter === 0 ? (
             <OrangeSpan>
-              Why did that interviewer mention how many interviews you had
-              today. You definitely didn't tell him that information...{" "}
+              I bet that interviewer wanted to know if I had interviewed at the
+              other company that this company is at odds with that I saw on
+              Dystogram earlier...{" "}
             </OrangeSpan>
           ) : (
             <span>
-              Why did that interviewer mention how many interviews you had
-              today. You definitely didn't tell him that information...{" "}
+              I bet that interviewer wanted to know if I had interviewed at the
+              other company that this company is at odds with that I saw on
+              Dystogram earlier...{" "}
             </span>
           )
         ) : counter === 0 ? (
           <OrangeSpan>
-            That interviewer was very friendly at the start of that interview...{" "}
+            I wonder why that interviewer wnated to know if I was interviewing
+            at other companies today...{" "}
           </OrangeSpan>
         ) : (
           <span>
-            That interviewer was very friendly at the start of that interview...{" "}
+            I wonder why that interviewer wnated to know if I was interviewing
+            at other companies today...{" "}
           </span>
         )}
         {counter >= 1 ? (
           <>
-            {game.postIsGood ? (
-              counter === 1 ? (
+            {counter === 1 ? (
+              <>
+                <br />
                 <OrangeSpan>
-                  The interviewer seemed to really like your full-stack skills.
-                  Maybe because your blog app is full-stack...{" "}
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    Thank you for your preference, you should hear back from us
+                    shortly about whether you got the job!
+                  </em>
+                  "{" "}
                 </OrangeSpan>
-              ) : (
-                <span>
-                  The interviewer seemed to really like your full-stack skills.
-                  Maybe because your blog app is full-stack...{" "}
-                </span>
-              )
-            ) : counter === 1 ? (
-              <OrangeSpan>
-                The interviewer knows you prefer front end work. The question
-                is... how? You know how to do back end work too...{" "}
-              </OrangeSpan>
+              </>
             ) : (
-              <span>
-                The interviewer knows you prefer front end work. The question
-                is... how? You know how to do back end work too...{" "}
-              </span>
+              <>
+                <br />
+                <span>
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    Thank you for your preference, you should hear back from us
+                    shortly about whether you got the job!
+                  </em>
+                  "{" "}
+                </span>
+              </>
             )}
           </>
         ) : null}
         {counter >= 2 ? (
           counter === 2 ? (
             <OrangeSpan>
-              You've finished both interviews now, it's got to feel good to be
-              done...{" "}
+              I've finished both interviews now, it feels good to be done...{" "}
             </OrangeSpan>
           ) : (
             <span>
-              You've finished both interviews now, it's got to feel good to be
-              done...{" "}
+              I've finished both interviews now, it feels good to be done...{" "}
             </span>
           )
         ) : null}
         {counter >= 3 ? (
           counter === 3 ? (
             <OrangeSpan>
-              Message Allen! Let him know how this one went!...{" "}
+              I should message Allen when I get in the car and let him know how
+              this one went!...{" "}
             </OrangeSpan>
           ) : (
-            <span>Message Allen! Let him know how this one went!... </span>
+            <span>
+              I should message Allen when I get in the car and let him know how
+              this one went!...{" "}
+            </span>
           )
         ) : null}
         {counter === 3 ? null : (
