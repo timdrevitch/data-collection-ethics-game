@@ -16,7 +16,7 @@ import {
   DarkFooter2,
 } from "../Styles/TitleScreenStyles";
 
-const Checkpoint13 = ({ url, game, render, setRender }) => {
+const Checkpoint13 = ({ url, game, render, setRender, player }) => {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 7) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 5) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
@@ -42,7 +42,7 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
       <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -53,7 +53,7 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -90,13 +90,18 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
               <OrangeSpan>
                 <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
-                  {game.readTerms ? (
-                    <span>The interviewer liked that I have a CS degree!</span>
+                  {game.postedAboutArt ? (
+                    <span>
+                      It was so strange. At the end of the interview, the
+                      interviewer out of the blue asked me if I would also like
+                      to apply for an illustrator position. That skill isn't
+                      mentioned anywhere in my interview materials.
+                    </span>
                   ) : (
                     <span>
-                      The interviewer somehow knew that I just graduated even
-                      though I didn't tell him my age or when I graduated. This
-                      probably hurt my chances.
+                      The interviewer liked me a lot! I am really hoping I get
+                      this one! I still have my other interview to go to now
+                      though. I'm on my way there now!
                     </span>
                   )}
                 </em>
@@ -106,13 +111,18 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
               <span>
                 <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
-                  {game.readTerms ? (
-                    <span>The interviewer liked that I have a CS degree!</span>
+                  {game.postedAboutArt ? (
+                    <span>
+                      It was so strange. At the end of the interview, the
+                      interviewer out of the blue asked me if I would also like
+                      to apply for an illustrator position. That skill isn't
+                      mentioned anywhere in my interview materials.
+                    </span>
                   ) : (
                     <span>
-                      The interviewer somehow knew that I just graduated even
-                      though I didn't tell him my age or when I graduated. This
-                      probably hurt my chances.
+                      The interviewer liked me a lot! I am really hoping I get
+                      this one! I still have my other interview to go to now
+                      though. I'm on my way there now!
                     </span>
                   )}
                 </em>
@@ -127,12 +137,42 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
             {counter === 2 ? (
               <OrangeSpan>
                 <YellowSpan>Allen:</YellowSpan> "
-                <em>Did the interviewer have you do any problems?</em>"{" "}
+                <em>
+                  {game.postedAboutArt ? (
+                    <span>
+                      No biggie, <strong>{player.playername}</strong>! It's
+                      possible they just needed peeps for that role. You could
+                      probably get a job doing art or programming. That's how
+                      good you are at both of those things!
+                    </span>
+                  ) : (
+                    <span>
+                      That's awesome <strong>{player.playername}</strong>! I bet
+                      you end up getting it.
+                    </span>
+                  )}
+                </em>
+                "{" "}
               </OrangeSpan>
             ) : (
               <span>
                 <YellowSpan>Allen:</YellowSpan> "
-                <em>Did the interviewer have you do any problems?</em>"{" "}
+                <em>
+                  {game.postedAboutArt ? (
+                    <span>
+                      No biggie, <strong>{player.playername}</strong>! It's
+                      possible they just needed peeps for that role. You could
+                      probably get a job doing art or programming. That's how
+                      good you are at both of those things!
+                    </span>
+                  ) : (
+                    <span>
+                      That's awesome <strong>{player.playername}</strong>! I bet
+                      you end up getting it.
+                    </span>
+                  )}
+                </em>
+                "{" "}
               </span>
             )}
           </>
@@ -144,20 +184,7 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
               <OrangeSpan>
                 <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
-                  {game.isHesitant ? (
-                    <span>
-                      I was given a JavaScript question about mapping an array
-                      of objects! I did a problem like this this morning. It was
-                      easy!
-                    </span>
-                  ) : (
-                    <span>
-                      I was given a JavaScript question about mapping an array
-                      of objects. I solved it, but I had to use Java and Strings
-                      instead of objects because I forgot the exact way to do it
-                      in JavaScript unfortunately.
-                    </span>
-                  )}
+                  <span>Hopefully I get the programming job!</span>
                 </em>
                 "{" "}
               </OrangeSpan>
@@ -165,20 +192,7 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
               <span>
                 <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
-                  {game.isHesitant ? (
-                    <span>
-                      I was given a JavaScript question about mapping an array
-                      of objects! I did a problem like this this morning. It was
-                      easy!
-                    </span>
-                  ) : (
-                    <span>
-                      I was given a JavaScript question about mapping an array
-                      of objects. I solved it, but I had to use Java and Strings
-                      instead of objects because I forgot the exact way to do it
-                      in JavaScript unfortunately.
-                    </span>
-                  )}
+                  <span>Hopefully I get the programming job!</span>
                 </em>
                 "{" "}
               </span>
@@ -192,8 +206,10 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
               <OrangeSpan>
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>
-                  At least it's over! Hopefully you get it. On your way to the
-                  other interview now?
+                  Dude, I've been glued to Dystogram lately. There's a crazy
+                  amount of rad stuff on here, and I don't wanna miss out on
+                  living it up, y'know? You should seriously hop on it more,
+                  it's a blast!
                 </em>
                 "{" "}
               </OrangeSpan>
@@ -201,8 +217,10 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
               <span>
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>
-                  At least it's over. Hopefully you get it. On your way to the
-                  other interview now?
+                  Dude, I've been glued to Dystogram lately. There's a crazy
+                  amount of rad stuff on here, and I don't wanna miss out on
+                  living it up, y'know? You should seriously hop on it more,
+                  it's a blast!
                 </em>
                 "{" "}
               </span>
@@ -214,61 +232,39 @@ const Checkpoint13 = ({ url, game, render, setRender }) => {
             <br />
             {counter === 5 ? (
               <OrangeSpan>
-                <LimeGreenSpan>You:</LimeGreenSpan> "<em>Yeah!</em>"{" "}
-              </OrangeSpan>
-            ) : (
-              <span>
-                <LimeGreenSpan>You:</LimeGreenSpan> "<em>Yeah!</em>"{" "}
-              </span>
-            )}
-          </>
-        ) : null}
-        {counter >= 6 ? (
-          <>
-            <br />
-            {counter === 6 ? (
-              <OrangeSpan>
-                <YellowSpan>Allen:</YellowSpan> "
+                <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
-                  Oh sweet! Add me on Dystogram while you are on your way!
+                  <span>
+                    I actually could now that I got myself a self-driving car.
+                    I'll check it out again right now while I'm on the way to
+                    the other interview!
+                  </span>
                 </em>
                 "{" "}
               </OrangeSpan>
             ) : (
               <span>
-                <YellowSpan>Allen:</YellowSpan> "
+                <LimeGreenSpan>You:</LimeGreenSpan> "
                 <em>
-                  Oh sweet! Add me on Dystogram while you are on your way!
+                  <span>
+                    I actually could now that I got myself a self-driving car.
+                    I'll check it out again right now while I'm on the way to
+                    the other interview!
+                  </span>
                 </em>
                 "{" "}
               </span>
             )}
           </>
         ) : null}
-        {counter >= 7 ? (
-          <>
-            <br />
-            {counter === 7 ? (
-              <OrangeSpan>
-                It's nice having a self-driving car! Add Allen as a friend while
-                you are heading to the next interview...{" "}
-              </OrangeSpan>
-            ) : (
-              <span>
-                It's nice having a self-driving car! Add Allen as a friend while
-                you are heading to the next interview...{" "}
-              </span>
-            )}
-          </>
-        ) : null}
-        {counter === 7 ? null : (
+        {counter === 5 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 7 && (
+      {counter === 5 && (
         <div
           style={{
             position: "absolute",

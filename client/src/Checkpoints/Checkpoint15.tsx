@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
 import {
+  BlueSpan,
   CheckpointButton,
   NextButton,
   OrangeSpan,
@@ -12,6 +14,7 @@ import {
   CityGif,
   DarkFooter,
   DarkFooter2,
+  DarkFooter3,
   DystContainer,
   DystrogramImage,
   PhoneImage,
@@ -28,7 +31,7 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 1) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
@@ -46,7 +49,166 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
       <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
+      <DarkFooter3></DarkFooter3>
       <DystContainer
+        style={{
+          right: "47%",
+          top: "23.7%",
+          background: "white",
+        }}
+      >
+        <DystrogramImage
+          style={{
+            height: "29em",
+            width: "14.9em",
+          }}
+          src={require("../Assets/favicon2.jpg")}
+          alt="DystogramPicture"
+        />
+      </DystContainer>
+      <WelcomePlayerContainer
+        style={{
+          right: "29%",
+          color: "white",
+        }}
+      >
+        <strong>
+          <YellowSpan>Dystogram</YellowSpan>
+        </strong>
+      </WelcomePlayerContainer>
+      <PlayerSinceContainer
+        style={{
+          right: "34.3%",
+          color: "white",
+        }}
+      >
+        Profile&nbsp;&nbsp;&nbsp;Friends&nbsp;&nbsp;&nbsp;
+        <span style={{ textDecoration: "underline", color: "yellow" }}>
+          News Feed
+        </span>
+        &nbsp;&nbsp;&nbsp;Settings
+      </PlayerSinceContainer>
+      <PlayerSinceContainer
+        style={{
+          right: "46%",
+          color: "white",
+          marginTop: "2em",
+          width: "18em",
+        }}
+      >
+        <hr />
+        User_12345 <YellowSpan>posted 6 minutes ago...</YellowSpan>
+        <br />
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          Someone tell me why I can't stop using this app since downloading it
+          today <BlueSpan>#INeedToGoBuySomeGrapes</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+        DystocityTechNews <YellowSpan>posted 18 min...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          Two major companies in our city have recently been at odds, neither
+          company willing to to interact much with personnel from the other
+          company
+          <BlueSpan> #WatchOut</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+        AD: DriverlessCarsNearYou <YellowSpan>posted...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          Stop by the Dystocity RT1 Auto Mile and or visit our official website
+          to get 20% your first self-driving vehicle{" "}
+          <BlueSpan>#DriverlessCarsNearYou #AutoSale</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+        PresidentBillyBobOfficail <YellowSpan>posted 30...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          Our city has risen to the occasion! I'd like to thank everyone for
+          being so supportive! <BlueSpan> #Community #Dystocity</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+        AD: DystocitySquareShops <YellowSpan>posted...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          Have a cat? Visit the commons this week and this week only for premium
+          cat litter<BlueSpan> #Cats #Kittens</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
+      </PlayerSinceContainer>
+      <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" />
+      {/* <DystContainer
         style={{
           right: "47%",
           top: "23.7%",
@@ -258,10 +420,10 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
         </div>
         <br />
       </PlayerSinceContainer>
-      <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" />
+      <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -272,7 +434,7 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -284,32 +446,49 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
         }}
       >
         {counter === 0 ? (
-          <OrangeSpan>Do you see Allen listed there?... </OrangeSpan>
+          game.viewedCompanyBeef ? (
+            <OrangeSpan>
+              Hmm, it looks like it actually is between the two companies that I
+              am interviewing with. That's some bad luck. I should make sure not
+              to let them know I am applying to both places...{" "}
+            </OrangeSpan>
+          ) : (
+            <OrangeSpan>
+              There's lots of other posts here. I see why people like this app.
+              I could keep reading through these for so long...{" "}
+            </OrangeSpan>
+          )
+        ) : game.viewedCompanyBeef ? (
+          <span>
+            Hmm, it looks like it actually is between the two companies that I
+            am interviewing with. That's some bad luck. I should make sure not
+            to let them know I am applying to both places...{" "}
+          </span>
         ) : (
-          <span>Do you see Allen listed there?... </span>
+          <span>
+            There's lots of other posts here. I see why people like this app. I
+            could keep reading through these for so long...{" "}
+          </span>
         )}
         {counter >= 1 ? (
           counter === 1 ? (
-            <OrangeSpan>Add him as a friend!... </OrangeSpan>
+            <OrangeSpan>
+              Oh Allen messaged me again. Let me check that out real quick...{" "}
+            </OrangeSpan>
           ) : (
-            <span>Add him as a friend!... </span>
+            <span>
+              Oh Allen messaged me again. Let me check that out real quick...{" "}
+            </span>
           )
         ) : null}
-        {counter >= 2 ? (
-          counter === 2 ? (
-            <OrangeSpan>Good! Now check out his profile!... </OrangeSpan>
-          ) : (
-            <span>Good! Now check out his profile!... </span>
-          )
-        ) : null}
-        {counter === 2 ? null : (
+        {counter === 1 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 2 && (
+      {counter === 1 && (
         <div
           style={{
             position: "absolute",
@@ -329,7 +508,7 @@ const Checkpoint15 = ({ url, game, render, setRender, player }) => {
             style={{ float: "right", borderRadius: "67px" }}
             onClick={nextCheckpoint}
           >
-            Visit Allen's Profile.
+            Check your messages.
           </CheckpointButton>
         </div>
       )}

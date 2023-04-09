@@ -15,6 +15,7 @@ import {
   CityGif,
   DarkFooter,
   DarkFooter2,
+  DarkFooter3,
   DystContainer,
   DystrogramImage,
   PhoneImage,
@@ -38,8 +39,9 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
     }
   });
 
-  const nextCheckpoint = () => {
-    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
+  const nextCheckpoint = (viewedCompanyBeef: boolean) => {
+    let data = { viewedCompanyBeefChoice: viewedCompanyBeef };
+    axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
       setRender(!render);
     });
   };
@@ -50,6 +52,7 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
       <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
+      <DarkFooter3></DarkFooter3>
       <DystContainer
         style={{
           right: "47%",
@@ -119,6 +122,29 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
         </button>
         <br />
         <br />
+        DystocityTechNews <YellowSpan>posted 18 min...</YellowSpan>
+        <div
+          style={{
+            width: "90%",
+            backgroundColor: "white",
+            opacity: "70%",
+            color: "black",
+            padding: ".1em",
+          }}
+        >
+          Two major companies in our city have recently been at odds, neither
+          company willing to to interact much with personnel from the other
+          company
+          <BlueSpan> #WatchOut</BlueSpan>
+        </div>
+        <button style={{ fontSize: "1vw" }} disabled>
+          <FaHeart />
+        </button>
+        <button style={{ fontSize: "1vw" }} disabled>
+          Comment
+        </button>
+        <br />
+        <br />
         AD: DriverlessCarsNearYou <YellowSpan>posted...</YellowSpan>
         <div
           style={{
@@ -132,28 +158,6 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
           Stop by the Dystocity RT1 Auto Mile and or visit our official website
           to get 20% your first self-driving vehicle{" "}
           <BlueSpan>#DriverlessCarsNearYou #AutoSale</BlueSpan>
-        </div>
-        <button style={{ fontSize: "1vw" }} disabled>
-          <FaHeart />
-        </button>
-        <button style={{ fontSize: "1vw" }} disabled>
-          Comment
-        </button>
-        <br />
-        <br />
-        AllenJackobs3 <YellowSpan>posted 19 minutes...</YellowSpan>
-        <div
-          style={{
-            width: "90%",
-            backgroundColor: "white",
-            opacity: "70%",
-            color: "black",
-            padding: ".1em",
-          }}
-        >
-          Good luck to my good friend <BlueSpan>@{player.playername}</BlueSpan>{" "}
-          on his first round of interviews today!!
-          <BlueSpan> #JobHunt</BlueSpan>
         </div>
         <button style={{ fontSize: "1vw" }} disabled>
           <FaHeart />
@@ -209,7 +213,7 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
       <PhoneImage src={require("../Assets/handNoBg.png")} alt="phone" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -220,12 +224,12 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
           width: "30%",
-          top: "7.5em",
+          top: "4.5em",
           marginLeft: "60%",
           fontSize: "2vw",
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
@@ -233,22 +237,26 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
       >
         {counter === 0 ? (
           <OrangeSpan>
-            This app is cool! It looks like people can post things here and have
-            all their friends see!...{" "}
+            I want to check out the news feed. I wonder whats on here...{" "}
           </OrangeSpan>
         ) : (
           <span>
-            This app is cool! It looks like people can post things here and have
-            all their friends see!...{" "}
+            I want to check out the news feed. I wonder whats on here...{" "}
           </span>
         )}
         {counter >= 1 ? (
           counter === 1 ? (
             <OrangeSpan>
-              Go to the Friends tab on the app and add Allen!...{" "}
+              One of the news posts is about two companies in our city that are
+              at odds with each other. Hopefully not the thwo companies I'm
+              interviewing with!...{" "}
             </OrangeSpan>
           ) : (
-            <span>Go to the Friends tab on the app and add Allen!... </span>
+            <span>
+              One of the news posts is about two companies in our city that are
+              at odds with each other. Hopefully not the thwo companies I'm
+              interviewing with!...{" "}
+            </span>
           )
         ) : null}
         {counter === 1 ? null : (
@@ -268,7 +276,7 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
             // marginRight: "10%",
             width: "55%",
             height: "14.2%",
-            top: "35em",
+            top: "28em",
             // margin: "0 auto",
             fontSize: "1vw",
             color: "white",
@@ -276,9 +284,25 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
         >
           <CheckpointButton
             style={{ float: "right", borderRadius: "67px" }}
-            onClick={nextCheckpoint}
+            onClick={() => nextCheckpoint(true)}
           >
-            Add Allen as a friend.
+            Click to view more information
+          </CheckpointButton>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <CheckpointButton
+            style={{ float: "right", borderRadius: "67px" }}
+            onClick={() => nextCheckpoint(false)}
+          >
+            Ignore for now and look for more news
           </CheckpointButton>
         </div>
       )}

@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { Context } from "../Shared/Context";
 import {
   CheckpointButton,
   NextButton,
@@ -19,6 +20,7 @@ import {
 
 const Checkpoint12 = ({ url, game, render, setRender }) => {
   const [counter, setCounter] = useState<number>(0);
+  const { isMuted } = useContext(Context);
 
   useEffect(() => {
     console.log(counter);
@@ -26,7 +28,7 @@ const Checkpoint12 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 3) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
@@ -44,58 +46,9 @@ const Checkpoint12 = ({ url, game, render, setRender }) => {
       <CityGif src={require("../Assets/drive3.gif")} alt="city" />
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      {/* <PhoneImage src={require("../Assets/phoneBg.png")} alt="phone" />
-      <WelcomePlayerContainer
-        style={{
-          right: "27%",
-        }}
-      >
-        <strong>Dystogram</strong>
-      </WelcomePlayerContainer>
-      <WelcomePlayerContainer
-        style={{
-          right: "34%",
-        }}
-      >
-        <PlayerImage
-          style={{
-            height: "5em",
-            width: "5em",
-            right: "38%",
-            borderRadius: "10px",
-          }}
-          src={require("../Assets/favicon.jpeg")}
-          alt="DystogramPicture"
-        />
-      </WelcomePlayerContainer>
-      <PlayerSinceContainer
-        style={{
-          right: "27%",
-        }}
-      >
-        ⭐️⭐️⭐️⭐️⭐️
-      </PlayerSinceContainer>
-      <PlayerSinceContainer
-        style={{
-          right: "27%",
-          marginTop: "1.3em",
-        }}
-      >
-        <strong>4.9</strong> (1.7M Ratings)
-      </PlayerSinceContainer>
-      <PlayerSinceContainer
-        style={{
-          right: "27%",
-          textDecoration: "underline",
-          marginTop: "2.6em",
-        }}
-      >
-        Download
-      </PlayerSinceContainer> */}
-      {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -106,7 +59,7 @@ const Checkpoint12 = ({ url, game, render, setRender }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -117,65 +70,57 @@ const Checkpoint12 = ({ url, game, render, setRender }) => {
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
         }}
       >
-        {game.readTerms ? (
-          counter === 0 ? (
+        {counter === 0 ? (
+          <>
             <OrangeSpan>
-              That interviewer didn't even noticed that you were young and not
-              that experienced yet! Most jobs want older people who have more
-              experience so thats good!...{" "}
+              I leave the first company and get into a self-driving car to head
+              over to my second interview with the other company...{" "}
             </OrangeSpan>
-          ) : (
-            <span>
-              That interviewer didn't even noticed that you were young and not
-              that experienced yet! Most jobs want older people who have more
-              experience so thats good!...{" "}
-            </span>
-          )
-        ) : counter === 0 ? (
-          <OrangeSpan>
-            How did that interviewer even know that you only graduated recently
-            and haven't been very experienced yet? You purposely didn't put that
-            in your resume...{" "}
-          </OrangeSpan>
+            <audio
+              autoPlay={true}
+              controls={false}
+              loop={false}
+              muted={isMuted}
+              id="myAudio"
+            >
+              <source
+                src={require("../Assets/Assets-Fangtai/Audio/SFX/Car_Start.wav")}
+                type="audio/wav"
+              />
+            </audio>
+          </>
         ) : (
           <span>
-            How did that interviewer even know that you only graduated recently
-            and haven't been very experienced yet? You purposely didn't put that
-            in your resume...{" "}
+            I leave the first company and get into a self-driving car to head
+            over to my second interview with the other company...{" "}
           </span>
         )}
         {counter >= 1 ? (
           <>
-            {game.isHesitant ? (
+            {game.postedAboutArt ? (
               counter === 1 ? (
                 <OrangeSpan>
-                  It was lucky that you did a problem similar to that interview
-                  question this morning! You probably impressed the
-                  interviewer...{" "}
+                  I can't help but feel puzzled about why the interviewer
+                  unexpectedly brought up art. Made no sense at all...{" "}
                 </OrangeSpan>
               ) : (
                 <span>
-                  It was lucky that you did a problem similar to that interview
-                  question this morning! You probably impressed the
-                  interviewer...{" "}
+                  I can't help but feel puzzled about why the interviewer
+                  unexpectedly brought up art. Made no sense at all...{" "}
                 </span>
               )
             ) : counter === 1 ? (
               <OrangeSpan>
-                Maybe you needed to have studied more questions before hand. You
-                solved that interview question, but you used Java instead of
-                JavaScript...{" "}
+                Hopefully I get that job. They seemed to really like me...{" "}
               </OrangeSpan>
             ) : (
               <span>
-                Maybe you needed to have studied more questions before hand. You
-                solved that interview question, but you used Java instead of
-                JavaScript...{" "}
+                Hopefully I get that job. They seemed to really like me...{" "}
               </span>
             )}
           </>
         ) : null}
-        {counter >= 2 ? (
+        {/* {counter >= 2 ? (
           counter === 2 ? (
             <OrangeSpan>
               It's good that you finished the first interview though, the
@@ -187,28 +132,28 @@ const Checkpoint12 = ({ url, game, render, setRender }) => {
               self-driving car is bringing you to your other interview now!...{" "}
             </span>
           )
-        ) : null}
-        {counter >= 3 ? (
-          counter === 3 ? (
+        ) : null} */}
+        {counter >= 2 ? (
+          counter === 2 ? (
             <OrangeSpan>
-              Oh, looks like you have another message from Allen! Let him know
-              how it went!...{" "}
+              Oh, looks like I have another message from Allen! I should let him
+              know how it went!...{" "}
             </OrangeSpan>
           ) : (
             <span>
-              Oh, looks like you have another message from Allen! Let him know
-              how it went!...{" "}
+              Oh, looks like I have another message from Allen! I should let him
+              know how it went!...{" "}
             </span>
           )
         ) : null}
-        {counter === 3 ? null : (
+        {counter === 2 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 3 && (
+      {counter === 2 && (
         <div
           style={{
             position: "absolute",
