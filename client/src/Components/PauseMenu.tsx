@@ -43,9 +43,9 @@ const PauseMenu = () => {
           <h3 style={{ textAlign: "left" }}>
             Game Started: <GreenSpan>{game.startedDate}</GreenSpan>
           </h3>
-          <h3 style={{ textAlign: "left" }}>
+          {/* <h3 style={{ textAlign: "left" }}>
             Player: <GreenSpan>{game.player}</GreenSpan>
-          </h3>
+          </h3> */}
         </div>
         <div style={{ float: "right" }}>
           <h3 style={{ textAlign: "right" }}>
@@ -60,7 +60,10 @@ const PauseMenu = () => {
               {((game.checkpoint / TOTAL_CHECKPOINTS) * 100).toFixed(2)}%
             </GreenSpan>
           </h3>
-          <button style={{ float: "right" }} onClick={() => navigate("/")}>
+          <button
+            style={{ float: "right", padding: "10px" }}
+            onClick={() => navigate("/")}
+          >
             Quit (all progress will be saved)
           </button>
         </div>

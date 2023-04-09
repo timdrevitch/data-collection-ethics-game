@@ -90,6 +90,7 @@ const Game: FC = (): JSX.Element => {
           game={game}
           render={render}
           setRender={setRender}
+          player={player}
         />
       )}
       {game.checkpoint === 2 && (
@@ -138,6 +139,7 @@ const Game: FC = (): JSX.Element => {
           game={game}
           render={render}
           setRender={setRender}
+          player={player}
         />
       )}
       {game.checkpoint === 8 && (
@@ -146,6 +148,7 @@ const Game: FC = (): JSX.Element => {
           game={game}
           render={render}
           setRender={setRender}
+          player={player}
         />
       )}
       {game.checkpoint === 9 && (
@@ -187,6 +190,7 @@ const Game: FC = (): JSX.Element => {
           game={game}
           render={render}
           setRender={setRender}
+          player={player}
         />
       )}
       {game.checkpoint === 14 && (

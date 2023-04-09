@@ -17,6 +17,7 @@ import {
   CreateAccountInput,
   DarkFooter,
   DarkFooter2,
+  DarkFooter3,
   GameTitle,
   RedInfoP,
   RelativeGameScene,
@@ -119,6 +120,7 @@ const Login = () => {
         <CityGif src={require("../Assets/drive3.gif")} alt="city" />
         <DarkFooter></DarkFooter>
         <DarkFooter2></DarkFooter2>
+        <DarkFooter3></DarkFooter3>
         {ifUserExists ? (
           <TitleScreenMenu player={player} url={url} setGameId={setGameId} />
         ) : userIsNewAndNeedsToSignUp ? (
