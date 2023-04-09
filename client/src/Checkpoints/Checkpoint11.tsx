@@ -5,6 +5,7 @@ import {
   CheckpointButton,
   NextButton,
   OrangeSpan,
+  YellowSpan,
 } from "../Styles/SharedStyles";
 import {
   BackgroundImage,
@@ -21,7 +22,7 @@ const Checkpoint11 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 1) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
       console.log(event.key);
       setCounter(counter + 1);
     }
@@ -45,7 +46,7 @@ const Checkpoint11 = ({ url, game, render, setRender }) => {
       {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
       <DarkFooter></DarkFooter>
       <DarkFooter2></DarkFooter2>
-      <h1
+      {/* <h1
         style={{
           position: "absolute",
           width: "100%",
@@ -56,7 +57,7 @@ const Checkpoint11 = ({ url, game, render, setRender }) => {
         }}
       >
         Checkpoint: {game.checkpoint}
-      </h1>
+      </h1> */}
       <div
         style={{
           position: "absolute",
@@ -67,32 +68,115 @@ const Checkpoint11 = ({ url, game, render, setRender }) => {
           textShadow: "1px 1px 4px gray, 2px 2px 8px midnightblue",
         }}
       >
-        {counter === 0 ? (
-          <OrangeSpan>Good job completing your first interview... </OrangeSpan>
-        ) : (
-          <span>Good job completing your first interview... </span>
-        )}
-        {counter >= 1 ? (
-          counter === 1 ? (
+        <>
+          {game.postedAboutArt ? (
+            counter === 0 ? (
+              <OrangeSpan>
+                <YellowSpan>Interviewer:</YellowSpan> "
+                <em>Okay that is fine. No worries.</em>"{" "}
+              </OrangeSpan>
+            ) : (
+              <span>
+                <YellowSpan>Interviewer:</YellowSpan> "
+                <em>Okay that is fine. No worries.</em>"{" "}
+              </span>
+            )
+          ) : counter === 0 ? (
             <OrangeSpan>
-              You will hear back about this job soon, but for now you need to
-              head to your second interview!...{" "}
+              <YellowSpan>Interviewer:</YellowSpan> "
+              <em>
+                No need to thank me! You put together a great resume that really
+                showcased your skills.
+              </em>
+              "{" "}
             </OrangeSpan>
           ) : (
             <span>
-              You will hear back about this job soon, but for now you need to
-              head to your second interview!...{" "}
+              <YellowSpan>Interviewer:</YellowSpan> "
+              <em>
+                No need to thank me! You put together a great resume that really
+                showcased your skills.
+              </em>
+              "{" "}
             </span>
-          )
+          )}
+        </>
+        {counter >= 1 ? (
+          <>
+            <br />
+            {game.postedAboutArt ? (
+              counter === 1 ? (
+                <OrangeSpan>
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    Thank you for coming in! We'll be reaching out with the
+                    results in the near future. Good luck!
+                  </em>
+                  "{" "}
+                </OrangeSpan>
+              ) : (
+                <span>
+                  <YellowSpan>Interviewer:</YellowSpan> "
+                  <em>
+                    Thank you for coming in! We'll be reaching out with the
+                    results in the near future. Good luck!
+                  </em>
+                  "{" "}
+                </span>
+              )
+            ) : counter === 1 ? (
+              <OrangeSpan>
+                <YellowSpan>Interviewer:</YellowSpan> "
+                <em>
+                  Thank you for coming in! We'll be reaching out with the
+                  results in the near future. Good luck!
+                </em>
+                "{" "}
+              </OrangeSpan>
+            ) : (
+              <span>
+                <YellowSpan>Interviewer:</YellowSpan> "
+                <em>
+                  Thank you for coming in! We'll be reaching out with the
+                  results in the near future. Good luck!
+                </em>
+                "{" "}
+              </span>
+            )}
+          </>
         ) : null}
-        {counter === 1 ? null : (
+        {counter >= 2 ? (
+          <>
+            <br />
+            {game.postedAboutArt ? (
+              counter === 2 ? (
+                <OrangeSpan>
+                  The illustrator thing was weird, but other than that this
+                  interview was pretty good I think...{" "}
+                </OrangeSpan>
+              ) : (
+                <span>
+                  The illustrator thing was weird, but other than that this
+                  interview was pretty good I think...{" "}
+                </span>
+              )
+            ) : counter === 2 ? (
+              <OrangeSpan>
+                This interview was pretty good I think...{" "}
+              </OrangeSpan>
+            ) : (
+              <span>This interview was pretty good I think... </span>
+            )}
+          </>
+        ) : null}
+        {counter === 2 ? null : (
           <NextButton onClick={() => setCounter(counter + 1)}>
             Next{" "}
             <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
           </NextButton>
         )}
       </div>
-      {counter === 1 && (
+      {counter === 2 && (
         <div
           style={{
             position: "absolute",
@@ -110,7 +194,7 @@ const Checkpoint11 = ({ url, game, render, setRender }) => {
           }}
         >
           <CheckpointButton style={{ float: "right" }} onClick={nextCheckpoint}>
-            Get back in your car.
+            Get back in your self-driving car.
           </CheckpointButton>
         </div>
       )}

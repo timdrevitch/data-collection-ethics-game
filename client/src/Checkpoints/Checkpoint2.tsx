@@ -23,15 +23,15 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
   }, [counter, setCounter]);
 
   document.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowRight" || event.key === " ") && counter < 5) {
+    if ((event.key === "ArrowRight" || event.key === " ") && counter < 2) {
       console.log(event.key + " eventListener");
       setCounter(counter + 1);
     }
   });
 
-  const nextCheckpoint = (isHesitantChoice: boolean) => {
-    let data = { isHesitantChoice: isHesitantChoice };
-    axios.put(`${url}/nextcheckpoint/${game._id}`, data).then(() => {
+  const nextCheckpoint = () => {
+    //let data = { isHesitantChoice: isHesitantChoice };
+    axios.put(`${url}/nextcheckpoint/${game._id}`).then(() => {
       setRender(!render);
     });
   };
@@ -68,7 +68,7 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
         {/* <CityGif src={require("../Assets/city.gif")} alt="city" /> */}
         <DarkFooter></DarkFooter>
         <DarkFooter2></DarkFooter2>
-        <h1
+        {/* <h1
           style={{
             position: "absolute",
             width: "100%",
@@ -79,7 +79,7 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
           }}
         >
           Checkpoint: {game.checkpoint}
-        </h1>
+        </h1> */}
         <div
           style={{
             position: "absolute",
@@ -93,12 +93,32 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
         >
           {counter === 0 ? (
             <OrangeSpan>
-              It's a message from your best friend Allen...{" "}
+              I attempt to refocus on my interview preparation, but my mind
+              fills with the exhilarating moments from the party a few days
+              ago...{" "}
             </OrangeSpan>
           ) : (
-            <span>It's a message from your best friend Allen... </span>
+            <span>
+              I attempt to refocus on my interview preparation, but my mind
+              fills with the exhilarating moments from the party a few days
+              ago...{" "}
+            </span>
           )}
           {counter >= 1 ? (
+            counter === 1 ? (
+              // <OrangeSpan>Why have you not been able to sleep?... </OrangeSpan>
+              <OrangeSpan>
+                I fear missing out on the captured memories within those
+                photographs...{" "}
+              </OrangeSpan>
+            ) : (
+              <span>
+                I fear missing out on the captured memories within those
+                photographs...{" "}
+              </span>
+            )
+          ) : null}
+          {/* {counter >= 1 ? (
             <>
               <br />
               {counter === 1 ? (
@@ -133,8 +153,22 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                 </span>
               )}
             </>
-          ) : null}
+          ) : null} */}
           {counter >= 2 ? (
+            counter === 2 ? (
+              // <OrangeSpan>Why have you not been able to sleep?... </OrangeSpan>
+              <OrangeSpan>
+                They were the last good times of college with my friends, some
+                of which I may never see again...{" "}
+              </OrangeSpan>
+            ) : (
+              <span>
+                They were the last good times of college with my friends, some
+                of which I may never see again...{" "}
+              </span>
+            )
+          ) : null}
+          {/* {counter >= 2 ? (
             <>
               <br />
               {counter === 2 ? (
@@ -169,8 +203,8 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                 </span>
               )}
             </>
-          ) : null}
-          {counter >= 3 ? (
+          ) : null} */}
+          {/* {counter >= 3 ? (
             <>
               <br />
               {counter === 3 ? (
@@ -205,8 +239,8 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                 </span>
               )}
             </>
-          ) : null}
-          {counter >= 4 ? (
+          ) : null} */}
+          {/* {counter >= 4 ? (
             <>
               <br />
               {counter === 4 ? (
@@ -243,8 +277,8 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                 </span>
               )}
             </>
-          ) : null}
-          {counter >= 5 ? (
+          ) : null} */}
+          {/* {counter >= 5 ? (
             <>
               <br />
               {counter === 5 ? (
@@ -255,21 +289,55 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
                 <span>What would you like to respond with?... </span>
               )}
             </>
-          ) : null}
-          {counter === 5 ? null : (
+          ) : null} */}
+          {counter === 2 ? null : (
             <NextButton onClick={() => setCounter(counter + 1)}>
               Next{" "}
               <BsFillArrowRightCircleFill style={{ verticalAlign: "middle" }} />
             </NextButton>
           )}
         </div>
-        {counter === 5 && (
+        {counter === 2 && (
+          //       <div
+          //         style={{
+          //           position: "absolute",
+          //           left: "0",
+          //           right: "0",
+          //           marginLeft: "auto",
+          //           marginRight: "auto",
+          //           width: "50%",
+          //           height: "14.7%",
+          //           top: "38em",
+          //           margin: "0 auto",
+          //           fontSize: "1vw",
+          //           color: "white",
+          //           zIndex: "102",
+          //         }}
+          //       >
+          //         <CheckpointButton
+          //           style={{ float: "left" }}
+          //           onClick={() => nextCheckpoint(true)}
+          //         >
+          //           You: "It sounds cool but I should keep studying more before I have
+          //           to leave for the first interview today."
+          //         </CheckpointButton>
+          //         <CheckpointButton
+          //           style={{ float: "right" }}
+          //           onClick={() => nextCheckpoint(false)}
+          //         >
+          //           You: "I know I have studied a lot already. I'll check it out.
+          //           Maybe it'll be a good little distraction before this long day
+          //           ahead!"
+          //         </CheckpointButton>
+          //       </div>
+          //     )}
+          //   </div>
           <div
             style={{
               position: "absolute",
               left: "0",
               right: "0",
-              marginLeft: "auto",
+              marginLeft: "0",
               marginRight: "auto",
               width: "50%",
               height: "14.7%",
@@ -281,19 +349,10 @@ const Checkpoint2 = ({ url, game, render, setRender }) => {
             }}
           >
             <CheckpointButton
-              style={{ float: "left" }}
-              onClick={() => nextCheckpoint(true)}
-            >
-              You: "It sounds cool but I should keep studying more before I have
-              to leave for the first interview today."
-            </CheckpointButton>
-            <CheckpointButton
               style={{ float: "right" }}
-              onClick={() => nextCheckpoint(false)}
+              onClick={nextCheckpoint}
             >
-              You: "I know I have studied a lot already. I'll check it out.
-              Maybe it'll be a good little distraction before this long day
-              ahead!"
+              You are finding it hard to concentrate. Pick up your phone again.
             </CheckpointButton>
           </div>
         )}
