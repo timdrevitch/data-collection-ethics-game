@@ -268,6 +268,7 @@ const Game: FC = (): JSX.Element => {
           game={game}
           render={render}
           setRender={setRender}
+          player={player}
         />
       )}
       {game.checkpoint === 23 && (
