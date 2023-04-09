@@ -34,7 +34,7 @@ const gameSchema = new mongoose.Schema(
     askedAboutSearch: {
       type: Boolean,
     },
-    likeApp: {
+    postAboutInterviews: {
       type: Boolean,
     },
   },

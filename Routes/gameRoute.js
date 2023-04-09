@@ -74,23 +74,27 @@ router.route("/nextcheckpoint/:id").put((req, res) => {
         Game.postedAboutArt = req.body.postedAboutArtChoice;
       }
       if (req.body.viewedCompanyBeefChoice !== undefined) {
+        // done
         Game.viewedCompanyBeef = req.body.viewedCompanyBeefChoice;
-      } // done
+      }
       if (req.body.readTermsChoice !== undefined) {
         // done
         Game.readTerms = req.body.readTermsChoice;
       }
       if (req.body.commentChoice !== undefined) {
+        // done
         Game.commentIncludesInterviewCount = req.body.commentChoice;
       }
       if (req.body.postChoice !== undefined) {
         Game.postIsGood = req.body.postChoice;
       }
       if (req.body.askedAboutSearchChoice !== undefined) {
+        // done
         Game.askedAboutSearch = req.body.askedAboutSearchChoice;
-      } // done
-      if (req.body.likeAppChoice !== undefined) {
-        Game.likeApp = req.body.likeAppChoice;
+      }
+      if (req.body.postAboutInterviewsChoice !== undefined) {
+        // done
+        Game.postAboutInterviews = req.body.postAboutInterviewsChoice;
       }
       Game.save()
         .then(() => res.json("Next checkpoint."))
