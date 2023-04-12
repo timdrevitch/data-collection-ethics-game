@@ -94,7 +94,7 @@ const Checkpoint22 = ({ url, game, render, setRender, player }) => {
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>
                   Nice!!! And I don't know what you're talking about but I'm
-                  sure youre just overthinking it{" "}
+                  sure you're just overthinking it{" "}
                   <strong>{player.playername}</strong>!
                 </em>
                 "{" "}
@@ -104,7 +104,7 @@ const Checkpoint22 = ({ url, game, render, setRender, player }) => {
                 <YellowSpan>Allen:</YellowSpan> "
                 <em>
                   Nice!!! And I don't know what you're talking about but I'm
-                  sure youre just overthinking it{" "}
+                  sure you're just overthinking it{" "}
                   <strong>{player.playername}</strong>!
                 </em>
                 "{" "}

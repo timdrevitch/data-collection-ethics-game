@@ -400,10 +400,7 @@ const Checkpoint7 = ({ url, game, render, setRender, player }) => {
             }}
             onClick={() => nextCheckpoint(false)}
           >
-            "Indeed, I do have some skill in drawing. My main reason for joining
-            was to view those party photos and keep in touch with my friends
-            though. I prefer not to share an excessive amount of personal
-            information."
+            "For now, I choose not to include my artwork in my profile."
           </CheckpointButton>
           <CheckpointButton
             style={{
@@ -415,10 +412,7 @@ const Checkpoint7 = ({ url, game, render, setRender, player }) => {
             }}
             onClick={() => nextCheckpoint(true)}
           >
-            "You have a point. I am fairly good at drawing. My main worry is
-            about revealing too much information about myself on social media.
-            However, you've made a convincing argument about the potential
-            inspiration from the drawing account and its content."
+            "I am going to add one of my drawings to my profile."
           </CheckpointButton>
         </div>
       )}

@@ -237,11 +237,11 @@ const Checkpoint14 = ({ url, game, render, setRender, player }) => {
       >
         {counter === 0 ? (
           <OrangeSpan>
-            I want to check out the news feed. I wonder whats on here...{" "}
+            I want to check out the news feed. I wonder what's on here...{" "}
           </OrangeSpan>
         ) : (
           <span>
-            I want to check out the news feed. I wonder whats on here...{" "}
+            I want to check out the news feed. I wonder what's on here...{" "}
           </span>
         )}
         {counter >= 1 ? (

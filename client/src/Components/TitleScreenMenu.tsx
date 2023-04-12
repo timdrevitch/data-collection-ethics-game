@@ -55,6 +55,7 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
       <PhoneImage src={require("../Assets/hand.png")} alt="phone" />
       <WelcomePlayerContainer>
         <strong>Welcome, {player.playername} </strong>
+        <br />
         <button
           style={{ cursor: "pointer", fontSize: "1vw" }}
           onClick={signOut}
@@ -63,7 +64,7 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
         </button>
         {/* <PlayerImage src={player.image} alt="playerimage" /> */}
       </WelcomePlayerContainer>
-      <PlayerSinceContainer>
+      <PlayerSinceContainer style={{ width: "24.5%" }}>
         Joined: <em>{player.joinDateString}</em>
       </PlayerSinceContainer>
       {player.gameInProgress ? (
@@ -105,6 +106,32 @@ const TitleScreenMenu = ({ player, url, setGameId }) => {
       >
         Leaderboards
       </MenuButtonLeaderboards>
+      <div
+        style={{
+          opacity: "100%",
+          background: "none",
+          //border: "1px solid red",
+          border: "none",
+          marginTop: "4em",
+          left: "36.5em",
+          color: "black",
+          width: "15%",
+          cursor: "default",
+          backgroundColor: "transparent",
+          borderRadius: "55px",
+          textAlign: "center",
+          position: "absolute",
+          height: "5.1%",
+          right: "52%",
+          top: "33.5em",
+          fontSize: "1vw",
+        }}
+      >
+        <em>
+          Make decisions carefully on your job hunt in the futuristic city of
+          Dystocity.
+        </em>
+      </div>
     </>
   );
 };

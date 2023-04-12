@@ -303,13 +303,23 @@ const Checkpoint8 = ({ url, game, render, setRender, player }) => {
           counter === 0 ? (
             <OrangeSpan>
               <LimeGreenSpan>You:</LimeGreenSpan> "
-              <em>I am going to add one of my drawings to my profile...</em>"{" "}
+              <em>
+                You have a point. I am fairly good at drawing. My main worry is
+                about revealing too much information about myself on social
+                media. However, you've made a convincing argument about the
+                potential inspiration from the drawing account and its
+                content...
+              </em>
+              "{" "}
             </OrangeSpan>
           ) : (
             <span>
               <em>
-                <LimeGreenSpan>You:</LimeGreenSpan> "I am going to add one of my
-                drawings to my profile...
+                <LimeGreenSpan>You:</LimeGreenSpan> "You have a point. I am
+                fairly good at drawing. My main worry is about revealing too
+                much information about myself on social media. However, you've
+                made a convincing argument about the potential inspiration from
+                the drawing account and its content...
               </em>
               "{" "}
             </span>
@@ -317,12 +327,24 @@ const Checkpoint8 = ({ url, game, render, setRender, player }) => {
         ) : counter === 0 ? (
           <OrangeSpan>
             <LimeGreenSpan>You:</LimeGreenSpan> "
-            <em>For now, I chose not to include painting in my profile...</em>"{" "}
+            <em>
+              Indeed, I do have some skill in drawing. My main reason for
+              joining was to view those party photos and keep in touch with my
+              friends though. I prefer not to share an excessive amount of
+              personal information...
+            </em>
+            "{" "}
           </OrangeSpan>
         ) : (
           <span>
             <LimeGreenSpan>You:</LimeGreenSpan> "
-            <em>For now, I chose not to include painting in my profile...</em>"{" "}
+            <em>
+              Indeed, I do have some skill in drawing. My main reason for
+              joining was to view those party photos and keep in touch with my
+              friends though. I prefer not to share an excessive amount of
+              personal information...
+            </em>
+            "{" "}
           </span>
         )}
         {counter >= 1 ? (

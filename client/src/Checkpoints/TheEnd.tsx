@@ -212,6 +212,21 @@ const TheEnd = ({ url, playerId, game }) => {
           </tr>
         </tbody>
       </table>
+      <div
+        style={{
+          position: "absolute",
+          width: "70%",
+          marginLeft: "15%",
+          top: "30em",
+          fontSize: "1.3vw",
+          textShadow: "1px 1px 4px lightsalmon, 1px 1px 8px lightsalmon",
+          border: "1px solid gray",
+          textAlign: "center",
+        }}
+      >
+        You’re data will never be saved or shared by playing this game, unlike
+        using Dystogram.
+      </div>
       <CheckpointButton
         style={{
           cursor: "pointer",
