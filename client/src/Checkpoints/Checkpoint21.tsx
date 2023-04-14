@@ -90,12 +90,12 @@ const Checkpoint21 = ({ url, game, render, setRender }) => {
           )
         ) : counter === 0 ? (
           <OrangeSpan>
-            I wonder why that interviewer wnated to know if I was interviewing
+            I wonder why that interviewer wanted to know if I was interviewing
             at other companies today...{" "}
           </OrangeSpan>
         ) : (
           <span>
-            I wonder why that interviewer wnated to know if I was interviewing
+            I wonder why that interviewer wanted to know if I was interviewing
             at other companies today...{" "}
           </span>
         )}
