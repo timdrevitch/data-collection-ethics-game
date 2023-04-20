@@ -20,4 +20,3 @@
 > technology could be used against them.
 
 Game url: [here](https://data-ethics-game.herokuapp.com/)
-
