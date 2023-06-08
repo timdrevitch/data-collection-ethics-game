@@ -8,7 +8,7 @@
     "npm": ">=8.5.3"
   },
   "dependencies": {
-    "concurrently": "^8.0.1",
+    "concurrently": "^8.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
