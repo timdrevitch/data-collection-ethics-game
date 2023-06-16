@@ -10,7 +10,7 @@
   "dependencies": {
     "concurrently": "^8.2.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.1.4",
+    "dotenv": "^16.2.0",
     "express": "^4.18.2",
     "mongoose": "^7.2.4",
     "ordinal": "^1.0.3"
