@@ -20,4 +20,5 @@
 > technology could be used against them.
 
 Visit this website live: [here](https://data-ethics-game.herokuapp.com/)
+
 View a video walkthrough of this website: [here](https://www.youtube.com/watch?v=oy7225auibI)
