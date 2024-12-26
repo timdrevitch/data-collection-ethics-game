@@ -50,7 +50,7 @@
     "eslint": "^8.57.1",
     "eslint-config-react-app": "^7.0.0",
     "eslint-plugin-jest": "^28.10.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "nodemon": "^3.1.9"
   }
 }
