@@ -12,7 +12,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
-    "mongoose": "^8.13.0",
+    "mongoose": "^8.13.1",
     "ordinal": "^1.0.3"
   },
   "peerDependencies": {
